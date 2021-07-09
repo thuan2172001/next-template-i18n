@@ -1,0 +1,30 @@
+{
+  "name": "ssr-structure",
+  "plugins": [
+    {
+      "name": "Ant Design",
+      "description": "A design system for enterprise-level products. Create an efficient and enjoyable work experience.",
+      "url": "https://ant.design/docs/react/introduce"
+    },
+    {
+      "name": "SASS/SCSS",
+      "description": "Sass is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax.",
+      "url": "https://sass-lang.com/documentation"
+    },
+    {
+      "name": "React Redux",
+      "description": "Redux helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.",
+      "url": "https://redux.js.org/introduction/getting-started"
+    },
+    {
+      "name": "next-i18next",
+      "description": "next-i18next is a plugin for Next.js projects that allows you to get translations up and running quickly and easily, while fully supporting SSR, multiple namespaces with codesplitting, etc.",
+      "url": "https://github.com/isaachinman/next-i18next"
+    },
+    {
+      "name": "Docker",
+      "description": "",
+      "url": ""
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+version: "3.3"
+networks:
+  dev:
+  test:
+  production:
+  staging:
+services:
+  nginx:
+    image: nftjapan/nft-japan-nginx:latest
+    ports:
+      - ${PORT}:80
+    environment:
+      - API_URL
+      - UI_URL
+      - SERVER_DOMAIN
+    restart: "always"
+    networks:
+      - ${NETWORK_NAME}
+  nginx-tunnel:
+    image: kroniak/ssh-client
+    restart: "always"
+    networks:
+      - ${NETWORK_NAME}
+    command:
+      - /bin/bash
+      - -c
+      - |
+        ssh -oStrictHostKeyChecking=no -p 22222 -R ${SERVER_DOMAIN}:80:nginx:80 dev.nftal.io
+  nextjs:
+    image: nftjapan/nft-japan-fe:${TAG}
+    build:
+      context: ../../
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_CREATOR
+    networks:
+      - ${NETWORK_NAME}
+    restart: "always"

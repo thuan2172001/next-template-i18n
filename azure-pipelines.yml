@@ -1,0 +1,43 @@
+# Variable Group 'Test' was defined in the Variables tab
+# Variable Group 'FE variable' was defined in the Variables tab
+trigger:
+  branches:
+    include:
+    - releases/*
+    - dev
+    - main
+name: $(SourceBranchName)_$(Date:ddMMyyyy)$(Rev:.r)
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: dev
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    name: Default
+  steps:
+  - checkout: self
+  - task: CmdLine@2
+    displayName: Prebuild
+    inputs:
+      script: "rm -rf build\nmkdir build\nchmod -R 777 build\ndocker build -t nftjapan/nft-japan-fe:builder --target=builder --build-arg NEXT_PUBLIC_CREATOR --build-arg NEXT_PUBLIC_STRIPE_API_KEY . "
+  - task: CmdLine@2
+    displayName: Build
+    inputs:
+      script: >-
+        docker-compose build
+
+        docker login -u sonntuet1997 -p $(DOCKER_PASSWORD)
+
+        docker tag nftjapan/nft-japan-fe:dev nftjapan/nft-japan-fe:${TAG}
+
+        docker push nftjapan/nft-japan-fe:${TAG}
+      workingDirectory: $(System.DefaultWorkingDirectory)/deploy/nginx
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: fe'
+    inputs:
+      PathtoPublish: deploy/nginx
+      ArtifactName: fe
+...

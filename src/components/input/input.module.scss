@@ -1,0 +1,54 @@
+@import "../global-scss/variables";
+
+.atn-input-custom {
+  height: rem(40px);
+  background: $color-white !important;
+  border: 0;
+  padding: rem(10px) rem(16px);
+  &:focus {
+    border-color: black !important;
+  }
+  &:hover {
+    border-color: black !important;
+  }
+  &:active {
+    border-color: black !important;
+  }
+
+  .ant-input {
+    background: $color-white !important;
+    font-size: $fs2;
+    line-height: $lh6;
+    &:focus {
+      border-color: black !important;
+    }
+    &:hover {
+      border-color: black !important;
+    }
+    &:active {
+      border-color: black !important;
+    }
+  }
+}
+
+
+.atn-input-login-form {
+  margin-bottom:rem(8px);
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: rem(421.67px);
+  height: rem(49.05px);
+  border: 1px solid #E4E4E4;
+}
+
+.btn-forgot-pw {
+  width: rem(450px);
+  text-align: right;
+  margin-bottom: rem(37px);
+  color: $color-blue;
+}
+
+.btn-controller {
+  width: rem(430px);
+}

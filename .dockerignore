@@ -1,0 +1,11 @@
+.git/
+.gitignore
+.next/                # Existing Next.js builds
+.dockerignore
+.idea/
+.gitattributes
+Dockerfile
+docker-compose.yml
+azure-pipelines.yml
+node_modules/         # Installed inside container
+deploy/

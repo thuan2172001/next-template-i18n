@@ -1,0 +1,35 @@
+{
+	"language": {
+		"ja": "Japan",
+		"en": "English"
+	},
+	"section": {
+		"product": "製品",
+		"profile": "プロフィール",
+		"support": {
+			"title": "サポート",
+			"aboutThisService": "このサービスについて",
+			"notification": "お知らせ",
+			"contact": "連絡先",
+			"policy": "ポリシー"
+		},
+		"top": "Japan Top ??"
+	},
+	"header": {
+		"companyName": "Arium",
+		"signIn": "サインイン",
+		"logOut": "ログアウト",
+		"logIn": "ログイン",
+		"signUp": "サインアップ",
+		"account": "アカウント",
+		"bookshelf": "本棚"
+	},
+	"items": "アイテム",
+	"episode": "エピソード",
+	"newRelease": "新しいリリース",
+	"free": "自由",
+	"forgotPw": "パスワードをお忘れですか？",
+	"dontHaveAccount": "アカウントをお持ちではありませんか？",
+	"createAccount": "アカウントを作成する",
+	"loginFailedMessage": "メールアドレスとパスワードをご確認ください。"
+}

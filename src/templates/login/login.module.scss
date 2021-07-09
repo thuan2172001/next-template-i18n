@@ -1,0 +1,59 @@
+@import "../../components/global-scss/variables";
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: rem(539px);
+  height: rem(523px);
+  background-color: $color-bold-white;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: calc(18vh - 88px);
+}
+
+.divider {
+  width: rem(1039px);
+}
+
+.company-name {
+  margin-top: rem(41px);
+  color: $color-light-orange;
+  text-align: center;
+  height: rem(22px);
+  font-family: $font-family-main;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $f6;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.signin-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: $fs3;
+  line-height: $lh3;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: $color-light-black;
+  margin-top: rem(13px);
+  margin-bottom: rem(60px);
+}
+
+.login-form-padding {
+  padding-right: rem(90px);
+  padding-left: rem(90px);
+}
+
+.login-form-error {
+  margin-top: rem(12px);
+  color: $color-red3
+}
+
+.btn-forgot-pw {
+  width: rem(450px);
+  text-align: right;
+  margin-bottom: rem(37px);
+  color: $color-blue;
+}
