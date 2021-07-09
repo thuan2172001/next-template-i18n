@@ -24,7 +24,7 @@
   font-family: $font-family-main;
   font-style: normal;
   font-weight: bold;
-  font-size: $f6;
+  font-size: $f1;
   line-height: 110%;
   text-transform: uppercase;
 }
@@ -32,7 +32,7 @@
 .signin-title {
   font-style: normal;
   font-weight: bold;
-  font-size: $fs3;
+  font-size: $f3;
   line-height: $lh3;
   align-items: center;
   letter-spacing: 0.2px;
@@ -56,4 +56,69 @@
   text-align: right;
   margin-bottom: rem(37px);
   color: $color-blue;
+}
+
+.atn-btn-link-login {
+  position: relative;
+  margin-top: rem(10px);
+  font-family: $font-family-main;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $fs2;
+  line-height: $lh2;
+  color: $color-blue;
+}
+
+.atn-btn-register {
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-blue;
+}
+
+.btn-controller-login {
+  margin-left: auto;
+  position: relative;
+}
+
+.atn-btn-login {
+  width: rem(117px);
+  height: rem(40px);
+  background-color: $color-light-orange !important;
+  color: $color-white !important;
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  border: none;
+  &:hover {
+    background-color: $color-light-orange !important;
+    color: $color-white !important;
+  }
+  &:focus {
+    background-color: $color-light-orange !important;
+    color: $color-white !important;
+  }
+}
+
+.atn-btn-color-orange {
+  background: $color-orange6 !important;
+  color: $color-white !important;
+  &:hover {
+    border-color: $color-light-orange !important;
+    color: $color-white !important;
+  }
+  &:focus {
+    border-color: $color-light-orange !important;
+    color: $color-white !important;
+  }
+  &:active {
+    border-color: $color-light-orange !important;
+    color: $color-white !important;
+  }
 }

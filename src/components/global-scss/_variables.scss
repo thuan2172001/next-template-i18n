@@ -1,0 +1,127 @@
+$font-euclid-medium: "EuclidCircularA-Medium";
+$font-euclid-semibold: "EuclidCircularA-SemiBold";
+$font-euclid-regular: "EuclidCircularA-Regular";
+$font-euclid-bold: "EuclidCircularA-Bold";
+@use "sass:math";
+
+@font-face {
+  font-family: $font-euclid-medium;
+  src: url("/fonts/EuclidCircularA-Medium.ttf");
+}
+
+@font-face {
+  font-family: $font-euclid-semibold;
+  src: url("/fonts/EuclidCircularA-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: $font-euclid-bold;
+  src: url("/fonts/EuclidCircularA-Bold.ttf");
+}
+
+@font-face {
+  font-family: $font-euclid-regular;
+  src: url("/fonts/EuclidCircularA-Regular.ttf");
+}
+
+@font-face {
+  font-family: $font-euclid-bold;
+  src: url("/fonts/EuclidCircularA-Bold.ttf");
+}
+
+$font-family-main: Arial;
+
+$f1: rem(60px);
+$f2: rem(48px);
+$f3: rem(36px);
+$f4: 32px;
+$f5: rem(24px);
+$f6: rem(20px);
+$f7: 1rem;
+$f8: 1rem;
+$f9: rem(13px);
+$f10: 12px;
+$f11: rem(10px);
+$f12: rem(8px);
+$f13: rem(7px);
+$f14: 2.625rem;
+$f15: 18px;
+$f16: 14px;
+$f17: 42px;
+$f18: 16px;
+$f19: 24px;
+
+$fs0: rem(12px);
+$fs1: rem(14px);
+$fs2: rem(16px);
+$fs3: rem(24px);
+$fs4: rem(18px);
+$fs5: rem(20px);
+
+$lh1: rem(18px);
+$lh2: rem(21px);
+$lh3: rem(30px);
+$lh4: rem(28px);
+$lh5: rem(40px);
+$lh6: rem(24px);
+
+$fw-light: 300;
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-semiBold: 600;
+$fw-bold: 700;
+$fw-black: 900;
+
+$color-red: #dc3a61;
+$color-red2: #ff4d4f;
+$color-red3: #d13434;
+$color-bold-red: #d13434;
+
+$color-black: #000000;
+$color-light-black: #080a0b;
+$color-lighter-black: #1c1d22;
+
+$color-brown: #666666;
+$color-light-green: #d0e3bb;
+$color-line: #e4e4e4;
+
+$color-bolder-white: #ffeee2;
+$color-bold-white: #f7f8fc;
+$color-white: #ffffff;
+$color-white2: #ececec;
+
+$color-bg: #7d818b;
+$color-gray-bg: #f3f3f3;
+$color-light-gray: #c4c4c4;
+$color-light-gray-bg: #f4f4f4;
+$color-gray: #999999;
+$color-gray2: #807878;
+$color-gray3: #d9d9d9;
+$color-gray4: #cfd5e3;
+$color-gray5: #c6c6c6;
+$color-gray6: #f2f2f2;
+$color-gray7: #828282;
+$color-gray8: #7d818b;
+
+$color-light-orange: #eb7825;
+$color-orange: #c95c0e;
+$color-orange2: #d66819;
+$color-orange3: #df7020;
+$color-orange4: #fffe5d;
+$color-orange5: #ffe4d1;
+$color-orange6: #eb7825;
+
+$color-blue: #5770ff;
+$color-green: #65bb6b;
+
+$base-size: 16px;
+
+@function rem($size, $context: $base-size) {
+  @return math.div($size, $base-size) * 1rem;
+}
+
+$cursor-left: url("/public/icons/cursor_left.png");
+$cursor-right: url("/public/icons/cursor_right.png");
+
+
+

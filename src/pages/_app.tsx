@@ -16,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { GetUserInfo } from 'src/api/user';
 import { notifyError, notifySuccess } from '@components/toastify';
 import {SuccessPublishModal} from '@components/account/SuccessPublishModal';
-import '../components/global-scss/variables.scss'
+import '@components/global-scss/_variables.scss'
 
 const { store, persistor } = configureStore();
 

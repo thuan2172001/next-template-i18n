@@ -65,3 +65,24 @@ E
 deploy/dev/restart.sh,c\3\c341ea231afe544186301d2a39db258ffaeeb99e
 B
 deploy/dev/stop.sh,7\7\7734880945111b4e1172210110fdfd9d92d14770
+D
+src/api/read/read.js,0\f\0f3367071ebc6ac316611823d1d3f9787b276d2c
+@
+.env.development,0\2\02250351aed90f62d344991ecf72bb885eca5946
+=
+tsconfig.json,6\1\61ebb9fd6e8cf9082658121d5d81e297791dacd0
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+=
+.dockerignore,0\5\05a721ebe3ba0754116825ed1359ff1785f4bbac
+O
+src/templates/sign-up/index.tsx,9\e\9e8bb9d54c17c001fb4c35c42b10bae4abbc09d9
+9
+	yarn.lock,5\3\53585a096fe3a3b96321113856ae62602995a33b
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+@
+public/meta.json,7\9\798e3cb7b45c12a118ad5ffcbef32fd24320b4a8
+<
+package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a

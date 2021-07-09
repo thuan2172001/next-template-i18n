@@ -323,7 +323,7 @@ const LoginTemplate = (props) => {
 			<div className={style['btn-forgot-pw']}>
 				<Button
 					type="link"
-					className="atn-btn-link-login"
+					className={style['atn-btn-link-login']}
 					onClick={() => {
 						Router.push('/forgot-password');
 					}}>
@@ -331,18 +331,18 @@ const LoginTemplate = (props) => {
 				</Button>
 			</div>
 
-			<Row className="btn-controller">
+			<Row className={input['btn-controller']}>
 				<Col>
 					<Button
 						type="link"
-						className="atn-btn-register"
+						className={style['atn-btn-register']}
 						onClick={() => router.push('/signup')}>
 						{t('common:createAccount')}
 					</Button>
 				</Col>
-				<Col className="btn-controller-login">
+				<Col className={style['btn-controller-login']}>
 					<Button
-						className="atn-btn-login atn-btn-color-orange"
+						className={`${style['atn-btn-login']} ${style['style.atn-btn-color-orange']}`}
 						onClick={handleLogin}>
 						{t('common:header.logIn')}
 					</Button>
