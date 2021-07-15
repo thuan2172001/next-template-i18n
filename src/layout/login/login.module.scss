@@ -1,0 +1,143 @@
+@import "@components/global-scss/variables.scss";
+
+.container {
+  background-image: url("/assets/background2.png");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  min-height: 100vh;
+  opacity: 0.8;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: rem(530px);
+  height: rem(480px);
+  background-color: $color-bold-white;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+}
+
+.margin-top-container {
+  padding-top: calc(45vh - 261.5px);
+}
+
+.company-name {
+  margin-top: rem(41px);
+  color: $primary-color;
+  text-align: center;
+  height: rem(22px);
+  font-family: $font-family-main;
+  font-style: normal;
+  font-weight: bold;
+  font-size: rem($f4);
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.signin-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: rem($f3);
+  line-height: rem($lh3);
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: $color-light-black;
+  margin-top: rem(40px);
+  margin-bottom: rem(40px);
+}
+
+.login-form-padding {
+  padding-right: rem(90px);
+  padding-left: rem(90px);
+}
+
+.login-form-error {
+  margin-top: rem(12px);
+  color: $color-red;
+}
+
+.ant-btn-login {
+  width: rem(117px);
+  height: rem(40px);
+  background-color: $primary-color !important;
+  color: $color-white !important;
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bold;
+  font-size: rem($fs1);
+  line-height: rem($lh1);
+  border: none;
+  &:hover {
+    background-color: $primary-color !important;
+    color: $color-white !important;
+  }
+  &:focus {
+    background-color: $primary-color !important;
+    color: $color-white !important;
+  }
+}
+
+.ant-input-custom {
+  height: rem(40px);
+  background: $color-white !important;
+  border: 0;
+  padding: rem(10px) rem(16px);
+  &:focus {
+    border-color: black !important;
+  }
+  &:hover {
+    border-color: black !important;
+  }
+  &:active {
+    border-color: black !important;
+  }
+
+  .ant-input {
+    background: $color-white !important;
+    font-size: rem($fs2);
+    line-height: rem($lh2);
+    &:focus {
+      border-color: black !important;
+    }
+    &:hover {
+      border-color: black !important;
+    }
+    &:active {
+      border-color: black !important;
+    }
+  }
+}
+
+.ant-input-login-form {
+  margin-bottom: rem(8px);
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: rem(421.67px);
+  height: rem(49.05px);
+  border: 1px solid #e4e4e4;
+}
+
+.btn-controller {
+  width: rem(430px);
+  margin-top: rem(20px);
+  align-items: center;
+  display: block !important;
+}
+
+.forgot-password {
+  width: rem(420px);
+  text-align: left;
+  display: block;
+  color: $color-light-black;
+  cursor: pointer;
+  &:hover {
+    color: rgb(27, 27, 155);
+  }
+}

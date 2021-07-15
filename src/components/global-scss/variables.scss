@@ -1,0 +1,59 @@
+$font-euclid-medium: "EuclidCircularA-Medium";
+$font-euclid-semibold: "EuclidCircularA-SemiBold";
+$font-euclid-regular: "EuclidCircularA-Regular";
+$font-euclid-bold: "EuclidCircularA-Bold";
+@use "sass:math";
+
+@font-face {
+  font-family: $font-euclid-medium;
+  src: url("/fonts/EuclidCircularA-Medium.ttf");
+}
+
+@font-face {
+  font-family: $font-euclid-semibold;
+  src: url("/fonts/EuclidCircularA-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: $font-euclid-bold;
+  src: url("/fonts/EuclidCircularA-Bold.ttf");
+}
+
+@font-face {
+  font-family: $font-euclid-regular;
+  src: url("/fonts/EuclidCircularA-Regular.ttf");
+}
+
+@font-face {
+  font-family: $font-euclid-bold;
+  src: url("/fonts/EuclidCircularA-Bold.ttf");
+}
+
+$font-family-main: Arial;
+
+
+$fs1: 14px;
+$fs2: 16px;
+$f3: 32px;
+$f4: 40px;
+
+$lh1: 21px;
+$lh2: 24px;
+$lh3: 30px;
+
+$primary-color: #61B3FF;
+$color-light-main: #D0E8FF;
+
+$color-light-black: #080a0b;
+
+$color-bold-white: #f7f8fc;
+$color-white: #ffffff;
+
+$color-red: #d13434;
+
+$base-size: 16px;
+
+@function rem($size, $context: $base-size) {
+  @return math.div($size, $base-size) * 1rem;
+}
+

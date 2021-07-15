@@ -20,10 +20,7 @@ const BASE_URL =
 		? API_BASE_URL.split('/').slice(0, 3).join('/')
 		: '';
 
-const CREATOR = process.env.NEXT_PUBLIC_CREATOR;
-
 module.exports = {
 	API_BASE_URL,
 	BASE_URL,
-	CREATOR,
 };

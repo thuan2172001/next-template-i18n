@@ -1,5 +1,5 @@
 import React from "react";
-import LoginTemplate from "../../templates/login";
+import LoginTemplate from "../../layout/login";
 import { connect } from "react-redux";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -9,7 +9,7 @@ const LoginPage = () => {
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common", "home", "account"])),
+    ...(await serverSideTranslations(locale, ["common"])),
   },
 });
 

@@ -19,11 +19,8 @@
       "@components": ["src/components"],
       "@public/*": ["public/*"],
       "@public": ["public"],
-      "@styles/*": ["src/styles/*"],
-      "@styles": ["src/styles"],
-      "@redux/*": ["src/redux/*"],
-      "@redux": ["src/redux"],
-      "@i18n": ["./i18n"]
+      "@globaltyles/*": ["src/components/global-scss/*"],
+      "@globalstyles": ["src/components/global-scss"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

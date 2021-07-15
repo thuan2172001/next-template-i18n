@@ -1,4 +1,4 @@
-import {randomBytes} from "crypto";
+import { randomBytes } from "crypto";
 
 const axios = require('axios');
 const qs = require('qs');
@@ -47,7 +47,7 @@ const _signMessage = (privateKey, message) => {
 const _generateCertificate = (certificateInfo, privateKey) => {
     const keyPair = _generateKeyPair(privateKey);
     const signature = _signMessage(privateKey, certificateInfo);
-    return {signature, certificateInfo, publicKey: keyPair.publicKey};
+    return { signature, certificateInfo, publicKey: keyPair.publicKey };
 };
 
 const _getActionModule = (_url) => {
@@ -59,15 +59,21 @@ const _getActionModule = (_url) => {
 const _setupAxios = (originAxios, auth) => {
     originAxios.interceptors.request.use(
         (config) => {
+            console.log(123);
+            console.log(config.headers);
+
             config.paramsSerializer = (params) => {
+                console.log({ params });
                 return qs.stringify(params, {
                     allowDots: true,
                     arrayFormat: 'comma',
                     encode: false,
                 });
             };
+
             if (!auth?._id) return config;
-            config.headers.Authorization = `${JSON.stringify(auth._certificate)}`;
+            console.log(JSON.stringify(auth._certificate));
+            config.headers["Authorization"] = `${JSON.stringify(auth._certificate)}`;
             if (config.method.toUpperCase() !== 'GET') {
                 const _getActionType = () =>
                     (
@@ -76,10 +82,11 @@ const _setupAxios = (originAxios, auth) => {
                         _getActionModule(config.url ?? '/')
                     ).toUpperCase();
                 if (!config.data || !auth._privateKey) return config;
+                // goi lai vao data, signature giu nguyen
                 if (config.data instanceof FormData) {
                     config.data.append('_timestamp', new Date().toISOString());
                     config.data.append('_actionType', _getActionType());
-                    const sig = {...Object.fromEntries(config.data), file: undefined};
+                    const sig = { ...Object.fromEntries(config.data), file: undefined };
                     const signature = _signMessage(auth._privateKey, sig);
                     config.headers['Content-Type'] = 'multipart/form-data';
                     config.data.append('_signature', signature);
@@ -110,7 +117,7 @@ const _setupAxios = (originAxios, auth) => {
         (error) => {
             if (!error.response) return Promise.reject(error);
             const errorCode = error.response.data;
-            if (errorCode === 'AUTH.ERROR.NEED_TO_CHANGE_PASSWORD' ||errorCode.indexOf('AUTH.ERROR.') > -1) {
+            if (errorCode === 'AUTH.ERROR.NEED_TO_CHANGE_PASSWORD' || errorCode.indexOf('AUTH.ERROR.') > -1) {
                 console.log(errorCode);
             }
             return Promise.reject(error);

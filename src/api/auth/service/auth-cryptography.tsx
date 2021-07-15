@@ -1,5 +1,5 @@
 import CryptoJS from 'crypto-js';
-import {randomBytes} from 'crypto';
+import { randomBytes } from 'crypto';
 
 const secp256k1 = require('secp256k1');
 const hash256 = require('hash.js');
@@ -7,14 +7,78 @@ export const SymmetricEncrypt = (data: any, key: string): string => {
 	return CryptoJS.AES.encrypt(data, key).toString();
 };
 
+export const SymmetricDecrypt2 = (
+	cipherText: string | CryptoJS.lib.CipherParams,
+	key: string | CryptoJS.lib.WordArray
+): string => {
+	try {
+		// git
+		// cipherText = "eyJpdiI6Ik1qWmhkVzVMWW1NN1RtbDNWM3BhYlE9PSIsInZhbHVlIjoiK25KNnNWUEtkMUtoUTNydmZNNFhvUT09In0";
+
+		// medichain
+		cipherText = "U2FsdGVkX185v6FP8VEhI+Ss84zLB7oTuif/pQxnAOAXYjsPODAGuxqsPvQFbhbYkUMUH0W3vwZGdKkFSWIiiQ==";
+
+		//nft
+		// cipherText = "U2FsdGVkX19Bw6GSZZsIF4Q96pqg6xxlQFlI91E4b0Vzhnj14SMAziyXim3u6Tq565DaJ6HNv8yFxMgb3WlWbQ";
+
+		console.log({ cipherText });
+
+		const cipher: any = CryptoJS.AES.decrypt(cipherText, key);
+		// console.log({ cipher: cipher?.toString(CryptoJS.enc.Utf8) });
+
+		const encryptedBytesWithSalt = Buffer.from(cipherText.toString(), 'base64').toString();
+
+		// var encryptedBytes = encryptedBytesWithSalt.subarray(16, encryptedBytesWithSalt.length);
+		// var salt = encryptedBytesWithSalt.subarray(8, 16);
+		// var keyndIV = deriveKeyAndIV(passphrase, salt);
+		// var key = encrypt.Key(keyndIV.item1);
+		// var iv = encrypt.IV(keyndIV.item2);
+		console.log({ encryptedBytesWithSalt });
+		console.log({ cipher });
+		console.log({ cipherFormat: cipher?.toString(CryptoJS.enc.Utf8) });
+		// var encrypter = encrypt.Encrypter(
+		// 	CryptoJS.AES.decrypt(key, encrypt.AESMode.cbc, padding: "PKCS7"));
+		// var decrypted =
+		// 	encrypter.decrypt64(base64.encode(encryptedBytes), iv: iv);
+		// return decrypted;
+
+		// var s = JSON.parse(encryptedBytesWithSalt);
+
+		// var iv = Buffer.from(s.iv, 'base64').toString();
+
+		// var result = CryptoJS.AES.decrypt(s.value, key, { iv: iv }).toString(CryptoJS.enc.Utf8);
+		// console.log({ result: result });
+		// return result;
+
+		return cipher?.toString(CryptoJS.enc.Utf8);
+	} catch (err: any) {
+		console.log({ err })
+		return null;
+	}
+};
+
 export const SymmetricDecrypt = (
 	cipherText: string | CryptoJS.lib.CipherParams,
 	key: string | CryptoJS.lib.WordArray
 ): string => {
 	try {
+		// medichain
+		// cipherText = "U2FsdGVkX185v6FP8VEhI+Ss84zLB7oTuif/pQxnAOAXYjsPODAGuxqsPvQFbhbYkUMUH0W3vwZGdKkFSWIiiQ==";
+		// nft
+		// cipherText = "U2FsdGVkX19Bw6GSZZsIF4Q96pqg6xxlQFlI91E4b0Vzhnj14SMAziyXim3u6Tq565DaJ6HNv8yFxMgb3WlWbQ";
+
+		// encrypted Web
+		// U2FsdGVkX19RVyrXQMt1Hkru3WluIi5xqjZb1eCTCuEBjW5Cd86bLTgIoS0A+9E1z1eKaFo8QykgLVQzsY2HJA==
+		// encrypted Mobile
+		// U2FsdGVkX185v6FP8VEhI+Ss84zLB7oTuif/pQxnAOAXYjsPODAGuxqsPvQFbhbYkUMUH0W3vwZGdKkFSWIiiQ==
+
+		// console.log({ "encrypyed": SymmetricEncrypt("waPrrPqlvM49IbL11bWV+VYnly0SsDXrp6HYMWJv5p8=", "thuan123") });
+		// console.log({ "keyPair": GenerateKeyPairAndEncrypt("abcd1234") });
+		
 		const cipher: any = CryptoJS.AES.decrypt(cipherText, key);
+		console.log({ cipher: cipher?.toString(CryptoJS.enc.Utf8) })
 		return cipher?.toString(CryptoJS.enc.Utf8);
-	} catch(err: any) {
+	} catch (err: any) {
 		return null;
 	}
 };
@@ -46,11 +110,15 @@ export const GenerateKeyPairAndEncrypt = (
 };
 
 export const SignMessage = (privateKey: string, message: any) => {
-	const signature = secp256k1.ecdsaSign(
-		ConvertMessage(message),
-		convertStringToByteArray(privateKey)
-	);
-	return convertArrayBufferToString(signature.signature);
+	try {
+		const signature = secp256k1.ecdsaSign(
+			ConvertMessage(message),
+			convertStringToByteArray(privateKey)
+		);
+		return convertArrayBufferToString(signature.signature);
+	} catch (err) {
+		console.log(err);
+	}
 };
 
 export const VerifyMessage = (
