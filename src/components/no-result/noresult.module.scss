@@ -1,0 +1,52 @@
+@import "@components/global-scss/variables.scss";
+
+.noresult {
+  width: rem(1310px);
+  margin: rem(50px) auto rem(24px) auto;
+}
+
+.see-more-no-result {
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+
+  .img {
+    margin: 0 auto;
+  }
+
+  .text {
+    // font-family: $font-helvetica-regular;
+    font-style: normal;
+    font-weight: $fw-normal;
+    font-size: $fs3;
+    line-height: $lh2;
+    text-align: center;
+    color: $color-gray-8;
+    margin-top: rem(36px);
+  }
+}
+
+@media screen and (max-width: rem(1600px)) {
+  .noresult {
+    width: rem(1120px);
+  }
+}
+
+@media screen and (max-width: rem(1250px)) {
+  .noresult {
+    width: rem(930px);
+  }
+}
+
+@media screen and (max-width: rem(1050px)) {
+  .noresult {
+    width: rem(740px);
+  }
+}
+
+@media screen and (max-width: rem(850px)) {
+  .noresult {
+    width: rem(550px);
+  }
+}

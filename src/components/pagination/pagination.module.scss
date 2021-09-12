@@ -1,0 +1,20 @@
+@import "@components/global-scss/variables.scss";
+
+.page-item {
+  padding: rem(8px) rem(10px) rem(6px) rem(10px);
+  border-radius: 6px;
+}
+
+.pagination {
+  padding-top: rem(70px);
+  padding-bottom: rem(70px);
+}
+
+.btn-pagination-disable {
+  padding: rem(12px) rem(14px) rem(8.3px) rem(13px);
+  background-color: $color-gray-disable !important;
+}
+
+.background-gray {
+  background-color: $color-bold-white !important;
+}

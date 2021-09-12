@@ -1,0 +1,13 @@
+@import "../../components/global-scss/variables";
+
+.image-cover-hidden {
+  width: 100%;
+  max-height: 430px;
+  overflow: hidden;
+}
+
+.image-place {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
