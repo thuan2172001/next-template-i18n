@@ -26,3 +26,15 @@ export const _sortArray = (array, attributeToSort, ascSort = true, typeValue = "
     }
   });
 };
+
+
+export  const cnumberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+export const formatTotalLike = (likes) => {
+  if (!likes) return 0;
+  if (likes >= 1000000) return Math.floor(likes / 1000000) + "M";
+  if (likes >= 1000) return Math.floor(likes / 1000) + "K";
+  return likes;
+};

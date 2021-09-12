@@ -1,0 +1,19 @@
+@import "@components/global-scss/variables.scss";
+
+
+.profile-main-social-media-content1 {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  .twitter-embed-homepage {
+    width: 100%;
+  }
+}
+
+.profile-main-social-media-content1::-webkit-scrollbar {
+  display: none;
+}
+
+.bio{
+    overflow: hidden;
+}

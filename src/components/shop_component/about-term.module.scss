@@ -1,0 +1,31 @@
+@import "../../components/global-scss/variables";
+
+.container {
+  width: 100%;
+  height: rem(140px);
+  display: flex;
+  align-items: center;
+  padding: 0 11.5%
+}
+
+.left-item {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: $fw-normal;
+  font-size: $fs2;
+  line-height: $lh2;
+  color: $color-blue-2;
+}
+
+.right-item {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: $fw-normal;
+  font-size: $fs2;
+  line-height: $lh1;
+  color: $color-blue-2;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
