@@ -71,6 +71,8 @@ const _setupAxios = (originAxios, auth) => {
                 });
             };
 
+            console.log({auth})
+
             if (!auth?._id) return config;
             console.log(JSON.stringify(auth._certificate));
             config.headers["Authorization"] = `${JSON.stringify(auth._certificate)}`;

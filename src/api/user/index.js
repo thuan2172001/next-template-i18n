@@ -9,7 +9,7 @@ export default {
 		return customAxios({
 			method: 'post',
 			url: `${baseURL}/auth/credential`,
-			data: {"data": username},
+			data: { username },
 		}).then((response) => {
 			return response;
 		});

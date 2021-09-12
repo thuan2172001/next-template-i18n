@@ -32,7 +32,7 @@ const LoginTemplate = (props) => {
 				const {
 					encryptedPrivateKey,
 					publicKey,
-					id,
+					_id,
 					mail,
 				} = response;
 				if (
@@ -51,9 +51,8 @@ const LoginTemplate = (props) => {
 				}
 				console.log({ privateKey });
 
-				//change here
 				const certificateInfo = {
-					id,
+					_id,
 					timestamp: new Date().toISOString(),
 					exp: 2799360000000,
 				};
@@ -71,7 +70,7 @@ const LoginTemplate = (props) => {
 					username,
 					mail,
 					_privateKey: privateKey,
-					_id: id,
+					_id,
 					_certificate: authorizationHeader,
 				};
 				console.log({ userInfo });
@@ -85,7 +84,7 @@ const LoginTemplate = (props) => {
 
 	const ping = (_userInfor) => {
 		const certificateInfo = {
-			id: _userInfor['_id'],
+			username: _userInfor['username'],
 			timestamp: new Date().toISOString(),
 			exp: 2799360000000,
 		};
