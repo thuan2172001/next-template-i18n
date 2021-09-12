@@ -3,7 +3,6 @@ import style from "./list-products.module.scss";
 import { SeeMoreNoResult } from "@components/no-result/SeeMoreNoResult";
 import { PageNavigation } from "@components/pagination";
 import { SerieComponent } from "@components/serie_component";
-import { FlexPadding } from "@components/flex-padding-component";
 import SeriesManagementAPI from "../../api/series-management/series-management";
 import { GetUserInfo } from "../../api/user";
 import { useRouter } from "next/router";
@@ -97,13 +96,6 @@ export const ListProducts = () => {
                   displayAuthor={false}
                 />
               ))}
-
-            {!isLoading && dataListProducts?.length % itemsPerLine !== 0 &&
-              Array(
-                itemsPerLine - ((dataListProducts?.length || 0) % itemsPerLine)
-              )
-                .fill(1)
-                .map((item) => <FlexPadding />)}
           </div>
           {!isLoading && totalProduct > itemsPagination * 10 && (
             <PageNavigation

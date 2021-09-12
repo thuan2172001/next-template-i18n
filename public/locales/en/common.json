@@ -20,9 +20,18 @@
 		"Sf": "SCI-FI",
 		"Fantasy": "FANTASY"
 	},
+	"topPage": {
+		"newRelease": "New release",
+		"profile": "Profile"
+	},
 	"loginFailedMessage": "Username or password is wrong",
 	"userID": "UserID",
 	"password": "Password",
-	"forgotPw": "Forgot Password ?"
+	"forgotPw": "Forgot Password ?",
+	"aboutTerm": {
+		"about": "About",
+		"contact": "Contact",
+		"share": "Share"
+	}
 
 }
