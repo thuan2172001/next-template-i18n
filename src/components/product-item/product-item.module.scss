@@ -1,0 +1,100 @@
+@import "@components/global-scss/variables.scss";
+
+.episode-component {
+  width: rem(150px);
+  margin-right: rem(30px);
+  margin-top: rem(32px);
+}
+
+.episode-image {
+  height: rem(150px);
+  width: rem(150px);
+}
+
+
+.episode-name {
+  font-family: $font-euclid-medium;
+  display: inline-block;
+  font-weight: $fw-medium;
+  font-size: rem($fs2);
+  line-height: rem($lh7);
+  color: $color-black-1;
+  margin-top: rem(9px);
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.episode-creator-name {
+  display: inline-flex;
+  font-family: $font-euclid-regular;
+  font-style: normal;
+  font-weight: $fw-normal;
+  font-size: rem($fs0);
+  //line-height: rem($lh8);
+  color: $color-gray-1;
+  margin-left: rem(8px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+  white-space: nowrap;
+}
+
+.episode-detail {
+  display: inline-flex;
+  flex-shrink: 3;
+}
+.episode-heart {
+  display: inline-block;
+}
+
+.favorite-icon {
+  display: flex;
+  align-items: center;
+  font-size: rem(15px);
+  margin-bottom: rem(3px);
+}
+
+.color-red {
+  color: $color-red-1;
+}
+
+.float-right {
+  display: flex;
+  float: right;
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}
+
+.ml-30 {
+  margin-left: rem(30px);
+}
+
+.ml-30-mt-42 {
+  margin-left: rem(15px);
+  margin-right: rem(15px);
+  margin-top: rem(42px);
+}
+
+.bottom-detail {
+  display: inline-flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.episode-like {
+  margin-left: rem(5px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: rem($lh1);
+}
+
+.episode-price {
+  color: $color-red-1;
+}
