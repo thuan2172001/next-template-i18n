@@ -67,14 +67,14 @@ export const AboutTerm = ( {coverImage = ""} ) => {
           target="_blank"
           className={`${style["left-item"]} ${style["cursor-pointer"]}`}
         >
-          {t("shop:aboutTerm.about")}
+          {t("common:aboutTerm.about")}
         </a>
         <a
           href="https://www.w3schools.com"
           target="_blank"
           className={`${style["left-item"]} ${style["cursor-pointer"]}`}
         >
-          {t("shop:aboutTerm.contact")}
+          {t("common:aboutTerm.contact")}
         </a>
       </Space>
     );
@@ -105,7 +105,7 @@ export const AboutTerm = ( {coverImage = ""} ) => {
       <span style={{ marginLeft: "auto" }}>
         <Space size={24}>
           <span className={`${style["right-item"]}`}>
-            {t("shop:aboutTerm.share")}
+            {t("common:aboutTerm.share")}
           </span>
           {shareIconList.map((el, index) => {
             return (

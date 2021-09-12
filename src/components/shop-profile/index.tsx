@@ -9,6 +9,7 @@ import { GetUserInfo } from "src/api/user";
 
 import style from "./shop-profile.module.scss";
 import { BASE_URL } from "../../api/const";
+import { useTranslation } from "react-i18next";
 
 const { TextArea } = Input;
 
@@ -61,25 +62,22 @@ const SocialMediaItem = ({ mediaLink, index }) => {
 
 export const ShopProfile = ({ template }) => {
   let userInfo = GetUserInfo();
-
+  const { t } = useTranslation();
   const [follower, setFollower] = useState(0);
-  const [isLogged, setIsLogged] = useState(false);
   const [isFollowing, setIsFollowing] = useState(false);
-  const [modalVisible, setModalVisible] = useState(false);
   const [creatorInfo, setCreatorInfo] = useState(authorData);
-
-  const [linkSns, setLinhSNS] = useState(["https://facebook.com","https://instagram.com","https://twitter.com","https://youtube.com","https://pinterest.com", ]);
-
+  const [linkSns, setLinhSNS] = useState(authorData.mediaLinks);
   const [mediaLinks, setMediaLinks] = useState<any>();
+
   useEffect(() => {
-    linkSns && 
-    setMediaLinks(
-      linkSns.map((mediaLink, i) => (
-        <div style={{ width: "20%" }} key={i}>
-          <SocialMediaItem mediaLink={mediaLink} index={i} />
-        </div>
-      ))
-    );
+    linkSns &&
+      setMediaLinks(
+        linkSns.map((mediaLink, i) => (
+          <div style={{ width: "20%" }} key={i}>
+            <SocialMediaItem mediaLink={mediaLink} index={i} />
+          </div>
+        ))
+      );
   }, [linkSns]);
 
   useEffect(() => {
@@ -88,42 +86,36 @@ export const ShopProfile = ({ template }) => {
         window.localStorage && window.localStorage.getItem("userInfo")
           ? JSON.parse(window.localStorage.getItem("userInfo"))
           : {};
-
-      if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
-        setIsLogged(true);
-      } else {
-        setIsLogged(false);
-      }
     }
   }, [userInfo]);
 
   // useEffect(() => {
-    // CreatorSettingAPI.getCreatorInfo({
-    //   userInfo: GetUserInfo(),
-    //   creator: creatorId
-    // }).then(res => {
-    //   setCreatorInfo(res);
-    //   setFollower(res.totalFollower)
-    //   setIsFollowing(res.isFollowing)
-    //   setLinhSNS(res.mediaLinks)
-    // })
+  // CreatorSettingAPI.getCreatorInfo({
+  //   userInfo: GetUserInfo(),
+  //   creator: creatorId
+  // }).then(res => {
+  //   setCreatorInfo(res);
+  //   setFollower(res.totalFollower)
+  //   setIsFollowing(res.isFollowing)
+  //   setLinhSNS(res.mediaLinks)
+  // })
   // }, [creatorId])
 
   const onClickFollow = () => {
     // if (!isLogged) setModalVisible(true);
     // else {
-      // CreatorManagementApi.toggleFollowCreator({userInfo: GetUserInfo(), creator: creatorId}).then((res) => {
-      //   if(res.success) {
-      //     setIsFollowing(res.isFollowing);
-      //     setFollower(res.totalFollower);
-      //   }
-      // })
+    // CreatorManagementApi.toggleFollowCreator({userInfo: GetUserInfo(), creator: creatorId}).then((res) => {
+    //   if(res.success) {
+    //     setIsFollowing(res.isFollowing);
+    //     setFollower(res.totalFollower);
+    //   }
+    // })
     // }
   };
 
   return (
     <div className={`${style["profile-container"]}`}>
-      <div className={`${style["profile-title"]}`}>Profile</div>
+      <div className={`${style["profile-title"]}`}>{t("common:topPage.profile")}</div>
       {template == 1 && (
         <>
           <div className={`${style["all-box"]}`}>
