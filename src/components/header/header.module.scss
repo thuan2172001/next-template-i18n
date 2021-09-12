@@ -1,0 +1,71 @@
+@import "@components/global-scss/variables.scss";
+
+.header {
+  width: 100%;
+  height: rem(50px);
+  background-image: url("../../../public/assets/header.png");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $primary-color !important;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  font-family: $font-euclid-regular;
+}
+
+.logo {
+  color: $color-white;
+  font-size: rem(17px);
+  font-weight: $fw-medium;
+  margin-left: rem(5px);
+}
+
+.logo-img {
+  height: rem(18px);
+  margin-bottom: rem(5px);
+}
+
+.right-item {
+  font-style: normal;
+  font-weight: $fw-normal;
+  // line-height: $lh11;
+  font-size: rem($fs1);
+  color: $color-white !important;
+  opacity: 0.75;
+}
+
+.disable-antd-css {
+  &:hover {
+    color: $color-white !important;
+    border: none !important;
+  }
+  &:focus {
+    color: $color-white !important;
+    border: none !important;
+  }
+  &:active {
+    color: $color-white !important;
+    border: none !important;
+  }
+}
+
+.disable-padding {
+  padding: 0 !important;
+}
+
+.disable-padding-left {
+  padding-left: 0 !important;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.right-item::after {
+  border-bottom: none !important;
+}
+
+.disable-antd-css::after {
+  border-bottom: none !important;
+}

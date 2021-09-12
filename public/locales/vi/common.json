@@ -1,0 +1,28 @@
+{
+	"language": {
+		"vi": "Vietnamese",
+		"en": "English"
+	},
+	"header": {
+		"appName": "WEBTOONZ",
+		"signIn": "Đăng nhập",
+		"logOut": "Đăng xuất",
+		"logIn": "ログイン",
+		"signUp": "サインアップ",
+		"account": "Account"
+	},
+	"category": {
+		"all": "Tất cả",
+		"Drama" : "KỊCH TÍNH",
+		"Comedy" : "HÀI",
+		"Mistery": "BÍ ẨN",
+		"Horror": "KINH DỊ",
+		"Sf": "KHOA HỌC VIỄN TƯỞNG",
+		"Fantasy": "GIẢ TƯỞNG"
+	},
+	"loginFailedMessage": "管理者ID又はパスワードが一致しません。",
+	"userID": "UserID",
+	"password": "Password",
+	"forgotPw": "Forgot Password ?"
+
+}

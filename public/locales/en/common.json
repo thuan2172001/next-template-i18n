@@ -1,15 +1,24 @@
 {
 	"language": {
-		"ja": "Japan",
+		"vi": "Vietnamese",
 		"en": "English"
 	},
 	"header": {
-		"appName": "Medichain",
+		"appName": "WEBTOONZ",
 		"signIn": "Sign in",
 		"logOut": "Log out",
 		"signUp": "Sign up",
 		"logIn": "Next",
 		"account": "Account"
+	},
+	"category": {
+		"all": "All",
+		"Drama" : "DRAMA",
+		"Comedy" : "COMEDY",
+		"Mistery": "MYSTERY",
+		"Horror": "HORROR",
+		"Sf": "SCI-FI",
+		"Fantasy": "FANTASY"
 	},
 	"loginFailedMessage": "Username or password is wrong",
 	"userID": "UserID",
