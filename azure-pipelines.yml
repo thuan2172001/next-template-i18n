@@ -22,7 +22,7 @@ jobs:
   - task: CmdLine@2
     displayName: Prebuild
     inputs:
-      script: "rm -rf build\nmkdir build\nchmod -R 777 build\ndocker build -t nftjapan/nft-japan-fe:builder --target=builder --build-arg NEXT_PUBLIC_CREATOR --build-arg NEXT_PUBLIC_STRIPE_API_KEY . "
+      script: "rm -rf build\nmkdir build\nchmod -R 777 build\ndocker build -t nftjapan/episode-japan-fe:builder --target=builder --build-arg NEXT_PUBLIC_CREATOR --build-arg NEXT_PUBLIC_STRIPE_API_KEY . "
   - task: CmdLine@2
     displayName: Build
     inputs:
