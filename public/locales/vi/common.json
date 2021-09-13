@@ -23,6 +23,7 @@
 	"loginFailedMessage": "管理者ID又はパスワードが一致しません。",
 	"userID": "UserID",
 	"password": "Password",
-	"forgotPw": "Forgot Password ?"
-
+	"forgotPw": "Forgot Password ?",
+	"addToCart": "Thêm vào giỏ",
+	"buyNow": "Mua ngay"
 }

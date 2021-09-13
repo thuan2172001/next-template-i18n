@@ -29,7 +29,7 @@ export const PageNavigation = ({
             >
               <img
                 style={{ verticalAlign: "initial" }}
-                src="/icons/prev-icon.svg"
+                src="/assets/icons/prev-icon.svg"
                 alt="prev"
               />
             </span>
@@ -46,7 +46,7 @@ export const PageNavigation = ({
             >
               <img
                 style={{ verticalAlign: "initial" }}
-                src="/icons/next-icon.svg"
+                src="/assets/icons/next-icon.svg"
                 alt="next"
               />
             </span>

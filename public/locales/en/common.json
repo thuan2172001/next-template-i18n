@@ -32,6 +32,7 @@
 		"about": "About",
 		"contact": "Contact",
 		"share": "Share"
-	}
-
+	},
+	"addToCart": "Add To Cart",
+	"buyNow": "Buy Now"
 }

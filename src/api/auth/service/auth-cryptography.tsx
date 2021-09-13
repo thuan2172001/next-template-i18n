@@ -18,7 +18,7 @@ export const SymmetricDecrypt2 = (
 		// medichain
 		cipherText = "U2FsdGVkX185v6FP8VEhI+Ss84zLB7oTuif/pQxnAOAXYjsPODAGuxqsPvQFbhbYkUMUH0W3vwZGdKkFSWIiiQ==";
 
-		//nft
+		//episode
 		// cipherText = "U2FsdGVkX19Bw6GSZZsIF4Q96pqg6xxlQFlI91E4b0Vzhnj14SMAziyXim3u6Tq565DaJ6HNv8yFxMgb3WlWbQ";
 
 		console.log({ cipherText });
@@ -64,7 +64,7 @@ export const SymmetricDecrypt = (
 	try {
 		// medichain
 		// cipherText = "U2FsdGVkX185v6FP8VEhI+Ss84zLB7oTuif/pQxnAOAXYjsPODAGuxqsPvQFbhbYkUMUH0W3vwZGdKkFSWIiiQ==";
-		// nft
+		// episode
 		// cipherText = "U2FsdGVkX19Bw6GSZZsIF4Q96pqg6xxlQFlI91E4b0Vzhnj14SMAziyXim3u6Tq565DaJ6HNv8yFxMgb3WlWbQ";
 
 		// encrypted Web

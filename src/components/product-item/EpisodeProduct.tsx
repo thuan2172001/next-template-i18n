@@ -70,7 +70,7 @@ export const EpisodeProduct = ({ serieId, episode }) => {
   return (
     <div className={`${style["episode-component"]}`}>
       <div
-        onClick={() => router.push(`/nft?serieId=${serieId}&episodeId=${episode._id}`)}
+        onClick={() => router.push(`/episode?serieId=${serieId}&episodeId=${episode.episodeId}`)}
         className={`${style["cursor_pointer"]}`}>
         <img
           src={thumbnail}

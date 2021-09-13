@@ -2880,7 +2880,7 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -3317,6 +3317,13 @@ rc-virtual-list@^3.0.1, rc-virtual-list@^3.2.0:
     classnames "^2.2.6"
     rc-resize-observer "^1.0.0"
     rc-util "^5.0.7"
+
+react-counter-input@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-counter-input/-/react-counter-input-0.2.1.tgz#e3363e6c98125bcc106373b74c32ed6d7e409749"
+  integrity sha512-f/je5dNgK0GATcWbICeUhodeTmu59SXoTXFf23jZI1xaR5PeqnqZPMsYaG4lZQBN4YRrN2n6pFzW0ehciWk7tQ==
+  dependencies:
+    prop-types "15.7.2"
 
 react-dom@^17.0.2:
   version "17.0.2"
