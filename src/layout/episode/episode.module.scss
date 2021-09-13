@@ -1,0 +1,218 @@
+@import "@components/global-scss/variables.scss";
+
+.nft {
+  margin: rem(120px) 11vw rem(567px) 11vw;
+  font-family: $font-family-main;
+
+  .product-detail {
+    margin-left: rem(50px);
+  }
+
+  .name-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: rem(32px);
+  }
+
+  .nft-name {
+    font-family: $font-family-main;
+    font-size: $fs3;
+    line-height: $lh3;
+    align-items: center;
+    letter-spacing: 0.2px;
+    font-weight: bold;
+    color: $color-black-1;
+  }
+
+  .series-link {
+    font-size: $fs1;
+    line-height: $lh3;
+    color: $color-blue;
+  }
+
+  .category-row {
+    align-items: center;
+    .favorite-icon {
+      align-items: baseline;
+      font-size: rem(20px);
+      margin-right: rem(5px);
+    }
+
+    .likes {
+      align-items: center;
+      margin-left: rem(2px);
+      margin-right: rem(12px);
+      font-size: $fs1;
+      line-height: $lh12;
+    }
+
+    .color-red {
+      color: $color-red-1;
+    }
+
+    .category-list {
+      margin-left: rem(12px);
+
+      .category-name {
+        margin-bottom: rem(3px);
+        margin-right: rem(16px);
+      }
+    }
+  }
+
+  .avatar-creator {
+    width: rem(18px);
+    height: rem(18px);
+    border-radius: rem(18px);
+  }
+
+  .creator-name {
+    color: $color-black;
+    font-size: $fs1;
+    line-height: $lh11;
+    margin-left: rem(8px);
+  }
+
+  .description {
+    margin-top: rem(50px);
+    font-size: $fs1;
+    line-height: $lh2;
+    letter-spacing: 0.2px;
+    color: $color-light-black;
+  }
+}
+
+.sold-out {
+  display: flex;
+  width: 112%;
+  height: rem(40px);
+  font-weight: $fw-bold;
+  font-style: normal;
+  font-size: $fs1;
+  line-height: $lh2;
+  letter-spacing: rem(0.2px);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: rem(20px);
+
+  .btn-add-to-cart {
+    color: $color-bg;
+    border-color: $color-bg;
+  }
+
+  .btn-buy-now {
+    border: transparent;
+    color: $color-white;
+    background-color: $color-bg;
+  }
+}
+
+.available {
+  display: flex;
+  width: 112%;
+  height: rem(40px);
+  font-weight: $fw-bold;
+  font-style: normal;
+  font-size: $fs1;
+  line-height: $lh2;
+  letter-spacing: rem(0.2px);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: rem(20px);
+
+  .btn-add-to-cart {
+    color: $color-blue-2;
+    border-color: $color-blue-2;
+  }
+
+  .btn-buy-now {
+    border: transparent;
+    color: $color-white;
+    background-color: $color-blue-2 !important;
+  }
+
+  .btn-add-to-bookshelf {
+    color: $color-bg;
+    border-color: $color-bg;
+  }
+}
+
+.counter-input {
+  //font-size: $fs4;
+  background-color: #f1f2f3 !important;
+  color: $color-black-4;
+  width: rem(111px);
+  height: rem(40px);
+  margin-top: rem(24px);
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.free {
+  color: $color-red-1;
+  //font-family: $font-helvetica-medium;
+  font-style: normal;
+  font-weight: $fw-bold;
+  font-size: rem(32px);
+  line-height: 150%;
+
+  display: flex;
+  align-items: center;
+  letter-spacing: rem(0.2px);
+  text-transform: capitalize;
+
+  margin-top: rem(28px);
+}
+
+.price {
+  color: $color-red-1;
+  //font-family: $font-helvetica-medium;
+  font-style: normal;
+  font-weight: $fw-bold;
+  font-size: rem(32px);
+  line-height: 150%;
+  letter-spacing: rem(0.2px);
+  text-transform: capitalize;
+  margin-top: rem(24px);
+}
+
+.text-size-16 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: rem(16px);
+  letter-spacing: rem(0.2px);
+  text-transform: capitalize;
+}
+
+.text-color-red {
+  color: $color-red-1;
+}
+
+.text-color-gray {
+  color: $color-gray-1;
+}
+
+.text-size-14 {
+  font-size: rem(14px);
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: rem(0.2px);
+  text-transform: capitalize;
+}
+
+.mrt-7 {
+  margin-top: rem(24px);
+}
+
+.share-btn {
+  cursor: pointer;
+}
+
+.dotted-line {
+  width: 100%;
+}
