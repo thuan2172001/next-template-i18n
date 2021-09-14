@@ -4,7 +4,7 @@ import { API_BASE_URL } from '../const';
 const baseURL = API_BASE_URL;
 
 export default {
-	getcommon: ({ userInfo }) => {
+	getCart: ({ userInfo }) => {
 		const customAxios = createCustomAxios(userInfo);
 		return customAxios({
 			method: 'get',
@@ -34,7 +34,7 @@ export default {
 	// 	});
 	// },
 
-	updatecommon: ({ userInfo, cartItems }) => {
+	updateCart: ({ userInfo, cartItems }) => {
 		const customAxios = createCustomAxios(userInfo);
 		return customAxios
 			.put(`${baseURL}/user/cart`, {

@@ -8,11 +8,20 @@ import Router, { useRouter } from 'next/router';
 import { Button, Row, Col, Input } from 'antd';
 import { useTranslation } from 'next-i18next';
 import style from './login.module.scss'
+import CustomerCartAPI from "../../api/customer/cart";
+import { useSelector, useDispatch } from 'react-redux';
+import cart from '../../api/customer/cart';
 
 const LoginTemplate = (props) => {
 	const { t } = useTranslation();
 
 	const router = useRouter();
+
+	const storedCart = useSelector((state: any) => {
+		return state.cart?.cartList || [];
+	});
+
+	const dispatch = useDispatch();
 
 	const [username, setUserName] = useState('');
 
@@ -124,6 +133,25 @@ const LoginTemplate = (props) => {
 						_certificate: _userInformation['_certificate'],
 					})
 				);
+
+				const cartItems = await CustomerCartAPI.getCart({
+					userInfo: _userInformation,
+				});
+
+				const mixItems = [...cartItems, ...storedCart];
+
+				const newCarts = [...new Set(mixItems)];
+
+				// await CustomerCartAPI.updateCart({
+				// 	userInfo: _userInformation,
+				// 	cartInfo: newCarts
+				// })
+				// 	.then(() => {
+				// 		dispatch({
+				// 			type: "UPDATE_CART",
+				// 			payload: newCarts,
+				// 		});
+				// 	}).catch((err) => console.log(err))
 
 				Router.push('/');
 			})
