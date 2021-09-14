@@ -7,11 +7,21 @@
   background-size: cover;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid $primary-color !important;
+  border-bottom: 1px solid $color-blue-2 !important;
   position: fixed;
   top: 0;
   z-index: 999;
   font-family: $font-euclid-regular;
+}
+
+.dropdown-menu {
+  margin-top: rem(12px);
+  padding: rem(9px) rem(2px);
+  font-family: $font-euclid-regular;
+  font-weight: $fw-normal;
+  font-size: $fs1;
+  line-height: $lh12;
+  color: $color-black-1;
 }
 
 .logo {
@@ -29,10 +39,33 @@
 .right-item {
   font-style: normal;
   font-weight: $fw-normal;
-  // line-height: $lh11;
-  font-size: rem($fs1);
+  font-size: rem($fs6);
   color: $color-white !important;
   opacity: 0.75;
+}
+
+.creator-sub-btn {
+  font-family: $font-euclid-regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $fs6;
+  line-height: $lh2;
+  color: $color-white !important;
+  padding-right: 0 !important;
+}
+
+.creator-publish-btn {
+  width: rem(104px);
+  height: rem(36px);
+  border-radius: 2px;
+  background: $color-blue-5;
+  font-family: $font-family-main;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-white;
+  border: none !important;
 }
 
 .disable-antd-css {
@@ -54,8 +87,20 @@
   padding: 0 !important;
 }
 
+.padding-right-40 {
+  padding-right: rem(40px) !important;
+}
+
+.padding-left-30 {
+  padding-left: rem(30px) !important;
+}
+
 .disable-padding-left {
   padding-left: 0 !important;
+}
+
+.disable-padding-right {
+  padding-right: 0 !important;
 }
 
 .ml-auto {
@@ -68,4 +113,21 @@
 
 .disable-antd-css::after {
   border-bottom: none !important;
+}
+
+.cart-number-badge {
+  position: absolute;
+  background-color: #ffffff;
+  color: #4b94cd;
+  top: 3px;
+  right: 4px;
+  min-width: 25px;
+  max-width: 30px;
+  line-height: 18px;
+  font-size: 12px;
+  border-radius: 7px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

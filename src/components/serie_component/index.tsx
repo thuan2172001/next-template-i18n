@@ -7,6 +7,7 @@ import { HeartFilled, HeartOutlined } from "@ant-design/icons";
 import { convertLongString } from "src/utils/common-function";
 import SeriesManagementAPI from "../../api/series-management/series-management";
 import { GetUserInfo } from "src/api/user";
+import EpisodeManagementAPI from "../../api/episode-management/episode-management";
 
 export const SerieComponent = ({
   serie,
@@ -32,12 +33,12 @@ export const SerieComponent = ({
     }
   }, []);
 
-  const { isLiked } = serie;
+  const isLiked = serie.alreadyLiked;
 
   const [data, setData] = useState({
     creatorName: 'Thuan',
     // creatorAvatar: "",
-    // likes: serie.totalLikes,
+    // isLiked: serie.alreadyLiked,
     serieName: serie.serieName,
     thumbanailSrc: serie.thumbnail,
   });
@@ -49,7 +50,7 @@ export const SerieComponent = ({
     const initialData = {
       creatorName: 'Thuan',
       // creatorAvatar: serie.createdBy.avatar,
-      // likes: serie.totalLikes,
+      // isLiked: serie.alreadyLiked,
       serieName: serie.serieName,
       thumbanailSrc: serie.thumbnail,
     };
@@ -57,7 +58,24 @@ export const SerieComponent = ({
   }, [serie]);
 
   const onClickFavorite = () => {
-    console.log(1);
+    favorite ?
+        EpisodeManagementAPI.unlike({
+          userInfo: GetUserInfo(),
+          serieId: serie.serieId,
+        }).then((res) => {
+          console.log(res);
+          if (res.data == "success") {
+            setFavorite(false);
+          }
+        }) : EpisodeManagementAPI.like({
+          userInfo: GetUserInfo(),
+          serieId: serie.serieId,
+        }).then((res) => {
+          console.log(res);
+          if (res.data == "success") {
+            setFavorite(true);
+          }
+        })
   };
 
   const handleMoveToShop = () => {

@@ -12,6 +12,7 @@ import {PageNavigation} from "@components/pagination";
 import SeriesManagementAPI from "../../api/series-management/series-management";
 import {GetUserInfo} from "src/api/user";
 import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
+import EpisodeManagementAPI from "../../api/episode-management/episode-management";
 
 const SerieTemplate = ({serieId}) => {
     const {t} = useTranslation();
@@ -31,6 +32,8 @@ const SerieTemplate = ({serieId}) => {
     const [isLogged, setIsLogged] = useState(false);
     const [clientType, setClientType] = useState("");
     const [modalVisible, setModalVisible] = useState(false);
+    const [likes, setLikes] = useState(0);
+    const [favorite, setFavorite] = useState(false);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -48,27 +51,37 @@ const SerieTemplate = ({serieId}) => {
         }
     }, []);
 
-    // const onClickFavorite = () => {
-    //   if (!isLogged) setModalVisible(true);
-    //   else {
-    //     SeriesManagementAPI.toggleLikedSerie({
-    //       userInfo: GetUserInfo(),
-    //       serie: serieId,
-    //     }).then((res) => {
-    //       if (res.success) {
-    //         // setFavorite(res.isLiked);
-    //         // setLike(res.totalLikes);
-    //       }
-    //     });
-    //   }
-    // };
+    const onClickFavorite = () => {
+      // if (!isLogged) setModalVisible(true);
+
+        favorite ?
+            EpisodeManagementAPI.unlike({
+                userInfo: GetUserInfo(),
+                serieId: serieId,
+            }).then((res) => {
+                console.log(res);
+                if (res.data == "success") {
+                    setFavorite(false);
+                    setLikes(likes - 1);
+                }
+            }) : EpisodeManagementAPI.like({
+                userInfo: GetUserInfo(),
+                serieId: serieId,
+            }).then((res) => {
+                console.log(res);
+                if (res.data == "success") {
+                    setFavorite(true);
+                    setLikes(likes + 1);
+                }
+            })
+    };
 
     useEffect(() => {
         CustomerSerieAPI.getSerieData({serieId: serieId, userInfo: GetUserInfo()})
             .then((data) => {
                 setSerieData(data);
-                // setLike(data?.totalLikes);
-                // setFavorite(data?.isFavoriting);
+                setLikes(data?.likes);
+                setFavorite(data?.alreadyLiked);
                 setSerieInfoHeight(serieInfoRef.current.clientHeight);
                 setSerieInfoHeight2(contentRef.current.clientHeight);
                 setLines(Math.trunc(serieInfoRef.current.clientHeight / 21));
@@ -163,16 +176,16 @@ const SerieTemplate = ({serieId}) => {
                             <div className={`${style["vertical-line"]}`}/>
                             <div
                                 className={`${style["heart"]}`}
-                                // onClick={() => onClickFavorite()}
+                                onClick={() => onClickFavorite()}
                             >
-                                {/*{favorite ? (*/}
-                                {/*  <HeartFilled*/}
-                                {/*    className={`${style["favorite-icon"]} ${style["color-red"]}`}*/}
-                                {/*  />*/}
-                                {/*) : (*/}
-                                {/*  <HeartOutlined className={`${style["favorite-icon"]}`} />*/}
-                                {/*)}*/}
-                                {/*<span className={`${style["like-count"]}`}>{likes}</span>*/}
+                                {favorite ? (
+                                  <HeartFilled
+                                    className={`${style["favorite-icon"]} ${style["color-red"]}`}
+                                  />
+                                ) : (
+                                  <HeartOutlined className={`${style["favorite-icon"]}`} />
+                                )}
+                                <span className={`${style["like-count"]}`}>{likes}</span>
                             </div>
                         </div>
                         <div className={`${style["category-info"]}`}>
