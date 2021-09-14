@@ -5,11 +5,19 @@ import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { GetUserInfo } from "src/api/user";
 import style from "./header.module.scss";
+import { useSelector, useDispatch } from "react-redux";
 
 export const Header = ({ triggerCreatorLogout = null }) => {
 	const { t } = useTranslation();
 	const router = useRouter();
 	const [isLogged, setIsLogged] = useState(false);
+
+	const dispatch = useDispatch();
+
+	const totalItemsInCart = useSelector((state: any) => {
+		let total = state.cart.cartList.length || 0
+		return total;
+	});
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
@@ -55,7 +63,10 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 				<Menu.Item key="6">
 					{t("common:header.dropdown.purchaseHistory")}
 				</Menu.Item>
-				<Menu.Item key="7" onClick={() => {}}>
+				<Menu.Item key="7" onClick={() => {
+					localStorage.clear();
+					router.push('/login')
+				}}>
 					{t("common:header.dropdown.logOut")}
 				</Menu.Item>
 			</Menu>
@@ -70,13 +81,13 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 					key="cart"
 					className={`${style["disable-antd-css"]} ${style["ml-auto"]}`}
 					style={{ position: "relative" }}
-					onClick={() => {}}
+					onClick={() => { }}
 				>
-					{/*{totalItemsInCart > 0 && (*/}
-					{/*	<div className={`${style["cart-number-badge"]}`}>*/}
-					{/*		{totalItemsInCart}*/}
-					{/*	</div>*/}
-					{/*)}*/}
+					{totalItemsInCart > 0 && (
+						<div className={`${style["cart-number-badge"]}`}>
+							{totalItemsInCart}
+						</div>
+					)}
 					<img src="/assets/cart.svg" />
 				</Menu.Item>
 				{isLogged ? (

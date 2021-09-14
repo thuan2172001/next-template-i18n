@@ -96,7 +96,7 @@ export const EpisodeProduct = ({ serieId, episode }) => {
 
       <div className={`${style["cursor_pointer"]} ${style["bottom-detail"]}`}>
         <span className={`${style["episode-price"]}`}>
-          {price}
+          {price}{' $'}
           {/*<span>{t(`common:${currency}`)}</span>*/}
         </span>
         <span className={`${style["float-right"]} ${style["episode-heart"]}`}>
