@@ -4,7 +4,7 @@ import { SeeMoreNoResult } from "@components/no-result/SeeMoreNoResult";
 import { PageNavigation } from "@components/pagination";
 import { SerieComponent } from "@components/serie_component";
 import SeriesManagementAPI from "../../api/series-management/series-management";
-import { GetUserInfo } from "../../api/user";
+import { GetUserInfo } from "../../api/auth";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 

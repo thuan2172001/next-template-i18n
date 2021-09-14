@@ -3,7 +3,7 @@ import { TwitterEmbbed } from "@components/twitter-homepage";
 import { Modal, Input, Button, Row, Col } from "antd";
 import { cnumberWithCommas } from "src/utils/common-function";
 // import CreatorSettingAPI from "../../api/creator/setting";
-import { GetUserInfo } from "src/api/user";
+import { GetUserInfo } from "src/api/auth";
 // import CreatorManagementApi from "../../api/creator/creators-management";
 // import { RequireLoginModal } from "@components/modal/RequireLoginModal";
 

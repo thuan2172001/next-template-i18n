@@ -1,0 +1,39 @@
+@import "@components/global-scss/variables.scss";
+
+.empty-cart {
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: rem(100px);
+  margin-bottom: rem(50px);
+  .empty-cart-img {
+    width: rem(161px);
+    height: rem(161px);
+    margin: 0 auto;
+  }
+  .empty-cart-content {
+    margin-top: rem(42px);
+    font-style: normal;
+    font-weight: $fw-bold;
+    font-size: $fs2;
+    line-height: $lh3;
+
+    text-align: center;
+    letter-spacing: rem(0.2px);
+
+    color: $color-gray-9;
+  }
+  .continue-browse {
+    margin: rem(60px) auto 0 auto;
+    width: rem(273px);
+    height: rem(48px);
+    background: $color-blue-2;
+    font-style: normal;
+    font-weight: $fw-bold;
+    font-size: $fs1;
+    line-height: $lh2;
+    letter-spacing: rem(0.2px);
+    margin-bottom: rem(50px);
+    color: $color-white;
+  }
+}

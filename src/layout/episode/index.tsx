@@ -7,7 +7,7 @@ import { HeartFilled, HeartOutlined } from "@ant-design/icons";
 import CustomerEpisodeAPI from "../../api/customer/episode";
 import CustomerCartAPI from "../../api/customer/cart";
 import CustomerBookshelfAPI from "../../api/customer/bookshelf";
-import { GetUserInfo } from "../../api/user";
+import { GetUserInfo } from "../../api/auth";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { NonPurchasedItem } from "./NonPurchasedItem";
@@ -29,7 +29,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
     const router = useRouter();
     const [shareModal, setShareModal] = useState(false);
     const dispatch = useDispatch();
-    const cartList = useSelector((state: any) => state.cart.cartList);
+    const cartList = useSelector((state: any) => state.cart?.cartList);
     const [favorite, setFavorite] = useState(false);
     const [amountInCart, setAmountInCart] = useState(0);
     const [episodeInfo, setEpisodeInfo] = useState<any>({});

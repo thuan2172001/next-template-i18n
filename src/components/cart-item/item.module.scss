@@ -1,0 +1,82 @@
+@import "@components/global-scss/variables.scss";
+
+.cart-item {
+  display: flex;
+  font-style: normal;
+  margin: 0 rem(14px) 0 rem(18px);
+}
+
+.cart-item-image, .cart-item-name {
+  cursor: pointer;
+}
+
+.edition-count {
+  margin-top: rem(10px);
+  margin-left: auto;
+  display: flex;
+  max-height: rem(32px);
+}
+
+.edition-count-1 {
+  margin-top: rem(14px);
+  font-weight: $fw-medium;
+  font-size: $fs1;
+  line-height: $lh2;
+  letter-spacing: rem(0.2px);
+  color: $color-light-black;
+  margin-left: auto;
+}
+
+.cart-item-name,
+.cart-item-price,
+.remove-item,
+.cart-item-creator-name,
+.unit {
+  font-size: $fs1;
+  line-height: $lh2;
+  letter-spacing: rem(0.2px);
+  color: $color-light-black;
+  margin-top: rem(14px);
+  margin-left: auto;
+}
+
+.cart-item-name {
+  margin-left: rem(17px);
+  overflow-wrap: break-word;
+  width: rem(286px);
+  font-weight: $fw-medium;
+  .cart-item-creator-name {
+    margin-top: rem(9px);
+    font-weight: $fw-normal;
+  }
+}
+
+.remove-item {
+  font-weight: $fw-normal;
+  cursor: pointer;
+}
+
+.cart-item-price {
+  width: rem(59px);
+  color: $color-red-1;
+  font-weight: $fw-bold;
+  text-align: end;
+}
+
+.unit {
+  color: $color-light-black;
+}
+
+.check-box {
+  margin: auto rem(23px) auto 0;
+}
+
+.total-price {
+  width: rem(70px)
+}
+
+@media screen and (max-width: rem(1200px)) {
+  .cart-item-name {
+    width: rem(200px);
+  }
+}

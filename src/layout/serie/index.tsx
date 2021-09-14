@@ -10,7 +10,7 @@ import router from "next/router";
 import {SeeMoreNoResult} from "@components/no-result/SeeMoreNoResult";
 import {PageNavigation} from "@components/pagination";
 import SeriesManagementAPI from "../../api/series-management/series-management";
-import {GetUserInfo} from "src/api/user";
+import {GetUserInfo} from "src/api/auth";
 import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
 import EpisodeManagementAPI from "../../api/episode-management/episode-management";
 

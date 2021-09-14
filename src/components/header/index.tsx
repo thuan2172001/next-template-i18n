@@ -3,7 +3,7 @@ import { Menu, Dropdown, Button } from "antd";
 import Router, { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
-import { GetUserInfo } from "src/api/user";
+import { GetUserInfo } from "src/api/auth";
 import style from "./header.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -15,7 +15,7 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 	const dispatch = useDispatch();
 
 	const totalItemsInCart = useSelector((state: any) => {
-		let total = state.cart.cartList.length || 0
+		let total = state.cart?.cartList.length || 0
 		return total;
 	});
 
@@ -81,7 +81,7 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 					key="cart"
 					className={`${style["disable-antd-css"]} ${style["ml-auto"]}`}
 					style={{ position: "relative" }}
-					onClick={() => { }}
+					onClick={() => { router.push('/user/cart') }}
 				>
 					{totalItemsInCart > 0 && (
 						<div className={`${style["cart-number-badge"]}`}>
