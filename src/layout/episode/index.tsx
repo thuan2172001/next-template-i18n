@@ -37,7 +37,7 @@ const EpisodeTemplate = ({seriesId, episodeId}) => {
 
     const dispatch = useDispatch();
 
-    const cartList = useSelector((state: any) => state.cart.cartList);
+    // const cartList = useSelector((state: any) => state.cart.cartList);
 
     const [favorite, setFavorite] = useState(false);
     const [amount, setAmount] = useState(1);
