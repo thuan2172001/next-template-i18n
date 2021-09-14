@@ -28,6 +28,7 @@ const SerieTemplate = ({serieId}) => {
     const [seeAll, setSeeAll] = useState(false);
     const [clickSeeAll, setClickSeeAll] = useState(false);
     const [lines, setLines] = useState(0);
+    const [itemPerPage, setItemPerPage] = useState(30)
     const [page, setPage] = useState(1);
     const [isLogged, setIsLogged] = useState(false);
     const [clientType, setClientType] = useState("");
@@ -105,7 +106,7 @@ const SerieTemplate = ({serieId}) => {
     useMemo(() => {
       serieData &&
         setEpisodeList(
-          serieData.episodes.slice((page - 1) * 6, page * 6).map((episode) => {
+          serieData.episodes.slice((page - 1) * itemPerPage, page * itemPerPage).map((episode) => {
             return <EpisodeProduct serieId={serieId} episode={episode} />;
           })
         );
@@ -294,7 +295,7 @@ const SerieTemplate = ({serieId}) => {
             {/*)}*/}
 
             {serieData?.episodes.length === 0 ? (
-                <SeeMoreNoResult/>
+                <SeeMoreNoResult />
             ) : (
                 <div>
                     <section className={style["serie-info"]}>
@@ -304,7 +305,7 @@ const SerieTemplate = ({serieId}) => {
                     </section>
                     <PageNavigation
                         totalItem={serieData?.episodes.length}
-                        itemsPerPage={6}
+                        itemsPerPage={itemPerPage}
                         page={page}
                         setPage={setPage}
                     />
