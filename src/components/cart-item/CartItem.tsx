@@ -124,11 +124,11 @@ export const CartItem = ({
         </div>
 
         <div className={`${style["cart-item-price"]} ${style["unit"]}`}>
-          {typeof price === "number" && price} USD
+          {price} USD
         </div>
 
         <div className={`${style["cart-item-price"]} ${style["total-price"]}`}>
-          {typeof price === "number" && price} USD
+          {price} USD
         </div>
         <div
           className={`${style["remove-item"]}`}

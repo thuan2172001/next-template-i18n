@@ -111,6 +111,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
     const getCartList = () => {
         const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
         CustomerCartAPI.getCart({ userInfo }).then((data) => {
+            console.log({data})
             if (data) {
                 dispatch({
                     type: "UPDATE_CART",
@@ -126,8 +127,11 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
 
     const handleAddToCart = () => {
         console.log({ "amount": amountInCart });
-        let newCartList =
-            cartList.indexOf(episodeInfo.episodeId) === -1 ? [...cartList, episodeInfo.episodeId] : cartList;
+        let newCartList = [];
+        if (cartList) {
+            newCartList = [...new Set([...cartList, episodeInfo.episodeId])];
+        } else newCartList = [episodeInfo.episodeId]
+        console.log({ newCartList })
         const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
         if (userInfo) {
             CustomerCartAPI.updateCart({

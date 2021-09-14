@@ -50,18 +50,18 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
   const [totalPrice, setTotalPrice] = useState(0);
   const [numberCheckedItem, setNumberCheckedItem] = useState(0);
 
-  // useEffect(() => {
-  //   let tmpTotalPrice = 0;
-  //   let tmpTotalChecked = 0;
-  //   cartList.forEach((cart) => {
-  //     if (cart.isCheck) {
-  //       tmpTotalPrice += cart.price * cart.quantity;
-  //       tmpTotalChecked += 1;
-  //     }
-  //   });
-  //   setTotalPrice(tmpTotalPrice);
-  //   setNumberCheckedItem(tmpTotalChecked);
-  // }, [cartList, isAllChecked]);
+  useEffect(() => {
+    let tmpTotalPrice = 0;
+    let tmpTotalChecked = 0;
+    cartList.forEach((cart) => {
+      // if (cart.isCheck) {
+        tmpTotalPrice += parseInt(cart.price);
+        tmpTotalChecked += 1;
+      // }
+    });
+    setTotalPrice(tmpTotalPrice);
+    setNumberCheckedItem(tmpTotalChecked);
+  }, [cartList, isAllChecked]);
 
   // const toogleIsCheckCart = (cartItem) => {
   //   const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
@@ -97,15 +97,15 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
         </div>
 
         <div className={`${style["cart-item-list"]}`}>
-          <div className={`${style["check-box"]}`}>
-            <Checkbox
-              checked={isAllChecked}
+          {/* <div className={`${style["check-box"]}`}> */}
+            {/* <Checkbox */}
+              {/* checked={isAllChecked}
             // onClick={() => toogleIsCheckCart("all")}
-            />
-            <span className={`${style["select-all"]}`}>
-              {t("common:cartItem.selectAll")} ({cartList.length})
-            </span>
-          </div>
+            // />
+            // <span className={`${style["select-all"]}`}>
+            //   {t("common:cartItem.selectAll")} ({cartList.length})
+            // </span> */}
+          {/* </div> */}
           <hr className={`${style["line-1"]}`} />
           {cartList.map(
             (itemInfo, index) => {
