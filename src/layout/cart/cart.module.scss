@@ -1,0 +1,95 @@
+@import "@components/global-scss/variables.scss";
+
+.cart {
+  background: $color-bold-white;
+  min-height: 100vh;
+  padding: rem(60px) 11% 0 11%;
+}
+
+.cart-header {
+  font-style: normal;
+  font-weight: $fw-bold;
+  font-size: $lh2;
+  line-height: $lh3;
+  letter-spacing: rem(0.2px);
+  color: $color-light-black;
+  margin-bottom: rem(40px);
+}
+
+.cart-item-list {
+  padding-bottom: rem(40px);
+  padding-top: rem(10px);
+  background: $color-white;
+  .check-box {
+    margin-left: (18px);
+  }
+  .line {
+    border: rem(1px) solid $color-gray-8;
+    margin: rem(30px) 0;
+  }
+
+  .line-1 {
+    border: rem(1px) solid $color-gray-8;
+    // margin: rem(30px) 0;
+    margin-bottom: rem(40px);
+  }
+
+  .select-all {
+    margin-left: rem(23px);
+    font-style: normal;
+    font-weight: $fw-normal;
+    font-size: $fs1;
+    line-height: $lh2;
+    letter-spacing: rem(0.2px);
+    color: $color-light-black;
+  }
+}
+
+.order-total {
+  height: rem(81px);
+  display: flex;
+  align-items: center;
+  background: $color-white;
+  margin-top: rem(10px);
+  font-weight: $fw-bold;
+  letter-spacing: rem(0.2px);
+  padding-right: rem(14px);
+  .order-total-name {
+    margin-left: auto;
+    font-size: rem($fs1);
+    line-height: rem($lh2);
+    color: $color-black;
+  }
+  .order-total-number {
+    margin-left: rem(84px);
+    color: $color-red-1;
+    font-size: rem($fs3);
+    line-height: rem($lh3);
+  }
+}
+
+.checkout-cart,
+.continue-browse {
+  font-weight: $fw-bold;
+  width: rem(273px);
+  height: rem(48px);
+  font-size: $fs1;
+  line-height: $lh2;
+  letter-spacing: rem(0.2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-cart {
+  margin-left: auto;
+  margin-top: rem(40px);
+  background: $color-blue-2;
+  color: $color-white;
+}
+
+.continue-browse {
+  margin-left: auto;
+  color: $color-black;
+  cursor: pointer;
+}

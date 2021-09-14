@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import { Tooltip } from "antd";
 import { useRouter } from "next/router";
 import { convertLongString } from "src/utils/common-function";
-import { GetUserInfo } from "../../api/user";
+import { GetUserInfo } from "../../api/auth";
 import { HeartFilled, HeartOutlined } from "@ant-design/icons";
 // import { RequireLoginModal } from "@components/modal/RequireLoginModal";
 import EpisodeManagementAPI from "../../api/episode-management/episode-management";

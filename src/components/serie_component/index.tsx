@@ -6,7 +6,7 @@ import style from "./serie-template.module.scss";
 import { HeartFilled, HeartOutlined } from "@ant-design/icons";
 import { convertLongString } from "src/utils/common-function";
 import SeriesManagementAPI from "../../api/series-management/series-management";
-import { GetUserInfo } from "src/api/user";
+import { GetUserInfo } from "src/api/auth";
 import EpisodeManagementAPI from "../../api/episode-management/episode-management";
 
 export const SerieComponent = ({

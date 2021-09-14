@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserAPI from '../../api/user';
+import UserAPI from '../../api/auth';
 import {
 	SignMessage,
 	SymmetricDecrypt,
