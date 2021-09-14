@@ -8,54 +8,53 @@ export default {
 		const customAxios = createCustomAxios(userInfo);
 		return customAxios({
 			method: 'get',
-			url: `${baseURL}/customer/cart`,
+			url: `${baseURL}/user/cart`,
 		}).then((data) => {
 			return data;
 		});
 	},
 
-	getCartCheckout: ({ userInfo }) => {
-		const customAxios = createCustomAxios(userInfo);
-		return customAxios({
-			method: 'get',
-			url: `${baseURL}/customer/cart-checkout`,
-		}).then((data) => {
-			return data;
-		});
-	},
+	// getCartCheckout: ({ userInfo }) => {
+	// 	const customAxios = createCustomAxios(userInfo);
+	// 	return customAxios({
+	// 		method: 'get',
+	// 		url: `${baseURL}/user/cart-checkout`,
+	// 	}).then((data) => {
+	// 		return data;
+	// 	});
+	// },
 
-	updateCart: ({ userInfo, episodeId, quantity }) => {
+	updateCart: ({ userInfo, cartItems }) => {
 		const customAxios = createCustomAxios(userInfo);
 		return customAxios
-			.post(`${baseURL}/customer/cart`, {
-				episodeId,
-				quantity,
+			.put(`${baseURL}/user/cart`, {
+				cartItems,
 			})
 			.then((data) => {
 				return data;
 			});
 	},
 
-	updateCartMutiple: ({ userInfo, cartInfo }) => {
-		const customAxios = createCustomAxios(userInfo);
+	// updateCartMutiple: ({ userInfo, cartInfo }) => {
+	// 	const customAxios = createCustomAxios(userInfo);
 
-		return customAxios
-			.post(`${baseURL}/customer/cart/multiple`, {
-				cartInfo,
-			})
-			.then((data) => {
-				return data;
-			});
-	},
+	// 	return customAxios
+	// 		.post(`${baseURL}/user/cart/multiple`, {
+	// 			cartInfo,
+	// 		})
+	// 		.then((data) => {
+	// 			return data;
+	// 		});
+	// },
 
-	toogleIsCheckCart: ({ userInfo, cartItem }) => {
-		const customAxios = createCustomAxios(userInfo);
-		return customAxios
-			.post(`${baseURL}/customer/cart/toggle-ischeck`, {
-				cartItem,
-			})
-			.then((data) => {
-				return data;
-			});
-	}
+	// toogleIsCheckCart: ({ userInfo, cartItem }) => {
+	// 	const customAxios = createCustomAxios(userInfo);
+	// 	return customAxios
+	// 		.post(`${baseURL}/user/cart/toggle-ischeck`, {
+	// 			cartItem,
+	// 		})
+	// 		.then((data) => {
+	// 			return data;
+	// 		});
+	// }
 };

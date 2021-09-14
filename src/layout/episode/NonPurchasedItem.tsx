@@ -2,15 +2,14 @@ import { Col, Row, Button } from "antd";
 import React from "react";
 import { useTranslation } from "next-i18next";
 import style from "./episode.module.scss";
-import CounterInput from "react-counter-input";
 import { useRouter } from "next/router";
 
-export const NonPurchasedItem = ({ episodeInfo = null, setCartAmount = null, addedToBookshelf = null, handelAddToBookshelf = null, handleAddToCart = null, serieId = null }) => {
+export const NonPurchasedItem = ({ episodeInfo = null, amountInCart = 0, addedToBookshelf = null, handelAddToBookshelf = null, handleAddToCart = null, serieId = null }) => {
   const { t } = useTranslation();
   const router = useRouter();
 
   const enjoyEpisode = ({ serieId, episodeId, type }) => {
-    if(type == 'watch')
+    if (type == 'watch')
       router.push(`watch?serieId=${serieId}&episodeId=${episodeId}`);
     else router.push(`read?serieId=${serieId}&episodeId=${episodeId}`);
   };
@@ -22,11 +21,11 @@ export const NonPurchasedItem = ({ episodeInfo = null, setCartAmount = null, add
           {episodeInfo?.price == "0" ? (
             <div className={`${style["free"]}`}>{t("common:free")}</div>
           ) : (
-              <div className={`${style["price"]}`}>
-                <span>
-                  {episodeInfo?.price} USD
-                </span>
-              </div>
+            <div className={`${style["price"]}`}>
+              <span>
+                {episodeInfo?.price} USD
+              </span>
+            </div>
           )}
         </Col>
       </Row>
@@ -52,7 +51,7 @@ export const NonPurchasedItem = ({ episodeInfo = null, setCartAmount = null, add
             <Col span={12}>
               <Button
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
-                onClick={() => {}}
+                onClick={() => { }}
               >
                 {t("common:enjoy")}
               </Button>
@@ -65,22 +64,24 @@ export const NonPurchasedItem = ({ episodeInfo = null, setCartAmount = null, add
           className={`${style["available"]}`}
         >
           <>
-            <Col span={12}>
+            <Col span={11}>
               <Button
                 className={
-                  `${style["available"]} ${style["btn-add-to-cart"]}`}
-                onClick={() => {}}
-                // disabled={episodeInfo?.forSaleEdition == 0}
+                  amountInCart < 1
+                    ? `${style["available"]} ${style["btn-add-to-cart"]}`
+                    : `${style["sold-out"]} ${style["btn-add-to-cart"]}`}
+                disabled={amountInCart > 0}
+                onClick={() => handleAddToCart()}
               >
                 {t("common:addToCart")}
               </Button>
             </Col>
-            <Col span={12}>
+            <Col span={2}></Col>
+            <Col span={11}>
               <Button
                 onClick={() => {
-                    // handleAddToCart();
-                    router.push("/user/cart");
-
+                  handleAddToCart();
+                  router.push("/user/cart");
                 }}
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
               >
