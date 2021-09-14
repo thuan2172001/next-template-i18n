@@ -6,7 +6,7 @@ import { convertLongString } from "src/utils/common-function";
 import { GetUserInfo } from "../../api/user";
 import { HeartFilled, HeartOutlined } from "@ant-design/icons";
 // import { RequireLoginModal } from "@components/modal/RequireLoginModal";
-// import EpisodeManagementAPI from "../../api/episode-management/episode-management";
+import EpisodeManagementAPI from "../../api/episode-management/episode-management";
 import style from "./product-item.module.scss";
 
 export const EpisodeProduct = ({ serieId, episode }) => {
@@ -21,12 +21,12 @@ export const EpisodeProduct = ({ serieId, episode }) => {
     thumbnail,
     // currency,
     // totalLikes,
-    // isFavoriting,
+    alreadyLiked,
   } = episode;
 
   const router = useRouter();
 
-  // const [favorite, setFavorite] = useState(isFavoriting);
+  const [favorite, setFavorite] = useState(alreadyLiked);
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -38,19 +38,31 @@ export const EpisodeProduct = ({ serieId, episode }) => {
 
   // const [episodeTotalLikes, setTotalLikes] = useState(totalLikes);
 
-  // const onClickFavorite = () => {
-  //   if (!isLogged) setModalVisible(true);
-  //   else {
-  //     EpisodeManagementAPI.toggleLikedSerie({ userInfo: GetUserInfo(), episode: episode._id }).then((res) => {
-  //       if (res.success) {
-  //         setFavorite(res.isLiked);
-  //         setTotalLikes(
-  //           res.totalLikes,
-  //         );
-  //       }
-  //     })
-  //   }
-  // };
+  const onClickFavorite = () => {
+    // if (!isLogged) setModalVisible(true);
+    console.log(favorite);
+    favorite ?
+        EpisodeManagementAPI.unlike({
+          userInfo: GetUserInfo(),
+          episodeId: episode.episodeId,
+        }).then((res) => {
+          console.log(res);
+          if (res.data == "success") {
+            setFavorite(false);
+            // setTotalLikes(episodeTotalLikes - 1);
+          }
+        }) : EpisodeManagementAPI.like({
+          userInfo: GetUserInfo(),
+          episodeId: episode.episodeId,
+        }).then((res) => {
+          console.log(res);
+          if (res.data == "success") {
+            setFavorite(true);
+            // setTotalLikes(episodeTotalLikes + 1);
+          }
+        })
+  };
+
 
 
   useEffect(() => {
@@ -88,21 +100,21 @@ export const EpisodeProduct = ({ serieId, episode }) => {
           {/*<span>{t(`common:${currency}`)}</span>*/}
         </span>
         <span className={`${style["float-right"]} ${style["episode-heart"]}`}>
-          {/*{favorite ? (*/}
-          {/*  <HeartFilled*/}
-          {/*    className={`${style["favorite-icon"]} ${style["color-red"]}`}*/}
-          {/*    // onClick={onClickFavorite}*/}
-          {/*  />*/}
-          {/*) : (*/}
-          {/*  <HeartOutlined*/}
+          {favorite ? (
+            <HeartFilled
+              className={`${style["favorite-icon"]} ${style["color-red"]}`}
+              onClick={onClickFavorite}
+            />
+          ) : (
+            <HeartOutlined
+              className={`${style["favorite-icon"]}`}
+              onClick={onClickFavorite}
+            />
+          )}
+          {/*<HeartOutlined*/}
           {/*    className={`${style["favorite-icon"]}`}*/}
           {/*    // onClick={onClickFavorite}*/}
-          {/*  />*/}
-          {/*)}*/}
-          <HeartOutlined
-              className={`${style["favorite-icon"]}`}
-              // onClick={onClickFavorite}
-          />
+          {/*/>*/}
           {/*<span className={`${style["episode-like"]}`}>{episodeTotalLikes}</span>*/}
         </span>
       </div>

@@ -9,7 +9,15 @@
 		"logOut": "Log out",
 		"signUp": "Sign up",
 		"logIn": "Next",
-		"account": "Account"
+		"account": "Account",
+		"dropdown": {
+			"account": "Account",
+			"bookshelf": "Bookshelf",
+			"newArrivals": "New arrivals",
+			"liked": "Liked",
+			"purchaseHistory": "Purchase history",
+			"logOut": "Log out"
+		}
 	},
 	"category": {
 		"all": "All",
