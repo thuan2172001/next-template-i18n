@@ -9,7 +9,15 @@
 		"logOut": "Đăng xuất",
 		"logIn": "ログイン",
 		"signUp": "サインアップ",
-		"account": "Account"
+		"account": "Account",
+		"dropdown": {
+			"account": "Tài khoản",
+			"bookshelf": "Giá sách",
+			"newArrivals": "Truyện mới",
+			"liked": "Yêu thích",
+			"purchaseHistory": "Lịch sử giao dịch",
+			"logOut": "Log out"
+		}
 	},
 	"category": {
 		"all": "Tất cả",

@@ -59,7 +59,7 @@ export const ListProducts = () => {
     setIsLoading(true);
     SeriesManagementAPI.getSerieQuery({
       userInfo: GetUserInfo(),
-      limit: itemsPerLine * 10,
+      limit: 20,
       page: page,
       firstIndex: firstItemIndex,
       category: category,
