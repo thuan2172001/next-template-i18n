@@ -1,0 +1,136 @@
+@import "@components/global-scss/variables";
+
+.payment-list {
+  background: $color-white;
+  min-height: rem(120px);
+  margin-top: rem(14px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.has-card {
+  padding: 28px 0 0 65px;
+}
+
+.checkout-cart {
+  background-color: $color-blue-2;
+  height: rem(48px);
+  width: rem(273px);
+  font-size: rem($fs1);
+  line-height: rem($lh2);
+  color: $color-white;
+  font-weight: $fw-bold;
+}
+
+
+.disabled-checkout{
+  background-color: red;
+}
+
+.checkout-cart[disabled] {
+  background-color: $color-gray-5;
+  color: $color-white;
+}
+.checkout-cart[disabled]:hover {
+  background-color: $color-gray-5;
+  color: $color-white;
+}
+
+.add-payment-method-btn {
+  width: rem(181px);
+  height: rem(40px);
+  font-weight: $fw-normal;
+  line-height: $lh2;
+  font-size: $fs1;
+  color: $color-white;
+  background: $color-blue-2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: rem(40px) auto rem(40px) rem(65px);
+}
+
+.cart-list {
+  padding: rem(10px) 0 rem(10px) 0;
+  background: $color-white;
+  margin-top: rem(14px);
+}
+
+.cart-header {
+  font-weight: $fw-bold;
+  font-size: rem($fs3);
+  line-height: rem($lh3);
+  color: $color-light-black;
+}
+
+.cart {
+  background: $color-bold-white;
+  min-height: 100vh;
+  padding: rem(62px) 12% rem(500px) 12%;
+  font-style: normal;
+}
+
+.cart-divider {
+  margin: rem(30px) 0;
+  border: 1px solid $color-gray-7;
+}
+
+.order-total {
+  height: rem(81px);
+  display: flex;
+  align-items: center;
+  background: $color-white;
+  margin-top: rem(10px);
+  font-weight: $fw-bold;
+  letter-spacing: rem(0.2px);
+  padding-right: 6%;
+  .order-total-name {
+    margin-left: auto;
+    font-size: rem($fs1);
+    line-height: rem($lh2);
+    color: $color-black;
+  }
+  .order-total-number {
+    margin-left: rem(69px);
+    font-size: rem($fs3);
+    line-height: rem($lh3);
+    color: $color-red-1;
+  }
+}
+
+.account-card-name,
+.account-card-number {
+  margin-top: rem(5px);
+  font-size: $fs1;
+  line-height: $lh2;
+}
+
+.account-card-name {
+  font-weight: $fw-normal;
+  margin-left: rem(9px);
+  width: rem(86px);
+  overflow-wrap: break-word;
+}
+
+.account-card-number {
+  font-weight: $fw-bold;
+  margin-left: 11%;
+}
+
+.add-another-cart {
+  width: rem(181px);
+  height: rem(40px);
+  font-weight: $fw-normal;
+  line-height: $lh2;
+  font-size: $fs1;
+  background-color: $color-white;
+  color: $color-blue-2;
+  border: solid $color-blue-2 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: rem(35px) auto rem(40px) rem(24px);
+}

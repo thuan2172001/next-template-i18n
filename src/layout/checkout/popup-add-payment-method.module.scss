@@ -1,0 +1,162 @@
+@import "@components/global-scss/variables.scss";
+
+.modal-header {
+  font-family: $font-euclid-medium;
+  font-style: normal;
+  font-weight: $fw-bold;
+  font-size: rem($fs3);
+  line-height: rem($lh3);
+  letter-spacing: rem(0.2px);
+  color: $color-light-black;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-bottom: rem(24px);
+}
+
+.verify-message {
+  box-sizing: border-box;
+  border: rem(1px) solid $color-light-green;
+  border-radius: rem(3px);
+  display: flex;
+  font-size: $fs1;
+  line-height: $lh2;
+  background: $color-lighter-green;
+  padding-right: rem(17px);
+  margin-bottom: rem(23px);
+
+  .verify-icon {
+    margin-top: rem(17px);
+    margin-left: rem(21.87px);
+  }
+
+  .verify-text-container {
+    margin-left: rem(8.88px);
+    margin-top: rem(18px);
+    font-family: $font-euclid-regular;
+  }
+
+  .verify-text1 {
+    font-family: $font-euclid-regular;
+    font-style: normal;
+    font-weight: $fw-bold;
+    font-size: $fs1;
+    line-height: $lh2;
+
+    display: flex;
+    align-items: center;
+    letter-spacing: rem(0.2px);
+
+    color: $color-light-black;
+  }
+
+  .verify-text {
+    font-weight: $fw-medium;
+  }
+}
+
+.confirm-button {
+  margin-right: auto;
+  width: rem(160px);
+}
+
+.cancel-button {
+  align-items: right;
+  width: rem(160px);
+  margin-left: auto;
+}
+
+.button {
+  width: rem(160px);
+  height: rem(40px);
+  text-align: center;
+  margin-top: rem(40px);
+}
+
+.container {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//.stripe-container {
+//  border: 1px solid $color-black-3;
+//  height: rem(30px);
+//}
+
+.stripe-element {
+  height: rem(40px);
+  background: $color-white;
+  border: rem(1px) solid $color-line;
+  box-sizing: border-box;
+  padding: rem(11px)
+}
+
+
+.name-on-card {
+  margin-left: rem(0px);
+  :focus {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.cvc-expire-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-color-red {
+  color: $color-red;
+  margin-top: rem(10px);
+}
+
+.modal-common{
+  padding-bottom: rem(16px);
+}
+
+.active-save {
+  background: $color-blue-2;
+  color: $color-white;
+}
+
+.center-content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.success-message, .success-icon{
+  display: flex;
+  justify-content: center;
+  margin-top: rem(9px);
+}
+
+.success-message{
+  font-size: rem($fs4);
+  line-height: rem($lh4);
+  margin-top: rem(38px);
+}
+
+.footer-button{
+  display: flex;
+  justify-content: center;
+  padding: rem(10px) rem(23px);
+  align-self: center;
+  color: $color-white;
+  font-size: rem($fs1);
+  line-height: rem($lh2);
+  font-family: $font-euclid-regular;
+  font-weight: $fw-bold;
+  margin-top: rem(52px);
+  letter-spacing: rem(0.2px);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.save-active{
+  background: $color-blue-2;
+}

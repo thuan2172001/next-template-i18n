@@ -1,0 +1,27 @@
+@import "@components/global-scss/variables.scss";
+
+.layout {
+  width: rem(426px);
+  height: rem(60px);
+  margin-left: 12%;
+  display: flex;
+}
+
+.tab {
+  width: rem(142px);
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: $fw-bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  cursor: pointer;
+  letter-spacing: rem(0.2px);
+  color: $color-light-black;
+}
+
+.tab-active {
+  border-bottom: rem(3px) solid $color-orange;
+}
