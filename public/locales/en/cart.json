@@ -1,0 +1,20 @@
+{
+  "emptyCart": {
+    "noProduct": "There is no product in cart",
+    "continueBrowse": "Continue browsing"
+  },
+  "addPaymentMethod" : "Add Payment Method",
+  "orderTotal" : "Order Total",
+  "paymentMethod" : "Payment Method",
+  "cartHeader": "Shopping cart",
+  "useOtherCard" : "Use another card",
+  "cartItem": {
+    "shoppingCart": "Shopping cart",
+    "orderTotal": "Order Total",
+    "item": "item",
+    "items": "items",
+    "proceedCheckout": "Proceed to checkout",
+    "continueBrowse": "Continue browsing",
+    "selectAll": "Select all"
+  }
+}

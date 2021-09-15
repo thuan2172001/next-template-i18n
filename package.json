@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.3.0",
+    "@stripe/react-stripe-js": "^1.4.1",
     "antd": "^4.16.6",
     "axios": "^0.21.1",
     "crypto-js": "^4.0.0",
