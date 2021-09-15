@@ -134,24 +134,27 @@ const LoginTemplate = (props) => {
 					})
 				);
 
-				const cartItems = await CustomerCartAPI.getCart({
-					userInfo: _userInformation,
-				});
+				if (data?.role === "user") {
 
-				const mixItems = [...cartItems, ...storedCart];
+					const cartItems = await CustomerCartAPI.getCart({
+						userInfo: _userInformation,
+					});
 
-				const newCarts = [...new Set(mixItems)];
+					const mixItems = [...cartItems, ...storedCart];
 
-				// await CustomerCartAPI.updateCart({
-				// 	userInfo: _userInformation,
-				// 	cartInfo: newCarts
-				// })
-				// 	.then(() => {
-				// 		dispatch({
-				// 			type: "UPDATE_CART",
-				// 			payload: newCarts,
-				// 		});
-				// 	}).catch((err) => console.log(err))
+					const newCarts = [...new Set(mixItems)];
+
+					await CustomerCartAPI.updateCart({
+						userInfo: _userInformation,
+						cartItems: newCarts
+					})
+						.then(() => {
+							dispatch({
+								type: "UPDATE_CART",
+								payload: newCarts,
+							});
+						}).catch((err) => console.log(err))
+				}
 
 				Router.push('/');
 			})

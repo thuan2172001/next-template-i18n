@@ -111,7 +111,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
     const getCartList = () => {
         const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
         CustomerCartAPI.getCart({ userInfo }).then((data) => {
-            console.log({data})
+            console.log({ data })
             if (data) {
                 dispatch({
                     type: "UPDATE_CART",
@@ -145,6 +145,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
                 type: "UPDATE_CART",
                 payload: newCartList,
             });
+            setAmountInCart(1);
         }
     };
 

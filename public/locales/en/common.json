@@ -60,5 +60,9 @@
 		"proceedCheckout": "Proceed to checkout",
 		"continueBrowse": "Continue browsing",
 		"selectAll": "Select all"
+	},
+	"remove": "Remove",
+	"authorDefault": {
+		"name": "Trinh Van Thuan"
 	}
 }
