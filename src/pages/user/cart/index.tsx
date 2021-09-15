@@ -26,11 +26,11 @@ const CartPage = () => {
     if (userInfo) {
       CustomerCartAPI.getCartData({ userInfo }).then(data => {
         if (data) {
-          console.log({ data })
+          console.log({ fullData: data })
           setData(data)
           dispatch({
             type: 'UPDATE_CART',
-            payload: data.map(e => e.episodeId),
+            payload: data.map((e) => e.episodeId),
           });
         }
       })

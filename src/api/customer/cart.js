@@ -18,7 +18,7 @@ export default {
 		const customAxios = createCustomAxios(userInfo);
 		return customAxios({
 			method: 'get',
-			url: `${baseURL}/user/cart`,
+			url: `${baseURL}/user/cart-data`,
 		}).then((data) => {
 			return data;
 		});
