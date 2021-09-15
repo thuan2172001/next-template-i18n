@@ -144,7 +144,7 @@ export const CartItem = ({
                             router.push(`/shop/${authorId}`);
                         }}
                     >
-                        {"Trinh Van Thuan"}
+                        {t('common:authorDefault.name')}
                     </div>
                 </div>
 

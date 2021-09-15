@@ -126,7 +126,8 @@ export const ShopProfile = ({ template }) => {
                     <img src={"assets/demo/demo-author.svg"}></img>
                     <div className={`${style["creator-info"]}`}>
                       <div className={`${style["creator-name"]}`}>
-                        {"Trinh Van Thuan"}
+                        {t('common:authorDefault.name')}
+
                       </div>
                       <div className={`${style["creator-follow"]}`}>
                         <Button
