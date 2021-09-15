@@ -112,7 +112,7 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
               console.log({ itemInfo })
               if (itemInfo) return (
                 <div key={index}>
-                  <CartItem itemInfo={itemInfo} getCartList={getCartList} cartList={cartList} getCartListGuest={getCartListGuest} />
+                  <CartItem itemInfo={itemInfo} getCartList={getCartList} getCartListGuest={getCartListGuest} />
                   {index < cartList.length - 1 && (
                     <hr className={`${style["line"]}`} />
                   )}
@@ -128,7 +128,7 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
             {numberCheckedItem > 1 && "s"}):
           </span>
           <span className={`${style["order-total-number"]}`}>
-            {totalPrice} JPY
+            {totalPrice} USD
           </span>
         </div>
 
