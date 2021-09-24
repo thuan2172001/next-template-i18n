@@ -1,0 +1,15 @@
+{
+  "accountPage": {
+    "account": "Account",
+    "accountInfo": "Account Info",
+    "emailAddress": "Email Address",
+    "username": "User name",
+    "fullName": "Full name",
+    "edit": "Edit",
+    "password": "Password",
+    "myPaymentMethod": "My Payment Method",
+    "addNewCard": "Add new card",
+    "remove": "Remove",
+    "masterCard": "Master Card"
+  }
+}
