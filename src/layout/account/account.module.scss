@@ -1,0 +1,49 @@
+@import "@components/global-scss/variables.scss";
+
+.container {
+  background-color: $color-blue-8;
+  padding: rem(135px) 18% 0px 18%;
+  .sub-container {
+    padding: rem(40px) 10%;
+    .section {
+      .info-display {
+        margin-top: rem(14px);
+        margin-bottom: rem(45px);
+        background-color: $color-white;
+        padding: rem(40px) 13%;
+
+        .field-part {
+          margin-bottom: rem(20px);
+          .input {
+            margin-top: rem(4px);
+            height: rem(40px);
+            width: 82%;
+          }
+          .edit-button {
+            margin-left: rem(70px);
+            font-style: normal;
+            font-weight: $fw-bold;
+            font-size: $fs1;
+            line-height: $lh1;
+
+            text-align: right;
+            letter-spacing: 0.2px;
+            text-decoration-line: underline;
+            text-transform: capitalize;
+
+            color: $color-light-black;
+            cursor: pointer;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.big-bold {
+  font-weight: $fw-bold;
+  font-size: $fs7;
+  line-height: $lh3;
+  letter-spacing: 0.2px;
+}
