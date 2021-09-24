@@ -64,5 +64,15 @@
 	"remove": "Remove",
 	"authorDefault": {
 		"name": "Trinh Van Thuan"
+	},
+	"footer": {
+		"teamInformation": "Team Information",
+		"privacyPolicy": "Privacy Policy",
+		"support": "Support",
+		"termsAndConditions": "Terms and Conditions",
+		"copyright": "Copyright",
+		"technicalDebt": "TECHNICAL DEBT",
+		"allReserved": "All rights reserved.",
+		"fullCopyright": "Copyright ©︎ AUTHARIUM. All rights reserved."
 	}
 }

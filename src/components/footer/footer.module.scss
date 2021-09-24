@@ -1,0 +1,46 @@
+@import "@components/global-scss/variables.scss";
+
+.link-text,
+.atn-footer-text {
+  font-family: $font-euclid-regular;
+  font-style: normal;
+  font-weight: $fw-normal;
+  font-size: $fs1;
+  color: $color-white;
+}
+
+.atn-footer-link-container {
+  margin-bottom: rem(35px);
+}
+
+.atn-footer-text {
+  text-align: center;
+}
+
+.atn-footer-text-center {
+  font-family: $font-euclid-regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $fs4;
+  line-height: $lh2;
+  text-align: center;
+  color: $color-white;
+  display: block;
+}
+
+.atn-footer {
+  width: 100%;
+  height: rem(200px);
+  background-image: url("../../../public/assets/images/common/footer.png");
+  background-size: cover;
+  bottom: 0;
+  display: block;
+  text-align: center;
+  align-items: center;
+}
+
+.atn-footer-content {
+  display: block;
+  align-self: center;
+  margin-top: rem(73px);
+}
