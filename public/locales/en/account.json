@@ -15,5 +15,15 @@
     "age": "Age",
     "save": "Save",
     "cancel": "Cancel"
-  }
+  },
+  "notExistEmail": "The address you have entered has not been registered",
+  "invalidEmail": "Please input a valid email address",
+  "resend": "Resend",
+  "changePassword": "Change password",
+  "newPasswordSyntax": "Password must have at least 8 characters with 1 uppercase letter, 1 lowercase letter and 1 number. No accented character or space is allowed",
+  "emptyNewPassword": "Please input new password",
+  "confirmPasswordNotMatch": "Password doesn’t match",
+  "emptyConfirmPassword": "Please confirm new password",
+  "successChangePassword": "Successfully changed password",
+  "confirmPassword": "Please confirm your password"
 }

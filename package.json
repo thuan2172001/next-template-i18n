@@ -32,7 +32,8 @@
     "react-twitter-widgets": "^1.10.0",
     "redux-persist": "^6.0.0",
     "sass": "^1.35.1",
-    "secp256k1": "^4.0.2"
+    "secp256k1": "^4.0.2",
+    "style-loader": "^3.3.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.13",

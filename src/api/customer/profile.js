@@ -62,38 +62,38 @@ export default {
 			return data;
 		});
 	},
-
-	checkEmailExist: ({ email }) => {
-		const customAxios = createCustomAxios(null);
-
-		return customAxios({
-			method: 'post',
-			url: `${baseURL}/customer/check-email-exist`,
-			data: { email },
-		}).then((data) => {
-			return data;
-		});
-	},
+	//
+	// checkEmailExist: ({ email }) => {
+	// 	const customAxios = createCustomAxios(null);
+	//
+	// 	return customAxios({
+	// 		method: 'post',
+	// 		url: `${baseURL}/customer/check-email-exist`,
+	// 		data: { email },
+	// 	}).then((data) => {
+	// 		return data;
+	// 	});
+	// },
 
 	sendEmailForgotPw: ({ email }) => {
 		const customAxios = createCustomAxios(null);
 
 		return customAxios({
 			method: 'post',
-			url: `${baseURL}/customer/forgot-password/verify`,
+			url: `${baseURL}/auth/forgot-password`,
 			data: { email },
 		}).then((data) => {
 			return data;
 		});
 	},
 
-	confirmForgorPw: ({ encryptedPrivateKey, publicKey, user, code }) => {
+	confirmForgotPw: ({ encryptedPrivateKey, publicKey, userId, codeId }) => {
 		const customAxios = createCustomAxios(null);
 
 		return customAxios({
-			method: 'post',
-			url: `${baseURL}/customer/forgot-password/confirm`,
-			data: { encryptedPrivateKey, publicKey, user, code },
+			method: 'put',
+			url: `${baseURL}/auth/reset-password`,
+			data: { encryptedPrivateKey, publicKey, userId, codeId },
 		}).then((data) => {
 			return data;
 		});

@@ -198,7 +198,11 @@ const LoginTemplate = (props) => {
 						onPressEnter={handleLogin}
 					/>
 				</div>
-				<div className={style["forgot-password"]}>{t('common:forgotPw')}</div>
+				<div className={style["forgot-password"]}
+					 onClick={() => {router.push("/forgot-password")}}
+				>
+					{t('common:forgotPw')}
+				</div>
 				<Row className={style['btn-controller']}>
 					<div className={style['btn-controller-login']}>
 						<Button
