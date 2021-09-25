@@ -89,7 +89,7 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 							{totalItemsInCart}
 						</div>
 					)}
-					<img src="/assets/cart.svg" />
+					<img src="/assets/icons/cart.svg" />
 				</Menu.Item>
 				{isLogged ? (
 					<Menu.Item
@@ -125,7 +125,7 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 					<Link href="/">
 						<a>
 							<img
-								src="/assets/autharium_logo.svg"
+								src="/assets/icons/autharium_logo.svg"
 								className={`${style["logo-img"]}`}
 							/>
 							<span className={`${style["logo"]}`}>
