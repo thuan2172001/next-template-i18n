@@ -3,9 +3,21 @@
 .container {
   background-image: url("/assets/images/common/background.jpg");
   background-repeat: no-repeat;
-  background-size: 100vw;
+  background-size: 100vw 100vh;
   min-height: 100vh;
-  opacity: 0.8;
+}
+
+@media (max-width: 580px) {
+  .login-container {
+    width: 100vw !important;
+    height: 100vw;
+  }
+  .ant-input-custom {
+    width: 80vw !important;
+  }
+  .forgot-password {
+    width: 80vw !important;
+  }
 }
 
 .login-container {
