@@ -17,7 +17,6 @@
           .input {
             margin-top: rem(4px);
             height: rem(40px);
-            width: 82%;
           }
           .edit-button {
             margin-left: rem(70px);
@@ -36,6 +35,13 @@
           }
         }
 
+        .button-container {
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          margin-top: rem(40px);
+        }
+
       }
     }
   }
@@ -46,4 +52,78 @@
   font-size: $fs7;
   line-height: $lh3;
   letter-spacing: 0.2px;
+}
+
+.cancel-button {
+  background-color: $color-white;
+  color: $color-black;
+  padding: rem(9px) rem(16px);
+  text-align: center;
+  align-items: center;
+  width: 25%;
+  font-size: $fs1;
+  line-height: $lh1;
+  cursor: pointer;
+  border: 1px solid $color-blue-2;
+  margin-right: rem(30px);
+  min-width: rem(40px);
+}
+
+.active-white {
+  background-color: $color-blue-8;
+  color: $color-black;
+  padding: rem(9px) rem(16px);
+  text-align: center;
+  align-items: center;
+  width: 25%;
+  font-size: $fs1;
+  line-height: $lh1;
+  cursor: pointer;
+}
+
+.active-button {
+  background-color: $color-blue-2;
+  color: $color-white;
+  padding: rem(9px) rem(16px);
+  text-align: center;
+  align-items: center;
+  width: 25%;
+  font-size: $fs1;
+  line-height: $lh1;
+  cursor: pointer;
+  border: 1px solid $color-blue-2;
+  min-width: rem(40px);
+}
+
+.edit-pen {
+  color: $color-black;
+  margin-right: rem(10px);
+}
+
+.text-button {
+
+}
+
+.icon-button {
+  display: none;
+  min-width: rem(20px);
+  min-height: rem(20px);
+  text-align: center;
+}
+
+.white {
+  color: $color-white;
+}
+
+.blue {
+  color: $color-blue-2;
+}
+
+@media (max-width: rem(750px)) {
+  .text-button {
+    display: none;
+  }
+  .icon-button {
+    display: block;
+  }
 }

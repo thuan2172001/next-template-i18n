@@ -10,6 +10,10 @@
     "myPaymentMethod": "My Payment Method",
     "addNewCard": "Add new card",
     "remove": "Remove",
-    "masterCard": "Master Card"
+    "masterCard": "Master Card",
+    "phoneNumber": "Phone Number",
+    "age": "Age",
+    "save": "Save",
+    "cancel": "Cancel"
   }
 }

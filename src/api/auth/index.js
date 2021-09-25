@@ -25,6 +25,27 @@ export default {
 			return data;
 		});
 	},
+
+	getProfile: ({ userInfo }) => {
+		const customAxios = createCustomAxios(userInfo);
+		return customAxios({
+			method: 'get',
+			url: `${baseURL}/auth/profile`,
+		}).then((data) => {
+			return data;
+		});
+	},
+
+	saveProfile: ({ userInfo, profile }) => {
+		const customAxios = createCustomAxios(userInfo);
+		return customAxios({
+			method: 'put',
+			url: `${baseURL}/user/${userInfo._id}`,
+			data: profile,
+		}).then((data) => {
+			return data;
+		});
+	}
 };
 
 export const GetUserInfo = () => {
