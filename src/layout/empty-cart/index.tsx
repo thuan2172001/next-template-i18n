@@ -11,7 +11,7 @@ export const EmptyCartTemplate = () => {
       <div style={{ height: 50 }} />
       <div className={`${style["empty-cart"]}`}>
         <img
-          src="/assets/empty-cart.svg"
+          src="/assets/icons/empty-cart.svg"
           className={`${style["empty-cart-img"]}`}
         />
         <div className={`${style["empty-cart-content"]}`}>

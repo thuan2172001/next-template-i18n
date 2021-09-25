@@ -13,7 +13,7 @@ export const SearchBar2 = () => {
 	return (
 		<div className={`${style["searchbox-2"]}`}>
 			<input placeholder="Search" type="text"/>
-            <Button><img src={'/assets/search_icon.svg'}></img></Button>
+            <Button><img src={'/assets/icons/search_icon.svg'}></img></Button>
 		</div>
 	);
 };
