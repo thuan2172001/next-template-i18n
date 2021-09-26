@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState, useRef} from "react";
 // import { EpisodeProduct } from "../../components/product-item/EpisodeProduct";
 import {useTranslation} from "next-i18next";
 import CustomerSerieAPI from "../../api/customer/serie";
-import {Skeleton, Tooltip} from "antd";
+import {Col, Row, Skeleton, Tooltip} from "antd";
 import {HeartFilled, HeartOutlined} from "@ant-design/icons";
 import style from "./serie.module.scss";
 import {BASE_URL} from "../../api/const";
@@ -11,8 +11,9 @@ import {SeeMoreNoResult} from "@components/no-result/SeeMoreNoResult";
 import {PageNavigation} from "@components/pagination";
 import SeriesManagementAPI from "../../api/series-management/series-management";
 import {GetUserInfo} from "src/api/auth";
-import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
+import {EpisodeProduct} from "@components/product-item/EpisodeProduct";
 import EpisodeManagementAPI from "../../api/episode-management/episode-management";
+import Share from "@components/share-component/share";
 
 const SerieTemplate = ({serieId}) => {
     const {t} = useTranslation();
@@ -53,7 +54,7 @@ const SerieTemplate = ({serieId}) => {
     }, []);
 
     const onClickFavorite = () => {
-      // if (!isLogged) setModalVisible(true);
+        // if (!isLogged) setModalVisible(true);
 
         favorite ?
             EpisodeManagementAPI.unlike({
@@ -104,11 +105,11 @@ const SerieTemplate = ({serieId}) => {
     }, []);
 
     useMemo(() => {
-      serieData &&
+        serieData &&
         setEpisodeList(
-          serieData.episodes.slice((page - 1) * itemPerPage, page * itemPerPage).map((episode) => {
-            return <EpisodeProduct serieId={serieId} episode={episode} />;
-          })
+            serieData.episodes.slice((page - 1) * itemPerPage, page * itemPerPage).map((episode) => {
+                return <EpisodeProduct serieId={serieId} episode={episode}/>;
+            })
         );
     }, [serieData, page]);
 
@@ -180,11 +181,11 @@ const SerieTemplate = ({serieId}) => {
                                 onClick={() => onClickFavorite()}
                             >
                                 {favorite ? (
-                                  <HeartFilled
-                                    className={`${style["favorite-icon"]} ${style["color-red"]}`}
-                                  />
+                                    <HeartFilled
+                                        className={`${style["favorite-icon"]} ${style["color-red"]}`}
+                                    />
                                 ) : (
-                                  <HeartOutlined className={`${style["favorite-icon"]}`} />
+                                    <HeartOutlined className={`${style["favorite-icon"]}`}/>
                                 )}
                                 <span className={`${style["like-count"]}`}>{likes}</span>
                             </div>
@@ -220,43 +221,9 @@ const SerieTemplate = ({serieId}) => {
                         {/*    {serieData?.createdBy?.user?.fullName}*/}
                         {/*  </span>*/}
                         {/*</span>*/}
-                        <div className={`${style["share-section"]}`}>
-            <span
-                className={`${style["cursor_pointer"]} ${style["share-item"]}`}
-            >
-                <img src={"/assets/icons/share/share-link.svg"}/>
-              </span>
-                            {/* <span className={`${style["share-item"]}`}>Share</span>
-              <span
-                className={`${style["cursor_pointer"]} ${style["share-item"]}`}
-                onClick={shareToFacebook}
-              >
-                <img src={"/icons/share/facebook.svg"} />
-              </span>
-              <span
-                className={`${style["cursor_pointer"]} ${style["share-item"]}`}
-                onClick={shareToTwitter}
-              >
-                <img src={"/icons/share/twitter.svg"} />
-              </span>
-
-              <Tooltip placement="topLeft" title={tooltip}>
-                <span
-                  className={`${style["cursor_pointer"]} ${style["share-item"]}`}
-                  onClick={() => {
-                    navigator.clipboard.writeText(
-                      `${BASE_URL}/serie/${serieData._id}`
-                    );
-                    setTooltip("Link copied");
-                    setTimeout(() => {
-                      setTooltip("Copy link");
-                    }, 3000);
-                  }}
-                >
-                  <img src={"/icons/share/share.svg"} />
-                </span>
-              </Tooltip> */}
-                        </div>
+                        <Row>
+                            <Share episodeId={serieId} thumbnail={serieData?.thumbnail}/>
+                        </Row>
                     </div>
                 </div>
 
@@ -295,7 +262,7 @@ const SerieTemplate = ({serieId}) => {
             {/*)}*/}
 
             {serieData?.episodes.length === 0 ? (
-                <SeeMoreNoResult />
+                <SeeMoreNoResult/>
             ) : (
                 <div>
                     <section className={style["serie-info"]}>

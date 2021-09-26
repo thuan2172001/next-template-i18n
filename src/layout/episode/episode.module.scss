@@ -26,7 +26,7 @@
   }
 
   .series-link {
-    font-size: $fs1;
+    font-size: $fs4;
     line-height: $lh3;
     color: $color-blue;
   }
@@ -216,3 +216,46 @@
 .dotted-line {
   width: 100%;
 }
+
+.share-item {
+  color: $color-blue-2;
+  margin-right: rem(19px);
+  font-size: rem($fs1);
+  img {
+    height: rem(20px);
+    width: rem(20px);
+  }
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}
+
+.copy-link {
+  display: inline-flex;
+  margin-top: rem(10px);
+  //margin-left: rem(40px);
+  //margin-bottom: rem(15px);
+  border: 1px solid $color-black-3;
+  width: rem(350px);
+  .url {
+    display: inline-block;
+    width: rem(350px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    font-size: rem($fs1);
+    line-height: rem($lh2);
+    padding: rem(9px) rem(16px);
+    border: none;
+    background: $color-white;
+    outline: none;
+  }
+  .copy-btn {
+    display: inline-block;
+    color: $color-blue;
+    padding: rem(10px) rem(12px) rem(10px) 0;
+  }
+}
+

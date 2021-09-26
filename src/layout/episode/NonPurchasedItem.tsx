@@ -8,17 +8,11 @@ export const NonPurchasedItem = ({ episodeInfo = null, amountInCart = 0, addedTo
   const { t } = useTranslation();
   const router = useRouter();
 
-  const enjoyEpisode = ({ serieId, episodeId, type }) => {
-    if (type == 'watch')
-      router.push(`watch?serieId=${serieId}&episodeId=${episodeId}`);
-    else router.push(`read?serieId=${serieId}&episodeId=${episodeId}`);
-  };
-
   return (
     <>
       <Row>
         <Col xs={24}>
-          {episodeInfo?.price == "0" ? (
+          {episodeInfo?.price == 0 ? (
             <div className={`${style["free"]}`}>{t("common:free")}</div>
           ) : (
             <div className={`${style["price"]}`}>
@@ -30,10 +24,10 @@ export const NonPurchasedItem = ({ episodeInfo = null, amountInCart = 0, addedTo
         </Col>
       </Row>
 
-      {episodeInfo?.price == "0" ? (
+      {episodeInfo?.price == 0 ? (
         <Row gutter={15} className={`${style["available"]}`}>
           <>
-            <Col span={12}>
+            <Col span={11}>
               <Button
                 disabled={addedToBookshelf}
                 className={
@@ -44,11 +38,12 @@ export const NonPurchasedItem = ({ episodeInfo = null, amountInCart = 0, addedTo
                 onClick={handelAddToBookshelf}
               >
                 {addedToBookshelf
-                  ? t("common:nft.addedToBookshelf")
-                  : t("common:nft.addToBookshelf")}
+                  ? t("common:episode.addedToBookshelf")
+                  : t("common:episode.addToBookshelf")}
               </Button>
             </Col>
-            <Col span={12}>
+            <Col span={2}/>
+            <Col span={11}>
               <Button
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
                 onClick={() => { }}

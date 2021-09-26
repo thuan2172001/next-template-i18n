@@ -83,5 +83,15 @@
 	"notReceiveLink": "Did not receive the confirmation link?",
 	"notReceiveLink2": "Did not receive the link?",
 	"resendLinkMsg": "Did not receive the confirmation link?",
-	"resendIn": "Resend in"
+	"resendIn": "Resend in",
+	"enjoy": "Enjoy",
+	"episode": {
+		"addToBookshelf": "Add to bookshelf",
+		"addedToBookshelf": "Added to bookshelf"
+	},
+	"requireSignInModal": {
+		"modalHeader": "Please log in to enjoy full features of Webtoonz",
+		"login": "Login",
+		"signUp": "Create a new account"
+	}
 }

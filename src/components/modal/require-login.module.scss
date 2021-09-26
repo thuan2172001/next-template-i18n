@@ -1,0 +1,25 @@
+@import "@components/global-scss/variables.scss";
+
+.modal-header {
+  font-style: normal;
+  font-weight: $fw-bold;
+  font-size: rem($fs1);
+  line-height: $lh2;
+  text-align: center;
+  color: $color-black;
+  width: 80%;
+  margin: 0 auto rem(30px) auto;
+}
+
+.modal-btn {
+  width: 100%;
+  height: rem(36px);
+  font-style: normal;
+  font-weight: $fw-normal;
+  font-size: rem($fs1);
+  line-height: $lh2;
+  background-image: url("../../../public/assets/images/require-popup-button.png");
+  color: $color-white;
+  margin-top: rem(10px);
+} 
+
