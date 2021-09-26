@@ -13,7 +13,7 @@ export default {
         limit,
         page,
         isDaily,
-        category: category !== 'all' ? category : null,
+        categoryId: category !== 'all' ? category : null,
         firstIndex,
         guest: !userInfo,
       },

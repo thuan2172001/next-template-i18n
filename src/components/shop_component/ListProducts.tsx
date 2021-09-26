@@ -8,7 +8,7 @@ import { GetUserInfo } from "../../api/auth";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
-export const ListProducts = () => {
+export const ListProducts = ({ selectedCate }) => {
   const router = useRouter();
   const { t } = useTranslation();
 
@@ -51,10 +51,10 @@ export const ListProducts = () => {
   }, [router]);
 
   useEffect(() => {
-    featDataListProducts();
-  }, [category, refetch]);
+    featDataListProducts(selectedCate);
+  }, [category, refetch, selectedCate]);
 
-  const featDataListProducts = () => {
+  const featDataListProducts = (selectedCate) => {
     if (itemsPerLine <= 0) return;
     setIsLoading(true);
     SeriesManagementAPI.getSerieQuery({
@@ -62,11 +62,11 @@ export const ListProducts = () => {
       limit: 20,
       page: page,
       firstIndex: firstItemIndex,
-      category: category,
+      category: selectedCate,
       isDaily: "true",
     })
       .then((res) => {
-        console.log({res})
+        console.log({ res })
         setDataListProducts(res);
         setTotalProduct(res.length);
         setIsLoading(false);
