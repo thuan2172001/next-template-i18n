@@ -21,8 +21,8 @@ export default {
     const customAxios = createCustomAxios(userInfo);
 
     return customAxios({
-      method: 'post',
-      url: `${baseURL}/customer/bookshelf`,
+      method: 'put',
+      url: `${baseURL}/user/bookshelf`,
       data: { episodeId },
     }).then((data) => {
       return data;

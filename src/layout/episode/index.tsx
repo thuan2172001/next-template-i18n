@@ -1,31 +1,25 @@
-import { Col, Row, Skeleton, Button } from "antd";
-import React, { useState, useEffect } from "react";
-import { useTranslation } from "next-i18next";
+import {Col, Row, Skeleton, Button} from "antd";
+import React, {useState, useEffect, useRef} from "react";
+import {useTranslation} from "next-i18next";
 import CustomImageField from "@components/image";
 import style from "./episode.module.scss";
-import { HeartFilled, HeartOutlined } from "@ant-design/icons";
+import {HeartFilled, HeartOutlined} from "@ant-design/icons";
 import CustomerEpisodeAPI from "../../api/customer/episode";
 import CustomerCartAPI from "../../api/customer/cart";
 import CustomerBookshelfAPI from "../../api/customer/bookshelf";
-import { GetUserInfo } from "../../api/auth";
-import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
-import { NonPurchasedItem } from "./NonPurchasedItem";
-// import { ShareModal } from "@components/share-modal";
-// import { RequireLoginModal } from "@components/modal/RequireLoginModal";
-// import ProofAuthenticityTemplate from "../proof-authenticity";
-// import BlockChainDetailTemplate from "../blockchain-detail";
-// import { Ribbon } from "@components/ribbon-tag/index";
+import {GetUserInfo} from "../../api/auth";
+import {useRouter} from "next/router";
+import {useDispatch, useSelector} from "react-redux";
+import {NonPurchasedItem} from "./NonPurchasedItem";
 import EpisodeManagementAPI from "../../api/episode-management/episode-management";
-// import { NonPurchasedItem } from "./NonPurchasedItem";
-// import { PurchasedItem } from "./PurchasedItem";
-// import { PublicItem } from "./PublicItem";
-// import { PrivateItem } from "./PrivateItem";
+import {PurchasedItem} from "./PurchasedItem";
+import {RequireLoginModal} from "@components/modal/RequireLoginModal";
+import Share from "@components/share-component/share";
 
-const EpisodeTemplate = ({ seriesId, episodeId }) => {
+const EpisodeTemplate = ({seriesId, episodeId}) => {
     let userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const router = useRouter();
     const [shareModal, setShareModal] = useState(false);
     const dispatch = useDispatch();
@@ -34,12 +28,28 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
     const [amountInCart, setAmountInCart] = useState(0);
     const [episodeInfo, setEpisodeInfo] = useState<any>({});
     const [episodeTotalLikes, setTotalLikes] = useState(0);
+    const [isLogged, setIsLogged] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
+    const [addedToBookshelf, setAddedToBookshelf] = useState(false);
 
-    // const showPopUpShare = () => {
-    //     if (!isCreatorMode) {
-    //         setShareModal(true);
-    //     }
-    // };
+    const moveToSeriePage = () => {
+        const pathname = "/serie/" + seriesId;
+        router.push(pathname);
+    };
+
+    const addToBookshelf = () => {
+        if (!isLogged) setModalVisible(true);
+        else {
+            CustomerBookshelfAPI.addFreeEpToBookshelf({
+                userInfo: GetUserInfo(),
+                episodeId,
+            })
+                .then(() => {
+                    setAddedToBookshelf(true);
+                })
+                .catch();
+        }
+    };
 
     const onClickFavorite = () => {
         // if (!isLogged) setModalVisible(true);
@@ -68,21 +78,21 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
 
     // const [isCreatorMode, setCreatorMode] = useState(false);
     //
-    // useEffect(() => {
-    //     if (typeof window !== "undefined") {
-    //         userInfo =
-    //             window.localStorage && window.localStorage.getItem("userInfo")
-    //                 ? JSON.parse(window.localStorage.getItem("userInfo"))
-    //                 : {};
-    //
-    //         if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
-    //             setIsLogged(true);
-    //             if (userInfo.role.role === "creator") setCreatorMode(true);
-    //         } else {
-    //             setIsLogged(false);
-    //         }
-    //     }
-    // }, [userInfo]);
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            userInfo =
+                window.localStorage && window.localStorage.getItem("userInfo")
+                    ? JSON.parse(window.localStorage.getItem("userInfo"))
+                    : {};
+
+            if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
+                setIsLogged(true);
+                // if (userInfo.role.role === "creator") setCreatorMode(true);
+            } else {
+                setIsLogged(false);
+            }
+        }
+    }, [userInfo]);
 
     useEffect(() => {
         fetchData();
@@ -102,6 +112,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
                 });
                 setFavorite(episode?.alreadyLiked);
                 setTotalLikes(episode?.likes);
+                console.log(episodeInfo?.isBought);
                 // setIsPurchased(episode?.numEditionInBookshelf !== null);
                 // setAddedToBookshelf(episode?.addedToBookshelf);
             });
@@ -110,8 +121,8 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
 
     const getCartList = () => {
         const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
-        CustomerCartAPI.getCart({ userInfo }).then((data) => {
-            console.log({ data })
+        CustomerCartAPI.getCart({userInfo}).then((data) => {
+            console.log({data})
             if (data) {
                 dispatch({
                     type: "UPDATE_CART",
@@ -126,12 +137,12 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
     };
 
     const handleAddToCart = () => {
-        console.log({ "amount": amountInCart });
+        console.log({"amount": amountInCart});
         let newCartList = [];
         if (cartList) {
             newCartList = [...new Set([...cartList, episodeInfo.episodeId])];
         } else newCartList = [episodeInfo.episodeId]
-        console.log({ newCartList })
+        console.log({newCartList})
         const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
         if (userInfo) {
             CustomerCartAPI.updateCart({
@@ -154,7 +165,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
             <Row gutter={30}>
                 <Col span={12}>
                     <Skeleton active loading={!episodeInfo?.thumbnail}>
-                        <div className="nft-image" style={{ position: "relative" }}>
+                        <div className="nft-image" style={{position: "relative"}}>
                             <CustomImageField
                                 width={"454"}
                                 height={"454"}
@@ -174,7 +185,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
                         <div className={style["name-container"]}>
                             <Skeleton
                                 active
-                                paragraph={{ rows: 0 }}
+                                paragraph={{rows: 0}}
                                 loading={!episodeInfo?.name}
                             >
                                 <h2 className={style["nft-name"]}>{episodeInfo?.name}</h2>
@@ -184,15 +195,16 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
                         <div>
                             <Skeleton
                                 active
-                                paragraph={{ rows: 0 }}
+                                paragraph={{rows: 0}}
                                 loading={!episodeInfo?.serie}
                             >
-                                <span
+                                <h3
                                     className={`${style["series-link"]} ${style["cursor_pointer"]
-                                        }`}
+                                    }`}
+                                    onClick={moveToSeriePage}
                                 >
                                     {episodeInfo?.serie?.serieName}
-                                </span>
+                                </h3>
                             </Skeleton>
                         </div>
 
@@ -216,7 +228,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
                             </span>
 
                             <span>
-                                <img src={"/assets/icons/separate-line.svg"} width={1} height={22} />
+                                <img src={"/assets/icons/separate-line.svg"} width={1} height={22}/>
                             </span>
 
                             <span className={style["category-list"]}>
@@ -235,26 +247,22 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
                         </div>
 
                         <Row>
-                            <Col xs={1}>
-                                <img
-                                    src={"assets/icons/share/share-link.svg"}
-                                    onClick={() => {
-                                    }}
-                                    className={`${style["share-btn"]} ${style["cursor_pointer"]
-                                        }`}
-                                />
-                            </Col>
+                            <Share episodeId={episodeId} thumbnail={episodeInfo?.thumbnail}/>
                         </Row>
-                        <NonPurchasedItem
+
+                        {episodeInfo.isBought ? <PurchasedItem
+                            episodeInfo={episodeInfo}
+                            serieId={seriesId}
+                        /> : <NonPurchasedItem
                             serieId={seriesId}
                             episodeInfo={episodeInfo}
                             amountInCart={amountInCart}
-                            // addedToBookshelf={addedToBookshelf}
+                            addedToBookshelf={addedToBookshelf}
                             handelAddToBookshelf={() => {
-                                console.log(11112)
+                                addToBookshelf()
                             }}
                             handleAddToCart={handleAddToCart}
-                        />
+                        />}
                     </div>
                 </Col>
             </Row>
@@ -270,6 +278,13 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
                     </Skeleton>
                 </Col>
             </Row>
+
+            {modalVisible && (
+                <RequireLoginModal
+                    updateModalVisible={() => setModalVisible(false)}
+                    isFrom={router.asPath}
+                />
+            )}
         </div>
     );
 };
