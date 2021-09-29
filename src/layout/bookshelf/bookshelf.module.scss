@@ -1,0 +1,125 @@
+@import "@components/global-scss/variables.scss";
+
+.empty-bookshelf {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: rem(60px);
+  margin-bottom: rem(60px);
+  img,
+  span,
+  button {
+    display: flex;
+    align-self: center;
+  }
+  .no-item {
+    font-size: rem($lh4);
+    line-height: rem($lh3);
+    font-weight: $fw-bold;
+    color: $color-gray-5;
+    margin-top: rem(42px);
+    margin-bottom: rem(60px);
+  }
+  .continue-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: rem(48px);
+    width: rem(273px);
+    background: $color-blue-2;
+    border: none;
+    outline: none;
+    font-size: rem($fs1);
+    line-height: rem($lh2);
+    font-weight: $fw-bold;
+    color: $color-white;
+  }
+}
+
+.cointainer {
+  padding-top: rem(64px);
+  padding-bottom: rem(60px);
+  max-width: rem(1870px);
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  margin-bottom: rem(24px);
+
+  .header-name {
+    font-family: $font-family-main;
+    font-style: normal;
+    font-weight: bold;
+    font-size: $fs3;
+    line-height: $lh3;
+    color: $color-light-black;
+  }
+}
+
+.liked-tab {
+  margin-left: auto;
+  font-family: $font-family-main;
+  font-size: $fs2;
+  line-height: $lh7;
+
+  .active {
+    font-weight: $fw-bold;
+    color: $color-blue-2;
+    cursor: pointer;
+  }
+
+  .divider {
+    color: $color-blue-6;
+  }
+
+  .un-active {
+    font-weight: $fw-bold;
+    color: $color-gray-9;
+    cursor: pointer;
+  }
+}
+
+.item-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(rem(160px), max-content));
+  grid-gap: rem(30px);
+  width: 100%;
+}
+
+@media screen and (max-width: rem(1930px)) {
+  .cointainer {
+    max-width: rem(1490px);
+  }
+}
+
+@media screen and (max-width: rem(1670px)) {
+  .cointainer {
+    max-width: rem(1110px);
+  }
+}
+
+@media screen and (max-width: rem(1250px)) {
+  .cointainer {
+    max-width: rem(920px);
+  }
+}
+
+@media screen and (max-width: rem(1050px)) {
+  .cointainer {
+    max-width: rem(730px);
+  }
+}
+
+@media screen and (max-width: rem(850px)) {
+  .cointainer {
+    max-width: rem(540px);
+  }
+}
+
+@media screen and (max-width: rem(600px)) {
+  .cointainer {
+    max-width: rem(350px);
+  }
+}

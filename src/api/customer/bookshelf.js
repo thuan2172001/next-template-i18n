@@ -5,13 +5,12 @@ const baseURL = API_BASE_URL;
 const creator = CREATOR;
 
 export default {
-  getBookShelf: ({ serie, userInfo }) => {
+  getBookShelf: ({ userInfo }) => {
     const customAxios = createCustomAxios(userInfo);
 
     return customAxios({
       method: 'get',
-      url: `${baseURL}/customer/bookshelf?creator=${creator}`,
-      params: { serie },
+      url: `${baseURL}/user/bookshelf-data`,
     }).then((data) => {
       return data;
     });

@@ -1,19 +1,17 @@
 @import "@components/global-scss/variables.scss";
 
-.episode-component {
-  width: rem(150px);
-  margin-right: rem(30px);
-  margin-top: rem(32px);
+.serie-component {
+  position: relative;
+  width: rem(160px);
 }
 
-.episode-image {
-  height: rem(150px);
-  width: rem(150px);
+.serie-image {
+  height: rem(160px);
+  width: rem(160px);
 }
 
-
-.episode-name {
-  font-family: $font-euclid-medium;
+.serie-name {
+  font-family: $font-family-main;
   display: inline-block;
   font-weight: $fw-medium;
   font-size: rem($fs2);
@@ -26,13 +24,13 @@
   white-space: nowrap;
 }
 
-.episode-creator-name {
+.serie-creator-name {
   display: inline-flex;
-  font-family: $font-euclid-regular;
+  font-family: $font-family-main;
   font-style: normal;
   font-weight: $fw-normal;
   font-size: rem($fs0);
-  //line-height: rem($lh7);
+  line-height: rem($lh7);
   color: $color-gray-1;
   margin-left: rem(8px);
   overflow: hidden;
@@ -41,12 +39,12 @@
   white-space: nowrap;
 }
 
-.episode-detail {
+.serie-detail {
   display: inline-flex;
-  flex-shrink: 3;
+  align-items: center;
 }
-.episode-heart {
-  display: inline-block;
+.serie-heart {
+  align-items: center;
 }
 
 .favorite-icon {
@@ -78,23 +76,51 @@
   margin-right: rem(15px);
   margin-top: rem(42px);
 }
-
 .bottom-detail {
   display: inline-flex;
+  flex-direction: column;
   width: 100%;
   flex-wrap: nowrap;
   justify-content: space-between;
   overflow: hidden;
 }
 
-.episode-like {
-  margin-left: rem(5px);
+.creator-name {
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  line-height: rem($lh1);
 }
 
-.episode-price {
+.avatar-creator {
+  width: rem(18px);
+  height: rem(18px);
+  border-radius: rem(18px);
+}
+
+.flex-end {
+  align-items: flex-end;
+}
+
+.last-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.creator-info {
+  margin-top: rem(7px);
+  margin-bottom: rem(2px);
+}
+
+.edition-count {
+  color: $color-blue;
+  font-size: rem($fs6);
+  line-height: rem($lh11);
+}
+
+.edition-free {
   color: $color-red-1;
+  font-size: rem($fs6);
+  line-height: rem($lh11);
 }
