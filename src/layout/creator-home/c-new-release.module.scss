@@ -1,0 +1,76 @@
+@import "@components/global-scss/variables.scss";
+
+.list-series-container {
+  margin: 0 auto;
+  padding-top: rem(48px);
+  padding-bottom: rem(60px);
+  max-width: rem(1870px);
+}
+
+.list-series-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(rem(160px), max-content));
+  grid-gap: rem(30px);
+  width: 100%;
+}
+
+.list-series-tag {
+  font-family: $font-family-main;
+  color: $color-black-1;
+  font-weight: $fw-medium;
+  margin-bottom: rem(23px);
+  width: 100%;
+  font-size: $fs2;
+  position: relative;
+  display: flex;
+}
+
+.edit-btn {
+  width: rem(120px);
+  height: rem(40px);
+  font-family: $font-family-main;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-black;
+  background: $color-bold-white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+
+  .edit-icon {
+    margin-right: rem(10px);
+  }
+}
+
+@media screen and (max-width: rem(1930px)) {
+  .list-series-container {
+    max-width: rem(1490px);
+  }
+}
+
+@media screen and (max-width: rem(1670px)) {
+  .list-series-container {
+    max-width: rem(1110px);
+  }
+}
+
+@media screen and (max-width: rem(1250px)) {
+  .list-series-container {
+    max-width: rem(920px);
+  }
+}
+
+@media screen and (max-width: rem(960px)) {
+  .list-series-container {
+    max-width: rem(730px);
+  }
+}
+
+@media screen and (max-width: rem(750px)) {
+  .list-series-container {
+    max-width: rem(540px);
+  }
+}

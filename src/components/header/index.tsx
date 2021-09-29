@@ -11,6 +11,7 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 	const { t } = useTranslation();
 	const router = useRouter();
 	const [isLogged, setIsLogged] = useState(false);
+	const [clientType, setClientType] = useState("");
 
 	const dispatch = useDispatch();
 
@@ -27,14 +28,43 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 			if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
 				setIsLogged(true);
 
-				// setClientType(userInfo.role["role"]);
+				setClientType(userInfo.role);
 			} else {
 				setIsLogged(false);
 
-				// setClientType("");
+				setClientType("");
 			}
 		}
 	}, [])
+
+	const handleLogout = async () => {
+		if (clientType === "customer")
+		  dispatch({ type: "UPDATE_CART", payload: [] });
+	
+		if (typeof window !== "undefined") {
+		  window.localStorage.removeItem("userInfo");
+		  window.localStorage.removeItem("creatorAvatar");
+		  window.localStorage.removeItem("thumbnail");
+		  window.localStorage.removeItem("cover-url");
+		  window.localStorage.removeItem("thumb-url");
+		  window.localStorage.removeItem("book-url");
+		}
+		window.localStorage.removeItem("checkPendingPayment");
+		const _isFunction = (functionToCheck) => {
+		  return (
+			functionToCheck &&
+			{}.toString.call(functionToCheck) === "[object Function]"
+		  );
+		};
+	
+		if (_isFunction(triggerCreatorLogout)) triggerCreatorLogout(true);
+	
+		if (router.pathname === "/") {
+		  setClientType("");
+		  router.reload();
+		} else router.push("/");
+	  };
+	
 
 	const UserDropdownMenu = () => {
 		return (
@@ -117,6 +147,94 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 		);
 	};
 
+	const CreatorDropdownMenu = () => {
+		return (
+		  <Menu className={`${style["dropdown-menu"]}`}>
+			<Menu.Item key="1" onClick={handleMoveToShop}>
+			  {t("common:header.creator.dropdown.viewShop")}
+			</Menu.Item>
+			<Menu.Item key="2" onClick={handleLogout}>
+			  {t("common:header.creator.dropdown.logOut")}
+			</Menu.Item>
+		  </Menu>
+		);
+	  };
+
+	const handleMoveToShop = () => {
+		const creatorId = GetUserInfo()._id;
+		router.push(`/shop/${creatorId}`);
+	  };
+	
+	  const handleMoveToSM = () => {
+		router.push("/sm?view=public");
+	  };
+	  const handleMoveToEP = () => {
+	
+		router.push("/creator/edit-profile");
+	  };
+	
+	  const handleMoveToShopSetting = () => {
+		router.push("/shop-setting?tab=general-setting");
+	  };
+	
+
+	const CreatorMenu = () => {
+		return (
+			<>
+				<Menu.Item
+					key="shopSetting"
+					className={`${style["disable-antd-css"]} ${style["creator-sub-btn"]} ${style["padding-left-30"]}`}
+					onClick={handleMoveToShopSetting}
+				>
+					{t("common:header.creator.shopSetting")}
+				</Menu.Item>
+				<Menu.Item
+					key="manageItem"
+					className={`${style["disable-antd-css"]} ${style["creator-sub-btn"]}`}
+					onClick={handleMoveToSM}
+				>
+					{t("common:header.creator.manageItem")}
+				</Menu.Item>
+				<Menu.Item
+					key="editProfile"
+					className={`${style["disable-antd-css"]} ${style["creator-sub-btn"]}`}
+					onClick={handleMoveToEP}
+				>
+					{t("common:header.creator.editProfile")}
+				</Menu.Item>
+				<Menu.Item
+					key="manageSales"
+					className={`${style["disable-antd-css"]} ${style["creator-sub-btn"]}`}
+				>
+					{t("common:header.creator.manageSales")}
+				</Menu.Item>
+				<Menu.Item
+					key="publish"
+					className={`${style["disable-antd-css"]} ${style["ml-auto"]}`}
+				>
+					<Button
+						className={`${style["creator-publish-btn"]}`}
+						onClick={handleMoveToSM}
+					>
+						{t("common:header.creator.publish")}
+					</Button>
+				</Menu.Item>
+				<Menu.Item
+					key="user"
+					className={`${style["right-item"]} ${style["disable-padding-left"]} ${style["disable-antd-css"]}`}
+				>
+					<Dropdown
+						overlay={CreatorDropdownMenu}
+						trigger={["click"]}
+						placement="bottomCenter"
+					>
+						<img src="/icons/creator_icon.svg" />
+					</Dropdown>
+				</Menu.Item>
+			</>
+		);
+	};
+
 
 	return (
 		<>
@@ -134,7 +252,8 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 						</a>
 					</Link>
 				</Menu.Item>
-				<UserMenu />
+
+				{clientType === "creator" ? <CreatorMenu /> : <UserMenu />}
 			</Menu>
 		</>
 	);

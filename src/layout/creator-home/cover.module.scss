@@ -1,0 +1,208 @@
+@import "@components/global-scss/variables.scss";
+
+.image-cover-hidden {
+  width: 100%;
+  max-height: 432px;
+  background-color: $color-blue-2;
+}
+
+.image-place {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.edit-banner {
+  position: absolute;
+  bottom: 15%;
+  right: 2%;
+  z-index: 99;
+}
+
+.change-color {
+  position: absolute;
+  bottom: 4%;
+  right: 2%;
+  z-index: 99;
+}
+
+.background-banner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: $color-black;
+  opacity: 0.3;
+}
+
+.guide-container {
+  height: rem(196px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  .big-guide {
+    position: absolute;
+    top: 25%;
+    font-family: $font-family-main;
+    font-style: normal;
+    font-weight: bold;
+    font-size: $fs4;
+    line-height: $lh3;
+    letter-spacing: rem(0.2px);
+    color: $color-white !important;
+  }
+
+  .small-guide {
+    position: absolute;
+    top: 33.5%;
+    font-family: $font-family-main;
+    font-style: normal;
+    font-weight: normal;
+    font-size: rem(13px);
+    line-height: $lh3;
+    text-align: center;
+    letter-spacing: rem(0.2px);
+    color: $color-white !important;
+  }
+}
+
+.edit-btn-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 51%;
+  z-index: 99;
+}
+
+.edit {
+  cursor: pointer;
+  width: rem(141px);
+  height: rem(40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $color-bold-white;
+  font-family: $font-family-main;
+  font-weight: normal;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-black;
+}
+
+.edit-icon {
+  margin: rem(8px) rem(8px) rem(2px) 0;
+}
+
+.edit-upload {
+  margin-right: rem(20px);
+}
+
+.error-message {
+  width: 100%;
+  height: rem(50px);
+  background-color: $color-red3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: normal;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-white;
+  font-family: $font-family-main;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.color-option {
+  .color {
+    height: rem(48px);
+    width: rem(48px);
+    margin-top: rem(24px);
+    cursor: pointer;
+    border-radius: rem(2px);
+  }
+}
+.color-container {
+  position: relative;
+  width: rem(731px);
+}
+
+.color-picker {
+  height: rem(231px);
+  width: rem(305px);
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.16);
+  position: absolute;
+  bottom: rem(-231px);
+  z-index: 2;
+  background-color: $color-white;
+  right: 0;
+  padding: rem(14px);
+
+  .color-choice {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .color-item {
+    width: rem(30px);
+    height: rem(30px);
+    margin: rem(6px);
+    border-radius: rem(2px);
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .color-button {
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      #353aff -47.75deg,
+      #33ffe3 14.92deg,
+      #3aff4d 55.91deg,
+      #fdf533 102.89deg,
+      #fd353c 177.33deg,
+      #db43e9 254.39deg,
+      #353aff 312.25deg,
+      #33ffe3 374.92deg
+    );
+    .input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0px;
+      width: 0px;
+      background-color: #eee;
+      opacity: 0;
+    }
+  }
+}
+
+.color-input {
+  display: flex;
+  width: rem(246px);
+  border: 1px solid $color-gray-9;
+  border-radius: rem(2px);
+  margin-top: rem(30px);
+  .color-input-input {
+    border: none;
+  }
+  .color-input-btn {
+    width: rem(60px);
+    height: rem(34px);
+    border: none;
+    background-color: $color-blue-2;
+    color: $color-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
