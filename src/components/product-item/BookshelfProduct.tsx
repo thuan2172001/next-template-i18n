@@ -31,7 +31,7 @@ export const BookshelfProduct = ({
     }
   }, []);
 
-  const { isFavoriting } = episode;
+  const { alreadyLiked } = episode;
 
   const [data, setData] = useState({
     creatorName: "Trinh Van Thuan",
@@ -43,7 +43,7 @@ export const BookshelfProduct = ({
     favorite: episode.alreadyLiked,
   });
 
-  const [favorite, setFavorite] = useState(isFavoriting);
+  const [favorite, setFavorite] = useState(alreadyLiked);
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
