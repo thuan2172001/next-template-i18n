@@ -19,6 +19,10 @@
 			"logOut": "Log out"
 		}
 	},
+	"bookshelf": {
+		"bookShelf": "Bookshelf",
+		"noItem": "You have no item in your Bookshelf yet"
+	},
 	"category": {
 		"all": "All",
 		"Drama": "DRAMA",
