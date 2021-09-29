@@ -23,6 +23,7 @@ export const ListProducts = ({ selectedCate }) => {
   const [firstItemIndex, setFirstItemIndex] = useState(0);
   const [dataListProducts, setDataListProducts] = useState(null);
   const [category, setCategory] = useState(router.query["category"]);
+  const [line, setLine] = useState(5);
 
   useEffect(() => {
     const element = document.getElementById("main-container");
@@ -33,13 +34,13 @@ export const ListProducts = ({ selectedCate }) => {
 
   useEffect(() => {
     if (prevPage < page) {
-      setFirstItemIndex(firstItemIndex + itemsPerLine * 10 * (page - prevPage));
+      setFirstItemIndex(firstItemIndex + itemsPerLine * line * (page - prevPage));
       setItemsPerLine((containerWidth + 30) / 190);
       setItemsPagination((containerWidth + 30) / 190);
       setPrevPage(page);
     } else if (prevPage > page) {
       const newFirstIndex =
-        firstItemIndex - itemsPerLine * 10 * (prevPage - page);
+        firstItemIndex - itemsPerLine * line * (prevPage - page);
       setFirstItemIndex(newFirstIndex > 0 ? newFirstIndex : 0);
       setPrevPage(page);
     }
@@ -97,12 +98,12 @@ export const ListProducts = ({ selectedCate }) => {
                 />
               ))}
           </div>
-          {!isLoading && totalProduct > itemsPagination * 10 && (
+          {!isLoading && totalProduct > itemsPagination * line && (
             <PageNavigation
               page={page}
               setPage={setPage}
               totalItem={totalProduct}
-              itemsPerPage={itemsPagination * 10}
+              itemsPerPage={itemsPagination * line}
             />
           )}
         </>

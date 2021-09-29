@@ -36,7 +36,6 @@ const CardSetupForm = ({ markSetupSuccess, markCancel, type }) => {
         userInfo: JSON.parse(window.localStorage.userInfo),
       }).then((response) => {
         const { client_secret } = response.data || response;
-
         setCardSetupClientSecret(client_secret);
       });
     }

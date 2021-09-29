@@ -52,7 +52,7 @@ export const AddPaymentMethodModal = ({
             {isSaveSuccess ? (
               <div className={`${style["center-content"]}`}>
                 <div className={`${style["success-icon"]}`}>
-                  <Image src="/icons/success.png" height={56} width={56} />
+                  <Image src="/assets/icons/success.png" height={56} width={56} />
                 </div>
 
                 <div className={`${style["success-message"]}`}>
@@ -78,7 +78,7 @@ export const AddPaymentMethodModal = ({
 
                 <div className={`${style["verify-message"]}`}>
                   <div className={`${style["verify-icon"]}`}>
-                    <img src="/icons/verified.png" />
+                    <img src="/assets/icons/verified.png" />
                   </div>
 
                   <div className={`${style["verify-text-container"]}`}>
