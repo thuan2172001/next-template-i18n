@@ -1,0 +1,133 @@
+@import "@components/global-scss/variables.scss";
+
+.container {
+  background-image: url("/assets/images/common/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  padding: calc((100vh - 720px)/2) 0;
+}
+
+@media (max-width: 580px) {
+  .signup-container {
+    width: 100vw !important;
+    height: 100vw;
+  }
+
+  .ant-input-custom {
+    width: 80vw !important;
+  }
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  width: rem(540px);
+  height: rem(720px);
+  background-color: $color-bold-white;
+  border-radius: 10px;
+  margin: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-title {
+  font-style: normal;
+  font-family: $font-euclid-medium;
+  letter-spacing: 0.2px;
+  color: #54ACEC;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  height: 24px;
+  top: 214px;
+  font-weight: normal;
+  font-size: 24px;
+  text-align: center;
+}
+
+.ant-input-custom {
+  height: 40px;
+  background: $color-white !important;
+  border: 0;
+  padding: 10px 16px;
+
+  &:focus {
+    border-color: black !important;
+  }
+  &:hover {
+    border-color: black !important;
+  }
+  &:active {
+    border-color: black !important;
+  }
+
+  .ant-input {
+    background: $color-white !important;
+    font-size: rem($fs2);
+    line-height: rem($lh2);
+    &:focus {
+      border-color: black !important;
+    }
+    &:hover {
+      border-color: black !important;
+    }
+    &:active {
+      border-color: black !important;
+    }
+  }
+}
+
+.ant-input-signup-form {
+  margin-bottom: rem(8px);
+  margin-right: auto;
+  margin-left: auto;
+  width: rem(422px);
+  height: rem(50px);
+  border: 1px solid #e4e4e4;
+}
+
+.ant-btn-signup {
+  width: rem(117px);
+  height: rem(40px);
+  background-color: $primary-color !important;
+  color: $color-white !important;
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bold;
+  font-size: rem($fs1);
+  line-height: rem($lh1);
+  border-radius: 10px;
+  border: none;
+  &:hover {
+    background-color: $primary-color !important;
+    color: $color-white !important;
+  }
+  &:focus {
+    background-color: $primary-color !important;
+    color: $color-white !important;
+  }
+}
+
+.signup-form {
+  padding: 0px 100px;
+}
+
+.signup-notify {
+  display: block;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  width: 26.354375rem !important;
+  color: $color-red3;
+}
+
+.btn-controller {
+  width: 430px;
+  margin-top: 20px;
+  align-items: center;
+  display: block !important;
+}
