@@ -61,17 +61,19 @@ export const CheckoutConfirmModal = ({
   // }, []);
 
   const doCheckout = () => {
-    setLoading(true);
+    // setLoading(true);
     dispatch({ type: "UPDATE_CHECKOUT_PENDING", payload: true });
 
     const userInfo = JSON.parse(window.localStorage.userInfo);
 
+    console.log({ cartList })
+
     CustomerPaymentAPI.checkout({
       userInfo,
-      cartList: cartList.map((e) => ({
-        amount: e.numberEdition,
-        episode: e._id,
-      })),
+      cartList: cartList.map((e) => {
+        console.log({ e })
+        return e.episodeId
+      }),
       paymentMethod,
     }).then((response) => {
       const data = response.data || response;
@@ -228,9 +230,8 @@ export const CheckoutConfirmModal = ({
           )}
 
           <div
-            className={`${style["footer-button"]} ${
-              style[!isSuccess ? "cancel" : "cancel-not-margin"]
-            }`}
+            className={`${style["footer-button"]} ${style[!isSuccess ? "cancel" : "cancel-not-margin"]
+              }`}
             onClick={() => {
               if (isSuccess) {
                 router.push("/user/cart");

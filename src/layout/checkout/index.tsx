@@ -1,24 +1,22 @@
-import React, {useEffect, useState} from "react";
-import {TabLayout} from "@components/tab-layout";
+import React, { useEffect, useState } from "react";
+import { TabLayout } from "@components/tab-layout";
 import CartItem from "@components/cart-item/index";
-import {useSelector, useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Image from "next/image";
-import {Radio, Space, Button, Modal} from "antd";
-import {GetUserInfo} from "src/api/auth";
-import {CheckoutConfirmModal} from "./CheckoutConfirmModal";
-import {useRouter} from "next/router";
+import { Radio, Space, Button, Modal } from "antd";
+import { GetUserInfo } from "src/api/auth";
+import { CheckoutConfirmModal } from "./CheckoutConfirmModal";
+import { useRouter } from "next/router";
 import CustomerPaymentAPI from "../../api/customer/payment";
 import CustomerBookshelfAPI from "../../api/customer/bookshelf";
-import {useTranslation} from "next-i18next";
+import { useTranslation } from "next-i18next";
 // import { PendingCheckoutModal } from "@components/account-modal/PendingCheckoutModal";
-import {AddPaymentMethodModal} from "./AddPaymentMethodModal";
+import { AddPaymentMethodModal } from "./AddPaymentMethodModal";
 import style from "./checkout.module.scss";
 import CustomerCartAPI from "../../api/customer/cart";
 
-
-
-export const CheckoutTemplate = ({cartList}) => {
-    const {t} = useTranslation();
+export const CheckoutTemplate = ({ cartList }) => {
+    const { t } = useTranslation();
 
     const dispatch = useDispatch();
 
@@ -45,7 +43,7 @@ export const CheckoutTemplate = ({cartList}) => {
 
     useEffect(() => {
         calculateTotalPrice(cartList);
-    },[cartList])
+    }, [cartList])
 
     const calculateTotalPrice = (cartList) => {
         let tmpTotalPrice = 0;
@@ -68,58 +66,58 @@ export const CheckoutTemplate = ({cartList}) => {
     // },[isCheckoutPending])
 
 
-    // useEffect(() => {
-    //     async function fetchCartList() {
-    //
-    //         CustomerBookshelfAPI.getBookShelf({
-    //             userInfo: GetUserInfo(),
-    //         }).then((response) => {
-    //             const data = response.episode || response;
-    //
-    //             const cartItems = cartList.map((e: any) => e._id);
-    //
-    //             setSameEpisode(
-    //                 data.filter((episode) => {
-    //                     const { price } = episode;
-    //
-    //                     if (price > 0) {
-    //                         return cartItems.indexOf(episode._id) > -1;
-    //                     }
-    //
-    //                     return false;
-    //                 })
-    //             );
-    //         });
-    //     }
-    //
-    //     CustomerPaymentAPI.getAllPaymentMethod({ userInfo: GetUserInfo() }).then(
-    //         (response) => {
-    //             const data = response.data || response;
-    //
-    //             const customerPaymentList = data
-    //                 .map((method) => ({
-    //                     id: method.id,
-    //                     imgSrc:
-    //                         method.card.brand === "visa"
-    //                             ? "/icons/visa.svg"
-    //                             : "/icons/master-card.svg",
-    //                     name: method.card.brand === "visa" ? "Visa" : "Mastercard",
-    //                     cardNumber: `**** **** **** ${method.card.last4}`,
-    //                 }))
-    //                 .sort((a, b) => b.created - a.created);
-    //
-    //             const defaultPaymentMethod = customerPaymentList[0]
-    //                 ? customerPaymentList[0].id
-    //                 : "";
-    //
-    //             setPaymentMethod(defaultPaymentMethod);
-    //
-    //             setPaymentList(customerPaymentList);
-    //         }
-    //     );
-    //
-    //     fetchCartList();
-    // }, [cartList]);
+    useEffect(() => {
+        // async function fetchCartList() {
+
+        //     CustomerBookshelfAPI.getBookShelf({
+        //         userInfo: GetUserInfo(),
+        //     }).then((response) => {
+        //         const data = response.episode || response;
+
+        //         const cartItems = cartList.map((e: any) => e._id);
+
+        //         setSameEpisode(
+        //             data.filter((episode) => {
+        //                 const { price } = episode;
+
+        //                 if (price > 0) {
+        //                     return cartItems.indexOf(episode._id) > -1;
+        //                 }
+
+        //                 return false;
+        //             })
+        //         );
+        //     });
+        // }
+
+        CustomerPaymentAPI.getAllPaymentMethod({ userInfo: GetUserInfo() }).then(
+            (response) => {
+                const data = response.data || response;
+
+                const customerPaymentList = data
+                    .map((method) => ({
+                        id: method.id,
+                        imgSrc:
+                            method.card.brand === "visa"
+                                ? "/icons/visa.svg"
+                                : "/icons/master-card.svg",
+                        name: method.card.brand === "visa" ? "Visa" : "Mastercard",
+                        cardNumber: `**** **** **** ${method.card.last4}`,
+                    }))
+                    .sort((a, b) => b.created - a.created);
+
+                const defaultPaymentMethod = customerPaymentList[0]
+                    ? customerPaymentList[0].id
+                    : "";
+
+                setPaymentMethod(defaultPaymentMethod);
+
+                setPaymentList(customerPaymentList);
+            }
+        );
+
+        // fetchCartList();
+    }, [cartList]);
 
     // useEffect(() => {
     //     if (typeof window !== "undefined" && window.localStorage.userInfo) {
@@ -173,7 +171,7 @@ export const CheckoutTemplate = ({cartList}) => {
             >
                 <div className="modal-common">
                     <div className="confirm-icon">
-                        <Image src={"/icons/success-purchase.svg"} height={56} width={56}/>
+                        <Image src={"/icons/success-purchase.svg"} height={56} width={56} />
                     </div>
 
                     <div className={`success-message`}>
@@ -208,35 +206,27 @@ export const CheckoutTemplate = ({cartList}) => {
         // router.push('/user/cart');
     };
 
-    // const doCheckout = (cartList) => {
-    //     setLoading(true);
-    //     dispatch({ type: 'UPDATE_CHECKOUT_PENDING', payload: true });
-    //
-    //     CustomerPaymentAPI.checkout({
-    //         userInfo: GetUserInfo(),
-    //         cartList: cartList.map((e) => ({
-    //             amount: e.numberEdition,
-    //             episode: e.episodeId,
-    //         })),
-    //         paymentMethod,
-    //     }).then((response) => {
-    //         const data = response.data || response;
-    //
-    //         if (data.code === 500 && data.reason === "CART.EXCEED_ITEM_QUANTITY") {
-    //             setFailedModal(true);
-    //         }
-    //
-    //         if (data.status === "succeeded") {
-    //             closeSuccessModal(true);
-    //             renderPaymentSuccessModal();
-    //         } else if (data.status === "pending") {
-    //             window.localStorage.setItem("checkPendingPayment", "true");
-    //             setModalType("pending");
-    //         }
-    //
-    //         setLoading(false);
-    //     });
-    // };
+    const doCheckout = (cartList) => {
+        setLoading(true);
+        dispatch({ type: 'UPDATE_CHECKOUT_PENDING', payload: true });
+
+        console.log({ cartList })
+
+        CustomerPaymentAPI.checkout({
+            userInfo: GetUserInfo(),
+            cartList: cartList.map((e) => {
+                console.log({ e })
+                return e.episodeId
+            }),
+            paymentMethod,
+        }).then((response) => {
+            if (!response.error) {
+                closeSuccessModal(true);
+                renderPaymentSuccessModal();
+            }
+            setLoading(false);
+        });
+    };
 
     // const _isPurchaseMultiple = (cartList) => {
     //     if (!cartList || !Array.isArray(cartList) || cartList.length === 0)
@@ -272,30 +262,30 @@ export const CheckoutTemplate = ({cartList}) => {
                 minHeight: "100vh",
             }}
         >
-            <TabLayout type="checkout"/>
+            <TabLayout type="checkout" />
 
             <section className={style["cart"]}>
                 <span className={style["cart-header"]}>{t("cart:cartHeader")}</span>
 
                 <div className={style["cart-list"]}>
                     {cartList &&
-                    cartList.map((itemInfo, index) => {
-                        return (
-                            <div key={index}>
-                                <CartItem
-                                    // updateQuantity={({ cartItemId, count }) => {
-                                    //     handleChangeCartQuantity({ cartItemId, count });
-                                    // }}
-                                    key={index}
-                                    itemInfo={itemInfo}
-                                    type="checkout"
-                                />
-                                {index < cartList.length - 1 && (
-                                    <hr className={style["cart-divider"]}/>
-                                )}
-                            </div>
-                        );
-                    })}
+                        cartList.map((itemInfo, index) => {
+                            return (
+                                <div key={index}>
+                                    <CartItem
+                                        // updateQuantity={({ cartItemId, count }) => {
+                                        //     handleChangeCartQuantity({ cartItemId, count });
+                                        // }}
+                                        key={index}
+                                        itemInfo={itemInfo}
+                                        type="checkout"
+                                    />
+                                    {index < cartList.length - 1 && (
+                                        <hr className={style["cart-divider"]} />
+                                    )}
+                                </div>
+                            );
+                        })}
                 </div>
 
                 <div className={style["order-total"]}>
@@ -307,7 +297,7 @@ export const CheckoutTemplate = ({cartList}) => {
 
                 <section
                     className={style["payment-section"]}
-                    style={{marginTop: "50px", marginBottom: "30px"}}
+                    style={{ marginTop: "50px", marginBottom: "30px" }}
                 >
                     <span className={`${style["cart-header"]}`}>
                         {t("cart:paymentMethod")}
@@ -335,7 +325,7 @@ export const CheckoutTemplate = ({cartList}) => {
                                                         className={`${style["card-list"]}`}
                                                     >
                                                         <span>
-                                                            <Image src={el.imgSrc} height={34} width={48}/>
+                                                            <Image src={el.imgSrc} height={34} width={48} />
                                                         </span>
 
                                                         <span className={style["account-card-name"]}>
@@ -373,9 +363,10 @@ export const CheckoutTemplate = ({cartList}) => {
                 <Button
                     loading={isLoading}
                     className={`${style["checkout-cart"]}`}
-                    style={{marginLeft: 0}}
+                    style={{ marginLeft: 0 }}
                     disabled={!paymentList || paymentList.length === 0}
                     onClick={async () => {
+                        doCheckout(cartList);
                     }}
                 >
                     Checkout

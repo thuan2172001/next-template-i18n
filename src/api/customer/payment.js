@@ -11,8 +11,8 @@ export default {
 			method: 'get',
 			url: `${baseURL}/payment/create-setup-intent`,
 		}).then((data) => {
-      return data;
-    });
+			return data;
+		});
 	},
 
 	addPaymentMethod: ({
@@ -31,8 +31,8 @@ export default {
 				futureUsage,
 			},
 		}).then((data) => {
-      return data;
-    });
+			return data;
+		});
 	},
 
 	getAllPaymentMethod: ({ userInfo }) => {
@@ -42,8 +42,8 @@ export default {
 			method: 'get',
 			url: `${baseURL}/payment`,
 		}).then((data) => {
-      return data;
-    });
+			return data;
+		});
 	},
 
 	deletePaymentMethod: ({ userInfo, paymentMethodID }) => {
@@ -54,19 +54,19 @@ export default {
 			url: `${baseURL}/payment/${paymentMethodID}`,
 			data: {},
 		}).then((data) => {
-      return data;
-    });
+			return data;
+		});
 	},
 
 	getApiKey: () => {
 		const customAxios = createCustomAxios(null);
 		return customAxios({
 			method: 'get',
-			url: `${baseURL}/customer/api-key`,
-			params: { creator },
+			url: `${baseURL}/user/api-key`,
+			// params: { creator },
 		}).then((data) => {
-      return data;
-    });
+			return data;
+		});
 	},
 
 	checkout: ({ userInfo, cartList, paymentMethod }) => {
@@ -81,8 +81,8 @@ export default {
 				currency: 'USD',
 			},
 		}).then((data) => {
-      return data;
-    });
+			return data;
+		});
 	},
 
 	getStatus: ({ userInfo }) => {
@@ -92,7 +92,7 @@ export default {
 			method: 'get',
 			url: `${baseURL}/payment/status`,
 		}).then((data) => {
-      return data;
-    });
+			return data;
+		});
 	},
 };
