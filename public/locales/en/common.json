@@ -109,5 +109,16 @@
 		"login": "Login",
 		"signUp": "Create a new account"
 	},
-	"search": "Search"
+	"search": "Search",
+	"readSetting": {
+		"pageAnimation": "Page Animation",
+		"none": "None",
+		"slide": "Slide",
+		"animationSpeed": "Animation Speed",
+		"fast": "Fast",
+		"normal": "Normal",
+		"slow": "Slow",
+		"tapToTurnArea": "Tap-To-Turn Area",
+		"restoreDefault": "Restore Default"
+	}
 }
