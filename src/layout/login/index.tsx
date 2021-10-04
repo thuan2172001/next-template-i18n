@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import UserAPI from '../../api/auth';
 import {
+	GenerateKeyPair,
+	GenerateKeyPairAndEncrypt,
 	SignMessage,
 	SymmetricDecrypt,
 } from 'src/api/auth/service/auth-cryptography';
@@ -30,6 +32,11 @@ const LoginTemplate = (props) => {
 	const [notification, setNotification] = useState('');
 
 	const handleLogin = () => {
+		// let b = {}
+		// for (let i = 0; i < 10; i++) {
+		// 	const a = GenerateKeyPairAndEncrypt('123456');
+		// 	b = { ...b, [i]: a }
+		// }
 		if (username.length == 0 || password.length == 0) {
 			setNotification(
 				"Username or password is empty !"
@@ -199,7 +206,7 @@ const LoginTemplate = (props) => {
 					/>
 				</div>
 				<div className={style["forgot-password"]}
-					 onClick={() => {router.push("/forgot-password")}}
+					onClick={() => { router.push("/forgot-password") }}
 				>
 					{t('common:forgotPw')}
 				</div>

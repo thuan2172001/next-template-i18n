@@ -36,7 +36,7 @@ export const PurchasedItem = ({
               <Button
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
                 onClick={() => {
-                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo._id, type: episodeInfo.type });
+                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo.episodeId, type: episodeInfo.type });
                 }}
               >
                 {t("common:enjoy")}
@@ -57,7 +57,7 @@ export const PurchasedItem = ({
               <Button
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
                 onClick={() => {
-                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo._id, type: episodeInfo.type });
+                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo.episodeId, type: episodeInfo.type });
                 }}
               >
                 {t("common:enjoy")}
@@ -87,7 +87,7 @@ export const PurchasedItem = ({
               <Button
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
                 onClick={() => {
-                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo._id, type: episodeInfo.type });
+                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo.episodeId, type: episodeInfo.type });
                 }}
               >
                 {t("common:enjoy")}

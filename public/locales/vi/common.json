@@ -7,8 +7,8 @@
 		"appName": "WEBTOONZ",
 		"signIn": "Đăng nhập",
 		"logOut": "Đăng xuất",
-		"logIn": "ログイン",
-		"signUp": "サインアップ",
+		"logIn": "Đăng nhập",
+		"signUp": "Đăng kí",
 		"account": "Account",
 		"dropdown": {
 			"account": "Tài khoản",
@@ -28,10 +28,16 @@
 		"Sf": "KHOA HỌC VIỄN TƯỞNG",
 		"Fantasy": "GIẢ TƯỞNG"
 	},
-	"loginFailedMessage": "管理者ID又はパスワードが一致しません。",
-	"userID": "UserID",
-	"password": "Password",
-	"forgotPw": "Forgot Password ?",
+	"bookshelf": {
+		"bookShelf": "Giá sách",
+		"noItem": "Bạn không có tác phẩm nào trong giá sách"
+	},
+	"loginFailedMessage": "tên đăng nhập hoặc mật khẩu của bạn không chính xác",
+	"userID": "Tên đăng nhập",
+	"password": "Mật khẩu",
+	"forgotPw": "Quên mật khẩu ?",
 	"addToCart": "Thêm vào giỏ",
-	"buyNow": "Mua ngay"
+	"buyNow": "Mua ngay",
+	"noResult": "Không có kết quả hiển thị",
+	"editItem": "Chỉnh sửa"
 }

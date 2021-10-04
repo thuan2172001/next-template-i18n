@@ -8,7 +8,7 @@ import { CoverPhoto } from "@components/shop_component/CoverPhoto";
 import { AboutTerm } from "@components/shop_component/AboutTerm";
 import { ListProducts } from "@components/shop_component/ListProducts";
 import { ShopProfile } from "@components/shop-profile";
-import { CreatorHomePageTemplate } from "../layout/creator-home";
+import { CreatorHomePageTemplate } from "src/layout/creator-home";
 
 const Home: React.FC<{ homepageContent: any }> = () => {
     const { t } = useTranslation();

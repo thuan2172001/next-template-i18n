@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import React, { useState, useEffect } from "react";
 import { GetUserInfo } from "src/api/auth";
+import SeriesManagementAPI from "../../api/series-management/series-management";
 
 export const CreatorNewRelease = ({ creatorId, shopOpening }) => {
   const router = useRouter();
@@ -55,27 +56,28 @@ export const CreatorNewRelease = ({ creatorId, shopOpening }) => {
 
   const featDataListProducts = () => {
     setIsLoading(true);
-    // CreatorSeriesAPI.getNewReleased({
-    //   userInfo: GetUserInfo(),
-    //   limit: itemsPerLine * 10,
-    //   page: page,
-    //   firstIndex: firstItemIndex,
-    // })
-    //   .then((res) => {
-    //     const { series } = res;
-    //     if (series && series.totalSeries >= 0) {
-    //       setDataListProducts(series.seriesList);
-    //       setTotalProduct(series.totalSeries);
-    //     } else {
-    //       setTotalProduct(0);
-    //     }
-    //     setIsLoading(false);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     setTotalProduct(0);
-    //     setIsLoading(false);
-    //   });
+    SeriesManagementAPI.getSerieQuery({
+      userInfo: GetUserInfo(),
+      limit: 20,
+      page: page,
+      firstIndex: firstItemIndex,
+      category: 'all',
+      isDaily: "true",
+    })
+      .then((res) => {
+        if (!res.error) {
+          setDataListProducts(res);
+          setTotalProduct(res.length);
+        } else {
+          setTotalProduct(0);
+        }
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setTotalProduct(0);
+        setIsLoading(false);
+      });
   };
 
   const EditButton = () => {
@@ -85,7 +87,7 @@ export const CreatorNewRelease = ({ creatorId, shopOpening }) => {
         onClick={() => router.push("/sm?view=public")}
       >
         <img
-          src="./icons/c-homepage/edit.svg"
+          src="/assets/icons/c-homepage/edit.svg"
           className={`${style["edit-icon"]}`}
         />
         {t("common:editItem")}

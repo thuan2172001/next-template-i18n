@@ -17,6 +17,17 @@
 			"liked": "Liked",
 			"purchaseHistory": "Purchase history",
 			"logOut": "Log out"
+		},
+		"creator": {
+			"shopSetting": "SHOP SETTING",
+			"manageItem": "MANAGE ITEM",
+			"editProfile": "EDIT PROFILE",
+			"manageSales": "MANAGE SALES",
+			"publish": "Publish",
+			"dropdown": {
+				"viewShop": "View shop",
+				"logOut": "Log out"
+			}
 		}
 	},
 	"bookshelf": {
