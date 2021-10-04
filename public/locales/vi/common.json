@@ -41,6 +41,16 @@
 		"contact": "Liên hệ",
 		"share": "Chia sẻ"
 	},
+	"footer": {
+		"teamInformation": "Đội ngũ phát triển",
+		"privacyPolicy": "Chính sách riêng tư",
+		"support": "Trợ giúp",
+		"termsAndConditions": "Điều khoản và chính sách",
+		"copyright": "Copyright",
+		"technicalDebt": "TECHNICAL DEBT",
+		"allReserved": "All rights reserved.",
+		"fullCopyright": "Copyright ©︎ WEBTOONZ. All rights reserved."
+	},
 	"loginFailedMessage": "tên đăng nhập hoặc mật khẩu của bạn không chính xác",
 	"userID": "Tên đăng nhập",
 	"password": "Mật khẩu",
