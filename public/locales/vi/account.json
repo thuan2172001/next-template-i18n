@@ -1,0 +1,29 @@
+{
+  "accountPage": {
+    "account": "Tài khoản",
+    "accountInfo": "Thông tin cá nhân",
+    "emailAddress": "Địa chỉ email",
+    "username": "Tên đăng nhập",
+    "fullName": "Họ và tên",
+    "edit": "Chỉnh sửa",
+    "password": "Mật khẩu",
+    "myPaymentMethod": "Phương thức thanh toán",
+    "addNewCard": "Thêm thẻ mới",
+    "remove": "Xóa",
+    "masterCard": "Master Card",
+    "phoneNumber": "Số điện thoại",
+    "age": "Tuổi",
+    "save": "Lưu",
+    "cancel": "Hủy"
+  },
+  "notExistEmail": "Địa chỉ email này chưa được đăng ký",
+  "invalidEmail": "Địa chỉ email không hợp lệ",
+  "resend": "Gửi lại",
+  "changePassword": "Đổi mật khẩu",
+  "newPasswordSyntax": "Password must have at least 8 characters with 1 uppercase letter, 1 lowercase letter and 1 number. No accented character or space is allowed",
+  "emptyNewPassword": "Please input new password",
+  "confirmPasswordNotMatch": "Password doesn’t match",
+  "emptyConfirmPassword": "Please confirm new password",
+  "successChangePassword": "Successfully changed password",
+  "confirmPassword": "Please confirm your password"
+}

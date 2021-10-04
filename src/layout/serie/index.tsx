@@ -1,27 +1,25 @@
-import React, {useEffect, useMemo, useState, useRef} from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 // import { EpisodeProduct } from "../../components/product-item/EpisodeProduct";
-import {useTranslation} from "next-i18next";
+import { useTranslation } from "next-i18next";
 import CustomerSerieAPI from "../../api/customer/serie";
-import {Col, Row, Skeleton, Tooltip} from "antd";
-import {HeartFilled, HeartOutlined} from "@ant-design/icons";
+import { Col, Row, Skeleton, Tooltip } from "antd";
+import { HeartFilled, HeartOutlined } from "@ant-design/icons";
 import style from "./serie.module.scss";
-import {BASE_URL} from "../../api/const";
+import { BASE_URL } from "../../api/const";
 import router from "next/router";
-import {SeeMoreNoResult} from "@components/no-result/SeeMoreNoResult";
-import {PageNavigation} from "@components/pagination";
+import { SeeMoreNoResult } from "@components/no-result/SeeMoreNoResult";
+import { PageNavigation } from "@components/pagination";
 import SeriesManagementAPI from "../../api/series-management/series-management";
-import {GetUserInfo} from "src/api/auth";
-import {EpisodeProduct} from "@components/product-item/EpisodeProduct";
+import { GetUserInfo } from "src/api/auth";
+import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
 import EpisodeManagementAPI from "../../api/episode-management/episode-management";
 import Share from "@components/share-component/share";
 
-const SerieTemplate = ({serieId}) => {
-    const {t} = useTranslation();
+const SerieTemplate = ({ serieId }) => {
+    const { t } = useTranslation();
     const [serieData, setSerieData] = useState(null);
     const [episodeListComponent, setEpisodeList] = useState(null);
     const [tooltip, setTooltip] = useState("Copy link");
-    // const [likes, setLike] = useState(0);
-    // const [favorite, setFavorite] = useState(false);
     const [serieInfoHeight, setSerieInfoHeight] = useState(0);
     const [serieInfoHeight2, setSerieInfoHeight2] = useState(0);
     const serieInfoRef = useRef(null);
@@ -79,7 +77,7 @@ const SerieTemplate = ({serieId}) => {
     };
 
     useEffect(() => {
-        CustomerSerieAPI.getSerieData({serieId: serieId, userInfo: GetUserInfo()})
+        CustomerSerieAPI.getSerieData({ serieId: serieId, userInfo: GetUserInfo() })
             .then((data) => {
                 setSerieData(data);
                 setLikes(data?.likes);
@@ -100,17 +98,17 @@ const SerieTemplate = ({serieId}) => {
                 }
             })
             .catch((err) => {
-                console.log({err});
+                console.log({ err });
             });
     }, []);
 
     useMemo(() => {
         serieData &&
-        setEpisodeList(
-            serieData.episodes.slice((page - 1) * itemPerPage, page * itemPerPage).map((episode) => {
-                return <EpisodeProduct serieId={serieId} episode={episode}/>;
-            })
-        );
+            setEpisodeList(
+                serieData.episodes.slice((page - 1) * itemPerPage, page * itemPerPage).map((episode) => {
+                    return <EpisodeProduct serieId={serieId} episode={episode} />;
+                })
+            );
     }, [serieData, page]);
 
     const shareToTwitter = () => {
@@ -154,7 +152,7 @@ const SerieTemplate = ({serieId}) => {
             <section
                 className={`${style["image-cover-hidden"]} ${style["image-place"]}`}
             >
-                <img src={serieData?.cover} width="100%" height="auto"/>
+                <img src={serieData?.cover} width="100%" height="auto" />
             </section>
             <section className={`${style["serie-info"]}`}>
                 <div className={`${style["about"]}`} ref={serieInfoRef}>
@@ -169,13 +167,12 @@ const SerieTemplate = ({serieId}) => {
                         <div className={`${style["small-detail"]}`}>
                             <div className={`${style["number"]}`}>
                                 {`${serieData?.episodes?.length}
-                                ${
-                                    serieData?.episodes?.length > 1
+                                ${serieData?.episodes?.length > 1
                                         ? t(`common:items`)
                                         : t(`common:item`)
-                                }`}
+                                    }`}
                             </div>
-                            <div className={`${style["vertical-line"]}`}/>
+                            <div className={`${style["vertical-line"]}`} />
                             <div
                                 className={`${style["heart"]}`}
                                 onClick={() => onClickFavorite()}
@@ -185,7 +182,7 @@ const SerieTemplate = ({serieId}) => {
                                         className={`${style["favorite-icon"]} ${style["color-red"]}`}
                                     />
                                 ) : (
-                                    <HeartOutlined className={`${style["favorite-icon"]}`}/>
+                                    <HeartOutlined className={`${style["favorite-icon"]}`} />
                                 )}
                                 <span className={`${style["like-count"]}`}>{likes}</span>
                             </div>
@@ -204,40 +201,21 @@ const SerieTemplate = ({serieId}) => {
                         </div>
                     </Skeleton>
                     <div className={` ${style["bottom-detail"]}`}>
-                        {/*<span className={`${style["serie-detail"]}`}>*/}
-                        {/*  {serieData?.createdBy?.avatar ? (*/}
-                        {/*    <img*/}
-                        {/*      src={serieData?.createdBy?.avatar}*/}
-                        {/*      className={`${style["avatar-creator"]}`}*/}
-                        {/*    />*/}
-                        {/*  ) : (*/}
-                        {/*    // <img src={tempSrc} />*/}
-                        {/*    <></>*/}
-                        {/*  )}*/}
-                        {/*  <span*/}
-                        {/*    onClick={() => router.push(`/creator`)}*/}
-                        {/*    className={`${style["serie-creator-name"]} ${style["cursor_pointer"]}`}*/}
-                        {/*  >*/}
-                        {/*    {serieData?.createdBy?.user?.fullName}*/}
-                        {/*  </span>*/}
-                        {/*</span>*/}
                         <Row>
-                            <Share episodeId={serieId} thumbnail={serieData?.thumbnail}/>
+                            <Share episodeId={serieId} thumbnail={serieData?.thumbnail} />
                         </Row>
                     </div>
                 </div>
 
                 <Skeleton loading={!serieData?.description && serieData?.description != ""}>
                     <div
-                        className={`${style["long-description-container"]} ${
-                            seeAll && style["see-all"]
-                        }`}
+                        className={`${style["long-description-container"]} ${seeAll && style["see-all"]
+                            }`}
                     >
                         <div
                             style={dynamicHeight}
-                            className={`${style["long-description"]} ${style["detail"]} ${
-                                seeAll && style["see-all"]
-                            }`}
+                            className={`${style["long-description"]} ${style["detail"]} ${seeAll && style["see-all"]
+                                }`}
                         >
                             <p ref={contentRef}>{`${serieData?.description}`}</p>
                         </div>
@@ -250,8 +228,8 @@ const SerieTemplate = ({serieId}) => {
                                     setLines(1000);
                                 }}
                             >
-                See all
-              </span>
+                                See all
+                            </span>
                         )}
                     </div>
                 </Skeleton>
@@ -262,7 +240,7 @@ const SerieTemplate = ({serieId}) => {
             {/*)}*/}
 
             {serieData?.episodes.length === 0 ? (
-                <SeeMoreNoResult/>
+                <SeeMoreNoResult />
             ) : (
                 <div>
                     <section className={style["serie-info"]}>

@@ -75,7 +75,7 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 				<Menu.Item key="2" onClick={() => router.push("/user/bookshelf")}>
 					{t("common:header.dropdown.bookshelf")}
 				</Menu.Item>
-				<Menu.Item
+				{/* <Menu.Item
 					key="3"
 					onClick={() =>
 						router.push(
@@ -84,7 +84,7 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 					}
 				>
 					{t("common:header.dropdown.newArrivals")}
-				</Menu.Item>
+				</Menu.Item> */}
 				<Menu.Item
 					key="4"
 					onClick={() => router.push("/user/liked?category=all&liked=serie")}

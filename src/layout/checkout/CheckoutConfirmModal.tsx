@@ -5,10 +5,8 @@ import CustomerPaymentAPI from "../../api/customer/payment";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import CustomerBookshelfAPI from "../../api/customer/bookshelf";
-// import { PendingCheckoutModal } from "./PendingCheckoutModal";
-import style from "./checkout-confirm.module.scss";
-// import { CheckoutFailureModel } from "./CheckoutFailureModal";
 import { useSelector, useDispatch } from "react-redux";
+import style from "./checkout-confirm.module.scss";
 
 export const CheckoutConfirmModal = ({
   updateModalVisible,
@@ -118,7 +116,7 @@ export const CheckoutConfirmModal = ({
         <div className={`${style["confirm-icon"]}`}>
           <Image
             src={
-              isSuccess ? "/icons/success-purchase.svg" : "/icons/question.svg"
+              isSuccess ? "/assets/icons/success.png" : "/assets/icons/question.svg"
             }
             height={56}
             width={56}
@@ -140,7 +138,7 @@ export const CheckoutConfirmModal = ({
                 <>
                   <Row key={index}>
                     <div>
-                      <Image src="/icons/book.svg" height={30} width={30} />
+                      <Image src="/assets/icons/book.svg" height={30} width={30} />
                     </div>
 
                     <div className={`${style["cart-item-info"]}`}>
@@ -196,7 +194,7 @@ export const CheckoutConfirmModal = ({
                   <>
                     <Row key={index}>
                       <div>
-                        <Image src="/icons/book.svg" height={30} width={30} />
+                        <Image src="/assets/icons/book.svg" height={30} width={30} />
                       </div>
 
                       <div className={`${style["cart-item-info"]}`}>
