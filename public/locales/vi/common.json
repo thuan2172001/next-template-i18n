@@ -51,5 +51,18 @@
 	"editItem": "Chỉnh sửa",
 	"search": "Tìm kiếm",
     "noProduct": "Không có sản phẩm trong giỏ hàng",
-    "continueBrowse": "Tiếp tục mua"
+    "continueBrowse": "Tiếp tục mua",
+	"free": "Miễn phí",
+	"enjoy": "Đọc ngay ",
+	"readSetting": {
+		"pageAnimation": "Hoạt ảnh chuyển động",
+		"none": "Không",
+		"slide": "Slide",
+		"animationSpeed": "Tốc độ chuyển",
+		"fast": "Nhanh",
+		"normal": "Binh thường",
+		"slow": "Chậm",
+		"tapToTurnArea": "Vùng chạm để chuyển",
+		"restoreDefault": "Cài đặt mặc định"
+	}
 }

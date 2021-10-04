@@ -436,7 +436,7 @@ export const ReadHeader = ({
       {isComponentVisible && (
         <div className={`${style["setting-content"]}`} ref={ref}>
           <div className={`${style["setting-header"]} ${style["mt-12"]}`}>
-            Page Animation
+            {t('common:readSetting.pageAnimation')}
           </div>
           <Radio.Group
             value={setting.animation}
@@ -448,16 +448,16 @@ export const ReadHeader = ({
               value="none"
               className={`${style["radio-btn"]} ${style["left-btn"]}`}
             >
-              None
+              {t('common:readSetting.none')}
             </Radio.Button>
             <Radio.Button
               value="slide"
               className={`${style["radio-btn"]} ${style["right-btn"]}`}
             >
-              Slide
+              {t('common:readSetting.slide')}
             </Radio.Button>
           </Radio.Group>
-          <div className={`${style["setting-header"]}`}>Animation Speed</div>
+          <div className={`${style["setting-header"]}`}>{t('common:readSetting.animationSpeed')}</div>
           <Radio.Group
             value={setting.speed}
             buttonStyle="solid"
@@ -468,22 +468,22 @@ export const ReadHeader = ({
               value="fast"
               className={`${style["radio-btn"]} ${style["left-btn"]}`}
             >
-              Fast
+              {t('common:readSetting.fast')}
             </Radio.Button>
             <Radio.Button
               value="normal"
               className={`${style["radio-btn"]} ${style["mid-btn"]}`}
             >
-              Normal
+              {t('common:readSetting.normal')}
             </Radio.Button>
             <Radio.Button
               value="slow"
               className={`${style["radio-btn"]} ${style["right-btn"]}`}
             >
-              Slow
+              {t('common:readSetting.slow')}
             </Radio.Button>
           </Radio.Group>
-          <div className={`${style["setting-header"]}`}>Tap-To-Turn Area</div>
+          <div className={`${style["setting-header"]}`}>{t('common:readSetting.tapToTurnArea')}</div>
           <Slider
             value={setting.area}
             tooltipVisible={false}
@@ -509,7 +509,7 @@ export const ReadHeader = ({
               onClick={seriesData && restoreDefault}
               className={`${style["reset-btn"]}`}
             >
-              Restore Default
+              {t('common:readSetting.restoreDefault')}
             </Button>
           </div>
         </div>
