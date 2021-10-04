@@ -44,7 +44,8 @@ export const Read = ({
       userInfo: GetUserInfo(),
       serieId,
       episodeId,
-      pages: JSON.stringify(initPages),
+      fromPage: initPages[0],
+      endPage: initPages[initPages.length - 1],
     })
       .then((res) => {
         if (res?.episode && res?.signedUrl && res?.signedUrl?.length > 0) {
@@ -138,7 +139,8 @@ export const Read = ({
         userInfo: GetUserInfo(),
         serieId,
         episodeId,
-        pages: JSON.stringify([page]),
+        fromPage: page,
+        endPage: page,
       })
         .then((res) => {
           if (res.episode && res.signedUrl.length > 0) {
@@ -173,16 +175,14 @@ export const Read = ({
   return (
     <>
       <div
-        className={`${style["cursor-area1"]} ${
-          isAreaChange && style["display-tapping-area"]
-        } ${currentView < pageNumber && style["cursor-left"]}`}
+        className={`${style["cursor-area1"]} ${isAreaChange && style["display-tapping-area"]
+          } ${currentView < pageNumber && style["cursor-left"]}`}
         style={{ width: `${area}%` }}
         onClick={handleNext}
       ></div>
       <div
-        className={`${style["cursor-area2"]} ${
-          isAreaChange && style["display-tapping-area"]
-        } ${currentView > 1 && style["cursor-right"]}`}
+        className={`${style["cursor-area2"]} ${isAreaChange && style["display-tapping-area"]
+          } ${currentView > 1 && style["cursor-right"]}`}
         style={{ width: `${area}%` }}
         onClick={handlePrev}
       ></div>
@@ -198,11 +198,9 @@ export const Read = ({
           {pages?.map((page, index) =>
             page ? (
               <div
-                className={`${style["slide"]} ${
-                  style[slidesDirection[index]]
-                } ${animation === "none" && style["turn-off-animation"]} ${
-                  style[speed]
-                }`}
+                className={`${style["slide"]} ${style[slidesDirection[index]]
+                  } ${animation === "none" && style["turn-off-animation"]} ${style[speed]
+                  }`}
                 style={{ left: `${(page.page - currentView) * 100}%` }}
                 key={`trans_${index}`}
               >
@@ -212,11 +210,9 @@ export const Read = ({
               </div>
             ) : (
               <div
-                className={`${style["slide"]} ${
-                  style[slidesDirection[index]]
-                } ${animation === "none" && style["turn-off-animation"]} ${
-                  style[speed]
-                }`}
+                className={`${style["slide"]} ${style[slidesDirection[index]]
+                  } ${animation === "none" && style["turn-off-animation"]} ${style[speed]
+                  }`}
                 style={{ left: `${(page.page - currentView) * 100}%` }}
                 key={`trans_${index}`}
               >

@@ -99,7 +99,7 @@ const CardSetupForm = ({ markSetupSuccess, markCancel, type }) => {
         .then((response) => {
           const data = response.data || response;
 
-          if (data.card) {
+          if (!data.error) {
             markSetupSuccess(true);
           } else {
             setErrorMessage(t("add-payment:invalidCardInfo"));

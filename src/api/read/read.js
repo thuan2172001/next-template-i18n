@@ -15,12 +15,12 @@ export default {
     });
   },
 
-  getRead: ({ serieId, episodeId, userInfo, pages }) => {
+  getRead: ({ serieId, episodeId, userInfo, fromPage, endPage }) => {
     const customAxios = createCustomAxios(userInfo);
     return customAxios({
       method: 'get',
       url: `${baseURL}/read/${serieId}/${episodeId}`,
-      params: { guest: !userInfo, pages },
+      params: { guest: !userInfo, fromPage, endPage },
     }).then((data) => {
       return data;
     });
