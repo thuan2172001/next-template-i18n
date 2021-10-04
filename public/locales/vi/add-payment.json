@@ -1,0 +1,18 @@
+{
+	"saveCard": "Lưu thẻ này",
+	"cancel": "Hủy",
+	"addSuccess": "Thêm phương thức thanh toán thành công",
+	"continuePayment": "Tiếp tục thanh toán",
+	"addPayment": "Thêm phương thức thanh toán",
+	"done": "Xong",
+	"claim": {
+		"block1": "Thông tin thẻ sẽ được bảo mật.",
+		"block2": "Thông tin cá nhân sẽ dược giữ an toàn và bao mật. Webtoonz sẽ không có quyền truy cập thông tin thẻ của bạn."
+	},
+	"label": {
+		"nameOnCard": "Name on card",
+		"cardNumber": "Card number",
+		"expirationDate": "Expiration Date"
+	},
+	"invalidCardInfo": "Please input the right value!"
+}

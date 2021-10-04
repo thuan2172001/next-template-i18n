@@ -28,9 +28,18 @@
 		"Sf": "KHOA HỌC VIỄN TƯỞNG",
 		"Fantasy": "GIẢ TƯỞNG"
 	},
+	"topPage": {
+		"newRelease": "Tác phẩm mới ra",
+		"profile": "Tác giả"
+	},
 	"bookshelf": {
 		"bookShelf": "Giá sách",
 		"noItem": "Bạn không có tác phẩm nào trong giá sách"
+	},
+	"aboutTerm": {
+		"about": "Giới thiệu",
+		"contact": "Liên hệ",
+		"share": "Chia sẻ"
 	},
 	"loginFailedMessage": "tên đăng nhập hoặc mật khẩu của bạn không chính xác",
 	"userID": "Tên đăng nhập",
@@ -39,5 +48,8 @@
 	"addToCart": "Thêm vào giỏ",
 	"buyNow": "Mua ngay",
 	"noResult": "Không có kết quả hiển thị",
-	"editItem": "Chỉnh sửa"
+	"editItem": "Chỉnh sửa",
+	"search": "Tìm kiếm",
+    "noProduct": "Không có sản phẩm trong giỏ hàng",
+    "continueBrowse": "Tiếp tục mua"
 }

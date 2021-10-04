@@ -99,8 +99,8 @@ export const CheckoutTemplate = ({ cartList }) => {
                         id: method.id,
                         imgSrc:
                             method.card.brand === "visa"
-                                ? "/icons/visa.svg"
-                                : "/icons/master-card.svg",
+                                ? "/assets/icons/visa.svg"
+                                : "/assets/icons/master-card.svg",
                         name: method.card.brand === "visa" ? "Visa" : "Mastercard",
                         cardNumber: `**** **** **** ${method.card.last4}`,
                     }))

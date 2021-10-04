@@ -78,8 +78,9 @@ export const ReadHeader = ({
 
   useEffect(() => {
     if (!currentEps) return;
-    setFavorite(currentEps.isFavorite);
-    setTotalLikes(currentEps.totalLikes);
+    console.log({ currentEps })
+    setFavorite(currentEps.alreadyLiked);
+    setTotalLikes(currentEps.likes);
   }, [currentEps]);
 
   const handleAnimationChange = (e) => {
@@ -148,8 +149,8 @@ export const ReadHeader = ({
     let callbackUrl = window.localStorage.getItem("closeEnjoyUrlCallback")
       ? window.localStorage.getItem("closeEnjoyUrlCallback")
       : seriesData
-      ? `/serie/${seriesData?._id}`
-      : "/";
+        ? `/serie/${seriesData?.serieId}`
+        : "/";
 
     router.push(callbackUrl);
     window.localStorage.removeItem("closeEnjoyUrlCallback");
@@ -283,9 +284,8 @@ export const ReadHeader = ({
           placement="bottomLeft"
         >
           <span
-            className={`${style["episode-name"]} ${
-              style[seriesData ? "cursor-pointer" : ""]
-            }`}
+            className={`${style["episode-name"]} ${style[seriesData ? "cursor-pointer" : ""]
+              }`}
           >
             {currentEps && (
               <Tooltip title={seriesData ? currentEps.name : ""}>
@@ -342,8 +342,7 @@ export const ReadHeader = ({
 
   const shareToPinterest = () => {
     window.open(
-      `https://www.pinterest.com/pin-builder/?url=${windowHref}%3Futm_source%3Ddynamic%26utm_campaign%3Dbfsharepinterest&description=${
-        currentEps.episodeId ? currentEps.episodeId : "Share"
+      `https://www.pinterest.com/pin-builder/?url=${windowHref}%3Futm_source%3Ddynamic%26utm_campaign%3Dbfsharepinterest&description=${currentEps.episodeId ? currentEps.episodeId : "Share"
       }&media=${seriesData.thumbnail}`,
       "_blank"
     );
@@ -367,9 +366,8 @@ export const ReadHeader = ({
             />
           ) : (
             <HeartOutlined
-              className={`${style["favorite-icon"]} ${
-                style[!seriesData && "disable-cursor"]
-              }`}
+              className={`${style["favorite-icon"]} ${style[!seriesData && "disable-cursor"]
+                }`}
               onClick={() => seriesData && likeEpisode()}
             />
           )}
@@ -420,9 +418,8 @@ export const ReadHeader = ({
 
   return (
     <div
-      className={`${style["header"]} ${style["animated"]} ${
-        showHeader ? style["fadeIn"] : style["fadeOut"]
-      } ${interact && style["always-display"]}`}
+      className={`${style["header"]} ${style["animated"]} ${showHeader ? style["fadeIn"] : style["fadeOut"]
+        } ${interact && style["always-display"]}`}
       onMouseOver={() => {
         setInteract(true);
       }}

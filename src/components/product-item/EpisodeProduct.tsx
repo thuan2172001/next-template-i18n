@@ -20,7 +20,7 @@ export const EpisodeProduct = ({ serieId, episode }) => {
     isLocked,
     thumbnail,
     // currency,
-    // totalLikes,
+    totalLikes,
     alreadyLiked,
   } = episode;
 

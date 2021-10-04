@@ -108,5 +108,6 @@
 		"modalHeader": "Please log in to enjoy full features of Webtoonz",
 		"login": "Login",
 		"signUp": "Create a new account"
-	}
+	},
+	"search": "Search"
 }
