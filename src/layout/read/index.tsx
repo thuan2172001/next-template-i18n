@@ -34,27 +34,27 @@ export const ReadTemplate = () => {
       setEpisodeId(router.query.episodeId);
   }, [router]),
 
-  useEffect(() => {
-    ReadAPI.getSerie({
-      userInfo: GetUserInfo(),
-      serieId,
-    })
-      .then((res) => {
-        if (res.serie) {
-          setSeriesData(res.serie);
-          res.serie.episodes.forEach((data, index) => {
-            if (data.episodeId == episodeId) {
-              if (index > 0) setPreEps(res.serie.episodes[index - 1]);
-              setCurrentEps(data);
-              if (index < res.serie.episodes.length - 1)
-                setNextEps(res.serie.episodes[index + 1]);
-            }
-          });
-        }
+    useEffect(() => {
+      ReadAPI.getSerie({
+        userInfo: GetUserInfo(),
+        serieId,
       })
-      .catch();
+        .then((res) => {
+          if (!res.error) {
+            setSeriesData(res);
+            res.episodes.forEach((data, index) => {
+              if (data.episodeId == episodeId) {
+                if (index > 0) setPreEps(res.episodes[index - 1]);
+                setCurrentEps(data);
+                if (index < res.episodes.length - 1)
+                  setNextEps(res.episodes[index + 1]);
+              }
+            });
+          }
+        })
+        .catch();
       getSettingRead();
-  }, []);
+    }, []);
 
   useEffect(() => {
     if (!seriesData) return;
@@ -69,17 +69,17 @@ export const ReadTemplate = () => {
   }, [episodeId]);
 
   useEffect(() => {
-    if(setting) {
+    if (setting) {
       CustomerProfileAPI.updateSettingRead({
         userInfo: GetUserInfo(),
         settingRead: JSON.stringify(setting)
       }).catch();
     }
-  },[setting])
+  }, [setting])
 
   const getSettingRead = () => {
-    CustomerProfileAPI.getSettingRead({userInfo: GetUserInfo()}).then(res => {
-      if(res.animation && res.speed && res.area >= 0) {
+    CustomerProfileAPI.getSettingRead({ userInfo: GetUserInfo() }).then(res => {
+      if (res.animation && res.speed && res.area >= 0) {
         setSetting(res);
       } else {
         setSetting(initialState)
@@ -99,7 +99,7 @@ export const ReadTemplate = () => {
     }
   }, [showHeader]);
 
-  if(!setting) return <div></div>
+  if (!setting) return <div></div>
   return (
     <>
       <ReadHeader
