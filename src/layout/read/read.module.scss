@@ -1,0 +1,369 @@
+@import "../../components/global-scss/variables";
+
+// header here
+
+.header {
+  width: 100%;
+  height: rem(70px);
+  background-color: $color-light-black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  padding: 0 rem(30px);
+  justify-content: space-between;
+
+  .episode-name {
+    font-family: $font-family-main;
+    font-style: normal;
+    font-weight: bold;
+    font-size: $fs1;
+    line-height: $lh2;
+    color: $color-white;
+  }
+
+  .cursor {
+    cursor: pointer;
+    width: rem(13px);
+  }
+
+  .like-number {
+    font-family: $font-family-main;
+    font-style: normal;
+    font-weight: normal;
+    font-size: $fs1;
+    line-height: $lh12;
+    color: $color-white;
+    margin-left: rem(10px);
+    width: 24px;
+  }
+
+  .favorite-icon {
+    font-size: 14px;
+    color: $color-white;
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+}
+
+.episode-menu {
+  margin-top: rem(23px);
+  max-width: rem(440px);
+  min-width: rem(400px);
+  max-height: rem(429px);
+  right: rem(21px);
+  overflow-y: scroll;
+  padding: rem(15px) rem(12px);
+
+  font-family: $font-family-main;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-light-black;
+
+  .lock-episode {
+    display: flex;
+    justify-content: space-between;
+    .lock {
+      color: $color-gray-5;
+    }
+    .buy-now {
+      color: $color-blue-2;
+    }
+  }
+}
+
+.divider {
+  margin: 12px 0;
+}
+
+.setting-content {
+  width: rem(380px);
+  padding: rem(12px) rem(24px);
+  padding-bottom: rem(20px);
+  background-color: $color-white;
+
+  position: fixed;
+  top: 66px;
+  left: 89px;
+
+  .setting-header {
+    font-family: $font-family-main;
+    font-style: normal;
+    font-weight: bold;
+    font-size: $fs2;
+    line-height: $lh2;
+    color: $color-black;
+    margin-bottom: rem(13px);
+    margin-top: rem(24px);
+  }
+
+  .mt-12 {
+    margin-top: rem(12px) !important;
+  }
+
+  .group-radio1 {
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .group-radio {
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .radio-btn {
+    text-align: center;
+    background-color: $color-gray-11;
+    font-family: $font-family-main;
+    font-weight: normal;
+    font-size: $fs1;
+    color: $color-black-1;
+    border-color: $color-gray-11 !important;
+  }
+
+  .left-btn {
+    border-top-left-radius: rem(4px);
+    border-bottom-left-radius: rem(4px);
+    border-right: none !important;
+  }
+
+  .right-btn {
+    border-top-right-radius: rem(4px);
+    border-bottom-right-radius: rem(4px);
+    // border-left: none !important;
+  }
+
+  .right-btn::before {
+    display: none;
+  }
+
+  .mid-btn::before {
+    display: none;
+  }
+
+  .btn-wrapper {
+    margin-top: rem(35px);
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+
+    .reset-btn {
+      margin-left: auto;
+      width: rem(148px);
+      height: rem(40px);
+      border: 1px solid $color-gray-1;
+      font-family: $font-family-main;
+      font-style: normal;
+      font-weight: bold;
+      font-size: $fs1;
+      line-height: $lh2;
+      color: $color-gray-1;
+    }
+  }
+}
+
+.animated {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.always-display {
+  animation: none !important;
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+  user-select: none !important;
+  @-webkit-keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// main-content here
+
+.read-content {
+  background-color: $color-gray-8;
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-gray-8;
+  display: flex;
+  justify-content: center;
+}
+
+.main-content {
+  height: 100%;
+
+  img {
+    height: inherit;
+  }
+}
+
+.cursor-area1,
+.cursor-area2 {
+  background-color: $color-gray-1;
+  opacity: 0;
+  position: absolute;
+  top: 15%;
+  height: 70%;
+  z-index: 10;
+}
+
+.cursor-area1 {
+  left: 0;
+}
+
+.cursor-area2 {
+  right: 0;
+}
+
+.prev-for-current {
+  -webkit-animation: slide1 0.5s forwards;
+  animation: slide1 0.5s forwards;
+  animation-iteration-count: 1;
+
+  @keyframes slide1 {
+    from {
+      left: 0;
+    }
+    to {
+      left: -100%;
+    }
+  }
+}
+
+.prev-for-hidden {
+  -webkit-animation: slide2 0.5s forwards;
+  animation: slide2 0.5s forwards;
+  animation-iteration-count: 1;
+  @keyframes slide2 {
+    from {
+      left: 100%;
+    }
+    to {
+      left: 0;
+    }
+  }
+}
+
+.next-for-current {
+  -webkit-animation: slide3 0.5s forwards;
+  animation: slide3 0.5s forwards;
+  animation-iteration-count: 1;
+  @keyframes slide3 {
+    from {
+      left: 0;
+    }
+    to {
+      left: 100%;
+    }
+  }
+}
+
+.next-for-hidden {
+  -webkit-animation: slide4 0.5s forwards;
+  animation: slide4 0.5s forwards;
+  animation-iteration-count: 1;
+  @keyframes slide4 {
+    from {
+      left: -100%;
+    }
+    to {
+      left: 0;
+    }
+  }
+}
+
+.fast {
+  animation-duration: 0.3s !important;
+}
+
+.normal {
+  animation-duration: 0.7s !important;
+}
+
+.slow {
+  animation-duration: 2s !important;
+}
+
+.turn-off-animation {
+  animation-duration: 0s !important;
+}
+
+.display-tapping-area {
+  opacity: 0.3;
+}
+
+.cursor-left {
+  cursor: url("/assets/icons/read/cursor_left.png"), auto;
+  cursor: url("/assets/icons/read/cursor_left.png"), -webkit-grab;
+  cursor: url("/assets/icons/read/cursor_left.png"), -moz-grab;
+}
+
+.cursor-right {
+  cursor: url("/assets/icons/read/cursor_right.png"), auto;
+  cursor: url("/assets/icons/read/cursor_right.png"), -webkit-grab;
+  cursor: url("/assets/icons/read/cursor_right.png"), -moz-grab;
+}
+
+.disable-cursor{
+  cursor: default !important;
+}

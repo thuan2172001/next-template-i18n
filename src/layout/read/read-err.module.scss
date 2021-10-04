@@ -1,0 +1,78 @@
+@import "../../components/global-scss/variables";
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  width: rem(1090px);
+  height: rem(412px);
+  background: $color-blue-8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .err-msg {
+    font-size: rem($fs3);
+    line-height: rem($lh3);
+    font-weight: $fw-bold;
+    color: $color-red3;
+    margin-bottom: rem(36px);
+  }
+  .nft-name {
+    display: flex;
+    font-size: rem($fs3);
+    line-height: rem($lh3);
+    font-weight: $fw-bold;
+    .nft-icon {
+      width: rem(30px);
+      height: rem(30px);
+    }
+    .serie-name {
+      margin-left: rem(12px);
+      color: $color-blue-2;
+      margin-right: rem(8px);
+    }
+  }
+  .nft-price {
+    display: flex;
+    font-size: rem($fs1);
+    line-height: rem($lh2);
+    color: $color-red-1;
+    align-items: flex-end;
+    margin-top: rem(5px);
+    margin-bottom: rem(10px);
+    .price {
+      display: flex;
+      align-items: flex-end;
+      font-size: rem($fs8);
+      line-height: rem($lh3);
+      font-weight: $fw-bold;
+    }
+  }
+  .nft-sale {
+    display: flex;
+    font-size: rem($fs1);
+    line-height: rem($lh2);
+    .name {
+      margin-left: rem(5px);
+      font-weight: $fw-bold;
+    }
+  }
+  .buy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-blue-2;
+    color: $color-white;
+    font-weight: $fw-bold;
+    font-size: rem($fs1);
+    line-height: rem($lh2);
+    height: rem(39px);
+    width: rem(134px);
+    margin-top: rem(56px);
+  }
+}

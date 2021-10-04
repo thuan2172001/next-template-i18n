@@ -75,6 +75,31 @@ export default {
 	// 	});
 	// },
 
+	getSettingRead: ({userInfo}) => {
+		const customAxios = createCustomAxios(userInfo);
+
+		return customAxios({
+			method: 'get',
+			url: `${baseURL}/setting-read`
+		}).then((data) => {
+			return data;
+		});
+	},
+
+	updateSettingRead: ({userInfo, settingRead}) => {
+		const customAxios = createCustomAxios(userInfo);
+
+		return customAxios({
+			method: 'post',
+			url: `${baseURL}/setting-read`,
+			data: {
+				settingRead,
+			},
+		}).then((data) => {
+			return data;
+		});
+	},
+
 	sendEmailForgotPw: ({ email }) => {
 		const customAxios = createCustomAxios(null);
 

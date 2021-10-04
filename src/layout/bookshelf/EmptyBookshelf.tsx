@@ -11,7 +11,7 @@ export const EmptyBookshelf = () => {
   
   return (
     <div className={`${style["empty-bookshelf"]}`}>
-      <img src={"/images/no-result.svg"} />
+      <img src={"/assets/icons/no-result.svg"} />
       <span className={`${style["no-item"]}`}>
         {t("common:bookshelf.noItem")}
       </span>

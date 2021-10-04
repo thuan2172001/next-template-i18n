@@ -48,7 +48,7 @@ const validateImage = (size, src, componentType, name): any =>
         const width = img.naturalWidth || img.width;
         const height = img.naturalHeight || img.height;
 
-        if(height * 20 !== width * 9) {
+        if (height * 20 !== width * 9) {
           resolve({ isValid: false, reason: "INVALID_RATIO" });
         }
 
@@ -80,9 +80,8 @@ export const HomePageCover = ({ creator }) => {
     return (
       <div
         onClick={() => inputFile.current.click()}
-        className={`${style["edit"]} ${style[`${props.className}`]} ${
-          style["disable-select"]
-        }`}
+        className={`${style["edit"]} ${style[`${props.className}`]} ${style["disable-select"]
+          }`}
       >
         {props.imgSrc && (
           <div className={`${style["edit-icon"]}`}>
@@ -97,9 +96,8 @@ export const HomePageCover = ({ creator }) => {
   const CreatorButton = (props) => {
     return (
       <div
-        className={`${style["edit"]} ${style[`${props.className}`]} ${
-          style["disable-select"]
-        }`}
+        className={`${style["edit"]} ${style[`${props.className}`]} ${style["disable-select"]
+          }`}
         onClick={props.onClickFunction}
       >
         {props.imgSrc && (
@@ -175,9 +173,9 @@ export const HomePageCover = ({ creator }) => {
   }
 
   const handleSaveCover = async () => {
-    if(action === 'update') handleUpdateCover();
-    else if(action === 'reset') handleResetCover();
-    if(action === '') {
+    if (action === 'update') handleUpdateCover();
+    else if (action === 'reset') handleResetCover();
+    if (action === '') {
       setEditBannerClick(!editBannerClicked)
       setErrorMessage('')
     }
@@ -256,7 +254,7 @@ export const HomePageCover = ({ creator }) => {
     const pattern = /^#[0-9A-F]{6}$/i;
     const hexColorRule = new RegExp(pattern);
 
-    if(!hexColorRule.test(color) || color.length !== 7) 
+    if (!hexColorRule.test(color) || color.length !== 7)
       return getErrorMessage('INVALID_COLOR')
     // ShopSettingAPI.editProfileCreator({
     //   userInfo: GetUserInfo(),
@@ -286,13 +284,13 @@ export const HomePageCover = ({ creator }) => {
     <>
       <section
         className={`${style["image-cover-hidden"]} ${style["image-place"]}`}
-        style={bgColor ? {backgroundColor: bgColor} : {}}
+        style={bgColor ? { backgroundColor: bgColor } : {}}
       >
         {errorMessage !== "" && <ErrorMessage />}
-        <img src={cover && cover} width="960px" height="432px" />
+        <img src={cover && cover} width="100%" style={{ overflow: 'hidden', maxHeight: '430px' }} />
 
         <CreatorButton
-          imgSrc="/icons/c-homepage/camera.svg"
+          imgSrc="/assets/icons/c-homepage/camera.svg"
           buttonName={t(`common:editBanner`)}
           className="edit-banner"
           onClickFunction={() => setEditBannerClick(!editBannerClicked)}
