@@ -66,8 +66,8 @@ export const CreatorNewRelease = ({ creatorId, shopOpening }) => {
     })
       .then((res) => {
         if (!res.error) {
-          setDataListProducts(res);
-          setTotalProduct(res.length);
+          setDataListProducts(res.data);
+          setTotalProduct(res.data.length);
         } else {
           setTotalProduct(0);
         }

@@ -1,0 +1,304 @@
+@import "@components/global-scss/variables.scss";
+
+.cover-photo-upload {
+  background: $color-bold-white;
+  border: rem(2px) dashed $color-gray-3;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: rem(350px);
+  width: rem(350px);
+}
+
+.serie-cover {
+  width: 100% !important;
+  height: rem(430px) !important;
+}
+
+.trash-icon {
+  position: absolute;
+  top: rem(26px);
+  right: rem(26px);
+  z-index: 99;
+  cursor: pointer;
+}
+
+.cover-photo-header {
+  font-style: normal;
+  font-weight: $fw-bold;
+  font-size: $fs3;
+  line-height: $lh3;
+  letter-spacing: rem(0.2px);
+  color: $color-black;
+  margin-top: rem(10px);
+  margin-bottom: rem(7px);
+}
+
+.cover-photo-subtitle {
+  font-style: normal;
+  font-weight: $fw-normal;
+  font-size: $fs1;
+  line-height: $lh2;
+  letter-spacing: rem(0.2px);
+}
+
+.cover-recommend {
+  margin-top: rem(16px);
+  font-weight: $fw-normal;
+  font-size: $f9;
+  line-height: $lh3;
+  color: $color-light-black;
+}
+
+.error-msg {
+  z-index: 11;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: rem(50px);
+  background: $color-red3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-white;
+
+  .error-content {
+    margin: 0 rem(8px);
+  }
+}
+
+.file-preview {
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  background: $color-bold-white;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.preview-edit-cover {
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  background: $color-bold-white;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.file-img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: rem(18px) auto 0 auto;
+  position: relative;
+}
+
+.preview-btn {
+  position: absolute;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-gray;
+  color: $color-white;
+  font-size: rem($fs3);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.file-img:hover {
+  .preview-btn {
+    opacity: 0.8;
+  }
+}
+
+.video-preview:hover {
+  .preview-btn {
+    opacity: 0.8;
+  }
+}
+
+.pdf-canvas {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  margin-top: rem(17px);
+  font-weight: normal;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-light-black;
+}
+
+.video-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: rem(70px);
+  width: 100%;
+  height: calc(80% - 60px);
+}
+
+.text-color-pink {
+  color: $color-pink;
+}
+
+.file-content-upload {
+  position: relative;
+  background: $color-bold-white;
+  border: rem(2px) dashed $color-gray-6;
+
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: rem(485px);
+  width: 100%;
+}
+
+.file-upload-notice {
+  margin-top: rem(24px);
+  font-style: normal;
+  font-weight: $fw-normal;
+  font-size: $fs1;
+  line-height: $lh2;
+  letter-spacing: rem(0.2px);
+  width: rem(391px);
+}
+
+.preview-container {
+  max-height: 80%;
+  margin-bottom: rem(15px);
+}
+
+.edit-cover-mess {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: $color-black;
+  opacity: 0.3;
+  z-index: 99;
+}
+
+.edit-btn-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 51%;
+  z-index: 101;
+}
+
+.edit-btn-thumb-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0
+}
+
+.ml-20 {
+  margin-left: rem(20px);
+}
+
+.guide-container {
+  height: rem(196px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  left: 0;
+  right: 0;
+
+  .big-guide {
+    position: absolute;
+    top: 25%;
+    font-family: $font-euclid-medium;
+    font-style: normal;
+    font-weight: bold;
+    font-size: $fs9;
+    line-height: $lh3;
+    letter-spacing: rem(0.2px);
+    color: $color-white !important;
+  }
+
+  .small-guide {
+    position: absolute;
+    top: 33.5%;
+    font-family: $font-euclid-regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: rem(13px);
+    line-height: $lh3;
+    text-align: center;
+    letter-spacing: rem(0.2px);
+    color: $color-white !important;
+  }
+}
+
+.edit {
+  cursor: pointer;
+  width: rem(141px);
+  height: rem(40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $color-bold-white;
+  font-family: $font-euclid-regular;
+  font-weight: normal;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-black;
+  opacity: 1 !important;
+}
+
+.edit-icon {
+  margin: rem(8px) rem(8px) rem(2px) 0;
+}
+

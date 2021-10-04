@@ -1,0 +1,222 @@
+@import "@components/global-scss/variables.scss";
+
+.dislay {
+  opacity: 1;
+}
+
+.disappear {
+  opacity: 0;
+  // height: 0 !important;
+}
+
+.switch-tab {
+  display: flex;
+  padding: 0 11.5%;
+  font-size: rem($fs1);
+  line-height: rem($lh2);
+  font-weight: $fw-bold;
+  height: rem(80px);
+  .switch-tab-item {
+    letter-spacing: rem(0.2px);
+    display: flex;
+    align-items: center;
+    width: rem(254px);
+    .switch-tab-rank {
+      display: inline-block;
+      margin-right: rem(12px);
+      padding: rem(3px) rem(9px);
+      border-radius: 50px;
+      background: $color-blue-8;
+      color: $color-blue;
+    }
+  }
+  .switch-tab-active {
+    border-bottom: 3px solid $color-blue-2;
+    .switch-tab-rank {
+      background: $color-blue-2 !important;
+      color: $color-white !important;
+    }
+  }
+}
+
+.divider {
+  height: 1px;
+  background: $color-gray-13;
+  margin: rem(40px) 0;
+}
+
+.body {
+  padding: 0 11.5%;
+  padding-top: rem(111px) !important;
+
+  .serie-detail-input {
+    .input {
+      height: 40px;
+    }
+
+    .color-disabled {
+      color: $color-gray-5;
+    }
+  }
+
+  .header {
+    font-style: normal;
+    font-weight: bold;
+    font-size: $fs2;
+    line-height: $lh4;
+    color: $color-black;
+  }
+
+  .thumbnail-detail {
+    display: flex;
+    padding-top: rem(12px);
+    padding-bottom: rem(40px);
+
+    .convention-valid {
+      color: green;
+    }
+
+    .convention-invalid {
+      color: $color-red;
+    }
+
+    .thumbnail-cover-convention {
+      margin-top: rem(18px);
+      margin-left: rem(23px);
+      background: $color-white;
+      box-shadow: 0px rem(6px) rem(12px) rgba(213, 213, 213, 0.25);
+      padding: rem(18px) rem(90px) rem(23px) rem(38px);
+      height: rem(161px);
+      width: rem(486px);
+      font-weight: $fw-normal;
+      font-size: rem($fs1);
+      line-height: rem($lh3);
+      color: $color-light-black;
+      list-style: none;
+
+      .convention-item::before {
+        content: "\2022";
+        color: $color-bg;
+        font-weight: $fw-bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+    }
+  }
+
+  .category {
+    padding-bottom: rem(40px);
+    .cate-title {
+      margin-top: rem(24px);
+    }
+    .serie-btn {
+      margin-top: rem(12px);
+      width: rem(110px);
+      text-align: center;
+      background-color: $color-gray-12 !important;
+      border-radius: 2px !important;
+      border: 1px solid $color-gray-4 !important;
+    }
+    .active {
+      background-color: $color-blue-9 !important;
+      border-radius: 2px !important;
+      border: 1px solid $color-blue-2 !important;
+    }
+    .serie-btn::before {
+      content: none !important;
+    }
+    .radio-value {
+      position: relative;
+    }
+
+    .checked-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .error-msg {
+      margin-top: rem(4px);
+      color: $color-red-1;
+    }
+  }
+}
+
+.footer {
+  padding-bottom: rem(100px);
+  display: flex;
+  justify-content: center;
+  .button {
+    width: rem(160px);
+    height: rem(40px);
+    text-align: center;
+    font-size: $fs1;
+    font-weight: $fw-bold;
+    line-height: $lh2;
+  }
+
+  .confirm-button {
+    margin-right: auto;
+    width: rem(160px);
+  }
+
+  .cancel-button {
+    align-items: right;
+    width: rem(160px);
+    margin-left: auto;
+    margin-right: rem(30px);
+  }
+
+  .active-save {
+    background: $color-blue-2;
+    color: $color-white;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .thumbnail-cover-convention {
+    min-height: rem(300px);
+    max-height: rem(350px);
+    padding-right: rem(18px);
+  }
+}
+
+.tag-input {
+  width: 86%;
+  min-height: rem(40px);
+  overflow-y: auto;
+  padding: 0 rem(10px);
+  background: $color-white;
+  border: 1px solid $color-black-3;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .tag-item {
+    background: rgba(84, 172, 236, 0.1);
+    border-color: rgba(84, 172, 236, 0.1);
+    border-radius: 2px;
+    height: rem(30px);
+    display: flex;
+    align-items: center;
+    font-family: $font-euclid-regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: $fs1 !important;
+    line-height: $lh2;
+    letter-spacing: rem(0.2px);
+    color: $color-lighter-black;
+    margin: rem(4px);
+  }
+
+  .inputClass {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none !important;
+    width: auto;
+    flex-grow: 1;
+  }
+}

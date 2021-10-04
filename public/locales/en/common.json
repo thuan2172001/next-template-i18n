@@ -109,6 +109,22 @@
 		"login": "Login",
 		"signUp": "Create a new account"
 	},
+	"episodeManagement": {
+		"private": "Private",
+		"public": "Public"
+	},
+	"seriesManagement": {
+		"createNewSeries": "Create new series",
+		"create": "Create",
+		"update": "Update",
+		"addItem": "Add item",
+		"dropDown": {
+			"editSeries": "Edit",
+			"privateSeries": "Private Series",
+			"publishSeries": "Pulish Series"
+		}
+	},
+	"episode": "Episode",
 	"search": "Search",
 	"readSetting": {
 		"pageAnimation": "Page Animation",

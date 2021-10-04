@@ -1,0 +1,98 @@
+@import "../../components/global-scss/variables";
+
+.tab-layout {
+  padding: 0 11.5%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.tab-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: rem(142px);
+  height: 100%;
+  font-family: $font-euclid-medium;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-light-black;
+  letter-spacing: rem(0.2px);
+  border: none !important;
+  cursor: pointer;
+}
+
+.create-ep-btn {
+  height: rem(46px);
+  width: rem(204px);
+  background-color: $color-blue-2 !important;
+  font-style: normal;
+  font-family: $font-euclid-medium;
+  font-weight: bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-white !important;
+  letter-spacing: rem(0.2px);
+  margin-left: auto;
+  box-sizing: border-box;
+  .button-icon {
+    margin-bottom: rem(5px);
+    margin-right: rem(10px);
+  }
+}
+
+.active {
+  border-bottom: rem(3px) solid $color-blue-2 !important;
+}
+
+.list-serie-conatainer {
+  padding: rem(40px) 11.5%;
+  background-color: $color-bold-white;
+  min-height: 100vh;
+}
+
+.number-item {
+  position: absolute;
+  right: rem(7px);
+  width: rem(22px);
+  height: rem(16px);
+  background-color: $color-gray-7;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-euclid-regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $fs6;
+  line-height: $lh3;
+  color: $color-white;
+}
+
+.number-item-active {
+  background-color: $color-blue-2 !important;
+}
+
+.error-msg {
+  position: fixed;
+  z-index: 99;
+  top: 50px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: rem(50px);
+  background: $color-red3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-white;
+  .error-content {
+    margin: 0 rem(8px);
+  }
+}
