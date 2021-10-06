@@ -4,7 +4,7 @@ import { EmptyCartTemplate } from "../../../layout/empty-cart";
 import { CartTemplate } from "../../../layout/cart";
 import { Header } from "@components/header";
 import { SubHeader } from "@components/sub-header";
-// import { Footer } from "@components/footer";
+import { Footer } from "@components/footer";
 import CustomerCartAPI from "../../../api/customer/cart";
 import { useDispatch, useSelector, connect } from 'react-redux';
 
@@ -63,7 +63,7 @@ const CartPage = () => {
           isAllChecked={isAllChecked}
           getCartListGuest={getCartListGuest}
         /> : <EmptyCartTemplate />}
-      {/* <Footer /> */}
+      <Footer />
     </React.Fragment>
   );
 };

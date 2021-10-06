@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import EpisodeTemplate from '../../layout/episode';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-// import { Footer } from '@components/footer';
+import { Footer } from '@components/footer';
 import { Header } from '@components/header';
 
 const EpisodePage = (props) => {
@@ -20,7 +20,7 @@ const EpisodePage = (props) => {
 		<React.Fragment>
 			<Header />
 			<EpisodeTemplate seriesId={param.seriesId} episodeId={param.episodeId} />
-			{/*<Footer />*/}
+			<Footer />
 		</React.Fragment>
 	);
 };

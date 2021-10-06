@@ -13,7 +13,7 @@
 
 .serie-info {
   margin: rem(73px) auto 0 auto;
-  max-width: rem(1400px);
+  max-width: rem(1448px);
   display: flex;
   .about {
     width: 40%;
@@ -83,7 +83,7 @@
 .category-info {
   color: $color-gray-1;
   .cate-item {
-    display: inline-block; 
+    display: inline-block;
     margin-right: rem(16px);
     text-transform: lowercase;
     font-size: rem($fs1);
@@ -104,7 +104,7 @@
 @media screen and (max-width: rem(1200px)) {
   .episodes,
   .serie-info {
-    max-width: rem(825px);
+    max-width: rem(905px);
   }
 }
 
@@ -171,23 +171,22 @@
   max-width: rem(1620px);
 }
 
-.color-red{
+.color-red {
   color: $color-red-1;
 }
 
-.long-description{
-  overflow:hidden;
+.long-description {
+  overflow: hidden;
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
   white-space: normal;
 }
 
-
-.see-all{
+.see-all {
   height: 100% !important;
 }
 
-.see-all-btn{
+.see-all-btn {
   display: inline-block;
   position: absolute;
   line-height: rem($lh2);
@@ -195,7 +194,6 @@
   top: 100;
   left: 0;
   z-index: 100;
-  background-color: $color-white; 
+  background-color: $color-white;
   padding-right: 8%;
 }
-

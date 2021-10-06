@@ -5,8 +5,9 @@ import { HomePageCover } from "./HomePageCover";
 import { CreatorNewRelease } from "./CreatorNewRelease";
 // import { ThreeBoxes } from "@components/three-boxes-shop";
 // import CreatorSettingAPI from "../../api/creator/setting";
-// import { GetUserInfo } from "src/api/user";
+import { GetUserInfo } from "src/api/auth";
 import { ShopProfile } from "@components/shop-profile";
+import { CoverPhoto } from "@components/shop_component/CoverPhoto";
 
 export const CreatorHomePageTemplate = () => {
   const [creatorData, setCreatorData] = useState(null);
@@ -18,33 +19,22 @@ export const CreatorHomePageTemplate = () => {
   }, []);
 
   const getCreatorData = () => {
-    // CreatorSettingAPI.getCreatorAccount({ userInfo: GetUserInfo() })
-    //   .then((res) => {
-    //     if (res) {
-    //       setCreatorData(res);
-    //       setOpening(res.shopOpening);
-    //       setTemplate(res.profileTemplate);
-    //       localStorage.setItem("creatorAvatar", res.avatar);
-    //     }
-    //   })
-    //   .catch();
+    const userInfo = GetUserInfo()
+    setCreatorData(userInfo)
   };
+
   return (
     <>
       <Header />
       <div style={{ height: 50 }} />
-      <HomePageCover creator={creatorData} />
+      <CoverPhoto coverImage={"https://nftjapan-backup.s3.ap-northeast-1.amazonaws.com/image/74459496-fb29-42fe-940e-0be06406850e-cover1.png"} />
       <CreatorNewRelease
         creatorId={creatorData?.id}
         shopOpening={shopOpening}
       />
-      {/* <ShopProfile
-        template={template}
-        creatorId={creatorData?.id}
-        isCreatorMode={true}
-      /> */}
-      {/* <ThreeBoxes /> */}
-      <Footer />
+      <ShopProfile
+        template={1}
+      />
     </>
   );
 };

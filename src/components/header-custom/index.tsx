@@ -164,12 +164,8 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
         <Menu.Item key="logo" className={`${style["disable-antd-css"]}`}>
           <Link href="/?category=all">
             <a>
-              <img
-                src="/icons/Autharium_logo.svg"
-                className={`${style["logo-img"]}`}
-              />
               <span className={`${style["logo"]}`}>
-                {t("common:header.autharium")}
+                {t("common:header.appName")}
               </span>
             </a>
           </Link>

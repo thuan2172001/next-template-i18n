@@ -101,6 +101,7 @@
 	"resendIn": "Resend in",
 	"enjoy": "Enjoy",
 	"episode": {
+		"episode": "Episode",
 		"addToBookshelf": "Add to bookshelf",
 		"addedToBookshelf": "Added to bookshelf"
 	},
@@ -124,7 +125,6 @@
 			"publishSeries": "Pulish Series"
 		}
 	},
-	"episode": "Episode",
 	"search": "Search",
 	"readSetting": {
 		"pageAnimation": "Page Animation",

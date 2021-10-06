@@ -16,13 +16,24 @@
 			"newArrivals": "Truyện mới",
 			"liked": "Yêu thích",
 			"purchaseHistory": "Lịch sử giao dịch",
-			"logOut": "Log out"
+			"logOut": "Đăng xuất"
+		},
+		"creator": {
+			"shopSetting": "CÀI ĐẶT",
+			"manageItem": "TÁC PHẨM",
+			"editProfile": "TÀI KHOẢN",
+			"manageSales": "DOANH THU",
+			"publish": "Xuất bản",
+			"dropdown": {
+				"viewShop": "Xem cửa hàng",
+				"logOut": "Đăng xuất"
+			}
 		}
 	},
 	"category": {
 		"all": "Tất cả",
-		"Drama" : "KỊCH TÍNH",
-		"Comedy" : "HÀI",
+		"Drama": "KỊCH TÍNH",
+		"Comedy": "HÀI",
 		"Mistery": "BÍ ẨN",
 		"Horror": "KINH DỊ",
 		"Sf": "KHOA HỌC VIỄN TƯỞNG",
@@ -70,8 +81,8 @@
 	"noResult": "Không có kết quả hiển thị",
 	"editItem": "Chỉnh sửa",
 	"search": "Tìm kiếm",
-    "noProduct": "Không có sản phẩm trong giỏ hàng",
-    "continueBrowse": "Tiếp tục mua",
+	"noProduct": "Không có sản phẩm trong giỏ hàng",
+	"continueBrowse": "Tiếp tục mua",
 	"free": "Miễn phí",
 	"enjoy": "Đọc ngay ",
 	"readSetting": {
