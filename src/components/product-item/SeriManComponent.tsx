@@ -96,7 +96,7 @@ export const SerieManagementComponent = ({
             })}
           </div>
           <div>
-            {t("common:episode")}: {series?.episodes}
+            {t("common:episode.episode")}: {series?.episodes}
           </div>
         </div>
         <Button

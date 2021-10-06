@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {Header} from "@components/header";
-// import { Footer } from "@components/footer";
+import { Footer } from "@components/footer";
 import {CheckoutTemplate} from "src/layout/checkout";
 import CustomerCartAPI from "../../../api/customer/cart";
 import {CartTemplate} from "../../../layout/cart";
@@ -29,7 +29,7 @@ const CheckoutPage = () => {
         <React.Fragment>
             <Header/>
             <CheckoutTemplate cartList={data}/>
-            {/*<Footer />*/}
+            <Footer />
         </React.Fragment>
     );
 };

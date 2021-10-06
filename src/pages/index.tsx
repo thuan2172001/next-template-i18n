@@ -9,6 +9,7 @@ import { AboutTerm } from "@components/shop_component/AboutTerm";
 import { ListProducts } from "@components/shop_component/ListProducts";
 import { ShopProfile } from "@components/shop-profile";
 import { CreatorHomePageTemplate } from "src/layout/creator-home";
+import { Footer } from "@components/footer";
 
 const Home: React.FC<{ homepageContent: any }> = () => {
     const { t } = useTranslation();
@@ -32,8 +33,6 @@ const Home: React.FC<{ homepageContent: any }> = () => {
         }
     }, []);
 
-    if (isCreatorMode) return <CreatorHomePageTemplate />;
-
     return (
         <React.Fragment>
             <div
@@ -42,13 +41,18 @@ const Home: React.FC<{ homepageContent: any }> = () => {
                     textAlign: "center",
                 }}
             >
-                <Header />
-                <SubHeader selectedCate={selectedCate}
-                    setSelectedCate={setSelectedCate} />
-                <CoverPhoto coverImage={"https://nftjapan-backup.s3.ap-northeast-1.amazonaws.com/image/74459496-fb29-42fe-940e-0be06406850e-cover1.png"} />
-                <ListProducts selectedCate={selectedCate} />
-                <ShopProfile template={1} />
+                {isCreatorMode ? <CreatorHomePageTemplate /> :
+                    <>
+                        <Header />
+                        <SubHeader selectedCate={selectedCate}
+                            setSelectedCate={setSelectedCate} />
+                        <CoverPhoto coverImage={"https://nftjapan-backup.s3.ap-northeast-1.amazonaws.com/image/74459496-fb29-42fe-940e-0be06406850e-cover1.png"} />
+                        <ListProducts selectedCate={selectedCate} />
+                        <ShopProfile template={1} />
+                    </>
+                }
                 <AboutTerm coverImage={"https://nftjapan-backup.s3.ap-northeast-1.amazonaws.com/image/74459496-fb29-42fe-940e-0be06406850e-cover1.png"} />
+                <Footer />
             </div>
         </React.Fragment>
     );
