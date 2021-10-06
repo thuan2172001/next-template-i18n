@@ -4,7 +4,7 @@ import { API_BASE_URL } from '../const';
 const baseURL = API_BASE_URL;
 
 export default {
-  getSerieQuery: ({ userInfo, limit, page, isDaily, category, firstIndex = -1 , isPublished = null}) => {
+  getSerieQuery: ({ userInfo, limit, page, isDaily, category, firstIndex = -1, isPublished = null }) => {
     const customAxios = createCustomAxios(userInfo);
     return customAxios({
       method: 'get',
@@ -13,7 +13,7 @@ export default {
         limit,
         page,
         isDaily,
-        categoryId: category !== 'all' ? category : null,
+        categoryId: !['all', ''].includes(category) ? category : null,
         firstIndex,
         guest: !userInfo,
         isCreator: userInfo?.role === "creator",

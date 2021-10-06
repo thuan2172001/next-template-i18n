@@ -55,8 +55,8 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
     let tmpTotalChecked = 0;
     cartList.forEach((cart) => {
       // if (cart.isCheck) {
-        tmpTotalPrice += parseInt(cart.price);
-        tmpTotalChecked += 1;
+      tmpTotalPrice += parseInt(cart.price);
+      tmpTotalChecked += 1;
       // }
     });
     setTotalPrice(tmpTotalPrice);
@@ -98,8 +98,8 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
 
         <div className={`${style["cart-item-list"]}`}>
           {/* <div className={`${style["check-box"]}`}> */}
-            {/* <Checkbox */}
-              {/* checked={isAllChecked}
+          {/* <Checkbox */}
+          {/* checked={isAllChecked}
             // onClick={() => toogleIsCheckCart("all")}
             // />
             // <span className={`${style["select-all"]}`}>
@@ -124,7 +124,8 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
 
         <div className={`${style["order-total"]}`}>
           <span className={`${style["order-total-name"]}`}>
-            {t("common:cartItem.orderTotal")} ({numberCheckedItem} item
+            {t("common:cartItem.orderTotal")} {' '}
+            ({numberCheckedItem} {t("common:cartItem.item")}
             {numberCheckedItem > 1 && "s"}):
           </span>
           <span className={`${style["order-total-number"]}`}>
@@ -136,7 +137,7 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
           className={`${style["checkout-cart"]}`}
           onClick={handleCheckout}
           disabled={numberCheckedItem === 0}
-          // loading={isLoading}
+        // loading={isLoading}
         >
           {t("common:cartItem.proceedCheckout")}
         </Button>
