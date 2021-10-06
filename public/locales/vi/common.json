@@ -32,6 +32,16 @@
 		"newRelease": "Tác phẩm mới ra",
 		"profile": "Tác giả"
 	},
+	"cartItem": {
+		"shoppingCart": "Giỏ hàng mua sắm",
+		"orderTotal": "Tổng sản phẩm",
+		"item": "Sản phẩm",
+		"items": "Sản phẩm",
+		"proceedCheckout": "Thanh toán",
+		"continueBrowse": "Tiếp tục mua sắm",
+		"selectAll": "Chọn tất cả"
+	},
+	"remove": "Xóa",
 	"bookshelf": {
 		"bookShelf": "Giá sách",
 		"noItem": "Bạn không có tác phẩm nào trong giá sách"

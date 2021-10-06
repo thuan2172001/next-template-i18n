@@ -33,10 +33,11 @@ const LoginTemplate = (props) => {
 
 	const handleLogin = () => {
 		// let b = {}
-		// for (let i = 0; i < 10; i++) {
-		// 	const a = GenerateKeyPairAndEncrypt('123456');
+		// for (let i = 0; i < 30; i++) {
+		// 	const a = GenerateKeyPairAndEncrypt('medichain123');
 		// 	b = { ...b, [i]: a }
 		// }
+		// console.log(b)
 		if (username.length == 0 || password.length == 0) {
 			setNotification(
 				"Username or password is empty !"
