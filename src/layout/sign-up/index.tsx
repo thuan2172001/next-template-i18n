@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import {Button, Input, Checkbox} from 'antd'
+import {Button, Input, Checkbox, notification} from 'antd'
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { useTranslation } from 'next-i18next'
 import style from './sign-up.module.scss'
-import serie from "../../api/customer/serie"
 import { useFormik } from 'formik'
 import * as Yup from "yup"
+import AuthServiceAPI from '../../api/auth'
 
 const SignupTemplate = (props) => {
+    const { t } = useTranslation();
     const formik = useFormik({
         initialValues: {
             user_name: "",
@@ -36,10 +37,13 @@ const SignupTemplate = (props) => {
             confirm_password: Yup.string()
                 .oneOf([Yup.ref("password")], "Password's not match")
                 .required("Required!"),
-            checkbox: Yup.boolean().oneOf([true], "Please check the box!")
+            checkbox: Yup.boolean().oneOf([true], "You need to confirm Terms of Uses and Privacy Policy")
         }),
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+            const {user_name, email, full_name, password, confirm_password, checkbox} = values;
+            AuthServiceAPI.signup({user_name, email, full_name, password}).then(response => {
+                console.log(response)
+            })
         }
     })
 
@@ -48,10 +52,10 @@ const SignupTemplate = (props) => {
             <div className={style["signup-container"]}>
                 <div className={style['signup-title']}>Create new account</div>
                 <form onSubmit={formik.handleSubmit} className={style['signup-form']}>
-                    <h4>User Name</h4>
+                    <h4>{t("account:accountPage.username")}</h4>
                     <Input
                         className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
-                        placeholder={"User Name"}
+                        placeholder={t("account:accountPage.username")}
                         name="user_name"
                         autoComplete="off"
                         value={formik.values.user_name}
@@ -62,10 +66,10 @@ const SignupTemplate = (props) => {
                         <p className={`${style["signup-notify"]}`}>{formik.errors.user_name}</p>
                     )}
 
-                    <h4>Email address</h4>
+                    <h4>{t("account:accountPage.emailAddress")}</h4>
                     <Input
                         className={`${style["ant-input-custom"]} ${style['ant-input-signup-form']}`}
-                        placeholder="Your email address"
+                        placeholder={t("account:accountPage.emailAddress")}
                         name="email"
                         autoComplete="off"
                         value={formik.values.email}
@@ -76,10 +80,10 @@ const SignupTemplate = (props) => {
                         <p className={`${style["signup-notify"]}`}>{formik.errors.email}</p>
                     )}
 
-                    <h4>Full name</h4>
+                    <h4>{t("account:accountPage.fullName")}</h4>
                     <Input
                         className={`${style["ant-input-custom"]} ${style['ant-input-signup-form']}`}
-                        placeholder="Your full name"
+                        placeholder={t("account:accountPage.fullName")}
                         name="full_name"
                         autoComplete="off"
                         value={formik.values.full_name}
@@ -90,10 +94,10 @@ const SignupTemplate = (props) => {
                         <p className={`${style["signup-notify"]}`}>{formik.errors.full_name}</p>
                     )}
 
-                    <h4>Password</h4>
+                    <h4>{t("account:accountPage.password")}</h4>
                     <Input.Password
                         className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
-                        placeholder="Your password"
+                        placeholder={t("account:accountPage.password")}
                         name="password"
                         autoComplete="off"
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
