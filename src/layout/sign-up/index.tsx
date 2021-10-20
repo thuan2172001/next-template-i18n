@@ -11,6 +11,8 @@ import VerifySignUpTemplate from './verify'
 const SignupTemplate = (props) => {
     const { t } = useTranslation();
     const [signupStatus, setSignupStatus] = useState(false);
+    const [availableUsername, setAvailableUsername] = useState(true);
+    const [availableEmail, setAvailableEmail] = useState(true);
     const formik = useFormik({
         initialValues: {
             user_name: "",
@@ -44,8 +46,21 @@ const SignupTemplate = (props) => {
         onSubmit: values => {
             const {user_name, email, full_name, password, confirm_password, checkbox} = values;
             AuthServiceAPI.signup({user_name, email, full_name, password}).then(response => {
-                console.log(response);
-                setSignupStatus(response.status);
+                if(!response.reason) {
+                    setSignupStatus(true);
+                }
+            }).catch(err => {
+                console.log(err)
+                if (err == "USER.CREATE_USER.EXISTED_USERNAME") {
+                    setAvailableUsername(false);
+                } else {
+                    setAvailableUsername(true);
+                }
+                if (err == "USER.CREATE_USER.EXISTED_EMAIL") {
+                    setAvailableEmail(false);
+                } else {
+                    setAvailableEmail(true);
+                }
             });
         }
     })
@@ -68,6 +83,8 @@ const SignupTemplate = (props) => {
                         onChange={formik.handleChange}
                     />
 
+                    {!availableUsername && <p className={`${style["signup-notify"]}`}>Username is unavailable!</p>}
+
                     {formik.errors.user_name && formik.touched.user_name && (
                         <p className={`${style["signup-notify"]}`}>{formik.errors.user_name}</p>
                     )}
@@ -81,6 +98,8 @@ const SignupTemplate = (props) => {
                         value={formik.values.email}
                         onChange={formik.handleChange}
                     />
+
+                    {!availableEmail && <p className={`${style["signup-notify"]}`}>This email has been used by another account!</p>}
 
                     {formik.errors.email && formik.touched.email && (
                         <p className={`${style["signup-notify"]}`}>{formik.errors.email}</p>
