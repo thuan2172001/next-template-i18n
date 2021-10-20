@@ -24,4 +24,13 @@ export default {
             return data;
         });
     },
+    getSeriesInfo: ({userInfo, seriesId}) => {
+        const customAxios = createCustomAxios(userInfo);
+        return customAxios({
+            method: "get",
+            url: `${baseURL}/serie/${seriesId}`,
+        }).then((data) => {
+            return data;
+        });
+    }
 };

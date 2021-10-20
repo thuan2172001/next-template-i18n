@@ -5,8 +5,8 @@ import {Form, Input, Radio, Space, Button} from "antd";
 import Image from "next/image";
 import {useTranslation} from "next-i18next";
 import TextArea from "antd/lib/input/TextArea";
-// import SeriesAPI from "../../../api/creator/series";
-// import EpisodesAPI from "../../../api/creator/episode";
+import SeriesAPI from "../../../api/creator/series";
+import EpisodesAPI from "../../../api/creator/episode";
 import {GetUserInfo} from "src/api/auth";
 import {CancelCreateNftModal} from "./CancelCreateNftModal";
 import {CustomCancelCreateNftModal} from "./CustomCancelCreateNftModal";
@@ -108,32 +108,43 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
       isEmpty: true,
       errMsg: "",
     },
+    chapter: {
+      content: "",
+      isEmpty: false
+    },
     isFree: false,
     seriesInfo: null,
   });
 
-  // useEffect(() => {
-  //   if (!serie) return;
-  //
-  //   SeriesAPI.getSeries({
-  //     userInfo: GetUserInfo(),
-  //     serieId: serie,
-  //   })
-  //     .then(({ info }) => {
-  //       setSubCategories(info?.category?.map((category) => category?.name));
-  //       setCateInfo(info?.parentCategory?.name);
-  //       setUploadContent((uploadContent) => ({
-  //         ...uploadContent,
-  //         seriesInfo: {
-  //           ...info,
-  //           category: info?.parentCategory?.name,
-  //         },
-  //       }));
-  //     })
-  //     .catch(() => {
-  //       setRoleValid("false");
-  //     });
-  // }, [serie]);
+  useEffect(() => {
+    if (!serie) return;
+
+    SeriesAPI.getSeriesInfo(
+      {
+        userInfo: GetUserInfo(),
+        seriesId: serie
+      }
+    )
+      .then((data) => {
+        setUploadContent({...uploadContent, seriesInfo: data,})
+        console.log(data)
+      })
+      .catch(() => {
+        setRoleValid("false");
+      });
+  }, [serie]);
+
+  const handleChapterInput = (value) => {
+    const isEmpty = value === ""
+    setUploadContent((uploadContent) => ({
+      ...uploadContent,
+      chapter: {
+        content: value,
+        isEmpty: isEmpty
+      }
+
+    }))
+  }
 
   const episodeTitleChange = (e) => {
     const isValid = e.target.value.replace(/ +(?= )/g, "").length <= 60; //remove multiple whitespaces
@@ -310,7 +321,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     const lastDot = name.lastIndexOf(".");
     const ext = name.substring(lastDot);
     const category = uploadContent.seriesInfo?.category;
-    let extValid = uploadContent.seriesInfo?.formatAllowed.indexOf(ext) !== -1;
+    let extValid = true;
     let sizeValid =
       size <= (uploadContent.seriesInfo?.sizeAllowed || 100000000);
     let checkMsg = "";
@@ -350,7 +361,6 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     let data = {
       thumnails: episodeThumbnail?.thumb?.pictureAsFile || "not",
       serie: serieData || "not",
-      subCategory: subCategories,
       ...uploadContent,
     };
     setTransferData(data);
@@ -367,14 +377,14 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
           rej("Errorrr");
         }
         form.append("file", data);
-        // SeriesAPI.uploadFile({
-        //   formdata: form,
-        //   userInfo: GetUserInfo(),
-        // })
-        //   .then(({ key, location, pageNumber }) => {
-        //     res({ key, location, pageNumber });
-        //   })
-        //   .catch(rej);
+        SeriesAPI.uploadFile({
+          formdata: form,
+          userInfo: GetUserInfo(),
+        })
+          .then(({ key, location, pageNumber }) => {
+            res({ key, location, pageNumber });
+          })
+          .catch(rej);
       });
 
     const upload = await Promise.all([
@@ -383,9 +393,9 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     ]);
 
     const formdata = {
-      title: uploadContent.title.content,
-      isFree: uploadContent.type === "0" ? true : false,
-      editions: uploadContent.numberOfEdition.num,
+      chapter: uploadContent.chapter.content,
+      name: uploadContent.title.content,
+      price: uploadContent.type === "0" ? 0 : 0,
       key: upload[1].key,
       thumbnail: upload[0].location,
       pageNumber: upload[1].pageNumber,
@@ -393,21 +403,21 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
       description: uploadContent.description.content,
     };
 
-    // EpisodesAPI.createEpisode({
-    //   body: formdata,
-    //   userInfo: GetUserInfo(),
-    // })
-    //   .then((res) => {
-    //     setLoading(false);
-    //     if (res.status === "pending") {
-    //       setIsPending(true);
-    //     } else setVisible(false);
-    //   })
-    //   .catch((err) => {
-    //     setVisible(false);
-    //     notifyError(err);
-    //     setLoading(false);
-    //   });
+    EpisodesAPI.createEpisode({
+      body: formdata,
+      userInfo: GetUserInfo(),
+    })
+      .then((res) => {
+        setLoading(false);
+        if (res.status === "pending") {
+          setIsPending(true);
+        } else setVisible(false);
+      })
+      .catch((err) => {
+        setVisible(false);
+        notifyError(err);
+        setLoading(false);
+      });
   };
 
   const validateAll = async () => {
@@ -418,6 +428,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
 
     if (
       !uploadContent.title.isEmpty &&
+      !uploadContent.chapter.isEmpty &&
       uploadContent.title.isValid &&
       uploadContent.description.isValid &&
       !episodeThumbnail.isEmpty &&
@@ -543,38 +554,25 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
               <div className={`${style["serie-title"]}`}>
                 <div>{t("create_serie:serieTit")}</div>
                 <div className={`${style["title"]}`}>
-                  {uploadContent.seriesInfo?.name || "Library of abc"}
+                  {uploadContent.seriesInfo?.serieName || "Library of abc"}
                 </div>
               </div>
               <div className={`${style["category-info"]}`}>
                 <div>{t("create_serie:category")}</div>
 
                 <Radio.Button
-                  value={uploadContent.seriesInfo?.category}
+                  value={uploadContent.seriesInfo?.category.categoryName}
                   style={{marginLeft: 0}}
                   className={`${style["serie-btn"]}`}
                   checked
                 >
                   <div className={`${style["radio-value"]}`}>
-                    {uploadContent.seriesInfo?.category || "Video"}
+                    {uploadContent.seriesInfo?.category.categoryName || "Video"}
                     <div className={`${style["checked-icon"]}`}>
                       <Image src="/icons/checked.svg" width={19} height={19}/>
                     </div>
                   </div>
                 </Radio.Button>
-              </div>
-              <div className={`${style["sub-category-info"]}`}>
-                <div>{t("create_serie:subCategory")}</div>
-                <div className={`${style["sub-category"]}`}>
-                  {subCategories?.map((item, index) => {
-                    if (index < subCategories.length - 1) {
-                      let name = item;
-                      if (index != 0) name = " " + name;
-                      name += ",";
-                      return <span key={index}>{name}</span>;
-                    } else return <span key={index}>{" " + item}</span>;
-                  })}
-                </div>
               </div>
             </section>
             <Form layout="vertical">
@@ -607,6 +605,29 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                       </div>
                     )}
                   </>
+                )}
+              </Form.Item>
+              <Form.Item
+                label={t("create_serie:epTilte")}
+                style={{width: "48%"}}
+              >
+                <div
+                  className={`${
+                    uploadContent.title.isEmpty || !uploadContent.title.isValid
+                      ? "error-border"
+                      : ""
+                  }`}
+                >
+                  <Input
+                    placeholder={t("create_serie:max60Charac")}
+                    value={uploadContent.chapter.content}
+                    onChange={(e) => handleChapterInput(e.target.value)}
+                  />
+                </div>
+                {uploadContent.chapter.isEmpty && (
+                  <div className={`${style["error-msg-input"]}`}>
+                    {t("create_serie:inputEpTitleAlert")}
+                  </div>
                 )}
               </Form.Item>
               <Form.Item
