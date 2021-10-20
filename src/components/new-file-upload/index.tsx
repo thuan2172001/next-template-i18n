@@ -206,7 +206,7 @@ export const NewFileUpload = ({
               emptyInput();
             }}
           >
-            <Image src="/icons/trash.svg" width={41} height={41} />
+            <Image src="/assets/icons/trash.svg" width={41} height={41} />
           </div>
         ) : (
           <div>
@@ -261,7 +261,7 @@ export const NewFileUpload = ({
         ))}
 
       <div className={`${style["cover-photo-content"]}`}>
-        <Image src="/icons/cloud.png" height={74} width={74} />
+        <Image src="/assets/icons/cloud.png" height={74} width={74} />
 
         <div className={`${style["cover-photo-header"]}`}>
           {type === "cover" && <>{t("create_serie:uploadCover")} </>}
@@ -298,7 +298,7 @@ export const NewFileUpload = ({
         />
         {errMsg !== "" && (
           <div className={`${style["error-msg"]}`}>
-            <Image src="/icons/invalid.svg" height={24} width={24} />
+            <Image src="/assets/icons/invalid.svg" height={24} width={24} />
             <div className={`${style["error-content"]}`}>{errMsg}</div>
           </div>
         )}
