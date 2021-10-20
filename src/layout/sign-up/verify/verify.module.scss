@@ -1,0 +1,81 @@
+@import "@components/global-scss/variables.scss";
+
+.sign-up-success-container {
+  background-image: url("/assets/images/common/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  padding: calc((100vh - 290px)/2) 0;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: rem(530px);
+  height: rem(290px);
+  background-color: $color-bold-white;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+}
+
+
+.success-icon {
+  margin-top: rem(30px);
+}
+
+
+.verify-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: rem($f3);
+  line-height: rem($lh3);
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: $color-light-black;
+  margin-top: rem(20px);
+}
+
+.verify-message {
+  font-style: normal;
+  font-size: rem(18px);
+  line-height: rem($lh3);
+  align-items: center;
+  letter-spacing: 0.1px;
+  color: $color-light-black;
+  margin-top: rem(20px);
+}
+
+.btn-controller {
+  width: rem(430px);
+  margin-top: rem(20px);
+  align-items: center;
+  display: block !important;
+}
+
+.verify-button {
+  width: rem(117px);
+  height: rem(40px);
+  background-color: $primary-color !important;
+  color: $color-white !important;
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bold;
+  font-size: rem($fs1);
+  line-height: rem($lh1);
+  border: none;
+  &:hover {
+    background-color: $primary-color !important;
+    color: $color-white !important;
+  }
+  &:focus {
+    background-color: $primary-color !important;
+    color: $color-white !important;
+  }
+}
