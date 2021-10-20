@@ -7,7 +7,7 @@
   min-height: 100vh;
   background-attachment: fixed;
   background-position: center;
-  padding: calc((100vh - 480px)/2) 0;
+  padding: calc((100vh - 290px)/2) 0;
 }
 
 .message-container {
@@ -23,17 +23,9 @@
   border-radius: 10px;
 }
 
-.company-name {
-  margin-top: rem(41px);
-  color: $primary-color;
-  text-align: center;
-  height: rem(22px);
-  font-family: $font-family-main;
-  font-style: normal;
-  font-weight: bold;
-  font-size: rem($f4);
-  line-height: 110%;
-  text-transform: uppercase;
+
+.success-icon {
+  margin-top: rem(30px);
 }
 
 
@@ -45,7 +37,7 @@
   align-items: center;
   letter-spacing: 0.2px;
   color: $color-light-black;
-  margin-top: rem(40px);
+  margin-top: rem(20px);
 }
 
 .verify-message {
@@ -55,7 +47,7 @@
   align-items: center;
   letter-spacing: 0.1px;
   color: $color-light-black;
-  margin-top: rem(40px);
+  margin-top: rem(20px);
 }
 
 .btn-controller {

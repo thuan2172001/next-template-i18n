@@ -6,9 +6,11 @@ import style from './sign-up.module.scss'
 import { useFormik } from 'formik'
 import * as Yup from "yup"
 import AuthServiceAPI from '../../api/auth'
+import VerifySignUpTemplate from './verify'
 
 const SignupTemplate = (props) => {
     const { t } = useTranslation();
+    const [signupStatus, setSignupStatus] = useState(false);
     const formik = useFormik({
         initialValues: {
             user_name: "",
@@ -21,7 +23,7 @@ const SignupTemplate = (props) => {
         validationSchema: Yup.object({
             user_name: Yup.string()
                 .min(6, "Minimum 6 characters")
-                .max(10, "Maximum 15 characters")
+                .max(15, "Maximum 15 characters")
                 .required("Required!"),
             email: Yup.string()
                 .email("Invalid email format")
@@ -42,11 +44,15 @@ const SignupTemplate = (props) => {
         onSubmit: values => {
             const {user_name, email, full_name, password, confirm_password, checkbox} = values;
             AuthServiceAPI.signup({user_name, email, full_name, password}).then(response => {
-                console.log(response)
-            })
+                console.log(response);
+                setSignupStatus(response.status);
+            });
         }
     })
 
+    if (signupStatus) {
+        return <VerifySignUpTemplate/>
+    }
     return (
         <div className={style["container"]}>
             <div className={style["signup-container"]}>
@@ -97,7 +103,7 @@ const SignupTemplate = (props) => {
                     <h4>{t("account:accountPage.password")}</h4>
                     <Input.Password
                         className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
-                        placeholder={t("account:accountPage.password")}
+                        placeholder="Your password"
                         name="password"
                         autoComplete="off"
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}

@@ -11,10 +11,8 @@ const VerifySignUpTemplate = () => {
     return (
         <div className={style["sign-up-success-container"]}>
             <div className={style["message-container"]}>
-                <div className={`${style['company-name']}`}>
-                    {' '}
-                    {t('common:header.appName')}{' '}
-                </div>
+                <img className={style["success-icon"]}
+                     src="/assets/icons/success.png"/>
                 <div className={style["verify-title"]}>Thank you!</div>
                 <div className={style["verify-message"]}>Your account is verified!</div>
 
