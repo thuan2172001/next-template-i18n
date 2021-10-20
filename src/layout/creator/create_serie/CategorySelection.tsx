@@ -8,6 +8,7 @@ import CategoriesAPI from "src/api/category/category";
 export const CatagorySelection = ({
                                     firstInit = true,
                                     setCategory,
+                                    category
                                   }) => {
   const {t} = useTranslation();
 
@@ -83,11 +84,9 @@ export const CatagorySelection = ({
           return (
             <div
               key={index}
-              className={`${style["serie-btn"]} 
-              ${style["active"]}
-              `}
+              className={`${style["serie-btn"]} ${el.categoryName === category.name && style["active"]}`}
               onClick={() => {
-                  chooseCate(el.categoryId, el.categoryName);
+                chooseCate(el.categoryId, el.categoryName);
               }}
             >
               <div
@@ -101,9 +100,9 @@ export const CatagorySelection = ({
                 }}
               >
                 {el.categoryName}
-                {(
+                {el.categoryName === category.name && (
                   <div className={`${style["checked-icon"]}`}>
-                    <Image src="/icons/checked.svg" width={19} height={19}/>
+                    <Image src="/assets/icons/checked.svg" width={19} height={19}/>
                   </div>
                 )}
               </div>

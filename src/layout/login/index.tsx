@@ -62,11 +62,12 @@ const LoginTemplate = (props) => {
 				console.log({ encryptedPrivateKey });
 
 				const privateKey = SymmetricDecrypt(encryptedPrivateKey, password);
+				console.log({ privateKey });
+
 				if (!privateKey) {
 					setNotification(t('common:loginFailedMessage'));
 					return;
 				}
-				console.log({ privateKey });
 
 				const certificateInfo = {
 					_id,

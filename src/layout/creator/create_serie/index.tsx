@@ -228,7 +228,7 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
               setCategory(cate);
             }}
             firstInit={firstInit}
-
+            category={category}
           />
         </div>
         <div className={`${style["divider"]}`} />
