@@ -19,7 +19,6 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
   const [shareModal, setShareModal] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
   let userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
-  const [subCategories, setSubCategories] = useState(["Sub1", "Sub2", "Sub3"]);
   const [isPurchasedItem, setIsPurchased] = useState(false);
   const [amount, setAmount] = useState(1);
   const [episodeInfo, setEpisodeInfo] = useState<any>({
@@ -67,24 +66,6 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
     isFree: false,
     seriesInfo: null,
   });
-
-  useEffect(() => {
-    if (!serie) return;
-
-    // SeriesAPI.getSeries({
-    //   userInfo: GetUserInfo(),
-    //   serieId: serie,
-    // }).then(({ info }) => {
-    //   setSubCategories(info?.category?.map((category) => category?.name));
-    //   setUploadContent((uploadContent) => ({
-    //     ...uploadContent,
-    //     seriesInfo: {
-    //       ...info,
-    //       category: "Video",
-    //     },
-    //   }));
-    // });
-  }, [serie]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -138,10 +119,10 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
                 <Skeleton
                   active
                   paragraph={{ rows: 0 }}
-                  loading={!data?.seriesInfo?.name}
+                  loading={!data?.seriesInfo}
                 >
                   <a className={style["series-link"]}>
-                    {data?.seriesInfo?.name}
+                    {data?.seriesInfo.serieName}
                   </a>
                 </Skeleton>
               </div>
@@ -169,17 +150,10 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
                   {
                     <span className={style["category-name"]}>
                       {
-                        data?.seriesInfo?.category
+                        data?.seriesInfo.category.categoryName
                       }
                     </span>
                   }
-                  {data?.subCategory.map((category, index) => {
-                    return (
-                      <span key={index} className={style["category-name"]}>
-                        {category}
-                      </span>
-                    );
-                  })}
                 </span>
               </div>
 
