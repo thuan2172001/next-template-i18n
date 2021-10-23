@@ -85,6 +85,20 @@
 	"continueBrowse": "Tiếp tục mua",
 	"free": "Miễn phí",
 	"enjoy": "Đọc ngay ",
+	"seriesManagement": {
+		"createNewSeries": "Tạo mới series",
+		"create": "Ngày tạo",
+		"update": "Cập nhật",
+		"addItem": "Thêm truyện",
+		"dropDown": {
+			"editSeries": "Sửa",
+			"privateSeries": "Ẩn Series",
+			"publishSeries": "Công khai Series"
+		},
+		"episodeAmount": "Số lượng",
+		"public": "Công khai",
+		"private": "Đã ẩn"
+	},
 	"readSetting": {
 		"pageAnimation": "Hoạt ảnh chuyển động",
 		"none": "Không",

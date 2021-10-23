@@ -155,7 +155,7 @@ export const SeriesManagementTemplate = () => {
         {series?.map((serie, index) => (
           <Col span={12} key={index}>
             <SerieManagementComponent
-              type={serie.isPublishing ? "public" : "private"}
+              type={serie.isPublished ? "public" : "private"}
               series={serie}
               updateChosenSeries={({ data }) => {
                 setChosenSeries(data);
