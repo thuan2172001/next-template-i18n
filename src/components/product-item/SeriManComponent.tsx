@@ -20,7 +20,7 @@ export const SerieManagementComponent = ({
     <Menu className={`${style["dropdown-menu"]}`}>
       <Menu.Item
         key="edit"
-        onClick={() => router.push(`creator/edit_serie?serieId=${series._id}`)}
+        onClick={() => router.push(`creator/edit_serie?serieId=${series.serieId}`)}
       >
         <span>{t("common:seriesManagement.dropDown.editSeries")}</span>
       </Menu.Item>
@@ -54,7 +54,7 @@ export const SerieManagementComponent = ({
   );
 
   const handleMoveToEm = () => {
-    router.push(`/em?view=public&&serieId=${series._id}`);
+    router.push(`/em?view=public&&serieId=${series.serieId}`);
   };
 
   return (
