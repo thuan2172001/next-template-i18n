@@ -1,0 +1,98 @@
+@import "@components/global-scss/variables.scss";
+
+.nft-item {
+  width: rem(160px);
+  font-family: $font-euclid-regular;
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}
+
+.nft-name {
+  display: flex;
+  margin-top: rem(16px);
+  margin-bottom: rem(6px);
+  .name {
+    font-family: $font-euclid-medium;
+    font-size: $fs2;
+    line-height: $lh9;
+    color: $color-black-1;
+  }
+}
+
+.free {
+  font-style: normal;
+  font-weight: normal;
+  font-size: $fs0;
+  color: $color-gray-5;
+}
+
+.price {
+  font-style: normal;
+  font-weight: normal;
+  color: $color-red-1;
+  font-size: $fs0;
+}
+
+.more-icon:focus {
+  color: $color-blue-2;
+}
+
+.quantity {
+  display: flex;
+  margin-top: rem(5px);
+  .detail {
+    font-family: $font-euclid-regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: $fs0;
+    color: $color-gray-5;
+  }
+
+  .icon {
+    margin-right: rem(5px);
+    margin-bottom: rem(3px);
+  }
+
+  .right-detail {
+    margin-left: auto;
+  }
+}
+
+.image {
+  width: rem(160px);
+  height: rem(160px);
+}
+
+.private-action {
+  display: flex;
+  margin-top: rem(14px);
+
+  .publish-btn {
+    width: rem(120px);
+    height: rem(30px);
+    margin-left: auto;
+    background-color: $color-blue-10;
+    border: 1px solid $color-blue-11;
+    box-sizing: border-box;
+    font-family: $font-euclid-regular;
+    color: $color-blue-2;
+    font-style: normal;
+    font-weight: normal;
+    font-size: $fs1;
+    line-height: $lh2;
+
+    .button-icon {
+      margin-bottom: rem(5px);
+      margin-right: rem(10px);
+    }
+  }
+}
+
+.dropdown-menu {
+  width: rem(136px);
+  .dropdown-item {
+    font-family: $font-euclid-regular;
+  }
+}

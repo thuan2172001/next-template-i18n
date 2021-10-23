@@ -4,12 +4,11 @@ import { createCustomAxios } from "../../utils/custom-axios";
 const baseURL = API_BASE_URL;
 
 export default {
-  createEpisode: ({ body, userInfo }) => {
+  getProfile: ({userInfo }) => {
     const customAxios = createCustomAxios(userInfo);
     return customAxios({
-      method: "post",
-      url: `${baseURL}/episode`,
-      data: body,
+      method: "get",
+      url: `${baseURL}/auth/profile`,
     }).then((data) => {
       return data;
     });

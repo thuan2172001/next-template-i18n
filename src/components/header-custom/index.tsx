@@ -25,7 +25,7 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
       if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
         setIsLogged(true);
 
-        setClientType(userInfo.role["role"]);
+        setClientType(userInfo["role"]);
       } else {
         setIsLogged(false);
 

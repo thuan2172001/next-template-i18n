@@ -1,4 +1,6 @@
 @import "@components/global-scss/variables.scss";
+@import "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css";
 
 .nft {
   margin: rem(120px) 11vw rem(567px) 11vw;
@@ -6,6 +8,15 @@
 
   .product-detail {
     margin-left: rem(50px);
+  }
+
+  .slide {
+    .slide-component {
+      img {
+        width: rem(160px);
+        height: rem(160px);
+      }
+    }
   }
 
   .name-container {

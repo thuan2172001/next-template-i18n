@@ -1,0 +1,54 @@
+@import "@components/global-scss/_variables.scss";
+
+.modal-common {
+  text-align: center;
+
+  .modal-header {
+    padding-top: rem(35px);
+    padding-bottom: rem(35px);
+  }
+  .modal-msg {
+    font-family: $font-euclid-regular;
+    font-style: normal;
+    font-weight: bold;
+    font-size: $fs1;
+    line-height: $lh2;
+
+    .nft-name {
+      color: $color-blue-2;
+    }
+  }
+
+  .footer {
+    .active-btn,
+    .normal-btn,
+    .normal-btn-1 {
+      margin-top: rem(35px);
+      margin-bottom: rem(40px);
+      width: rem(173px);
+      height: rem(40px);
+      font-family: $font-euclid-regular;
+      font-style: normal;
+      font-weight: bold;
+      font-size: $fs1;
+      line-height: $lh2;
+    }
+
+    .active-btn {
+      background-color: $color-blue-2;
+      color: $color-white;
+    }
+    .normal-btn {
+      margin-left: rem(15px);
+      border: 1px solid $color-blue-2;
+      color: $color-blue-2;
+      background-color: $color-white;
+    }
+
+    .normal-btn-1 {
+      margin-left: rem(15px);
+      background: $color-blue-8;
+      border: 1px solid $color-light-gray;
+    }
+  }
+}
