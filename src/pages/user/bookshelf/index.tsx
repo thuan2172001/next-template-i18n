@@ -13,23 +13,24 @@ const Bookshelf = () => {
   const [selectedCate, setSelectedCate] = useState("all");
   const [selectedSubCate, setSelectedSubCate] = useState("");
   const [categoryId, setCategoryId] = useState("");
+  const [totalEpisode, setTotalEpisode] = useState(0);
+  const [listEpisode, setList] = useState(null);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     setCategoryId(selectedSubCate !== "" ? selectedSubCate : selectedCate);
   }, [selectedCate, selectedSubCate]);
 
-  const [totalEpisode, setTotalEpisode] = useState(0);
-  const [listEpisode, setList] = useState(null);
-
   useEffect(() => {
     CustomerBookshelfAPI.getBookShelf({
       userInfo: GetUserInfo(),
-    }).then((data) => {
-      console.log({ data })
-      setTotalEpisode(data.length);
-      setList(data);
+      page: page,
+      limit: 30,
+    }).then((res) => {
+      setTotalEpisode(res.totalEpisodes);
+      setList(res.data);
     });
-  }, [categoryId]);
+  }, [categoryId, page]);
 
   return (
     <React.Fragment>
@@ -44,7 +45,7 @@ const Bookshelf = () => {
       {totalEpisode === 0 ? (
         <EmptyBookshelf />
       ) : (
-        <BookshelfTemplate episodeList={listEpisode} />
+        <BookshelfTemplate episodeList={listEpisode} totalEpisode={totalEpisode} page={page} setPage={setPage}/>
       )}
 
       <Footer />
