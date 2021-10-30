@@ -7,6 +7,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import {EmptyBookshelf} from "../../../layout/bookshelf/EmptyBookshelf";
 import {BookshelfTemplate} from "../../../layout/bookshelf";
 import CustomerBookshelfAPI from "../../../api/customer/bookshelf";
+import { GetUserInfo } from "src/api/auth";
 
 
 const LikedBook = () => {
@@ -14,21 +15,21 @@ const LikedBook = () => {
     const [selectedSubCate, setSelectedSubCate] = useState("");
     const [categoryId, setCategoryId] = useState("");
     const [totalEpisode, setTotalEpisode] = useState(1);
-    const [listEpisode, setList] = useState(null);
+    const [listEpisode, setListEpisode] = useState(null);
 
     useEffect(() => {
         setCategoryId(selectedSubCate !== "" ? selectedSubCate : selectedCate);
     }, [selectedCate, selectedSubCate]);
 
-    // useEffect(() => {
-    //     CustomerBookshelfAPI.getBookShelf({
-    //         userInfo: GetUserInfo(),
-    //     }).then((data) => {
-    //         console.log({ data })
-    //         setTotalEpisode(data.length);
-    //         setList(data);
-    //     });
-    // }, [categoryId]);
+    useEffect(() => {
+        CustomerBookshelfAPI.getLikedBook({
+            userInfo: GetUserInfo(),
+        }).then((data) => {
+            console.log({ data })
+            setTotalEpisode(data.length);
+            setListEpisode(data);
+        });
+    }, [categoryId]);
 
     return (
         <React.Fragment>
