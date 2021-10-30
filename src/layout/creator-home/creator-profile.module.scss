@@ -185,6 +185,7 @@
 
 @media screen and (max-width: rem(1930px)) {
   .list-series-container {
+    min-height: rem(800px);
     max-width: rem(1490px);
   }
 }
