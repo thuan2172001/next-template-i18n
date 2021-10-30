@@ -100,10 +100,6 @@
   margin-right: rem(10px);
 }
 
-.text-button {
-
-}
-
 .icon-button {
   display: none;
   min-width: rem(20px);
@@ -117,6 +113,42 @@
 
 .blue {
   color: $color-blue-2;
+}
+.text-button {
+  display: inline-block;
+}
+
+.card-list {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.account-card-name {
+  margin-left: rem(9px);
+}
+
+.account-card-number {
+  font-weight: $fw-bold;
+  margin-left: auto;
+}
+
+.remove {
+  text-decoration: underline;
+  font-size: $fs1;
+  line-height: $lh2;
+  cursor: pointer;
+  margin-left: 30%;
+}
+
+.inline {
+  display: flex;
+  width: 100%;
+}
+
+.ml-auto {
+  margin-left: auto;
 }
 
 @media (max-width: rem(750px)) {
