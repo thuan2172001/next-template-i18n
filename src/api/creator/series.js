@@ -32,5 +32,22 @@ export default {
         }).then((data) => {
             return data;
         });
+    },
+
+    getAllEpisodes: ({userInfo, isPublished, limit, page, seriesId}) => {
+        const customAxios = createCustomAxios(userInfo);
+
+        return customAxios({
+            method: "get",
+            url: `${baseURL}/serie/${seriesId}/episodes`,
+            params: {
+                isCreator: userInfo?.role === "creator",
+                isPublished: isPublished,
+                limit: limit,
+                page: page
+            }
+        }).then((data) => {
+            return data;
+        });
     }
 };

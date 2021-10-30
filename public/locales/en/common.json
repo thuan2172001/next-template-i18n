@@ -123,8 +123,12 @@
 			"editSeries": "Edit",
 			"privateSeries": "Private Series",
 			"publishSeries": "Pulish Series"
-		}
+		},
+		"Amount": "Số lượng",
+		"public": "Public",
+		"private": "Private"
 	},
+	"editItem": "Edit item",
 	"search": "Search",
 	"readSetting": {
 		"pageAnimation": "Page Animation",
@@ -136,5 +140,9 @@
 		"slow": "Slow",
 		"tapToTurnArea": "Tap-To-Turn Area",
 		"restoreDefault": "Restore Default"
+	},
+	"series-management": {
+		"noPublicSerie": "No published series found",
+		"noPrivateSerie": "No private series found"
 	}
 }

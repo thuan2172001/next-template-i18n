@@ -1,0 +1,41 @@
+@import "../scss/variables";
+
+.creator-tab {
+  width: rem(254px);
+  height: inherit;
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: $fw-bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  letter-spacing: rem(0.2px);
+  color: $color-light-black;
+}
+
+.creator-layout {
+  height: rem(80px);
+  margin-bottom: rem(10px);
+}
+
+.tab-order {
+  width: rem(26px);
+  height: rem(26px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-bold-white;
+  color: $color-orange;
+  border-radius: 50%;
+  margin-right: rem(12px);
+}
+
+.is-creating-ep {
+  color: $color-white;
+  background: $color-blue;
+}
+
+.order-active {
+  background: $color-light-orange;
+  color: $color-white;
+}
