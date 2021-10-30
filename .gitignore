@@ -10,3 +10,4 @@ node_modules
 yarn-error.log
 yarn.lock
 gitflow.txt
+.env.development
