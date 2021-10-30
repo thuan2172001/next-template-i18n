@@ -4,7 +4,7 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { useTranslation } from 'next-i18next'
 import style from './sign-up.module.scss'
 import { useFormik } from 'formik'
-import * as Yup from "yup"
+import * as Yup from 'yup'
 import AuthServiceAPI from '../../api/auth'
 import VerifySignUpTemplate from './verify'
 
