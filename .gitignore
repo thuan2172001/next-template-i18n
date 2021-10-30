@@ -8,6 +8,5 @@ node_modules
 !.env.example
 .idea
 yarn-error.log
-yarn.lock
 gitflow.txt
 .env.development
