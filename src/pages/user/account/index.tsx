@@ -25,7 +25,7 @@ const AccountPage = () => {
 
 export const getStaticProps = async ({ locale }) => ({
     props: {
-        ...(await serverSideTranslations(locale, ["common", "home", "cart", "account"])),
+        ...(await serverSideTranslations(locale, ["common", "home", "cart", "account", "add-payment"])),
     },
 });
 
