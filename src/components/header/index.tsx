@@ -176,6 +176,10 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 	  const handleMoveToShopSetting = () => {
 		router.push("/shop-setting?tab=general-setting");
 	  };
+
+	  const handleMoveToMU = () => {
+		  router.push("/um");
+	  }
 	
 
 	const CreatorMenu = () => {
@@ -201,6 +205,13 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 					onClick={handleMoveToEP}
 				>
 					{t("common:header.creator.editProfile")}
+				</Menu.Item>
+				<Menu.Item
+					key="manageUsers"
+					className={`${style["disable-antd-css"]} ${style["creator-sub-btn"]}`}
+					onClick={handleMoveToMU}
+				>
+					{t("common:header.creator.manageUsers")}
 				</Menu.Item>
 				<Menu.Item
 					key="manageSales"

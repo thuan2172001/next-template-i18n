@@ -20,7 +20,6 @@ export const AccountTemplate = () => {
   const [editable, setEditable] = useState(false);
   const [modalType, setModalType] = useState("");
   const [paymentList, setPaymentList] = useState([]);
-  const [paymentMethod, setPaymentMethod] = useState("");
 
   const [profile, setProfile] = useState({
     emailAddress: "",
@@ -46,12 +45,6 @@ export const AccountTemplate = () => {
             cardNumber: `**** **** **** ${method.card.last4}`,
           }))
           .sort((a, b) => b.created - a.created);
-
-        const defaultPaymentMethod = customerPaymentList[0]
-          ? customerPaymentList[0].id
-          : "";
-
-        setPaymentMethod(defaultPaymentMethod);
 
         setPaymentList(customerPaymentList);
       }
@@ -88,9 +81,7 @@ export const AccountTemplate = () => {
         const defaultPaymentMethod = customerPaymentList[0]
           ? customerPaymentList[0].id
           : "";
-
-        setPaymentMethod(defaultPaymentMethod);
-
+          
         setPaymentList(customerPaymentList);
       }
     );
