@@ -1,0 +1,60 @@
+@import "@components/global-scss/variables.scss";
+
+.container {
+  padding: rem(60px) 11.5%;
+  background: $color-bold-white;
+  min-height: 80vh;
+
+  .header {
+    font-family: $font-euclid-regular;
+    font-style: normal;
+    font-weight: $fw-bold;
+    font-size: $lh6;
+    line-height: $lh3;
+    letter-spacing: rem(0.2px);
+    color: $color-light-black;
+    margin-bottom: rem(40px);
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: $fs1;
+    line-height: $lh2;
+    font-weight: $fw-normal !important;
+    color: $color-black-1;
+
+    td,
+    th {
+      text-align: left;
+      padding: 24px;
+    }
+
+    thead {
+      th {
+        font-weight: $fw-normal !important;
+        padding-top: 0 !important;
+        padding-bottom: rem(10px) !important;
+      }
+    }
+
+    td:nth-child(3),
+    th:nth-child(3),
+    td:nth-child(4),
+    th:nth-child(4) {
+      text-align: center !important;
+    }
+
+    tbody {
+      background: $color-white;
+
+      img {
+        cursor: pointer;
+      }
+
+      tr:not(:first-child) {
+        border-top: 1px solid $color-gray-7;
+      }
+    }
+  }
+}
