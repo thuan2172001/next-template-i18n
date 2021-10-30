@@ -1,6 +1,7 @@
 @import "@components/global-scss/variables.scss";
 
 .list-series-container {
+    min-height: rem(800px);
   margin: 0 auto;
   padding-top: rem(48px);
   padding-bottom: rem(60px);
@@ -47,30 +48,35 @@
 
 @media screen and (max-width: rem(1930px)) {
   .list-series-container {
+    min-height: rem(800px);
     max-width: rem(1490px);
   }
 }
 
 @media screen and (max-width: rem(1670px)) {
   .list-series-container {
+    min-height: rem(800px);
     max-width: rem(1110px);
   }
 }
 
 @media screen and (max-width: rem(1250px)) {
   .list-series-container {
+    min-height: rem(800px);
     max-width: rem(920px);
   }
 }
 
 @media screen and (max-width: rem(960px)) {
   .list-series-container {
+    min-height: rem(800px);
     max-width: rem(730px);
   }
 }
 
 @media screen and (max-width: rem(750px)) {
   .list-series-container {
+    min-height: rem(800px);
     max-width: rem(540px);
   }
 }

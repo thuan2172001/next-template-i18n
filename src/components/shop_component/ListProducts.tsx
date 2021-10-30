@@ -14,38 +14,10 @@ export const ListProducts = ({ selectedCate }) => {
 
   const [totalProduct, setTotalProduct] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const [itemsPerLine, setItemsPerLine] = useState(0);
-  const [itemsPagination, setItemsPagination] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(30);
   const [page, setPage] = useState(1);
-  const [prevPage, setPrevPage] = useState(1);
-  const [refetch, setRefetch] = useState(true);
-  const [firstItemIndex, setFirstItemIndex] = useState(0);
   const [dataListProducts, setDataListProducts] = useState(null);
   const [category, setCategory] = useState(router.query["category"]);
-  const [line, setLine] = useState(5);
-
-  useEffect(() => {
-    const element = document.getElementById("main-container");
-    setContainerWidth(element.clientWidth);
-    setItemsPerLine((element.clientWidth + 30) / 190);
-    setItemsPagination((element.clientWidth + 30) / 190);
-  }, []);
-
-  useEffect(() => {
-    if (prevPage < page) {
-      setFirstItemIndex(firstItemIndex + itemsPerLine * line * (page - prevPage));
-      setItemsPerLine((containerWidth + 30) / 190);
-      setItemsPagination((containerWidth + 30) / 190);
-      setPrevPage(page);
-    } else if (prevPage > page) {
-      const newFirstIndex =
-        firstItemIndex - itemsPerLine * line * (prevPage - page);
-      setFirstItemIndex(newFirstIndex > 0 ? newFirstIndex : 0);
-      setPrevPage(page);
-    }
-    setRefetch(!refetch);
-  }, [page]);
 
   useEffect(() => {
     router.isReady && setCategory(router.query.category);
@@ -53,23 +25,21 @@ export const ListProducts = ({ selectedCate }) => {
 
   useEffect(() => {
     featDataListProducts(selectedCate);
-  }, [category, refetch, selectedCate]);
+  }, [category, page, selectedCate, itemsPerPage]);
 
   const featDataListProducts = (selectedCate) => {
-    if (itemsPerLine <= 0) return;
     setIsLoading(true);
     SeriesManagementAPI.getSerieQuery({
       userInfo: GetUserInfo(),
-      limit: 20,
+      limit: itemsPerPage,
       page: page,
-      firstIndex: firstItemIndex,
       category: selectedCate,
       isDaily: "true",
     })
       .then((res) => {
         console.log({ res })
-        setDataListProducts(res);
-        setTotalProduct(res.length);
+        setDataListProducts(res.data);
+        setTotalProduct(res.totalSeries);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -98,12 +68,12 @@ export const ListProducts = ({ selectedCate }) => {
                 />
               ))}
           </div>
-          {!isLoading && totalProduct > itemsPagination * line && (
+          {!isLoading && totalProduct > itemsPerPage && (
             <PageNavigation
               page={page}
               setPage={setPage}
               totalItem={totalProduct}
-              itemsPerPage={itemsPagination * line}
+              itemsPerPage={itemsPerPage}
             />
           )}
         </>
