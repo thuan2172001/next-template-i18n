@@ -109,5 +109,9 @@
 		"slow": "Chậm",
 		"tapToTurnArea": "Vùng chạm để chuyển",
 		"restoreDefault": "Cài đặt mặc định"
+	},
+	"favorItem": {
+		"noItem": "Bạn chưa thích bất kì tác phẩm nào",
+		"header": "Tác phẩm ưa thích"
 	}
 }

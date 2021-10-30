@@ -4,18 +4,18 @@ import { SubHeader } from "@components/sub-header";
 import { Footer } from "@components/footer";
 import { connect } from "react-redux";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import {EmptyBookshelf} from "../../../layout/bookshelf/EmptyBookshelf";
-import {BookshelfTemplate} from "../../../layout/bookshelf";
 import CustomerBookshelfAPI from "../../../api/customer/bookshelf";
 import { GetUserInfo } from "src/api/auth";
-
+import { EmptyFavorItem } from "src/layout/favorItem/FavorItem";
+import { FavorPageTemplate } from "src/layout/favorItem";
 
 const LikedBook = () => {
     const [selectedCate, setSelectedCate] = useState("all");
     const [selectedSubCate, setSelectedSubCate] = useState("");
     const [categoryId, setCategoryId] = useState("");
-    const [totalEpisode, setTotalEpisode] = useState(1);
+    const [totalEpisode, setTotalEpisode] = useState(0);
     const [listEpisode, setListEpisode] = useState(null);
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
         setCategoryId(selectedSubCate !== "" ? selectedSubCate : selectedCate);
@@ -24,12 +24,13 @@ const LikedBook = () => {
     useEffect(() => {
         CustomerBookshelfAPI.getLikedBook({
             userInfo: GetUserInfo(),
-        }).then((data) => {
-            console.log({ data })
-            setTotalEpisode(data.length);
-            setListEpisode(data);
+            page,
+            limit: 30,
+        }).then((res) => {
+            setTotalEpisode(res.totalEpisodes);
+            setListEpisode(res.data);
         });
-    }, [categoryId]);
+    }, [categoryId, page]);
 
     return (
         <React.Fragment>
@@ -39,12 +40,12 @@ const LikedBook = () => {
                 setSelectedCate={setSelectedCate}
             />
 
-            <div style={{height: 50}}/>
+            <div style={{ height: 50 }} />
 
             {totalEpisode === 0 ? (
-                <EmptyBookshelf />
+                <EmptyFavorItem />
             ) : (
-                <BookshelfTemplate episodeList={listEpisode} />
+                <FavorPageTemplate episodeList={listEpisode} totalEpisode={totalEpisode} page={page} setPage={setPage} />
             )}
 
             <Footer />

@@ -34,6 +34,10 @@
 		"bookShelf": "Bookshelf",
 		"noItem": "You have no item in your Bookshelf yet"
 	},
+	"favorItem": {
+		"noItem": "Favor items",
+		"header": "You have no favor item yet"
+	},
 	"category": {
 		"all": "All",
 		"Drama": "DRAMA",

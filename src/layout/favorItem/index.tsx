@@ -1,10 +1,10 @@
-import style from "./bookshelf.module.scss";
+import style from "./favorItem.module.scss";
 import { PageNavigation } from "@components/pagination";
 import React, { useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { BookshelfProduct } from "@components/product-item/BookshelfProduct";
 
-export const BookshelfTemplate = ({ episodeList, totalEpisode, page, setPage}) => {
+export const FavorPageTemplate = ({ episodeList, totalEpisode, page, setPage}) => {
   const { t } = useTranslation();
   const itemsPagination = 30;
   const [episodeListComponent, setEpisodeList] = useState(null);
@@ -25,7 +25,7 @@ export const BookshelfTemplate = ({ episodeList, totalEpisode, page, setPage}) =
     <div className={`${style["cointainer"]}`} id="main-container">
       <div className={`${style["header"]}`}>
         <div className={`${style["header-name"]}`}>
-          {t("common:bookshelf.bookShelf")}
+          {t("common:favorItem.header")}
         </div>
       </div>
 

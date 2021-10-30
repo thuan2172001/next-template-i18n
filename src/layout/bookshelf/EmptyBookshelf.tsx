@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 export const EmptyBookshelf = () => {
   const { t } = useTranslation();
   const router = useRouter();
-
   
   return (
     <div className={`${style["empty-bookshelf"]}`}>

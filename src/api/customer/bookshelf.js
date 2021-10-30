@@ -1,16 +1,20 @@
-import { createCustomAxios } from '../../utils/custom-axios';
-import { API_BASE_URL, CREATOR } from '../const';
+import { createCustomAxios } from "../../utils/custom-axios";
+import { API_BASE_URL, CREATOR } from "../const";
 
 const baseURL = API_BASE_URL;
 const creator = CREATOR;
 
 export default {
-  getBookShelf: ({ userInfo }) => {
+  getBookShelf: ({ userInfo, page, limit }) => {
     const customAxios = createCustomAxios(userInfo);
 
     return customAxios({
-      method: 'get',
+      method: "get",
       url: `${baseURL}/user/bookshelf-data`,
+      params: {
+        page,
+        limit,
+      },
     }).then((data) => {
       return data;
     });
@@ -20,7 +24,7 @@ export default {
     const customAxios = createCustomAxios(userInfo);
 
     return customAxios({
-      method: 'put',
+      method: "put",
       url: `${baseURL}/user/bookshelf`,
       data: { episodeId },
     }).then((data) => {
@@ -28,14 +32,18 @@ export default {
     });
   },
 
-  getLikedBook: ({ userInfo }) => {
+  getLikedBook: ({ userInfo, page, limit }) => {
     const customAxios = createCustomAxios(userInfo);
 
     return customAxios({
-      method: 'get',
+      method: "get",
       url: `${baseURL}/user/favor-data`,
+      params: {
+        page,
+        limit,
+      },
     }).then((data) => {
-      console.log(data)
+      console.log(data);
       return data;
     });
   },
