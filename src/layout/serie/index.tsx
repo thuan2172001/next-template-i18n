@@ -77,7 +77,7 @@ const SerieTemplate = ({ serieId }) => {
     };
 
     useEffect(() => {
-        CustomerSerieAPI.getSerieData({ serieId: serieId, userInfo: GetUserInfo() })
+        CustomerSerieAPI.getSerieData({ serieId: serieId, userInfo: GetUserInfo(), page, limit: itemPerPage })
             .then((data) => {
                 setSerieData(data);
                 setLikes(data?.likes);
@@ -100,16 +100,16 @@ const SerieTemplate = ({ serieId }) => {
             .catch((err) => {
                 console.log({ err });
             });
-    }, []);
+    }, [page]);
 
     useMemo(() => {
         serieData &&
             setEpisodeList(
-                serieData.episodes.slice((page - 1) * itemPerPage, page * itemPerPage).map((episode) => {
+                serieData.episodes.map((episode) => {
                     return <EpisodeProduct serieId={serieId} episode={episode} />;
                 })
             );
-    }, [serieData, page]);
+    }, [serieData]);
 
     const shareToTwitter = () => {
         window.open(
@@ -249,7 +249,7 @@ const SerieTemplate = ({ serieId }) => {
                         </div>
                     </section>
                     <PageNavigation
-                        totalItem={serieData?.episodes.length}
+                        totalItem={serieData?.totalEpisodes}
                         itemsPerPage={itemPerPage}
                         page={page}
                         setPage={setPage}

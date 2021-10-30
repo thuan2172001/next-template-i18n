@@ -5,13 +5,15 @@ const baseURL = API_BASE_URL;
 const creator = CREATOR;
 
 export default {
-  getSerieData: ({ serieId, userInfo }) => {
+  getSerieData: ({ serieId, userInfo, page, limit }) => {
     const customAxios = createCustomAxios(userInfo);
     return customAxios({
       method: 'get',
       url: `${baseURL}/serie/${serieId}`,
       params: {
         guest: !userInfo,
+        page,
+        limit
       },
     }).then((data) => {
       return data;
