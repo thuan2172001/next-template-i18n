@@ -3,6 +3,7 @@ import { PageNavigation } from "@components/pagination";
 import React, { useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { BookshelfProduct } from "@components/product-item/BookshelfProduct";
+import { LoadEffect } from "@components/load-effect";
 
 export const FavorPageTemplate = ({ episodeList, totalEpisode, page, setPage}) => {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ export const FavorPageTemplate = ({ episodeList, totalEpisode, page, setPage}) =
           {t("common:favorItem.header")}
         </div>
       </div>
-
+      <LoadEffect />
       <div className={`${style["item-list"]}`}>{episodeListComponent}</div>
       {totalEpisode > itemsPagination && (
         <PageNavigation
