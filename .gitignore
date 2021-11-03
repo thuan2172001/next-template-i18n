@@ -4,8 +4,8 @@ node_modules
 .next
 # environment variables
 .env
-.env.*
-!.env.example
+.env.development
+!.env.development
 .idea
 yarn-error.log
 yarn.lock
