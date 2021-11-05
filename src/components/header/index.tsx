@@ -8,7 +8,7 @@ import style from "./header.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 
 export const Header = ({ triggerCreatorLogout = null }) => {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
 	const router = useRouter();
 	const [isLogged, setIsLogged] = useState(false);
 	const [clientType, setClientType] = useState("");
@@ -39,32 +39,32 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 
 	const handleLogout = async () => {
 		if (clientType === "customer")
-		  dispatch({ type: "UPDATE_CART", payload: [] });
-	
+			dispatch({ type: "UPDATE_CART", payload: [] });
+
 		if (typeof window !== "undefined") {
-		  window.localStorage.removeItem("userInfo");
-		  window.localStorage.removeItem("creatorAvatar");
-		  window.localStorage.removeItem("thumbnail");
-		  window.localStorage.removeItem("cover-url");
-		  window.localStorage.removeItem("thumb-url");
-		  window.localStorage.removeItem("book-url");
+			window.localStorage.removeItem("userInfo");
+			window.localStorage.removeItem("creatorAvatar");
+			window.localStorage.removeItem("thumbnail");
+			window.localStorage.removeItem("cover-url");
+			window.localStorage.removeItem("thumb-url");
+			window.localStorage.removeItem("book-url");
 		}
 		window.localStorage.removeItem("checkPendingPayment");
 		const _isFunction = (functionToCheck) => {
-		  return (
-			functionToCheck &&
-			{}.toString.call(functionToCheck) === "[object Function]"
-		  );
+			return (
+				functionToCheck &&
+				{}.toString.call(functionToCheck) === "[object Function]"
+			);
 		};
-	
+
 		if (_isFunction(triggerCreatorLogout)) triggerCreatorLogout(true);
-	
+
 		if (router.pathname === "/") {
-		  setClientType("");
-		  router.reload();
+			setClientType("");
+			router.reload();
 		} else router.push("/");
-	  };
-	
+	};
+
 
 	const UserDropdownMenu = () => {
 		return (
@@ -75,16 +75,6 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 				<Menu.Item key="2" onClick={() => router.push("/user/bookshelf")}>
 					{t("common:header.dropdown.bookshelf")}
 				</Menu.Item>
-				{/* <Menu.Item
-					key="3"
-					onClick={() =>
-						router.push(
-							"/list-series/all?queryBy=newReleased&category=all&isDaily=true&tabNewRelease=following"
-						)
-					}
-				>
-					{t("common:header.dropdown.newArrivals")}
-				</Menu.Item> */}
 				<Menu.Item
 					key="4"
 					onClick={() => router.push("/user/liked?category=all&liked=serie")}
@@ -93,6 +83,17 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 				</Menu.Item>
 				<Menu.Item key="6">
 					{t("common:header.dropdown.purchaseHistory")}
+				</Menu.Item>
+				<Menu.Item
+					key="8"
+					onClick={() => {
+						const locale = router?.locale || 'vi';
+						const newLocale = locale === 'vi' ? 'en' : 'vi'
+						i18n.changeLanguage(newLocale)
+						router.push(`${router.asPath}`, `${router.asPath}`, { locale: newLocale })
+					}}
+				>
+					{t("common:header.dropdown.changeLanguage")}
 				</Menu.Item>
 				<Menu.Item key="7" onClick={() => {
 					localStorage.clear();
@@ -149,38 +150,49 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 
 	const CreatorDropdownMenu = () => {
 		return (
-		  <Menu className={`${style["dropdown-menu"]}`}>
-			<Menu.Item key="1" onClick={handleMoveToShop}>
-			  {t("common:header.creator.dropdown.viewShop")}
-			</Menu.Item>
-			<Menu.Item key="2" onClick={handleLogout}>
-			  {t("common:header.creator.dropdown.logOut")}
-			</Menu.Item>
-		  </Menu>
+			<Menu className={`${style["dropdown-menu"]}`}>
+				<Menu.Item key="1" onClick={handleMoveToShop}>
+					{t("common:header.creator.dropdown.viewShop")}
+				</Menu.Item>
+				<Menu.Item
+					key="3"
+					onClick={() => {
+						const locale = router?.locale || 'vi';
+						const newLocale = locale === 'vi' ? 'en' : 'vi'
+						i18n.changeLanguage(newLocale)
+						router.push(`${router.asPath}`, `${router.asPath}`, { locale: newLocale })
+					}}
+				>
+					{t("common:header.dropdown.changeLanguage")}
+				</Menu.Item>
+				<Menu.Item key="2" onClick={handleLogout}>
+					{t("common:header.creator.dropdown.logOut")}
+				</Menu.Item>
+			</Menu>
 		);
-	  };
+	};
 
 	const handleMoveToShop = () => {
 		const creatorId = GetUserInfo()._id;
 		router.push(`/shop/${creatorId}`);
-	  };
-	
-	  const handleMoveToSM = () => {
-		router.push("/sm?view=public");
-	  };
-	  const handleMoveToEP = () => {
-	
-		router.push("/creator/edit-profile");
-	  };
-	
-	  const handleMoveToShopSetting = () => {
-		router.push("/shop-setting?tab=general-setting");
-	  };
+	};
 
-	  const handleMoveToMU = () => {
-		  router.push("/um");
-	  }
-	
+	const handleMoveToSM = () => {
+		router.push("/sm?view=public");
+	};
+	const handleMoveToEP = () => {
+
+		router.push("/creator/edit-profile");
+	};
+
+	const handleMoveToShopSetting = () => {
+		router.push("/shop-setting?tab=general-setting");
+	};
+
+	const handleMoveToMU = () => {
+		router.push("/um");
+	}
+
 
 	const CreatorMenu = () => {
 		return (

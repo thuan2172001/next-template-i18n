@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Radio, Modal, Space } from "antd";
 import CreatorManageAPI from "../../api/creator/usermanagement";
 import { GetUserInfo } from "src/api/auth";
+import { useTranslation } from "react-i18next";
 
 export const UserManagementModal = ({
   visble,
@@ -12,6 +13,7 @@ export const UserManagementModal = ({
   refetchData,
 }) => {
   const [value, setValue] = useState(userStatus);
+  const {t} = useTranslation();
 
   const updateModal = (e) => {
     setValue(e.target.value);
@@ -47,8 +49,8 @@ export const UserManagementModal = ({
     >
       <Radio.Group onChange={updateModal} value={value}>
         <Space direction="vertical">
-          <Radio value={"Active"}>Active</Radio>
-          <Radio value={"Inactive"}>Inactive</Radio>
+          <Radio value={"Active"}>{t("common:manageUsers.active")}</Radio>
+          <Radio value={"Inactive"}>{t("common:manageUsers.inactive")}</Radio>
         </Space>
       </Radio.Group>
     </Modal>

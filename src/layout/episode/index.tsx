@@ -1,26 +1,27 @@
-import {Col, Row, Skeleton, Button} from "antd";
-import React, {useState, useEffect, useRef} from "react";
-import {useTranslation} from "next-i18next";
+import { Col, Row, Skeleton, Button } from "antd";
+import React, { useState, useEffect, useRef, useMemo } from "react";
+import { useTranslation } from "next-i18next";
 import CustomImageField from "@components/image";
 import style from "./episode.module.scss";
-import {HeartFilled, HeartOutlined} from "@ant-design/icons";
+import { HeartFilled, HeartOutlined } from "@ant-design/icons";
 import CustomerEpisodeAPI from "../../api/customer/episode";
 import CustomerCartAPI from "../../api/customer/cart";
 import CustomerBookshelfAPI from "../../api/customer/bookshelf";
-import {GetUserInfo} from "../../api/auth";
-import {useRouter} from "next/router";
-import {useDispatch, useSelector} from "react-redux";
-import {NonPurchasedItem} from "./NonPurchasedItem";
+import { GetUserInfo } from "../../api/auth";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { NonPurchasedItem } from "./NonPurchasedItem";
 import EpisodeManagementAPI from "../../api/episode-management/episode-management";
-import {PurchasedItem} from "./PurchasedItem";
-import {RequireLoginModal} from "@components/modal/RequireLoginModal";
+import { PurchasedItem } from "./PurchasedItem";
+import { RequireLoginModal } from "@components/modal/RequireLoginModal";
 import Share from "@components/share-component/share";
 import Slider from "react-slick";
+import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
 
-const EpisodeTemplate = ({seriesId, episodeId}) => {
+const EpisodeTemplate = ({ seriesId, episodeId }) => {
   let userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const router = useRouter();
   const [shareModal, setShareModal] = useState(false);
   const dispatch = useDispatch();
@@ -32,6 +33,16 @@ const EpisodeTemplate = ({seriesId, episodeId}) => {
   const [isLogged, setIsLogged] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [addedToBookshelf, setAddedToBookshelf] = useState(false);
+  const [itemSlider, setItemSlider] = useState(Math.floor((window.innerWidth - window.innerHeight * 30 / 100) / 180));
+
+  useEffect(() => {
+    const updateWindowDimensions = () => {
+      const items = Math.floor((window.innerWidth - window.innerHeight * 30 / 100) / 180);
+      setItemSlider(items);
+    };
+    window.addEventListener("resize", updateWindowDimensions);
+    return () => window.removeEventListener("resize", updateWindowDimensions)
+  }, [])
 
   const moveToSeriePage = () => {
     const pathname = "/serie/" + seriesId;
@@ -122,8 +133,8 @@ const EpisodeTemplate = ({seriesId, episodeId}) => {
 
   const getCartList = () => {
     const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
-    CustomerCartAPI.getCart({userInfo}).then((data) => {
-      console.log({data})
+    CustomerCartAPI.getCart({ userInfo }).then((data) => {
+      console.log({ data })
       if (data) {
         dispatch({
           type: "UPDATE_CART",
@@ -138,12 +149,12 @@ const EpisodeTemplate = ({seriesId, episodeId}) => {
   };
 
   const handleAddToCart = () => {
-    console.log({"amount": amountInCart});
+    console.log({ "amount": amountInCart });
     let newCartList = [];
     if (cartList) {
       newCartList = [...new Set([...cartList, episodeInfo.episodeId])];
     } else newCartList = [episodeInfo.episodeId]
-    console.log({newCartList})
+    console.log({ newCartList })
     const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
     if (userInfo) {
       CustomerCartAPI.updateCart({
@@ -166,7 +177,7 @@ const EpisodeTemplate = ({seriesId, episodeId}) => {
       <Row gutter={30}>
         <Col span={12}>
           <Skeleton active loading={!episodeInfo?.thumbnail}>
-            <div className="nft-image" style={{position: "relative"}}>
+            <div className="nft-image" style={{ position: "relative" }}>
               <CustomImageField
                 width={"454"}
                 height={"454"}
@@ -186,7 +197,7 @@ const EpisodeTemplate = ({seriesId, episodeId}) => {
             <div className={style["name-container"]}>
               <Skeleton
                 active
-                paragraph={{rows: 0}}
+                paragraph={{ rows: 0 }}
                 loading={!episodeInfo?.name}
               >
                 <h2 className={style["nft-name"]}>{episodeInfo?.name}</h2>
@@ -196,12 +207,12 @@ const EpisodeTemplate = ({seriesId, episodeId}) => {
             <div>
               <Skeleton
                 active
-                paragraph={{rows: 0}}
+                paragraph={{ rows: 0 }}
                 loading={!episodeInfo?.serie}
               >
                 <h3
                   className={`${style["series-link"]} ${style["cursor_pointer"]
-                  }`}
+                    }`}
                   onClick={moveToSeriePage}
                 >
                   {episodeInfo?.serie?.serieName}
@@ -210,33 +221,33 @@ const EpisodeTemplate = ({seriesId, episodeId}) => {
             </div>
 
             <div className={style["category-row"]}>
-                            <span>
-                                {favorite ? (
-                                  <HeartFilled
-                                    className={`${style["favorite-icon"]} ${style["color-red"]}`}
-                                    onClick={onClickFavorite}
-                                  />
-                                ) : (
-                                  <HeartOutlined
-                                    className={`${style["favorite-icon"]}`}
-                                    onClick={onClickFavorite}
-                                  />
-                                )}
-                            </span>
+              <span>
+                {favorite ? (
+                  <HeartFilled
+                    className={`${style["favorite-icon"]} ${style["color-red"]}`}
+                    onClick={onClickFavorite}
+                  />
+                ) : (
+                  <HeartOutlined
+                    className={`${style["favorite-icon"]}`}
+                    onClick={onClickFavorite}
+                  />
+                )}
+              </span>
               <span className={style["likes"]}>
-                                {" "}
+                {" "}
                 {episodeTotalLikes}{" "}
-                            </span>
+              </span>
 
               <span>
-                                <img src={"/assets/icons/separate-line.svg"} width={1} height={22}/>
-                            </span>
+                <img src={"/assets/icons/separate-line.svg"} width={1} height={22} />
+              </span>
 
               <span className={style["category-list"]}>
-                                <span className={style["category-name"]}>
-                                    {episodeInfo?.category?.categoryName}
-                                </span>
-                            </span>
+                <span className={style["category-name"]}>
+                  {t(`common:category.${episodeInfo?.category?.categoryName}`)}
+                </span>
+              </span>
             </div>
 
             <div>
@@ -248,7 +259,7 @@ const EpisodeTemplate = ({seriesId, episodeId}) => {
             </div>
 
             <Row>
-              <Share episodeId={episodeId} thumbnail={episodeInfo?.thumbnail}/>
+              <Share episodeId={episodeId} thumbnail={episodeInfo?.thumbnail} />
             </Row>
 
             {episodeInfo.isBought ? <PurchasedItem
@@ -288,19 +299,18 @@ const EpisodeTemplate = ({seriesId, episodeId}) => {
       )}
 
       <div className={`${style["slide"]}`}>
+        <div className={`${style["similar-items"]}`}>{t("common:similarItem")}</div>
         <Slider
           infinite={true}
-          // slidesToShow={3}
-          // slidesToScroll={3}
-          nextArrow={<div>next</div>}
-          prevArrow={<div>prev</div>}
-          slidesPerRow={5}
+          nextArrow={<div><img id={`${style["slide-next-icon"]}`} src="/assets/icons/next-icon.svg" /></div>}
+          prevArrow={<div><img id={`${style["slide-prev-icon"]}`} src="/assets/icons/prev-icon.svg" /></div>}
+          slidesPerRow={itemSlider}
           rows={1}
         >
           {episodeInfo?.similarEpisodes?.map((ep) => {
             return (
               <div className={`${style["slide-component"]}`}>
-                <img src={ep.thumbnail}/>
+                <EpisodeProduct serieId={seriesId} episode={ep} />
               </div>
             )
           })}

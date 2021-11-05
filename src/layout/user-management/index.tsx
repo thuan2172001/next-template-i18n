@@ -4,6 +4,7 @@ import { PageNavigation } from "@components/pagination";
 import { GetUserInfo } from "src/api/auth";
 import CreatorManageAPI from "../../api/creator/usermanagement";
 import { UserManagementModal } from "./user-modal";
+import { useTranslation } from "react-i18next";
 
 export const UsersManagementTemplate = () => {
   const [totalUser, setTotalUser] = useState(0);
@@ -12,6 +13,7 @@ export const UsersManagementTemplate = () => {
   const [modalType, setModalType] = useState("");
   const [currentUserId, setCurrentUserId] = useState("");
   const [currentUserStatus, setCurrentUserStatus] = useState("");
+  const {t} = useTranslation();
 
   const fetchData = (page, limit) => {
     let body = {
@@ -40,17 +42,17 @@ export const UsersManagementTemplate = () => {
 
   return (
     <div className={style["container"]}>
-      <div className={style["header"]}>Manage Users</div>
+      <div className={style["header"]}>{t("common:manageUsers.title")}</div>
       <table className={style["table"]}>
         <thead>
           <tr style={{ fontWeight: "bold" }}>
-            <th>Username</th>
-            <th>Fullname</th>
-            <th>Age</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Status</th>
-            <th>Action</th>
+            <th>{t("common:manageUsers.username")}</th>
+            <th>{t("common:manageUsers.fullName")}</th>
+            <th>{t("common:manageUsers.age")}</th>
+            <th>{t("common:manageUsers.email")}</th>
+            <th>{t("common:manageUsers.phoneNum")}</th>
+            <th>{t("common:manageUsers.status")}</th>
+            <th>{t("common:manageUsers.action")}</th>
           </tr>
         </thead>
         <tbody className={style["body"]}>
@@ -61,16 +63,16 @@ export const UsersManagementTemplate = () => {
               <td>{el.age}</td>
               <td>{el.email}</td>
               <td>{el.phoneNumber}</td>
-              <td>{el.isBanned ? "Inactive" : "Active"}</td>
+              <td>{el.isBanned ? `${t("common:manageUsers.inactive")}` : `${t("common:manageUsers.active")}`}</td>
               <td>
                 <button
                   onClick={() => {
                     setCurrentUserId(el._id);
-                    setCurrentUserStatus(el.isBanned ? "Inactive" : "Active");
+                    setCurrentUserStatus(el.isBanned ? `${t("common:manageUsers.inactive")}` : `${t("common:manageUsers.active")}`);
                     setModalType("updateStatus");
                   }}
                 >
-                  Update
+                  {t("common:manageUsers.update")}
                 </button>
               </td>
             </tr>

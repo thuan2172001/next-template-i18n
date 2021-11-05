@@ -42,7 +42,7 @@ const authorData = {
     "https://www.pinterest.com/marvel/_created/",
   ],
   introduction:
-    "コンシューマー・ゲームソフトのアートディレクター、ムービーディレクターを経て、フリーランス。プリプロダクション業務とオリジナル・ストーリーコンテンツ制作に特化した、株式会社・ユーフォーピクチャーズを設立。主に、CGアニメーションやTVアニメーションの企画・シリーズ構成・脚本・絵コンテ・キャラクターデザイン・監督などを担当。コンシューマー・ゲームソフトのアートディレクター、ムービーディレクターを経て、フリーランス。プリプロダクション業務とオリジナル・ストーリーコンテンツ制作に特化した、株式会社・ユーフォーピクチャーズを設立。主に、CGアニメーションやTVアニメーションの企画・シリーズ構成・脚本・絵コンテ・キャラクターデザイン・監督などを担当。コンシューマー・ゲームソフトのアートディレクター、ムービーディレクターを経て、フリーラコンシューマー・ゲームソフトのアートディレクター、ムービーディレクターを経て、フリーランス。プリプロダクション業務とオリジナル・ストーリーコンテンツ制作に特化した、株式会社・ユーフォーピクチャーズを設立。主に、CGアニメーションやTVアニメーションの企画・シリーズ構成・脚本・絵コンテ・キャラクターデザイン・監督などを担当。コンシューマー・ゲームソフトのアートディレクター、ムービーディレクターを経て、フリーランス。プリプロダクション業務とオリジナル・ストーリーコンテンツ制作に特化した、株式会社・ユーフォーピクチャーズを設立。主に、CGアニメーションやTVアニメーションの企画・シリーズ構成・脚本・絵コンテ・キャラクターデザイン・監督などを担当。コンシューマー・ゲームソフトのアートディレクター、ムービーディレクターを経て、フリーランス。プリプロダクション業務とオリジナル・ストーリーコンテンツ制作に特化した、株式会社・ユーフォーピクチャーズを設立。主に、CGアニメーションやTVアニメーションの企画・シリーズ構成・脚本・絵コンテ・キャラクターデザイン・監督などを担当。・ストーリーコンテンツ制作に特化した、株式会社・ユーフォーピクチャーズを設立。主に、CGアニメーションやTVアニメーションの企画・シリーズ構成・脚本・絵コンテ・キャラクターデザイン・監督などを担当。コンシューマー・ゲームソフトのアートディレクター、ムービーディレクターを経て、フリーランス。プリプロダクション業務とオリジナル・ストーリーコンテンツ制作に特化した、株式会社・ユーフォーピクチャーズを設立。主に、CGアニメーションやTVアニメーションの企画・シリーズ構成・脚本・絵コンテ・キャラクターデザイン・監督などを担当。コンシューマー・ゲームソフトのアートディレクター、ムービーディレクターを経て、フリーランス。プリプロダクション業務とオリジナル・ストーリーコンテンツ制作に特化した、株式会社・ユーフォーピクチャーズを設立。主に、CGアニメーションやTVアニメーションの企画・シリーズ構成・脚本・絵コンテ・キャラクターデザイン・監督などを担当。ンス。プリプロダクション業務とオリジナル・ストーリーコンテンツ制作に特化した、株式会社・ユーフォーピクチャーズを設立。主に、CGアニメーションやTVアニメーションの企画・シリーズ構成・脚本・絵コンテ・キャラクターデザイン・監督などを担当。",
+    "Chiều về là lúc bến sông quê tôi tấp nập nhất. Đoàn thuyền chở các bà, các chị từ chợ huyện, chợ tỉnh về cập bến. Các bà các chị được đàn con ùa ra đón. Con lớn đỡ cho mẹ gánh hàng. Con nhỏ vòi mẹ chia quà. Tiếng cười nói rộn ràng cả một khúc sông. Rồi ai về nhà nây. Con thuyền neo vào bến đỗ. Đây cũng là lúc bọn trẻ chăn trâu lùa trâu xuống tắm. Bọn trẻ tắm cho trâu, rồi bọn trẻ giỡn nước. Chúng té nước cho nhau. Chúng chơi trò đánh trận. Một đứa kiếm đâu được trái bóng tròn. Thế là chúng ném bóng cho nhau. Một ý kiến được cả bọn chấp nhận: chơi bóng nước. Chúng chia làm hai phe, chuyền bóng cho nhau. Phe nào chuyền được 6 chuyền là thắng. Phe thua phải cõng phe thắng chạy dọc con sông suốt từ bến tắm đến tận gốc đa. Bến sông quê tôi cứ rộn ràng như vậy cho đến lúc mặt trời lặn phía chân ười mới có chút bình lặng. Dưới chân Tháp Bà Ponaga, dòng sông Cái hiền hoà chảy ra biển. Hai bên bờ sông, nhà cửa lô nhô. Lác đác, vài cụm dừa mọc choài ra sông, tàu lá lao xao trong gió. Giữa sông, cù lao Hải Đảo rợp bóng dừa như một ốc đảo xanh lục giữa làn nước xanh lam. Cầu Bóng bắc qua sông nườm nượp xe cộ. Dưới chân cầu, nơi con sông đổ ra biển là cầu Cá. Thuyền đi biển sơn hai màu xanh đỏ, đậu san sát gần một mỏm đá nối lên như hòn non bộ. Vài chiếc tàu máy chạy trên sông. Tiếng còi ô tô gay gắt lẫn tiếng ghe máy chạy ì ầm làm dòng sông ồn ã lên. Nắng trưa bàng bạc lên dòng sông, mặt nước sông như dát một thứ ánh kim xanh biếc màu trời. Con sông, cửa biển và bến thuyền gắn bó bao đời là một trong những cảnh đẹp của thành phố Nha Trang được nhiều người biết đến.",
 };
 
 const SocialMediaItem = ({ mediaLink, index }) => {
@@ -63,7 +63,7 @@ const SocialMediaItem = ({ mediaLink, index }) => {
 export const ShopProfile = ({ template }) => {
   let userInfo = GetUserInfo();
   const { t } = useTranslation();
-  const [follower, setFollower] = useState(0);
+  const [follower, setFollower] = useState(19527123);
   const [isFollowing, setIsFollowing] = useState(false);
   const [creatorInfo, setCreatorInfo] = useState(authorData);
   const [linkSns, setLinhSNS] = useState(authorData.mediaLinks);
@@ -138,8 +138,8 @@ export const ShopProfile = ({ template }) => {
                           {isFollowing ? 'Following' : 'Follow'}
                         </Button>
                         <span className={`${style["creator-followers"]}`}>
-                          {cnumberWithCommas(19527123)}{" "}
-                          {follower > 1 ? "followers" : "follower"}
+                          {cnumberWithCommas(follower)}{" "}
+                          {follower > 1 ? `${t("common:followers")}` : `${t("common:follower")}`}
                         </span>
                       </div>
                     </div>

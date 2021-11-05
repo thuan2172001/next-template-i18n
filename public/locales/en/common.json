@@ -16,6 +16,7 @@
       "newArrivals": "New arrivals",
       "liked": "Liked",
       "purchaseHistory": "Purchase history",
+      "changeLanguage": "Change language",
       "logOut": "Log out"
     },
     "creator": {
@@ -27,17 +28,32 @@
       "publish": "Publish",
       "dropdown": {
         "viewShop": "View shop",
-        "logOut": "Log out"
+        "logOut": "Log out",
+        "changeLanguage": "Change language"
       }
     }
   },
+  "manageUsers": {
+    "title": "Manage Users",
+    "username": "Username",
+    "fullName": "Fullname",
+    "age": "Age",
+    "email": "Email",
+    "phoneNum": "Phone Number",
+    "status": "Status",
+    "action": "Action",
+    "update": "Update",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "similarItem": "Similar Products",
   "bookshelf": {
     "bookShelf": "Bookshelf",
-    "noItem": "You have no item in your Bookshelf yet"
+    "noItem": "You have no items in your Bookshelf yet"
   },
   "favorItem": {
-    "noItem": "Favor items",
-    "header": "You have no favor item yet"
+    "header": "Favor items",
+    "noItem": "You have no favor items yet"
   },
   "category": {
     "all": "All",
@@ -64,7 +80,7 @@
   "addToCart": "Add To Cart",
   "buyNow": "Buy Now",
   "emptyCart": {
-    "noProduct": "There is no product in cart",
+    "noProduct": "There is no products in cart",
     "continueBrowse": "Continue browsing"
   },
   "addPaymentMethod": "Add Payment Method",
@@ -153,6 +169,8 @@
   "read": {
     "goShop": "Buy now"
   },
+  "follower": "follower",
+  "followers": "followers",
   "create_serie": {
     "coverRecommend": "Cover recommend",
     "browse": "Browse",

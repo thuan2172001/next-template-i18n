@@ -1,15 +1,12 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
-// import { EpisodeProduct } from "../../components/product-item/EpisodeProduct";
 import { useTranslation } from "next-i18next";
 import CustomerSerieAPI from "../../api/customer/serie";
 import { Col, Row, Skeleton, Tooltip } from "antd";
 import { HeartFilled, HeartOutlined } from "@ant-design/icons";
 import style from "./serie.module.scss";
 import { BASE_URL } from "../../api/const";
-import router from "next/router";
 import { SeeMoreNoResult } from "@components/no-result/SeeMoreNoResult";
 import { PageNavigation } from "@components/pagination";
-import SeriesManagementAPI from "../../api/series-management/series-management";
 import { GetUserInfo } from "src/api/auth";
 import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
 import EpisodeManagementAPI from "../../api/episode-management/episode-management";
@@ -189,7 +186,7 @@ const SerieTemplate = ({ serieId }) => {
                         </div>
                         <div className={`${style["category-info"]}`}>
                             <span className={`${style["cate-item"]}`}>
-                                {serieData?.category.categoryName}
+                                {t(`common:category.${serieData?.category.categoryName}`)}
                             </span>
                             {/*{serieData?.category?.map((category) => {*/}
                             {/*  return (*/}

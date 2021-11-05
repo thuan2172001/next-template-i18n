@@ -1,6 +1,6 @@
 {
   "emptyCart": {
-    "noProduct": "There is no product in cart",
+    "noProduct": "There is no products in cart",
     "continueBrowse": "Continue browsing"
   },
   "addPaymentMethod" : "Add Payment Method",

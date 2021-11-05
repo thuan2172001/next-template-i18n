@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Timeline,Follow } from "react-twitter-widgets";
 import style from "./twitter.module.scss";
 
-const twitterHandle = "diaace_official";
+const twitterHandle = "elonmusk";
 export default function fetchProfile() {
   
   const parentElement = document.getElementById("embed-div");
@@ -422,7 +422,7 @@ export const TwitterEmbbed = () => {
         <Timeline
           dataSource={{
             sourceType: "profile",
-            screenName: "FabrizioRomano",
+            screenName: "elonmusk",
           }}
           options={{
             height: "360",

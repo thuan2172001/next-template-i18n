@@ -16,6 +16,7 @@
       "newArrivals": "Truyện mới",
       "liked": "Yêu thích",
       "purchaseHistory": "Lịch sử giao dịch",
+      "changeLanguage": "Đổi ngôn ngữ",
       "logOut": "Đăng xuất"
     },
     "creator": {
@@ -23,13 +24,33 @@
       "manageItem": "TÁC PHẨM",
       "editProfile": "TÀI KHOẢN",
       "manageSales": "DOANH THU",
+      "manageUsers": "NGƯỜI DÙNG",
       "publish": "Xuất bản",
       "dropdown": {
         "viewShop": "Xem cửa hàng",
-        "logOut": "Đăng xuất"
+        "logOut": "Đăng xuất",
+        "changeLanguage": "Đổi ngôn ngữ"
       }
     }
   },
+  "manageUsers": {
+    "title": "Quản lý người dùng",
+    "username": "Tên đăng nhập",
+    "fullName": "Họ và tên",
+    "age": "Tuổi",
+    "email": "Email",
+    "phoneNum": "Số điện thoại",
+    "status": "Trạng thái",
+    "action": "Hành động",
+    "update": "Cập nhật",
+    "active": "Hoạt động",
+    "inactive": "Vô hiệu hóa"
+  },
+  "emptyCart": {
+    "noProduct": "Không có sản phẩm trong giỏ hàng",
+    "continueBrowse": "Tiếp tục mua hàng"
+  },
+  "similarItem": "Sản phẩm tương tự",
   "category": {
     "all": "Tất cả",
     "Drama": "KỊCH TÍNH",
@@ -114,16 +135,18 @@
     "noItem": "Bạn chưa thích bất kì tác phẩm nào",
     "header": "Tác phẩm ưa thích"
   },
+  "follower": "Người theo dõi",
+  "followers": "Người theo dõi",
   "read": {
     "goShop": "Mua ngay"
   },
   "create_serie": {
-	  "coverRecommend": "Gợi ý ảnh",
-	  "browse": "Chọn",
-	  "chooseFile": "Chọn ảnh",
-	  "uploadFile": "Tải tệp lên",
-	  "uploadCover": "Ảnh bìa",
-	  "uploadImage": "Tải ảnh lên",
+    "coverRecommend": "Gợi ý ảnh",
+    "browse": "Chọn",
+    "chooseFile": "Chọn ảnh",
+    "uploadFile": "Tải tệp lên",
+    "uploadCover": "Ảnh bìa",
+    "uploadImage": "Tải ảnh lên",
     "title": "Tạo series mới"
   },
   "create_episode": {

@@ -2,6 +2,21 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css";
 
+#slide-next-icon {
+  width: rem(24px);
+  transform: translateY(-80%);
+}
+
+#slide-prev-icon {
+  width: rem(24px);
+  transform: translateY(-80%) translateX(rem(-20px));
+}
+
+.similar-items {
+  font-size: rem(24px);
+  text-align: center;
+}
+
 .nft {
   margin: rem(120px) 11vw rem(567px) 11vw;
   font-family: $font-family-main;
@@ -11,6 +26,7 @@
   }
 
   .slide {
+    margin-top: rem(80px);
     .slide-component {
       img {
         width: rem(160px);
@@ -269,4 +285,3 @@
     padding: rem(10px) rem(12px) rem(10px) 0;
   }
 }
-
