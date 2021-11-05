@@ -569,7 +569,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                   <div className={`${style["radio-value"]}`}>
                     {uploadContent.seriesInfo?.category.categoryName || "Video"}
                     <div className={`${style["checked-icon"]}`}>
-                      <Image src="/icons/checked.svg" width={19} height={19}/>
+                      <Image src="/assets/icons/checked.svg" width={19} height={19}/>
                     </div>
                   </div>
                 </Radio.Button>

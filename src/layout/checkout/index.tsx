@@ -130,8 +130,8 @@ export const CheckoutTemplate = ({ cartList }) => {
     //                         id: method.id,
     //                         imgSrc:
     //                             method.card.brand === "visa"
-    //                                 ? "/icons/visa.svg"
-    //                                 : "/icons/master-card.svg",
+    //                                 ? "/assets/icons/visa.svg"
+    //                                 : "/assets/icons/master-card.svg",
     //                         name: method.card.brand === "visa" ? "Visa" : "Mastercard",
     //                         cardNumber: `**** **** **** ${method.card.last4}`,
     //                     }))
@@ -171,7 +171,7 @@ export const CheckoutTemplate = ({ cartList }) => {
             >
                 <div className="modal-common">
                     <div className="confirm-icon">
-                        <Image src={"/icons/success-purchase.svg"} height={56} width={56} />
+                        <Image src={"/assets/icons/success-purchase.svg"} height={56} width={56} />
                     </div>
 
                     <div className={`success-message`}>

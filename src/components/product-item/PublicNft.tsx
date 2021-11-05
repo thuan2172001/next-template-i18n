@@ -12,7 +12,7 @@ export const PublicNft = ({ episode }) => {
   const route = useRouter();
   
   const moveToNft = () => {
-    route.push(`/nft?serieId=${episode.serie}&&episodeId=${episode._id}`);
+    route.push(`/episode?serieId=${episode.serie}&&episodeId=${episode._id}`);
   };
 
   const menu = (
@@ -61,7 +61,7 @@ export const PublicNft = ({ episode }) => {
           <div className={`${style["quantity"]}`}>
             <div className={`${style["detail"]}`}>
               <img
-                src="/icons/nft-product-item/world.svg"
+                src="/assets/icons/nft-product-item/world.svg"
                 className={`${style["icon"]}`}
               />
               <span>
@@ -70,7 +70,7 @@ export const PublicNft = ({ episode }) => {
             </div>
             <div className={`${style["detail"]} ${style["right-detail"]}`}>
               <img
-                src="/icons/nft-product-item/shelf.svg"
+                src="/assets/icons/nft-product-item/shelf.svg"
                 className={`${style["icon"]}`}
               />
               <span>{episode?.inventory + "/" + episode?.total}</span>

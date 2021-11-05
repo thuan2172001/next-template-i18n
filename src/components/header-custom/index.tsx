@@ -151,7 +151,7 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
             trigger={["click"]}
             placement="bottomCenter"
           >
-            <img src="/icons/creator_icon.svg" />
+            <img src="/assets/icons/creator_icon.svg" />
           </Dropdown>
         </Menu.Item>
       </>

@@ -28,11 +28,12 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
         <div
           className={`${style["switch-tab-item"]}  ${style["switch-tab-active"]}`}
         >
-          <span className={`${style["switch-tab-rank"]}`}>1</span>Create series
+          <span className={`${style["switch-tab-rank"]}`}>1</span>
+          {t('common:create_serie.title')}
         </div>
         <div className={`${style["switch-tab-item"]}`}>
           <span className={`${style["switch-tab-rank"]} `}>2</span>
-          Create episode
+          {t('common:create_episode.title')}
         </div>
       </div>
     );

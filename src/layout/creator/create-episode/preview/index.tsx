@@ -181,7 +181,7 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
                 </Col>
                 <Col xs={1}>
                   <img
-                    src={"/icons/share/share-link.svg"}
+                    src={"/assets/icons/share/share-link.svg"}
                     className={`${style["share-btn"]} ${style["cursor_pointer"]}`}
                   />
                 </Col>
@@ -221,7 +221,7 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
         {modalVisible && (
           <RequireLoginModal
             updateModalVisible={() => setModalVisible(false)}
-            isFrom={`/nft?serieId=`}
+            isFrom={`/episode?serieId=`}
           />
         )}
         {confirmModal && !pending && (

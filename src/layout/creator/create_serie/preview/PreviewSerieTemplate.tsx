@@ -193,7 +193,7 @@ export const PreviewSerieTemplate = ({
             </span>
             <div className={`${style["share-section"]}`}>
               <span className={`${style["share-item"]}`}>
-                <img src={"/icons/share/share-link.svg"} />
+                <img src={"/assets/icons/share/share-link.svg"} />
               </span>
             </div>
           </div>

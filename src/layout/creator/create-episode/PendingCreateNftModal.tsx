@@ -13,7 +13,7 @@ export const PendingCreateNftModal = ({ refreshPage }) => {
     <Modal visible={true} footer={null} closable={false} maskClosable={false}>
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["confirm-icon"]}`}>
-          <Image src="/icons/pending-payment.svg" height={56} width={56} />
+          <Image src="/assets/icons/pending-payment.svg" height={56} width={56} />
         </div>
 
         <div className={`${style["success-message"]}`}>

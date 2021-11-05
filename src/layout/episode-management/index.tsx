@@ -199,7 +199,7 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
             }
           >
             <img
-              src="/icons/em/add.svg"
+              src="/assets/icons/em/add.svg"
               className={`${style["button-icon"]}`}
             />
             {t("common:episode-management.createNewEp")}
@@ -287,7 +287,7 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
             {/*</span>*/}
           {/*  <div className={`${style["share-section"]}`}>*/}
           {/*    <span className={`${style["share-item"]}`}>*/}
-          {/*      <img src={"/icons/share/share-link.svg"} />*/}
+          {/*      <img src={"/assets/icons/share/share-link.svg"} />*/}
           {/*    </span>*/}
           {/*  </div>*/}
           {/*</div>*/}

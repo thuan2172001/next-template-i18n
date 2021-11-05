@@ -192,7 +192,7 @@ export const NewPasswordTemplate = (props) => {
       >
         <div className={`${style["center-content"]}`}>
           <div className={`${style["success-icon"]}`}>
-            <Image src="/icons/success.png" height={56} width={56} />
+            <Image src="/assets/icons/success.png" height={56} width={56} />
           </div>
 
           <div

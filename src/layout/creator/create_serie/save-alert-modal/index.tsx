@@ -23,7 +23,7 @@ export const SaveAlertModal = ({
     >
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["modal-header"]}`}>
-          <img src="/icons/question.svg" />
+          <img src="/assets/icons/question.svg" />
         </div>
 
         <div className={`${style["modal-message"]}`}>

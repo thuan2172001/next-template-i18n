@@ -1,117 +1,132 @@
 {
-	"language": {
-		"vi": "Vietnamese",
-		"en": "English"
-	},
-	"header": {
-		"appName": "WEBTOONZ",
-		"signIn": "Đăng nhập",
-		"logOut": "Đăng xuất",
-		"logIn": "Đăng nhập",
-		"signUp": "Đăng kí",
-		"account": "Account",
-		"dropdown": {
-			"account": "Tài khoản",
-			"bookshelf": "Giá sách",
-			"newArrivals": "Truyện mới",
-			"liked": "Yêu thích",
-			"purchaseHistory": "Lịch sử giao dịch",
-			"logOut": "Đăng xuất"
-		},
-		"creator": {
-			"shopSetting": "CÀI ĐẶT",
-			"manageItem": "TÁC PHẨM",
-			"editProfile": "TÀI KHOẢN",
-			"manageSales": "DOANH THU",
-			"publish": "Xuất bản",
-			"dropdown": {
-				"viewShop": "Xem cửa hàng",
-				"logOut": "Đăng xuất"
-			}
-		}
-	},
-	"category": {
-		"all": "Tất cả",
-		"Drama": "KỊCH TÍNH",
-		"Comedy": "HÀI",
-		"Mistery": "BÍ ẨN",
-		"Horror": "KINH DỊ",
-		"Sf": "KHOA HỌC VIỄN TƯỞNG",
-		"Fantasy": "GIẢ TƯỞNG"
-	},
-	"topPage": {
-		"newRelease": "Tác phẩm mới ra",
-		"profile": "Tác giả"
-	},
-	"cartItem": {
-		"shoppingCart": "Giỏ hàng mua sắm",
-		"orderTotal": "Tổng sản phẩm",
-		"item": "Sản phẩm",
-		"items": "Sản phẩm",
-		"proceedCheckout": "Thanh toán",
-		"continueBrowse": "Tiếp tục mua sắm",
-		"selectAll": "Chọn tất cả"
-	},
-	"remove": "Xóa",
-	"bookshelf": {
-		"bookShelf": "Giá sách",
-		"noItem": "Bạn không có tác phẩm nào trong giá sách"
-	},
-	"aboutTerm": {
-		"about": "Giới thiệu",
-		"contact": "Liên hệ",
-		"share": "Chia sẻ"
-	},
-	"footer": {
-		"teamInformation": "Đội ngũ phát triển",
-		"privacyPolicy": "Chính sách riêng tư",
-		"support": "Trợ giúp",
-		"termsAndConditions": "Điều khoản và chính sách",
-		"copyright": "Copyright",
-		"technicalDebt": "TECHNICAL DEBT",
-		"allReserved": "All rights reserved.",
-		"fullCopyright": "Copyright ©︎ WEBTOONZ. All rights reserved."
-	},
-	"loginFailedMessage": "tên đăng nhập hoặc mật khẩu của bạn không chính xác",
-	"userID": "Tên đăng nhập",
-	"password": "Mật khẩu",
-	"forgotPw": "Quên mật khẩu ?",
-	"addToCart": "Thêm vào giỏ",
-	"buyNow": "Mua ngay",
-	"noResult": "Không có kết quả hiển thị",
-	"editItem": "Chỉnh sửa",
-	"search": "Tìm kiếm",
-	"noProduct": "Không có sản phẩm trong giỏ hàng",
-	"continueBrowse": "Tiếp tục mua",
-	"free": "Miễn phí",
-	"enjoy": "Đọc ngay ",
-	"seriesManagement": {
-		"createNewSeries": "Tạo mới series",
-		"create": "Ngày tạo",
-		"update": "Cập nhật",
-		"addItem": "Thêm truyện",
-		"dropDown": {
-			"editSeries": "Sửa",
-			"privateSeries": "Ẩn Series",
-			"publishSeries": "Công khai Series"
-		},
-		"episodeAmount": "Số lượng",
-		"public": "Công khai",
-		"private": "Đã ẩn"
-	},
-	"readSetting": {
-		"pageAnimation": "Hoạt ảnh chuyển động",
-		"none": "Không",
-		"slide": "Slide",
-		"animationSpeed": "Tốc độ chuyển",
-		"fast": "Nhanh",
-		"normal": "Binh thường",
-		"slow": "Chậm",
-		"tapToTurnArea": "Vùng chạm để chuyển",
-		"restoreDefault": "Cài đặt mặc định"
-	},
-	"favorItem": {
-		"noItem": "Bạn chưa thích bất kì tác phẩm nào",
-		"header": "Tác phẩm ưa thích"
-	}
+  "language": {
+    "vi": "Vietnamese",
+    "en": "English"
+  },
+  "header": {
+    "appName": "WEBTOONZ",
+    "signIn": "Đăng nhập",
+    "logOut": "Đăng xuất",
+    "logIn": "Đăng nhập",
+    "signUp": "Đăng kí",
+    "account": "Account",
+    "dropdown": {
+      "account": "Tài khoản",
+      "bookshelf": "Giá sách",
+      "newArrivals": "Truyện mới",
+      "liked": "Yêu thích",
+      "purchaseHistory": "Lịch sử giao dịch",
+      "logOut": "Đăng xuất"
+    },
+    "creator": {
+      "shopSetting": "CÀI ĐẶT",
+      "manageItem": "TÁC PHẨM",
+      "editProfile": "TÀI KHOẢN",
+      "manageSales": "DOANH THU",
+      "publish": "Xuất bản",
+      "dropdown": {
+        "viewShop": "Xem cửa hàng",
+        "logOut": "Đăng xuất"
+      }
+    }
+  },
+  "category": {
+    "all": "Tất cả",
+    "Drama": "KỊCH TÍNH",
+    "Comedy": "HÀI",
+    "Mistery": "BÍ ẨN",
+    "Horror": "KINH DỊ",
+    "Sf": "KHOA HỌC VIỄN TƯỞNG",
+    "Fantasy": "GIẢ TƯỞNG"
+  },
+  "topPage": {
+    "newRelease": "Tác phẩm mới ra",
+    "profile": "Tác giả"
+  },
+  "cartItem": {
+    "shoppingCart": "Giỏ hàng mua sắm",
+    "orderTotal": "Tổng sản phẩm",
+    "item": "Sản phẩm",
+    "items": "Sản phẩm",
+    "proceedCheckout": "Thanh toán",
+    "continueBrowse": "Tiếp tục mua sắm",
+    "selectAll": "Chọn tất cả"
+  },
+  "remove": "Xóa",
+  "bookshelf": {
+    "bookShelf": "Giá sách",
+    "noItem": "Bạn không có tác phẩm nào trong giá sách"
+  },
+  "aboutTerm": {
+    "about": "Giới thiệu",
+    "contact": "Liên hệ",
+    "share": "Chia sẻ"
+  },
+  "footer": {
+    "teamInformation": "Đội ngũ phát triển",
+    "privacyPolicy": "Chính sách riêng tư",
+    "support": "Trợ giúp",
+    "termsAndConditions": "Điều khoản và chính sách",
+    "copyright": "Copyright",
+    "technicalDebt": "TECHNICAL DEBT",
+    "allReserved": "All rights reserved.",
+    "fullCopyright": "Copyright ©︎ WEBTOONZ. All rights reserved."
+  },
+  "loginFailedMessage": "tên đăng nhập hoặc mật khẩu của bạn không chính xác",
+  "userID": "Tên đăng nhập",
+  "password": "Mật khẩu",
+  "forgotPw": "Quên mật khẩu ?",
+  "addToCart": "Thêm vào giỏ",
+  "buyNow": "Mua ngay",
+  "noResult": "Không có kết quả hiển thị",
+  "editItem": "Chỉnh sửa",
+  "search": "Tìm kiếm",
+  "noProduct": "Không có sản phẩm trong giỏ hàng",
+  "continueBrowse": "Tiếp tục mua",
+  "free": "Miễn phí",
+  "enjoy": "Đọc ngay ",
+  "seriesManagement": {
+    "createNewSeries": "Tạo mới series",
+    "create": "Ngày tạo",
+    "update": "Cập nhật",
+    "addItem": "Thêm truyện",
+    "dropDown": {
+      "editSeries": "Sửa",
+      "privateSeries": "Ẩn Series",
+      "publishSeries": "Công khai Series"
+    },
+    "episodeAmount": "Số lượng",
+    "public": "Công khai",
+    "private": "Đã ẩn"
+  },
+  "readSetting": {
+    "pageAnimation": "Hoạt ảnh chuyển động",
+    "none": "Không",
+    "slide": "Slide",
+    "animationSpeed": "Tốc độ chuyển",
+    "fast": "Nhanh",
+    "normal": "Binh thường",
+    "slow": "Chậm",
+    "tapToTurnArea": "Vùng chạm để chuyển",
+    "restoreDefault": "Cài đặt mặc định"
+  },
+  "favorItem": {
+    "noItem": "Bạn chưa thích bất kì tác phẩm nào",
+    "header": "Tác phẩm ưa thích"
+  },
+  "read": {
+    "goShop": "Mua ngay"
+  },
+  "create_serie": {
+	  "coverRecommend": "Gợi ý ảnh",
+	  "browse": "Chọn",
+	  "chooseFile": "Chọn ảnh",
+	  "uploadFile": "Tải tệp lên",
+	  "uploadCover": "Ảnh bìa",
+	  "uploadImage": "Tải ảnh lên",
+    "title": "Tạo series mới"
+  },
+  "create_episode": {
+    "title": "Tạo tập mới"
+  }
 }

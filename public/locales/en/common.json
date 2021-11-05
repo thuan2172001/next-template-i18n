@@ -1,153 +1,168 @@
 {
-	"language": {
-		"vi": "Vietnamese",
-		"en": "English"
-	},
-	"header": {
-		"appName": "WEBTOONZ",
-		"signIn": "Sign in",
-		"logOut": "Log out",
-		"signUp": "Sign up",
-		"logIn": "Next",
-		"account": "Account",
-		"dropdown": {
-			"account": "Account",
-			"bookshelf": "Bookshelf",
-			"newArrivals": "New arrivals",
-			"liked": "Liked",
-			"purchaseHistory": "Purchase history",
-			"logOut": "Log out"
-		},
-		"creator": {
-			"shopSetting": "SHOP SETTING",
-			"manageItem": "MANAGE ITEM",
-			"editProfile": "EDIT PROFILE",
-			"manageSales": "MANAGE SALES",
-			"manageUsers": "MANAGE USERS",
-			"publish": "Publish",
-			"dropdown": {
-				"viewShop": "View shop",
-				"logOut": "Log out"
-			}
-		}
-	},
-	"bookshelf": {
-		"bookShelf": "Bookshelf",
-		"noItem": "You have no item in your Bookshelf yet"
-	},
-	"favorItem": {
-		"noItem": "Favor items",
-		"header": "You have no favor item yet"
-	},
-	"category": {
-		"all": "All",
-		"Drama": "DRAMA",
-		"Comedy": "COMEDY",
-		"Mistery": "MYSTERY",
-		"Horror": "HORROR",
-		"Sf": "SCI-FI",
-		"Fantasy": "FANTASY"
-	},
-	"topPage": {
-		"newRelease": "New release",
-		"profile": "Profile"
-	},
-	"loginFailedMessage": "Username or password is wrong",
-	"userID": "UserID",
-	"password": "Password",
-	"forgotPw": "Forgot Password ?",
-	"aboutTerm": {
-		"about": "About",
-		"contact": "Contact",
-		"share": "Share"
-	},
-	"addToCart": "Add To Cart",
-	"buyNow": "Buy Now",
-	"emptyCart": {
-		"noProduct": "There is no product in cart",
-		"continueBrowse": "Continue browsing"
-	},
-	"addPaymentMethod": "Add Payment Method",
-	"orderTotal": "Order Total",
-	"paymentMethod": "Payment Method",
-	"cartHeader": "Shopping cart",
-	"useOtherCard": "Use another card",
-	"cartItem": {
-		"shoppingCart": "Shopping cart",
-		"orderTotal": "Order Total",
-		"item": "item",
-		"items": "items",
-		"proceedCheckout": "Proceed to checkout",
-		"continueBrowse": "Continue browsing",
-		"selectAll": "Select all"
-	},
-	"remove": "Remove",
-	"authorDefault": {
-		"name": "Trinh Van Thuan"
-	},
-	"footer": {
-		"teamInformation": "Team Information",
-		"privacyPolicy": "Privacy Policy",
-		"support": "Support",
-		"termsAndConditions": "Terms and Conditions",
-		"copyright": "Copyright",
-		"technicalDebt": "TECHNICAL DEBT",
-		"allReserved": "All rights reserved.",
-		"fullCopyright": "Copyright ©︎ AUTHARIUM. All rights reserved."
-	},
-	"forgotPassword": "Forgot password",
-	"forgotPasswordMessage1": "We will send you a URL to reset your password.",
-	"forgotPasswordMessage2": "Please enter the email address you have registered for AUTHARIUM.",
-	"sentMailLink": "Password reset link has been sent to email address",
-	"checkMailBox": "Please check your mailbox.",
-	"notReceiveLink": "Did not receive the confirmation link?",
-	"notReceiveLink2": "Did not receive the link?",
-	"resendLinkMsg": "Did not receive the confirmation link?",
-	"resendIn": "Resend in",
-	"enjoy": "Enjoy",
-	"episode": {
-		"episode": "Episode",
-		"addToBookshelf": "Add to bookshelf",
-		"addedToBookshelf": "Added to bookshelf"
-	},
-	"requireSignInModal": {
-		"modalHeader": "Please log in to enjoy full features of Webtoonz",
-		"login": "Login",
-		"signUp": "Create a new account"
-	},
-	"episodeManagement": {
-		"private": "Private",
-		"public": "Public"
-	},
-	"seriesManagement": {
-		"createNewSeries": "Create new series",
-		"create": "Create",
-		"update": "Update",
-		"addItem": "Add item",
-		"dropDown": {
-			"editSeries": "Edit",
-			"privateSeries": "Private Series",
-			"publishSeries": "Pulish Series"
-		},
-		"Amount": "Số lượng",
-		"public": "Public",
-		"private": "Private"
-	},
-	"editItem": "Edit item",
-	"search": "Search",
-	"readSetting": {
-		"pageAnimation": "Page Animation",
-		"none": "None",
-		"slide": "Slide",
-		"animationSpeed": "Animation Speed",
-		"fast": "Fast",
-		"normal": "Normal",
-		"slow": "Slow",
-		"tapToTurnArea": "Tap-To-Turn Area",
-		"restoreDefault": "Restore Default"
-	},
-	"series-management": {
-		"noPublicSerie": "No published series found",
-		"noPrivateSerie": "No private series found"
-	}
+  "language": {
+    "vi": "Vietnamese",
+    "en": "English"
+  },
+  "header": {
+    "appName": "WEBTOONZ",
+    "signIn": "Sign in",
+    "logOut": "Log out",
+    "signUp": "Sign up",
+    "logIn": "Next",
+    "account": "Account",
+    "dropdown": {
+      "account": "Account",
+      "bookshelf": "Bookshelf",
+      "newArrivals": "New arrivals",
+      "liked": "Liked",
+      "purchaseHistory": "Purchase history",
+      "logOut": "Log out"
+    },
+    "creator": {
+      "shopSetting": "SHOP SETTING",
+      "manageItem": "MANAGE ITEM",
+      "editProfile": "EDIT PROFILE",
+      "manageSales": "MANAGE SALES",
+      "manageUsers": "MANAGE USERS",
+      "publish": "Publish",
+      "dropdown": {
+        "viewShop": "View shop",
+        "logOut": "Log out"
+      }
+    }
+  },
+  "bookshelf": {
+    "bookShelf": "Bookshelf",
+    "noItem": "You have no item in your Bookshelf yet"
+  },
+  "favorItem": {
+    "noItem": "Favor items",
+    "header": "You have no favor item yet"
+  },
+  "category": {
+    "all": "All",
+    "Drama": "DRAMA",
+    "Comedy": "COMEDY",
+    "Mistery": "MYSTERY",
+    "Horror": "HORROR",
+    "Sf": "SCI-FI",
+    "Fantasy": "FANTASY"
+  },
+  "topPage": {
+    "newRelease": "New release",
+    "profile": "Profile"
+  },
+  "loginFailedMessage": "Username or password is wrong",
+  "userID": "UserID",
+  "password": "Password",
+  "forgotPw": "Forgot Password ?",
+  "aboutTerm": {
+    "about": "About",
+    "contact": "Contact",
+    "share": "Share"
+  },
+  "addToCart": "Add To Cart",
+  "buyNow": "Buy Now",
+  "emptyCart": {
+    "noProduct": "There is no product in cart",
+    "continueBrowse": "Continue browsing"
+  },
+  "addPaymentMethod": "Add Payment Method",
+  "orderTotal": "Order Total",
+  "paymentMethod": "Payment Method",
+  "cartHeader": "Shopping cart",
+  "useOtherCard": "Use another card",
+  "cartItem": {
+    "shoppingCart": "Shopping cart",
+    "orderTotal": "Order Total",
+    "item": "item",
+    "items": "items",
+    "proceedCheckout": "Proceed to checkout",
+    "continueBrowse": "Continue browsing",
+    "selectAll": "Select all"
+  },
+  "remove": "Remove",
+  "authorDefault": {
+    "name": "Trinh Van Thuan"
+  },
+  "footer": {
+    "teamInformation": "Team Information",
+    "privacyPolicy": "Privacy Policy",
+    "support": "Support",
+    "termsAndConditions": "Terms and Conditions",
+    "copyright": "Copyright",
+    "technicalDebt": "TECHNICAL DEBT",
+    "allReserved": "All rights reserved.",
+    "fullCopyright": "Copyright ©︎ AUTHARIUM. All rights reserved."
+  },
+  "forgotPassword": "Forgot password",
+  "forgotPasswordMessage1": "We will send you a URL to reset your password.",
+  "forgotPasswordMessage2": "Please enter the email address you have registered for AUTHARIUM.",
+  "sentMailLink": "Password reset link has been sent to email address",
+  "checkMailBox": "Please check your mailbox.",
+  "notReceiveLink": "Did not receive the confirmation link?",
+  "notReceiveLink2": "Did not receive the link?",
+  "resendLinkMsg": "Did not receive the confirmation link?",
+  "resendIn": "Resend in",
+  "enjoy": "Enjoy",
+  "episode": {
+    "episode": "Episode",
+    "addToBookshelf": "Add to bookshelf",
+    "addedToBookshelf": "Added to bookshelf"
+  },
+  "requireSignInModal": {
+    "modalHeader": "Please log in to enjoy full features of Webtoonz",
+    "login": "Login",
+    "signUp": "Create a new account"
+  },
+  "episodeManagement": {
+    "private": "Private",
+    "public": "Public"
+  },
+  "seriesManagement": {
+    "createNewSeries": "Create new series",
+    "create": "Create",
+    "update": "Update",
+    "addItem": "Add item",
+    "dropDown": {
+      "editSeries": "Edit",
+      "privateSeries": "Private Series",
+      "publishSeries": "Pulish Series"
+    },
+    "Amount": "Số lượng",
+    "public": "Public",
+    "private": "Private"
+  },
+  "editItem": "Edit item",
+  "search": "Search",
+  "readSetting": {
+    "pageAnimation": "Page Animation",
+    "none": "None",
+    "slide": "Slide",
+    "animationSpeed": "Animation Speed",
+    "fast": "Fast",
+    "normal": "Normal",
+    "slow": "Slow",
+    "tapToTurnArea": "Tap-To-Turn Area",
+    "restoreDefault": "Restore Default"
+  },
+  "series-management": {
+    "noPublicSerie": "No published series found",
+    "noPrivateSerie": "No private series found"
+  },
+  "read": {
+    "goShop": "Buy now"
+  },
+  "create_serie": {
+    "coverRecommend": "Cover recommend",
+    "browse": "Browse",
+    "chooseFile": "Choose file",
+    "uploadFile": "Upload file",
+    "uploadCover": "Upload cover",
+    "uploadImage": "Upload image",
+    "title": "Create series"
+  },
+  "create_episode": {
+    "title": "Create episode"
+  }
 }

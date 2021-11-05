@@ -36,7 +36,7 @@ export const EpManagePendingModal = ({
     >
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["modal-header"]}`}>
-          <img src="/icons/em/pending.svg" />
+          <img src="/assets/icons/em/pending.svg" />
         </div>
         <div className={`${style["modal-msg"]}`}>
           <span className={`${style["nft-name"]}`}>{episodeName}</span> is being{" "}

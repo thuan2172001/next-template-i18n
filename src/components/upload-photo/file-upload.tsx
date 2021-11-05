@@ -95,12 +95,12 @@ export const FileUpload = ({
             window.localStorage.removeItem("video-thumbnail");
           }}
         >
-          <Image src="/icons/trash.svg" width={41} height={41}/>
+          <Image src="/assets/icons/trash.svg" width={41} height={41}/>
         </div>
       )}
 
       <div className={`${style["cover-photo-content"]}`}>
-        <Image src="/icons/cloud.png" height={74} width={74}/>
+        <Image src="/assets/icons/cloud.png" height={74} width={74}/>
 
         <div className={`${style["cover-photo-header"]}`}>
           {t("create_serie:uploadFile")}
@@ -133,7 +133,7 @@ export const FileUpload = ({
         />
         {errorMsg !== "" && (
           <div className={`${style["error-msg"]}`}>
-            <Image src="/icons/invalid.svg" height={24} width={24}/>
+            <Image src="/assets/icons/invalid.svg" height={24} width={24}/>
             <div className={`${style["error-content"]}`}>{errorMsg}</div>
           </div>
         )}
@@ -153,7 +153,7 @@ export const FileUpload = ({
                   onLoadSuccess={onDocumentLoadSuccess}
                 >
                   <div className={`${style["preview-btn"]}`}>
-                    <img src={"/icons/preview.svg"}></img>
+                    <img src={"/assets/icons/preview.svg"}></img>
                   </div>
                   <Page
                     pageNumber={1}
@@ -182,7 +182,7 @@ export const FileUpload = ({
               >
                 <div className={`${style["video-preview"]}`}>
                   <div className={`${style["preview-btn"]}`}>
-                    <img src={"/icons/preview.svg"}></img>
+                    <img src={"/assets/icons/preview.svg"}></img>
                   </div>
                   {/*<VideoThumbnail videoUrl={videoUrl} />*/}
                 </div>
@@ -196,7 +196,7 @@ export const FileUpload = ({
               >
                 <div className={`${style["video-preview"]}`}>
                   <div className={`${style["preview-btn"]}`}>
-                    <img src={"/icons/preview.svg"}></img>
+                    <img src={"/assets/icons/preview.svg"}></img>
                   </div>
                   <img src={"/images/music-default.png"}></img>
                 </div>

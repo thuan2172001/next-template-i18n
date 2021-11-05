@@ -11,7 +11,7 @@ export const CancelCreateNftModal = ({ updateModalVisible, serieID }) => {
     <Modal visible={true} footer={null} closable={false} maskClosable={false}>
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["confirm-icon"]}`}>
-          <img src="/icons/question.svg" height={56} width={56} />
+          <img src="/assets/icons/question.svg" height={56} width={56} />
         </div>
 
         <div className={`${style["success-message"]}`}>

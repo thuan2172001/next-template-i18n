@@ -13,7 +13,7 @@ export const EpManageSuccessModal = ({
   const router = useRouter();
   const moveToNft = () => {
     updateModalVisible();
-    router.push(`/nft?serieId=${serieId}&episodeId=${episodeId}`);
+    router.push(`/episode?serieId=${serieId}&episodeId=${episodeId}`);
   };
   return (
     <Modal
@@ -30,7 +30,7 @@ export const EpManageSuccessModal = ({
     >
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["modal-header"]}`}>
-          <img src="/icons/em/success.svg" />
+          <img src="/assets/icons/em/success.svg" />
         </div>
         <div className={`${style["modal-msg"]}`}>
           Successfully{" "}

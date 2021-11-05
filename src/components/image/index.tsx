@@ -81,14 +81,14 @@ const CustomImageField = (props) => {
 
       {isSoldOut && isPublished !== false && (
         <div className={`sold-out-tag ${width > 500 && 'large-tag'}`}>
-          <Image src="/icons/sold-out.svg" width={135} height={48} />
+          <Image src="/assets/icons/sold-out.svg" width={135} height={48} />
         </div>
       )}
 
       {isPublished === false && (
         <div className="unpublished-tag">
           <Image
-            src="/icons/unpublish-tag-icon.svg"
+            src="/assets/icons/unpublish-tag-icon.svg"
             width={181.5}
             height={54}
           />

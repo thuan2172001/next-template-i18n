@@ -14,7 +14,7 @@ export const EpManageFailModal = ({
 
   const moveToNft = () => {
     updateModalVisible();
-    router.push(`/nft?serieId=${serieId}&episodeId=${episodeId}`);
+    router.push(`/episode?serieId=${serieId}&episodeId=${episodeId}`);
   };
 
   return (
@@ -32,7 +32,7 @@ export const EpManageFailModal = ({
     >
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["modal-header"]}`}>
-          <img src="/icons/em/oh-no.svg" />
+          <img src="/assets/icons/em/oh-no.svg" />
         </div>
         <div className={`${style["modal-msg"]}`}>
           Oh no! <span className={`${style["nft-name"]}`}>{episodeName}</span>{" "}

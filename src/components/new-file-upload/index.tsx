@@ -132,9 +132,9 @@ export const NewFileUpload = ({
     let tmpMsg = "";
 
     if (ext !== "png" && ext !== "jpg" && ext !== "jpeg") {
-      tmpMsg = tmpMsg.concat(t("create_serie:coverExtAlert"));
+      tmpMsg = tmpMsg.concat(t("common:create_serie.coverExtAlert"));
     } else if (size > 10000000) {
-      tmpMsg = tmpMsg.concat(t("create_serie:convention3"));
+      tmpMsg = tmpMsg.concat(t("common:create_serie.convention3"));
     }
 
     setErrMsg(tmpMsg);
@@ -231,12 +231,12 @@ export const NewFileUpload = ({
               }`}
             >
               <UploadButton
-                imgSrc="/icons/c-homepage/camera.svg"
+                imgSrc="/assets/icons/c-homepage/camera.svg"
                 buttonName={t(`common:upload`)}
                 className="edit-upload"
               />
               <CreatorButton
-                imgSrc="/icons/c-homepage/remove.svg"
+                imgSrc="/assets/icons/c-homepage/remove.svg"
                 buttonName={t(`common:remove`)}
                 className={``}
                 onClickFunction={() => {
@@ -264,9 +264,9 @@ export const NewFileUpload = ({
         <Image src="/assets/icons/cloud.png" height={74} width={74} />
 
         <div className={`${style["cover-photo-header"]}`}>
-          {type === "cover" && <>{t("create_serie:uploadCover")} </>}
+          {type === "cover" && <>{t("common:create_serie.uploadCover")} </>}
 
-          {type === "thumb" && <>{t("create_serie:uploadImage")} </>}
+          {type === "thumb" && <>{t("common:create_serie.uploadImage")} </>}
         </div>
 
         <div className={`${style["cover-photo-subtitle"]}`}>
@@ -275,14 +275,14 @@ export const NewFileUpload = ({
             onClick={onButtonClick}
             style={{ cursor: "pointer" }}
           >
-            {t("create_serie:browse")}
+            {t("common:create_serie.browse")}
           </span>{" "}
-          {t("create_serie:chooseFile")}
+          {t("common:create_serie.chooseFile")}
         </div>
 
         {type === "cover" && (
           <div className={`${style["cover-recommend"]}`}>
-            {t("create_serie:coverRecommend")}
+            {t("common:create_serie.coverRecommend")}
           </div>
         )}
 

@@ -1,7 +1,6 @@
 import style from "./read-err.module.scss";
 import { useTranslation } from "next-i18next";
 import { Button } from "antd";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 export const ReadError = ({ data, onWrapperClick = null }) => {
@@ -12,7 +11,7 @@ export const ReadError = ({ data, onWrapperClick = null }) => {
   const { serieId } = router.query;
 
   const backToNft = () => {
-    router.push(`/nft?serieId=${serieId}&episodeId=${episodeId}`);
+    router.push(`/episode?serieId=${serieId}&episodeId=${episodeId}`);
   };
 
   return (
@@ -22,7 +21,7 @@ export const ReadError = ({ data, onWrapperClick = null }) => {
           <div className={`${style["err-msg"]}`}>{t("common:soldout")}</div>
         )}
         <div className={`${style["nft-name"]}`}>
-          <img src={"/icons/book.svg"} className={`${style["nft-icon"]}`}></img>
+          <img src={"/assets/icons/book.svg"} className={`${style["nft-icon"]}`}></img>
           <div className={`${style["serie-name"]}`}>{data?.name}</div>
           <div className={`${style["ep-name"]}`}>
             {" "}
@@ -31,22 +30,13 @@ export const ReadError = ({ data, onWrapperClick = null }) => {
         </div>
         <div className={`${style["nft-price"]}`}>
           <div className={`${style["price"]}`}>
-            {data.price} {data.currency}
-          </div>
-          <div className={`${style["name"]}`}>{"/Edition"}</div>
-        </div>
-        <div className={`${style["nft-sale"]}`}>
-          <div className={`${style["title"]}`}>{t("common:forSale")}:</div>
-          <div className={`${style["name"]}`}>
-            {data.forSale}/{data.total}
+            {data?.price} $
           </div>
         </div>
 
-        {data.forSale > 0 && (
-          <Button className={`${style["buy-btn"]}`} onClick={backToNft}>
-            {t("common:read.goShop")}
-          </Button>
-        )}
+        <Button className={`${style["buy-btn"]}`} onClick={backToNft}>
+          {t("common:read.goShop")}
+        </Button>
       </div>
     </div>
   );

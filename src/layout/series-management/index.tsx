@@ -181,7 +181,7 @@ export const SeriesManagementTemplate = () => {
     <div>
       {showErrMsg && (
         <div className={`${style["error-msg"]}`}>
-          <img src="/icons/invalid.svg" height={24} width={24} />
+          <img src="/assets/icons/invalid.svg" height={24} width={24} />
           <div className={`${style["error-content"]}`}>
             Please open shop in Shop setting before public series
           </div>

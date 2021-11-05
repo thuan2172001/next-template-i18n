@@ -11,7 +11,7 @@ export const CreateNftModal = ({ updateModalVisible, upLoad, isLoading }) => {
     <Modal visible={true} footer={null} closable={false} maskClosable={false}>
       <div className={`${style["nft-modal"]}`}>
         <div className={`${style["confirm-icon"]}`}>
-          <Image src="/icons/question.svg" height={56} width={56} />
+          <Image src="/assets/icons/question.svg" height={56} width={56} />
         </div>
 
         <div className={`${style["confirm-msg"]}`}>

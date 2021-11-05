@@ -116,7 +116,7 @@ export const HomePageCover = ({ creator }) => {
     return (
       <div className={`${style["error-message"]}`}>
         <div className={`${style["edit-icon"]}`}>
-          <Image src="/icons/c-homepage/alert.svg" width={24} height={24} />
+          <Image src="/assets/icons/c-homepage/alert.svg" width={24} height={24} />
         </div>
         <div>{errorMessage}</div>
       </div>
@@ -360,7 +360,7 @@ export const HomePageCover = ({ creator }) => {
             <div className={`${style["edit-btn-container"]}`}>
               {!isLoading && (
                 <UploadButton
-                  imgSrc="/icons/c-homepage/camera.svg"
+                  imgSrc="/assets/icons/c-homepage/camera.svg"
                   buttonName={t(`common:upload`)}
                   className="edit-upload"
                 />
@@ -377,7 +377,7 @@ export const HomePageCover = ({ creator }) => {
 
               {!isLoading && (
                 <CreatorButton
-                  imgSrc="/icons/c-homepage/remove.svg"
+                  imgSrc="/assets/icons/c-homepage/remove.svg"
                   buttonName={t(`common:remove`)}
                   className="edit-remove"
                   onClickFunction={() => resetBanner()}
