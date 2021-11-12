@@ -49,11 +49,11 @@
   "similarItem": "Similar Products",
   "bookshelf": {
     "bookShelf": "Bookshelf",
-    "noItem": "You have no items in your Bookshelf yet"
+    "noItem": "You have no item in your Bookshelf yet"
   },
   "favorItem": {
-    "header": "Favor items",
-    "noItem": "You have no favor items yet"
+    "noItem": "Favor items",
+    "header": "You have no favor item yet"
   },
   "category": {
     "all": "All",
@@ -80,7 +80,7 @@
   "addToCart": "Add To Cart",
   "buyNow": "Buy Now",
   "emptyCart": {
-    "noProduct": "There is no products in cart",
+    "noProduct": "There is no product in cart",
     "continueBrowse": "Continue browsing"
   },
   "addPaymentMethod": "Add Payment Method",
@@ -133,7 +133,9 @@
   },
   "episodeManagement": {
     "private": "Private",
-    "public": "Public"
+    "public": "Public",
+    "createNewEp": "Create new episode",
+    "privateEpisode": "Private episode"
   },
   "seriesManagement": {
     "createNewSeries": "Create new series",
@@ -147,7 +149,8 @@
     },
     "Amount": "Số lượng",
     "public": "Public",
-    "private": "Private"
+    "private": "Private",
+    "episodeAmount": "Episode amount"
   },
   "editItem": "Edit item",
   "search": "Search",
@@ -166,6 +169,7 @@
     "noPublicSerie": "No published series found",
     "noPrivateSerie": "No private series found"
   },
+  "free": "Free",
   "read": {
     "goShop": "Buy now"
   },

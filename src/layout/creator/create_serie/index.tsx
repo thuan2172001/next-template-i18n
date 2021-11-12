@@ -150,13 +150,13 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
           className={`${style["button"]} ${style["cancel-button"]}`}
           onClick={() => setModalType("save-alert")}
         >
-          {t("create_serie:cancel")}
+          {t("create-series:cancel")}
         </Button>
         <Button
           className={`${style["button"]} ${style["active-save"]} ${style["confirm-button"]}`}
           onClick={handlePreview}
         >
-          {t("create_serie:preview")}
+          {t("create-series:preview")}
         </Button>
       </div>
     );

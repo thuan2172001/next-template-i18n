@@ -6,7 +6,7 @@ export const NoResult = ({ message = "" }) => {
   return (
     <>
       <div className={`${style["see-more-no-result"]}`}>
-        <img src="/images/no-result.svg" className={`${style["img"]}`} />
+        <img src="/assets/icons/no-result.svg" className={`${style["img"]}`} />
         {message === "" ? (
           <div className={`${style["text"]}`}>{t("common:noResult")}</div>
         ) : (

@@ -54,7 +54,7 @@ export const PreviewSerieTemplate = ({
           }}
           disabled={clickCreate}
         >
-          {t("create_serie:createNft.continueEditing")}
+          {t("create-series:createNft.continueEditing")}
         </Button>
         <Button
           className={`${style["button"]} ${style["active-save"]} ${style["confirm-button"]}`}
@@ -65,8 +65,8 @@ export const PreviewSerieTemplate = ({
           disabled={clickCreate}
         >
           {editSeries
-            ? t("create_serie:updateSeries")
-            : t("create_serie:createSerie")}
+            ? t("create-series:updateSeries")
+            : t("create-series:createSeries")}
         </Button>
       </div>
     );

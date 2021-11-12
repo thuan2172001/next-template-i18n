@@ -27,28 +27,28 @@ export const SerieThumbnail = ({
             style["convention-item"]
           }`}
         >
-          {t("create_serie:convention1")}
+          {t("create-series:convention1")}
         </li>
         <li
           className={`${style[convention.ratioClass]} ${
             style["convention-item"]
           }`}
         >
-          {t("create_serie:convention2")}
+          {t("create-series:convention2")}
         </li>
         <li
           className={`${style[convention.sizeClass]} ${
             style["convention-item"]
           }`}
         >
-          {t("create_serie:convention3")}
+          {t("create-series:convention3")}
         </li>
         <li
           className={`${style[convention.extClass]} ${
             style["convention-item"]
           }`}
         >
-          {t("create_serie:convention4")}
+          {t("create-series:convention4")}
         </li>
       </ul>
     );
