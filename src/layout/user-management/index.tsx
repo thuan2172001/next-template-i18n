@@ -36,9 +36,9 @@ export const UsersManagementTemplate = () => {
     }
   }, []);
 
-  useMemo(() => {
-    fetchData(page, 10);
-  }, [totalUser, page]);
+  // useMemo(() => {
+  //   fetchData(page, 10);
+  // }, [totalUser, page]);
 
   return (
     <div className={style["container"]}>

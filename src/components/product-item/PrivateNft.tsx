@@ -15,7 +15,7 @@ export const PrivateNft = ({ episode }) => {
     return (
       <div className={`${style["private-action"]}`}>
         <img
-          src="/assets/icons/nft-product-item/trash.svg"
+          src="/assets/icons/trash.svg"
           className={`${style["cursor_pointer"]}`}
           onClick={() => {
             window.localStorage.setItem("modalType", "request-burn");
@@ -24,7 +24,7 @@ export const PrivateNft = ({ episode }) => {
         />
         <Button className={`${style["publish-btn"]}`} onClick={moveToNft}>
           <img
-            src="/assets/icons/nft-product-item/world-blue.svg"
+            src="/assets/icons/world-blue.svg"
             className={`${style["button-icon"]}`}
           />
           {t("common:publish")}
@@ -54,15 +54,14 @@ export const PrivateNft = ({ episode }) => {
         </span>
       </div>
 
-      {isFree ? (
+      {episode?.price === 0 ? (
         <div className={`${style["free"]}`}>{t("common:free")}</div>
       ) : (
         <>
           <div className={`${style["quantity"]}`}>
             <div className={`${style["detail"]}`}>
               <span>
-                {t("common:inventory")}{" "}
-                {episode?.inventory + "/" + episode?.total}
+                {episode?.price} USD
               </span>
             </div>
           </div>

@@ -1,0 +1,21 @@
+{
+  "language": {
+    "ja": "Japan",
+    "en": "English"
+  },
+  "convention1": "The square thumbnail must be larger than 500x500px.",
+  "convention2": "The aspect ratio must be 1:1.",
+  "convention3": "Image must be less than 10MB.",
+  "convention4": "Only PNG , JPG, JPEG formats are allowed. ",
+  "coverExtAlert": "Only PNG, JPG, JPEG formats are allowed.",
+  "uploadCover": "Upload series cover photo",
+  "uploadImage": "Upload your image",
+  "browse": "Browse",
+  "chooseFile": "to choose your file",
+  "coverRecommend": "Ratio 20:9. Only PNG, JPG, JPEG. Max 10MB",
+  "preview": "Preview",
+  "cancel": "Cancel",
+  "createNft": {
+    "continueEditing": "Continue editing"
+  }
+}

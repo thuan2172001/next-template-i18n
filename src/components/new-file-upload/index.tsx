@@ -132,9 +132,9 @@ export const NewFileUpload = ({
     let tmpMsg = "";
 
     if (ext !== "png" && ext !== "jpg" && ext !== "jpeg") {
-      tmpMsg = tmpMsg.concat(t("common:create_serie.coverExtAlert"));
+      tmpMsg = tmpMsg.concat(t("create-series:coverExtAlert"));
     } else if (size > 10000000) {
-      tmpMsg = tmpMsg.concat(t("common:create_serie.convention3"));
+      tmpMsg = tmpMsg.concat(t("create-series:convention3"));
     }
 
     setErrMsg(tmpMsg);
@@ -264,9 +264,9 @@ export const NewFileUpload = ({
         <Image src="/assets/icons/cloud.png" height={74} width={74} />
 
         <div className={`${style["cover-photo-header"]}`}>
-          {type === "cover" && <>{t("common:create_serie.uploadCover")} </>}
+          {type === "cover" && <>{t("create-series:uploadCover")} </>}
 
-          {type === "thumb" && <>{t("common:create_serie.uploadImage")} </>}
+          {type === "thumb" && <>{t("create-series:uploadImage")} </>}
         </div>
 
         <div className={`${style["cover-photo-subtitle"]}`}>
@@ -275,14 +275,14 @@ export const NewFileUpload = ({
             onClick={onButtonClick}
             style={{ cursor: "pointer" }}
           >
-            {t("common:create_serie.browse")}
+            {t("create-series:browse")}
           </span>{" "}
-          {t("common:create_serie.chooseFile")}
+          {t("create-series:chooseFile")}
         </div>
 
         {type === "cover" && (
           <div className={`${style["cover-recommend"]}`}>
-            {t("common:create_serie.coverRecommend")}
+            {t("create-series:coverRecommend")}
           </div>
         )}
 

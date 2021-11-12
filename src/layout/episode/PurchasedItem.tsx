@@ -2,7 +2,6 @@ import { Col, Row, Button } from "antd";
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import style from "./episode.module.scss";
-import CounterInput from "react-counter-input";
 import { useRouter } from "next/router";
 import episode from "../../api/customer/episode";
 
