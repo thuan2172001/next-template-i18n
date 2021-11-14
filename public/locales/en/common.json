@@ -19,6 +19,7 @@
       "changeLanguage": "Change language",
       "logOut": "Log out"
     },
+    "send": "Send",
     "creator": {
       "shopSetting": "SHOP SETTING",
       "manageItem": "MANAGE ITEM",
@@ -191,5 +192,7 @@
     "editProfile": "Edit profile"
   },
   "leave": "Leave",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "signup": "Register now !",
+  "dontHaveAcc": "Don't have account ?"
 }

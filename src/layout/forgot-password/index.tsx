@@ -198,7 +198,7 @@ const ForgotPasswordTemplate = (props) => {
               loading={isLoading}
               disabled={email === "" || !isEmailValid}
             >
-              {t("common:header.logIn")}
+              {t("common:header.send")}
             </Button>
           </div>
         </div>

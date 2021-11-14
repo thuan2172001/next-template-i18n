@@ -9,7 +9,8 @@
     "logOut": "Đăng xuất",
     "logIn": "Đăng nhập",
     "signUp": "Đăng kí",
-    "account": "Account",
+    "account": "Tài khoản",
+    "send": "Gửi",
     "dropdown": {
       "account": "Tài khoản",
       "bookshelf": "Giá sách",
@@ -45,6 +46,9 @@
     "active": "Hoạt động",
     "inactive": "Vô hiệu hóa"
   },
+  "notReceiveLink2": "Chưa nhận được link? ",
+  "checkMailBox": "Vui lòng kiểm tra hộp thư.",
+  "sentMailLink": "Đường dẫn thay đổi mật khẩu đã được gửi đến hòm thư",
   "emptyCart": {
     "noProduct": "Không có sản phẩm trong giỏ hàng",
     "continueBrowse": "Tiếp tục mua hàng"
@@ -96,6 +100,7 @@
   "userID": "Tên đăng nhập",
   "password": "Mật khẩu",
   "forgotPw": "Quên mật khẩu ?",
+  "forgotPassword": "Quên mật khẩu",
   "addToCart": "Thêm vào giỏ",
   "buyNow": "Mua ngay",
   "noResult": "Không có kết quả hiển thị",
@@ -161,5 +166,7 @@
     "privateEpisode": "Ẩn tập truyện"
   },
   "leave": "Rời đi",
-  "cancel": "Hủy"
+  "cancel": "Hủy",
+  "signup": "Đăng ký ngay !",
+  "dontHaveAcc": "Chưa có tài khoản ?"
 }

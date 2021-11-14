@@ -144,12 +144,28 @@
 }
 
 .forgot-password {
-  width: rem(420px);
-  text-align: left;
-  display: block;
+  width: rem(430px);
   color: $color-light-black;
   cursor: pointer;
   &:hover {
-    color: rgb(27, 27, 155);
+    color: $color-blue;
+  }
+}
+
+.signup {
+  width: rem(430px);
+  color: $color-light-black;
+  float: right;
+}
+
+.add-btn {
+  width: rem(430px);
+}
+
+.text-blue {
+  cursor: pointer;
+  color: $color-blue-5;
+  &:hover {
+    color: $color-blue;
   }
 }

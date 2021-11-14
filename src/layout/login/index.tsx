@@ -212,6 +212,13 @@ const LoginTemplate = (props) => {
 				>
 					{t('common:forgotPw')}
 				</div>
+				<div className={style["signup"]}
+				>
+					{t('common:dontHaveAcc')}{' '}
+					<span
+						onClick={() => { router.push("/sign-up") }}
+						className={style["text-blue"]}>{t('common:signup')}</span>
+				</div>
 				<Row className={style['btn-controller']}>
 					<div className={style['btn-controller-login']}>
 						<Button
