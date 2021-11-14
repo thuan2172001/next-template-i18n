@@ -186,5 +186,10 @@
   },
   "create_episode": {
     "title": "Create episode"
-  }
+  },
+  "creatorProfile": {
+    "editProfile": "Edit profile"
+  },
+  "leave": "Leave",
+  "cancel": "Cancel"
 }

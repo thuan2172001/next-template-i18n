@@ -15,8 +15,8 @@ export const CustomCancelCreateNftModal = ({ updateModalVisible }) => {
         </div>
 
         <div className={`${style["success-message"]}`}>
-          {t("create_serie:createNft.cancelAlert")}
-          <div>{t("create_serie:createNft.cancelConfirm")}</div>
+          {t("create-series:createNft.cancelAlert")}
+          <div>{t("create-series:createNft.cancelConfirm")}</div>
         </div>
 
         <div className={`${style["custom-modal-footer"]}`}>
@@ -24,12 +24,12 @@ export const CustomCancelCreateNftModal = ({ updateModalVisible }) => {
             className={`${style["footer-button"]} ${style["cancel"]} ${style["create-nft-btn"]}`}
             onClick={() => {
               let link = window.localStorage.getItem("popup-url");
-              link.length > 1 ? router.push(link) : router.push(`/`);
+              link?.length > 1 ? router.push(link) : router.push(`/`);
 
               window.localStorage.removeItem("popup-url");
             }}
           >
-            {t("create_serie:createNft.leave")}
+            {t("create-series:createNft.leave")}
           </Button>
           <div
             className={`${style["footer-button"]} ${style["cancel"]} ${style["create-nft-btn"]} ${style["save-active"]}`}
@@ -37,7 +37,7 @@ export const CustomCancelCreateNftModal = ({ updateModalVisible }) => {
               updateModalVisible(false);
             }}
           >
-            {t("create_serie:createNft.cancel")}
+            {t("create-series:createNft.cancel")}
           </div>
         </div>
       </div>

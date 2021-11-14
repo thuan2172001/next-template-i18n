@@ -55,7 +55,7 @@ export const SerieThumbnail = ({
   };
   return (
     <div>
-      <div className={`${style["header"]}`}>Series thumbnail</div>
+      <div className={`${style["header"]}`}>{t("create-series:seriesThumb")}</div>
       <div className={`${style["thumbnail-detail"]}`}>
         <NewFileUpload
           setPagePicture={async ({ pictureAsFile }) => {

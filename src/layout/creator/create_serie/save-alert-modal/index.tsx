@@ -8,6 +8,7 @@ export const SaveAlertModal = ({
   pathname = "/sm?view=public",
 }) => {
   const route = useRouter();
+  const { t } = useTranslation();
   const handleLeave = () => {
     route.push(pathname);
   };
@@ -27,18 +28,18 @@ export const SaveAlertModal = ({
         </div>
 
         <div className={`${style["modal-message"]}`}>
-          Changes you made will not be saved. Do you want to leave?
+          {t("create-series:alertNotSave")}
         </div>
 
         <div className={`${style["modal-footer"]}`}>
           <Button className={`${style["footer-btn"]}`} onClick={handleLeave}>
-            Leave
+            {t("common:leave")}
           </Button>
           <Button
             className={`${style["footer-btn"]} ${style["save"]}`}
             onClick={() => updateModalVisible()}
           >
-            Cancel
+            {t("common:cancel")}
           </Button>
         </div>
       </div>

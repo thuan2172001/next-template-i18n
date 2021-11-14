@@ -27,7 +27,6 @@
       "manageUsers": "NGƯỜI DÙNG",
       "publish": "Xuất bản",
       "dropdown": {
-        "viewShop": "Xem cửa hàng",
         "logOut": "Đăng xuất",
         "changeLanguage": "Đổi ngôn ngữ"
       }
@@ -151,5 +150,16 @@
   },
   "create_episode": {
     "title": "Tạo tập mới"
-  }
+  },
+  "creatorProfile": {
+    "editProfile": "Chỉnh sửa hồ sơ"
+  },
+  "episodeManagement": {
+    "private": "Đã ẩn",
+    "public": "Công khai",
+    "createNewEp": "Tạo mới tập truyện",
+    "privateEpisode": "Ẩn tập truyện"
+  },
+  "leave": "Rời đi",
+  "cancel": "Hủy"
 }

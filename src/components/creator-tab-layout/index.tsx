@@ -32,7 +32,7 @@ export const CreatorLayout: React.FC = () => {
         path="/creator/create_serie"
         className="creator-tab"
         order="1"
-        tabName={t("create_serie:createSerie")}
+        tabName={t("create-series:createSerie")}
         subClassname={`${
           router.pathname === "/creator/create_episode" ? "is-creating-ep" : ""
         }`}
@@ -42,7 +42,7 @@ export const CreatorLayout: React.FC = () => {
         path="/creator/create_episode"
         className="creator-tab"
         order="2"
-        tabName={t("create_serie:createEpisode")}
+        tabName={t("create-series:createEpisode")}
       />
     </div>
   );

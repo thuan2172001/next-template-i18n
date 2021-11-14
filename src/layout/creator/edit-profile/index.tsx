@@ -1,17 +1,12 @@
-import React, {useEffect, useState} from "react";
-import {PhotoUpload} from "@components/upload-photo";
-import {Form, Input, Radio, Space, Button, Row, Col} from "antd";
-import {useTranslation} from "next-i18next";
+import React, { useEffect, useState } from "react";
+import { PhotoUpload } from "@components/upload-photo";
+import { Form, Input, Radio, Space, Button, Row, Col } from "antd";
+import { useTranslation } from "next-i18next";
 import TextArea from "antd/lib/input/TextArea";
 import CreatorInfo from "../../../api/creator/profile"
-// import SeriesAPI from "../../api/creator/series";
-// import CustomerProfileAPI from "../../api/customer/profile";
-// import ShopSettingAPI from "../../api/creator/shop-setting";
-// import CreatorSettingAPI from "../../api/creator/setting";
-import {GetUserInfo} from "src/api/auth";
-import {CustomCancelCreateNftModal} from "../../../layout/creator/create-episode/CustomCancelCreateNftModal";
+import { GetUserInfo } from "src/api/auth";
+import { CustomCancelCreateNftModal } from "../../../layout/creator/create-episode/CustomCancelCreateNftModal";
 import style from "./edit-profile.module.scss";
-import {notifyError} from "@components/toastify";
 
 const scrollToTop = () => {
   document.body.scrollTop = 0;
@@ -31,17 +26,7 @@ const defaultData = {
   },
   snsurl: [
     {
-      type: "facebook",
-      url: "",
-      isUsed: false,
-    },
-    {
       type: "twitter",
-      url: "",
-      isUsed: false,
-    },
-    {
-      type: "instagram",
       url: "",
       isUsed: false,
     },
@@ -53,15 +38,10 @@ const defaultData = {
     url4: "",
     url5: "",
   },
-  color: {
-    pgcolor: "",
-    ptbcolor: "",
-    ptcolor: "",
-  },
 };
 
-export const EditProfileTemplate = ({leave, setLeave}) => {
-  const {t} = useTranslation();
+export const EditProfileTemplate = ({ leave, setLeave }) => {
+  const { t } = useTranslation();
 
   const [isLoading, setIsLoading] = useState(false);
   const [changed, setChanged] = useState(false);
@@ -80,6 +60,12 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
   const [uploadContent, setUploadContent] = useState(null);
 
   const [initShopName, setInitShopName] = useState("");
+
+  const [isUserExisted, setIsUserExisted] = useState(false);
+
+  const [value, setValue] = useState("");
+
+  const [validateLink, setValidateLink] = useState(true);
 
   useEffect(() => {
     history.pushState(null, null, location.href);
@@ -103,9 +89,6 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
     };
   }, []);
 
-  const [value, setValue] = useState("");
-
-  const [validateLink, setValidateLink] = useState(true);
   const handleOnclick = (e) => {
     uploadContent.snsurl.forEach((sns, index) => {
       if (sns.type === e.target.value) {
@@ -122,30 +105,18 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
 
   const validateSocialLink = (e) => {
     const pattern = [
-      /(?:https?:\/\/)?(?:www\.)?(?:facebook|fb|m\.facebook)\.(?:com|me)\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[\w\-]*\/)*([\w\-\.]+)(?:\/)?/i,
       /(?:http:\/\/)?(?:www\.)?twitter\.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[\w\-]*\/)*([\w\-]*)/,
-      /(?:(?:http|https):\/\/)?(?:www.)?(?:instagram.com|instagr.am|instagr.com)\/(\w+)/gim,
     ];
-    const facebookRule = new RegExp(pattern[0]);
-    const twitterRule = new RegExp(pattern[1]);
-    const instagramRule = new RegExp(pattern[2]);
+    const twitterRule = new RegExp(pattern[0]);
 
     if (value == "twitter") {
       setValidateLink(twitterRule.test(e.target.value));
-      updateSnsUrl({type: value, url: e.target.value, isUsed: true});
-    } else if (value == "instagram") {
-      const check = instagramRule.test(e.target.value);
-      setValidateLink(check);
-      updateSnsUrl({type: value, url: e.target.value, isUsed: true});
-    } else if (value == "facebook") {
-      const url = e.target.value;
-      setValidateLink(facebookRule.test(url));
-      updateSnsUrl({type: value, url: e.target.value, isUsed: true});
+      updateSnsUrl({ type: value, url: e.target.value, isUsed: true });
     }
     setChanged(false);
   };
 
-  const updateSnsUrl = ({type, url, isUsed}) => {
+  const updateSnsUrl = ({ type, url, isUsed }) => {
     let newUploadContent = JSON.parse(JSON.stringify(uploadContent));
     uploadContent.snsurl.forEach((sns, index) => {
       if (type === sns.type) {
@@ -166,7 +137,7 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
       /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
 
     const urlRule = new RegExp(pattern);
-    let addUrlClone = {...uploadContent.addurl};
+    let addUrlClone = { ...uploadContent.addurl };
     addUrlClone[e.target.id] = e.target.value;
     setChanged(false);
     if (e.target.value.length > 0) {
@@ -194,89 +165,6 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
     }
   };
 
-  //default color in color picker
-  const colors = [
-    "#54ACEC",
-    "#EA2763",
-    "#F54336",
-    "#9B27B0",
-    "#EA2763",
-    "#8BC44A",
-    "#FFC206",
-    "#FF9800",
-    "#029688",
-    "#54ACEC",
-    "#02BCD4",
-    "#F54336",
-    "#54AFEC",
-    "#795648",
-    "#434343",
-    "#CCCCCC",
-    "#8BC44A",
-  ];
-
-  const [pbColor, setPbColor] = useState("#F0F0F0");
-  const [ptbColor, setPtbColor] = useState("#CCCCCC");
-  const [ptColor, setPtColor] = useState("#1D1D1D");
-  const [colorMode, setColorMode] = useState("");
-
-  const switchMode = (mode) => {
-    if (mode === colorMode) {
-      setColorMode("");
-    } else {
-      setColorMode(mode);
-      if (mode == "pb-color") {
-        setInputColor(pbColor);
-      } else if (mode == "pt-color") {
-        setInputColor(ptColor);
-      } else if (mode == "ptb-color") {
-        setInputColor(ptbColor);
-      }
-    }
-  };
-  const changeColor = (item) => {
-    if (colorMode == "pb-color") {
-      setPbColor(item);
-      setUploadContent({
-        ...uploadContent,
-        color: {pgcolor: item, ptbcolor: ptbColor, ptcolor: ptColor},
-      });
-    } else if (colorMode == "pt-color") {
-      setPtColor(item);
-      setUploadContent({
-        ...uploadContent,
-        color: {pgcolor: pbColor, ptbcolor: ptbColor, ptcolor: item},
-      });
-    } else if (colorMode == "ptb-color") {
-      setPtbColor(item);
-      setUploadContent({
-        ...uploadContent,
-        color: {pgcolor: pbColor, ptbcolor: item, ptcolor: ptColor},
-      });
-    }
-    setColorMode("");
-    setChanged(false);
-  };
-
-
-  //validate input color
-  const [inputColor, setInputColor] = useState("");
-  const validateColor = (value) => {
-    const pattern = /^#[0-9A-F]{6}$/i;
-    const hexColorRule = new RegExp(pattern);
-
-    // initiial color for input
-    if (colorMode == "pb-color" && value.length != 7) {
-      setInputColor(pbColor);
-    } else if (colorMode == "pt-color" && value.length != 7) {
-      setInputColor(ptColor);
-    } else if (colorMode == "ptb-color" && value.length != 7) {
-      setInputColor(ptbColor);
-    }
-    if (hexColorRule.test(value) && value.length === 7) setInputColor(value);
-  };
-
-  const [isUserExisted, setIsUserExisted] = useState(false);
 
   const shopNameChange = (e) => {
     const isValid =
@@ -289,20 +177,6 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
       e.target.value.replace(/ +(?= )/g, "").trim() !== initShopName
     ) {
       setIsUserExisted(false);
-      // CustomerProfileAPI.checkUsernameAvailable({
-      //   username: e.target.value.replace(/ +(?= )/g, "").trim(),
-      // })
-      //   .then((response) => {
-      //     const { isAvailable } = response;
-      //     setIsUserExisted(!isAvailable);
-      //     return !isAvailable;
-      //   })
-      //   .then((response) => {
-      //     if (response) {
-      //       setIsUserExisted(true);
-      //     } else setIsUserExisted(false);
-      //   })
-      //   .catch((err) => console.error("err in change shop name"));
       setUploadContent((uploadContent) => ({
         ...uploadContent,
         title: {
@@ -416,10 +290,10 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
     const isValid = ext === "png" || ext === "jpg" || ext === "jpeg";
 
     type === "thumb" &&
-    setShopAvatar((episodeThumbnail) => ({
-      ...episodeThumbnail,
-      extClassname: isValid ? "convention-valid" : "convention-invalid",
-    }));
+      setShopAvatar((episodeThumbnail) => ({
+        ...episodeThumbnail,
+        extClassname: isValid ? "convention-valid" : "convention-invalid",
+      }));
 
     return isValid;
   };
@@ -445,7 +319,7 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
     setShopAvatar((episodeThumbnail) => ({
       ...episodeThumbnail,
       isEmpty: isEmpty,
-      errMsg: isEmpty ? t("create_serie:inputShopAvatarAlert") : "",
+      errMsg: isEmpty ? t("create-series:inputShopAvatarAlert") : "",
     }));
   };
 
@@ -581,21 +455,6 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
             });
           }
 
-          if (res.profileColor) {
-            if (res.profileColor?.backgroundColor) {
-              setPbColor(res.profileColor?.backgroundColor);
-              currentData.color.pgcolor = res.profileColor?.backgroundColor;
-            }
-            if (res.profileColor?.textboxColor) {
-              setPtbColor(res.profileColor?.textboxColor);
-              currentData.color.ptbcolor = res.profileColor?.textboxColor;
-            }
-            if (res.profileColor?.textColor) {
-              setPtColor(res.profileColor?.textColor);
-              currentData.color.ptcolor = res.profileColor?.textColor;
-            }
-          }
-
           if (res.SNSplugin && res.SNSplugin.length > 0) {
             const currentSns = res.SNSplugin.map((sns) => {
               if (sns?.isUsed) setValue(sns?.snsName);
@@ -649,7 +508,7 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
                     setChanged={() => {
                       setChanged(false);
                     }}
-                    setPagePicture={async ({pictureAsFile, pictureSrc}) => {
+                    setPagePicture={async ({ pictureAsFile, pictureSrc }) => {
                       if (pictureAsFile === undefined) {
                         setShopAvatar({
                           isEmpty: true,
@@ -658,7 +517,7 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
                           sizeClassname: "",
                           widthClassname: "",
                           extClassname: "",
-                          errMsg: t("create_serie:inputShopAvatarAlert"),
+                          errMsg: t("create-series:inputShopAvatarAlert"),
                         });
                         setCurrentAvatar(null);
                       } else {
@@ -672,7 +531,7 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
                         if (isValidated) {
                           setShopAvatar((episodeThumbnail) => ({
                             ...episodeThumbnail,
-                            thumb: {pictureAsFile},
+                            thumb: { pictureAsFile },
                             errMsg: "",
                             isEmpty: false,
                           }));
@@ -689,25 +548,22 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
 
                   <ul className={`${style["thumbnail-cover-convention"]}`}>
                     <li
-                      className={`${style[episodeThumbnail.ratioClassname]} ${
-                        style["convention-item"]
-                      }`}
+                      className={`${style[episodeThumbnail.ratioClassname]} ${style["convention-item"]
+                        }`}
                     >
-                      {t("create_serie:convention2")}
+                      {t("create-series:convention2")}
                     </li>
                     <li
-                      className={`${style[episodeThumbnail.sizeClassname]} ${
-                        style["convention-item"]
-                      }`}
+                      className={`${style[episodeThumbnail.sizeClassname]} ${style["convention-item"]
+                        }`}
                     >
-                      {t("create_serie:convention3")}
+                      {t("create-series:convention3")}
                     </li>
                     <li
-                      className={`${style[episodeThumbnail.extClassname]} ${
-                        style["convention-item"]
-                      }`}
+                      className={`${style[episodeThumbnail.extClassname]} ${style["convention-item"]
+                        }`}
                     >
-                      {t("create_serie:convention4")}
+                      {t("create-series:convention4")}
                     </li>
                   </ul>
                 </div>
@@ -715,24 +571,20 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
               <Form layout="vertical">
                 <Form.Item
                   label={t("shop:editAboutTerm.shopName")}
-                  style={{width: 731, marginBottom: 50}}
+                  style={{ width: 731, marginBottom: 50 }}
                 >
                   <div
-                    className={`${
-                      uploadContent.title.isEmpty ||
-                      !uploadContent.title.isValid
+                    className={`${uploadContent.title.isEmpty ||
+                        !uploadContent.title.isValid
                         ? "error-border"
                         : ""
-                    }`}
+                      }`}
                   >
                     <Input
-                      placeholder={t("create_serie:max60Charac")}
+                      placeholder={t("create-series:max60Charac")}
                       value={uploadContent.title.content}
                       onChange={shopNameChange}
                     />
-                    <div className={`${style["small-noti"]}`}>
-                      {t("shop:editAboutTerm.smallNoti")}
-                    </div>
                   </div>
                   {uploadContent.title.isEmpty ? (
                     <div className={`${style["error-msg-input"]}`}>
@@ -747,11 +599,6 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
                       )}
                     </>
                   )}
-                  {isUserExisted && !uploadContent.title.isEmpty && (
-                    <div className={`${style["error-msg-input"]}`}>
-                      {t("shop:editAboutTerm.shopNameErr5")}
-                    </div>
-                  )}
                 </Form.Item>
 
                 <Form.Item
@@ -761,13 +608,12 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
                   label={t("shop:editAboutTerm.description")}
                 >
                   <div
-                    className={`${
-                      !uploadContent.description.isValid ? "error-border" : ""
-                    }`}
+                    className={`${!uploadContent.description.isValid ? "error-border" : ""
+                      }`}
                   >
                     <TextArea
                       placeholder={t("shop:editAboutTerm.shopDesErr")}
-                      autoSize={{minRows: 4, maxRows: 5}}
+                      autoSize={{ minRows: 4, maxRows: 5 }}
                       name="summary"
                       value={uploadContent.description.content}
                       onChange={descriptionChange}
@@ -821,12 +667,12 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
                         <div className={`${style["sns-item-container"]}`}>
                           <div className={`${style["sns-item-label"]}`}>
                             <img
-                              src={`/icons/edit-profile/${sns.type}.svg`}
+                              src={`/assets/icons/${sns.type}.svg`}
                               alt={sns.type}
                             />
                             <div className={`${style["label"]}`}>
                               {sns.type.charAt(0).toUpperCase() +
-                              sns.type.slice(1)}
+                                sns.type.slice(1)}
                             </div>
                           </div>
 
@@ -862,9 +708,8 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
 
                 {[...Array(5)].map((x, i) => (
                   <Row
-                    className={`${style["url"]} ${
-                      style[i == 4 ? "disable-border" : ""]
-                    }`}
+                    className={`${style["url"]} ${style[i == 4 ? "disable-border" : ""]
+                      }`}
                     key={i}
                   >
                     <Col span={8}>URL{i + 1}</Col>
@@ -885,100 +730,7 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
                   </div>
                 )}
               </section>
-              <div className={`${style["color-container"]}`}>
-                <section
-                  className={`${style["color-option"]} ${style["profile-box"]}`}
-                >
-                  <div
-                    className={`${style["profile-option-header"]} ${style["episode-option"]}`}
-                  >
-                    {t("shop:editAboutTerm.bgColor")}
-                  </div>
-                  <div
-                    className={`${style["color"]}`}
-                    style={{
-                      backgroundColor:
-                        colorMode == "pb-color" ? inputColor : pbColor,
-                    }}
-                    onClick={() => switchMode("pb-color")}
-                  ></div>
-                </section>
-                <section
-                  className={`${style["color-option"]} ${style["profile-box"]}`}
-                >
-                  <div
-                    className={`${style["profile-option-header"]} ${style["episode-option"]}`}
-                  >
-                    {t("shop:editAboutTerm.textboxColor")}
-                  </div>
-                  <div
-                    className={`${style["color"]}`}
-                    style={{
-                      backgroundColor:
-                        colorMode == "ptb-color" ? inputColor : ptbColor,
-                    }}
-                    onClick={() => switchMode("ptb-color")}
-                  ></div>
-                </section>
-                <section
-                  className={`${style["color-option"]} ${style["profile-box"]}`}
-                >
-                  <div
-                    className={`${style["profile-option-header"]} ${style["episode-option"]}`}
-                  >
-                    {t("shop:editAboutTerm.textColor")}
-                  </div>
-                  <div
-                    className={`${style["color"]}`}
-                    style={{
-                      backgroundColor:
-                        colorMode == "pt-color" ? inputColor : ptColor,
-                    }}
-                    onClick={() => switchMode("pt-color")}
-                  ></div>
-                </section>
-                {colorMode.length > 0 && (
-                  <div className={`${style["color-picker"]}`}>
-                    <div className={`${style["color-choice"]}`}>
-                      {colors.map((item, index) => (
-                        <div
-                          style={{backgroundColor: item}}
-                          className={`${style["color-item"]}`}
-                          onClick={() => validateColor(item)}
-                          key={index}
-                        ></div>
-                      ))}
-                      <label
-                        className={`${style["color-item"]} ${style["color-button"]}`}
-                      >
-                        <input
-                          type="color"
-                          className={`${style["input"]}`}
-                          onChange={(e) => validateColor(e.target.value)}
-                        ></input>
-                      </label>
-                    </div>
-                    <div className={`${style["color-input"]}`}>
-                      <Input
-                        className={`${style["color-input-input"]}`}
-                        onChange={(e) => validateColor(e.target.value)}
-                        value={inputColor}
-                        maxLength={7}
-                      />
-                      <Button
-                        className={`${style["color-input-btn"]}`}
-                        onClick={() => {
-                          changeColor(inputColor);
-                        }}
-                      >
-                        Apply
-                      </Button>
-                    </div>
-                  </div>
-                )}
-              </div>
             </div>
-
             <div className={`${style["custom-serie-btn"]}`}>
               <Button
                 className={`${style["button"]} ${style["active-save"]} ${style["confirm-button"]}`}
@@ -994,7 +746,7 @@ export const EditProfileTemplate = ({leave, setLeave}) => {
           </div>
         }
 
-        {leave && <CustomCancelCreateNftModal updateModalVisible={setLeave}/>}
+        {leave && <CustomCancelCreateNftModal updateModalVisible={setLeave} />}
       </>
     )
   );

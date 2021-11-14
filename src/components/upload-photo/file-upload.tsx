@@ -28,7 +28,7 @@ export const FileUpload = ({
   const [imageUrl, setImageUrl] = useState("");
 
   const onClickPreview = () => {
-    setCoverErrMsg(`${t("create_serie:inputCoverBeforePreview")}`);
+    setCoverErrMsg(`${t("create-series:inputCoverBeforePreview")}`);
     validateAll();
   };
 
@@ -103,7 +103,7 @@ export const FileUpload = ({
         <Image src="/assets/icons/cloud.png" height={74} width={74}/>
 
         <div className={`${style["cover-photo-header"]}`}>
-          {t("create_serie:uploadFile")}
+          {t("create-series:uploadFile")}
         </div>
 
         <div className={`${style["cover-photo-subtitle"]}`}>
@@ -112,13 +112,13 @@ export const FileUpload = ({
             onClick={onButtonClick}
             style={{cursor: "pointer"}}
           >
-            {t("create_serie:browse")}
+            {t("create-series:browse")}
           </span>{" "}
-          {t("create_serie:chooseFile")}
+          {t("create-series:chooseFile")}
         </div>
 
         <div className={`${style["file-upload-notice"]}`}>
-          {t("create_serie:fileUploadNotice")}
+          {t("create-series:fileUploadNotice")}
         </div>
 
         <input

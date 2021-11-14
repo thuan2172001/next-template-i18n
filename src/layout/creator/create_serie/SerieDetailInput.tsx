@@ -14,15 +14,16 @@ export const SerieDetailInput = ({
 }) => {
   const [serieTitle, setSerieTitle] = useState(currentTitle);
   const [serieTitleErrMsg, setSerieTitleErrMsg] = useState("");
+  const { t } = useTranslation();
 
   useEffect(() => {
     setSerieTitle(currentTitle);
     setSummary(currentSummary);
-  },[currentTitle, currentSummary])
+  }, [currentTitle, currentSummary])
 
   const validateSerieTitle = (value) => {
-    if (value.trim() === "") setSerieTitleErrMsg("Please input series title");
-    else if (value.length > 60) setSerieTitleErrMsg("Maximum 60 characters");
+    if (value.trim() === "") setSerieTitleErrMsg(t("create-series:seriesTitleNeed"));
+    else if (value.length > 60) setSerieTitleErrMsg(t("create-series:max60Characters"));
     else setSerieTitleErrMsg("");
   };
 
@@ -46,7 +47,7 @@ export const SerieDetailInput = ({
   const [summaryErrMsg, setSummaryErrMsg] = useState("");
 
   const validateSummary = (value) => {
-    if (value.length > 500) setSummaryErrMsg("Maximum 500 characters");
+    if (value.length > 500) setSummaryErrMsg(t("create-series:max500Characters"));
     else setSummaryErrMsg("");
   };
 
@@ -84,13 +85,13 @@ export const SerieDetailInput = ({
         <Form layout="vertical">
           <Form.Item
             colon={false}
-            label={<label style={{ color: "#000000" }}>Series title</label>}
+            label={<label style={{ color: "#000000" }}>{t("create-series:seriesTitle")}</label>}
             validateStatus={`${serieTitleErrMsg && "error"}`}
             help={<span>{serieTitleErrMsg}</span>}
           >
             <Input
               onChange={handleSerieTitleChange}
-              placeholder="Maximum 60 characters"
+              placeholder={t("create-series:max60Characters")}
               className={`${style["input"]}`}
               value={serieTitle}
             />
@@ -102,13 +103,13 @@ export const SerieDetailInput = ({
           <Form.Item
             colon={false}
             label={
-              <label style={{ color: "#000000" }}>Summary (optional)</label>
+              <label style={{ color: "#000000" }}>{t("create-series:summary")}</label>
             }
             validateStatus={`${summaryErrMsg && "error"}`}
             help={<span>{summaryErrMsg}</span>}
           >
             <TextArea
-              placeholder="Maximum 500 characters"
+              placeholder={t("create-series:max500Characters")}
               autoSize={{ minRows: 4, maxRows: 5 }}
               onChange={handleSummaryChange}
               value={summary}

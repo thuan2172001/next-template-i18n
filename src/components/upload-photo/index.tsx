@@ -118,12 +118,12 @@ export const PhotoUpload = ({
         <Image src="/assets/icons/cloud.png" height={74} width={74} />
 
         <div className={`${style["cover-photo-header"]}`}>
-          {type === "cover" && <>{t("create_serie:uploadCover")} </>}
+          {type === "cover" && <>{t("create-series:uploadCover")} </>}
 
-          {type === "thumb" && <>{t("create_serie:uploadImage")} </>}
+          {type === "thumb" && <>{t("create-series:uploadImage")} </>}
 
           {(type === "video-thumb" || type === "music-thumb") && (
-            <>{t("create_serie:uploadFile")}</>
+            <>{t("create-series:uploadFile")}</>
           )}
         </div>
 
@@ -133,14 +133,14 @@ export const PhotoUpload = ({
             onClick={onButtonClick}
             style={{ cursor: "pointer" }}
           >
-            {t("create_serie:browse")}
+            {t("create-series:browse")}
           </span>{" "}
-          {t("create_serie:chooseFile")}
+          {t("create-series:chooseFile")}
         </div>
 
         {type === "cover" && (
           <div className={`${style["cover-recommend"]}`}>
-            {t("create_serie:coverRecommend")}
+            {t("create-series:coverRecommend")}
           </div>
         )}
 

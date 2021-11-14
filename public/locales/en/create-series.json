@@ -1,8 +1,4 @@
 {
-  "language": {
-    "ja": "Japan",
-    "en": "English"
-  },
   "convention1": "The square thumbnail must be larger than 500x500px.",
   "convention2": "The aspect ratio must be 1:1.",
   "convention3": "Image must be less than 10MB.",
@@ -17,5 +13,14 @@
   "cancel": "Cancel",
   "createNft": {
     "continueEditing": "Continue editing"
-  }
+  },
+  "seriesTitle": "Series title",
+  "summary": "Summary (optional)",
+  "seriesThumb": "Series thumbnail",
+  "category": "Category",
+  "choose1of4": "Choose 1 of 6 categories below",
+  "seriesTitleNeed": "Please input series title",
+  "max60Characters": "Maximum 60 characters",
+  "max500Characters": "Maximum 500 characters",
+  "alertNotSave": "Changes you made will not be saved. Do you want to leave?"
 }

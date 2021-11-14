@@ -1,0 +1,26 @@
+{
+  "convention1": "Ảnh thu nhỏ hình vuông phải có kích cỡ lớn hơn 500px x 500px.",
+  "convention2": "Ảnh phải có tỉ lệ 1:1.",
+  "convention3": "Kích cỡ ảnh tối đa là 10MB",
+  "convention4": "Chỉ hỗ trợ ảnh định dạng PNG, JPG, JPEG. ",
+  "coverExtAlert": "Chỉ hỗ trợ ảnh định dạng PNG, JPG, JPEG.",
+  "uploadCover": "Đăng ảnh bìa của series",
+  "uploadImage": "Đăng ảnh của bạn",
+  "browse": "Nhấn",
+  "chooseFile": "để chọn tệp tải lên",
+  "coverRecommend": "Tỉ lệ 20:9. ĐỊnh dạng PNG, JPG, JPEG. Kích cỡ tối đa 10MB",
+  "preview": "Xem trước",
+  "cancel": "Hủy",
+  "createNft": {
+    "continueEditing": "Tiếp tục chỉnh sửa"
+  },
+  "seriesTitle": "Tiêu đề ",
+  "summary": "Tóm tắt (Không bắt buộc)",
+  "seriesThumb": "Ảnh thu nhỏ",
+  "category": "Thể loại",
+  "choose1of4": "Chọn 1 trong 6 thể loại bên dưới",
+  "seriesTitleNeed": "Tên series chưa được nhập",
+  "max60Characters": "Tối đa 60 kí tự",
+  "max500Characters": "Tối đa 500 kí tự",
+  "alertNotSave": "Thay đổi chưa được lưu. Bạn có chắc muốn rời đi không ?"
+}

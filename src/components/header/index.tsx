@@ -151,9 +151,6 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 	const CreatorDropdownMenu = () => {
 		return (
 			<Menu className={`${style["dropdown-menu"]}`}>
-				<Menu.Item key="1" onClick={handleMoveToShop}>
-					{t("common:header.creator.dropdown.viewShop")}
-				</Menu.Item>
 				<Menu.Item
 					key="3"
 					onClick={() => {
@@ -170,11 +167,6 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 				</Menu.Item>
 			</Menu>
 		);
-	};
-
-	const handleMoveToShop = () => {
-		const creatorId = GetUserInfo()._id;
-		router.push(`/shop/${creatorId}`);
 	};
 
 	const handleMoveToSM = () => {

@@ -15,8 +15,8 @@ export const CancelCreateNftModal = ({ updateModalVisible, serieID }) => {
         </div>
 
         <div className={`${style["success-message"]}`}>
-          {t("create_serie:createNft.cancelAlert")}
-          <div>{t("create_serie:createNft.cancelConfirm")}</div>
+          {t("create-series:createNft.cancelAlert")}
+          <div>{t("create-series:createNft.cancelConfirm")}</div>
         </div>
 
         <div className={`${style["custom-modal-footer"]}`}>
@@ -26,7 +26,7 @@ export const CancelCreateNftModal = ({ updateModalVisible, serieID }) => {
               router.push(serieID ? `/em?view=public&&serieId=${serieID}&page=1` :`/`);
             }}
           >
-            {t("create_serie:createNft.leave")}
+            {t("create-series:createNft.leave")}
           </Button>
           <div
             className={`${style["footer-button"]} ${style["cancel"]} ${style["create-nft-btn"]} ${style["save-active"]}`}
@@ -34,7 +34,7 @@ export const CancelCreateNftModal = ({ updateModalVisible, serieID }) => {
               updateModalVisible(false);
             }}
           >
-            {t("create_serie:createNft.cancel")}
+            {t("create-series:createNft.cancel")}
           </div>
         </div>
       </div>

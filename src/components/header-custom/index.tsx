@@ -9,7 +9,7 @@ import { GetUserInfo } from "src/api/auth";
 import CustomerPaymentAPI from "../../api/customer/payment";
 
 export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const router = useRouter();
 
   const dispatch = useDispatch();
@@ -71,21 +71,22 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
   const CreatorDropdownMenu = () => {
     return (
       <Menu className={`${style["dropdown-menu"]}`}>
-        <Menu.Item key="1" onClick={handleMoveToShop}>
-          {t("common:header.creator.dropdown.viewShop")}
-        </Menu.Item>
+        <Menu.Item
+					key="3"
+					onClick={() => {
+						const locale = router?.locale || 'vi';
+						const newLocale = locale === 'vi' ? 'en' : 'vi'
+						i18n.changeLanguage(newLocale)
+						router.push(`${router.asPath}`, `${router.asPath}`, { locale: newLocale })
+					}}
+				>
+					{t("common:header.dropdown.changeLanguage")}
+				</Menu.Item>
         <Menu.Item key="2" onClick={handleLogout}>
           {t("common:header.creator.dropdown.logOut")}
         </Menu.Item>
       </Menu>
     );
-  };
-
-  const handleMoveToShop = () => {
-    const creatorId = GetUserInfo()._id;
-    // router.push(`/shop/${creatorId}`);
-    setLeave(true);
-    window.localStorage.setItem("popup-url", `/`);
   };
 
   const handleMoveToSM = () => {

@@ -15,7 +15,7 @@ export const CreateNftModal = ({ updateModalVisible, upLoad, isLoading }) => {
         </div>
 
         <div className={`${style["confirm-msg"]}`}>
-          {t("create_serie:createNft.createNftConfirm")}
+          {t("create-series:createNft.createNftConfirm")}
         </div>
 
         <div className={`${style["custom-modal-footer"]}`}>
@@ -26,7 +26,7 @@ export const CreateNftModal = ({ updateModalVisible, upLoad, isLoading }) => {
             }}
             disabled={clickCreate}
           >
-            {t("create_serie:createNft.cancel")}
+            {t("create-series:createNft.cancel")}
           </Button>
 
           <Button
@@ -38,7 +38,7 @@ export const CreateNftModal = ({ updateModalVisible, upLoad, isLoading }) => {
             }}
             loading={isLoading}
           >
-            {t("create_serie:createNft.creatItem")}
+            {t("create-series:createNft.creatItem")}
           </Button>
         </div>
       </div>

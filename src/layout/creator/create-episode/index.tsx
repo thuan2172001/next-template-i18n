@@ -299,7 +299,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     setEpisodeThumbnail((episodeThumbnail) => ({
       ...episodeThumbnail,
       isEmpty: isEmpty,
-      errMsg: isEmpty ? t("create_serie:inputEpThumbAlert") : "",
+      errMsg: isEmpty ? t("create-series:inputEpThumbAlert") : "",
     }));
   };
 
@@ -312,7 +312,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
       file: {
         ...uploadContent.file,
         isEmpty: isEmpty,
-        errMsg: isEmpty ? t("create_serie:uploadFileAlert") : "",
+        errMsg: isEmpty ? t("create-series:uploadFileAlert") : "",
       },
     }));
   };
@@ -326,9 +326,9 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
       size <= (uploadContent.seriesInfo?.sizeAllowed || 100000000);
     let checkMsg = "";
     if (!extValid) {
-      checkMsg = t(`create_serie:fileInvalidType${category}`);
+      checkMsg = t(`create-series:fileInvalidType${category}`);
     } else if (!sizeValid) {
-      checkMsg = t(`create_serie:fileTooLarge${category}`);
+      checkMsg = t(`create-series:fileTooLarge${category}`);
     } else checkMsg = "";
     setUploadContent((uploadContent) => ({
       ...uploadContent,
@@ -474,7 +474,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
             </div>
             <section className={`${style["select-episode-thumb"]}`}>
               <div className={`${style["serie-detail-header"]}`}>
-                {t("create_serie:selectEpThumb")}
+                {t("create-series:selectEpThumb")}
               </div>
 
               <div className={`${style["thumbnail-detail"]}`}>
@@ -489,7 +489,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                         sizeClassname: "",
                         widthClassname: "",
                         extClassname: "",
-                        errMsg: t("create_serie:inputEpThumbAlert"),
+                        errMsg: t("create-series:inputEpThumbAlert"),
                       });
                     } else {
                       let isValidated = await validateImage(
@@ -524,41 +524,41 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                       style["convention-item"]
                     }`}
                   >
-                    {t("create_serie:convention1")}
+                    {t("create-series:convention1")}
                   </li>
                   <li
                     className={`${style[episodeThumbnail.ratioClassname]} ${
                       style["convention-item"]
                     }`}
                   >
-                    {t("create_serie:convention2")}
+                    {t("create-series:convention2")}
                   </li>
                   <li
                     className={`${style[episodeThumbnail.sizeClassname]} ${
                       style["convention-item"]
                     }`}
                   >
-                    {t("create_serie:convention3")}
+                    {t("create-series:convention3")}
                   </li>
                   <li
                     className={`${style[episodeThumbnail.extClassname]} ${
                       style["convention-item"]
                     }`}
                   >
-                    {t("create_serie:convention4")}
+                    {t("create-series:convention4")}
                   </li>
                 </ul>
               </div>
             </section>
             <section className={`${style["serie-info-ep"]}`}>
               <div className={`${style["serie-title"]}`}>
-                <div>{t("create_serie:serieTit")}</div>
+                <div>{t("create-series:serieTit")}</div>
                 <div className={`${style["title"]}`}>
                   {uploadContent.seriesInfo?.serieName || "Library of abc"}
                 </div>
               </div>
               <div className={`${style["category-info"]}`}>
-                <div>{t("create_serie:category")}</div>
+                <div>{t("create-series:category")}</div>
 
                 <Radio.Button
                   value={uploadContent.seriesInfo?.category.categoryName}
@@ -577,7 +577,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
             </section>
             <Form layout="vertical">
               <Form.Item
-                label={t("create_serie:epTilte")}
+                label={t("create-series:epTilte")}
                 style={{width: "48%"}}
               >
                 <div
@@ -588,27 +588,27 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                   }`}
                 >
                   <Input
-                    placeholder={t("create_serie:max60Charac")}
+                    placeholder={t("create-series:max60Charac")}
                     value={uploadContent.title.content}
                     onChange={episodeTitleChange}
                   />
                 </div>
                 {uploadContent.title.isEmpty ? (
                   <div className={`${style["error-msg-input"]}`}>
-                    {t("create_serie:inputEpTitleAlert")}
+                    {t("create-series:inputEpTitleAlert")}
                   </div>
                 ) : (
                   <>
                     {!uploadContent.title.isValid && (
                       <div className={`${style["error-msg-input"]}`}>
-                        {t("create_serie:characterAlert1")}
+                        {t("create-series:characterAlert1")}
                       </div>
                     )}
                   </>
                 )}
               </Form.Item>
               <Form.Item
-                label={t("create_serie:epTilte")}
+                label={t("create-series:epTilte")}
                 style={{width: "48%"}}
               >
                 <div
@@ -619,14 +619,14 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                   }`}
                 >
                   <Input
-                    placeholder={t("create_serie:max60Charac")}
+                    placeholder={t("create-series:max60Charac")}
                     value={uploadContent.chapter.content}
                     onChange={(e) => handleChapterInput(e.target.value)}
                   />
                 </div>
                 {uploadContent.chapter.isEmpty && (
                   <div className={`${style["error-msg-input"]}`}>
-                    {t("create_serie:inputEpTitleAlert")}
+                    {t("create-series:inputEpTitleAlert")}
                   </div>
                 )}
               </Form.Item>
@@ -634,7 +634,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 style={{
                   width: "48%",
                 }}
-                label={t("create_serie:episodeDescription")}
+                label={t("create-series:episodeDescription")}
               >
                 <div
                   className={`${
@@ -642,7 +642,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                   }`}
                 >
                   <TextArea
-                    placeholder={t("create_serie:episodeDescription")}
+                    placeholder={t("create-series:episodeDescription")}
                     autoSize={{minRows: 4, maxRows: 5}}
                     name="summary"
                     value={uploadContent.description.content}
@@ -651,7 +651,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 </div>
                 {!uploadContent.description.isValid && (
                   <div className={`${style["error-msg-input"]}`}>
-                    {t("create_serie:characterAlert2")}
+                    {t("create-series:characterAlert2")}
                   </div>
                 )}
               </Form.Item>
@@ -661,7 +661,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
               <div
                 className={`${style["episode-option-header"]} ${style["episode-option"]}`}
               >
-                {t("create_serie:epType")}
+                {t("create-series:epType")}
               </div>
               <Radio.Group
                 value={uploadContent.type}
@@ -670,14 +670,14 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 <Space direction="vertical">
                   <Radio value="editions">
                     <div className={`${style["episode-option-type"]}`}>
-                      {t("create_serie:limitedEdition")}
+                      {t("create-series:limitedEdition")}
                     </div>
                     <div className={`${style["episode-option-detail"]}`}>
-                      {t("create_serie:epOption1")}
+                      {t("create-series:epOption1")}
                     </div>
                     <Form layout="vertical">
                       <Form.Item
-                        label={t("create_serie:numOfEdition")}
+                        label={t("create-series:numOfEdition")}
                         style={{width: "44%"}}
                       >
                         <div
@@ -700,7 +700,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                           <>
                             {uploadContent.numberOfEdition.isEmpty ? (
                               <div className={`${style["error-msg-input"]}`}>
-                                {t("create_serie:numberEditionEmpty")}
+                                {t("create-series:numberEditionEmpty")}
                               </div>
                             ) : (
                               <>
@@ -708,7 +708,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                                   <div
                                     className={`${style["error-msg-input"]}`}
                                   >
-                                    {t("create_serie:positiveAlert")}
+                                    {t("create-series:positiveAlert")}
                                   </div>
                                 )}
                               </>
@@ -720,10 +720,10 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                   </Radio>
                   <Radio value="0">
                     <div className={`${style["episode-option-type"]}`}>
-                      {t("create_serie:freeEdition")}
+                      {t("create-series:freeEdition")}
                     </div>
                     <div className={`${style["episode-option-detail"]}`}>
-                      {t("create_serie:epOption2")}
+                      {t("create-series:epOption2")}
                     </div>
                   </Radio>
                 </Space>
@@ -734,7 +734,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
               <div
                 className={`${style["episode-option-header"]} ${style["episode-option"]}`}
               >
-                {t("create_serie:uploadContent")}
+                {t("create-series:uploadContent")}
 
               </div>
 
@@ -748,7 +748,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                       file: {
                         file: null,
                         isEmpty: true,
-                        errMsg: t("create_serie:uploadFileAlert"),
+                        errMsg: t("create-series:uploadFileAlert"),
                       },
                     }));
                   } else {
@@ -793,7 +793,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 setModalType("cancel-nft");
               }}
             >
-              {t("create_serie:cancel")}
+              {t("create-series:cancel")}
             </Button>
 
             <Button
@@ -803,7 +803,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 if (episodeThumbnail.errMsg !== "") scrollToTop();
               }}
             >
-              {t("create_serie:next")}
+              {t("create-series:next")}
             </Button>
           </div>
         </div>

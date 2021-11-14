@@ -26,57 +26,11 @@ export const CatagorySelection = ({
     });
   }, []);
 
-  // useEffect(() => {
-  //   let tmpSubcate = [];
-  //
-  //   if (subCates)
-  //     subCates[category]?.forEach((el, index) => {
-  //       tmpSubcate.push({
-  //         id: el._id,
-  //         name: el.name,
-  //         index: index,
-  //         isChosen:
-  //           currentCategory === ""
-  //             ? false
-  //             : currentSubCategory.includes(el._id.toString()),
-  //       });
-  //     });
-  //
-  //   setSubCate(tmpSubcate);
-  // }, [category, currentCategory !== "" && currentSubCategory]);
-  //
-  // const [isSubcateChosenEmpty, setIsSubcateChosenEmpty] = useState(false);
-  //
-  // useEffect(() => {
-  //   let isNotChosenSubcate =
-  //     subCate.filter((el) => el.isChosen === true).length === 0;
-  //   setIsSubcateChosenEmpty(isNotChosenSubcate);
-  // }, [subCate]);
-  //
-  // const chooseSubcate = (index) => {
-  //   let tmpSubcate = [...subCate];
-  //   tmpSubcate[index].isChosen = !tmpSubcate[index].isChosen;
-  //   setSubCate(tmpSubcate);
-  // };
-  //
-  // useEffect(() => {
-  //   let tmpSubcateID = [];
-  //   let tmpSubcateName = [];
-  //   subCate.map((el) => {
-  //     if (el.isChosen) {
-  //       tmpSubcateID.push(el.id);
-  //       tmpSubcateName.push(el.name);
-  //     }
-  //   });
-  //   setSubcategory({subCate: tmpSubcateID, subCateNames: tmpSubcateName});
-  // }, [subCate]);
-
-
   return (
     <div className={`${style["category"]}`}>
-      <div className={`${style["header"]}`}>Category</div>
+      <div className={`${style["header"]}`}>{t("create-series:category")}</div>
       <div className={`${style["cate-title"]}`}>
-        Choose 1 of 4 categories below
+      {t("create-series:choose1of4")}
       </div>
 
       <Space size={12} direction="horizontal">
@@ -99,7 +53,7 @@ export const CatagorySelection = ({
                   cursor: "pointer",
                 }}
               >
-                {el.categoryName}
+                {t(`common:category.${el.categoryName}`)}
                 {el.categoryName === category.name && (
                   <div className={`${style["checked-icon"]}`}>
                     <Image src="/assets/icons/checked.svg" width={19} height={19}/>
@@ -110,9 +64,6 @@ export const CatagorySelection = ({
           );
         })}
       </Space>
-      {/*{!firstInit && category === "" && (*/}
-      {/*  <div className={`${style["error-msg"]}`}>Please choose a category</div>*/}
-      {/*)}*/}
     </div>
   );
 };
