@@ -22,17 +22,12 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
   const [isPurchasedItem, setIsPurchased] = useState(false);
   const [amount, setAmount] = useState(1);
   const [episodeInfo, setEpisodeInfo] = useState<any>({
-    price: data.isFree ? 0 : "?",
+    price: data.isFree ? 0 : data.numberOfEdition.num,
     currency: "JPY",
     totalLikes: 1,
-    total: data?.numberOfEdition?.num,
-    totalEdition: data?.numberOfEdition?.num,
-    forSale: 1,
-    forSaleEdition: 1,
-    numEditionInBookshelf: null,
     addedToBookshelf: false,
     isFavoriting: false,
-    isFree: data.isFree ? true : false,
+    isFree: data.isFree,
     owner: data?.seriesInfo?.createdBy?.user?.fullName,
     creatorAddress: "0xb6e85340E6000000000dF5551",
     contractID: "0xC6FDB39E59000000000A10990",
@@ -122,7 +117,7 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
                   loading={!data?.seriesInfo}
                 >
                   <a className={style["series-link"]}>
-                    {data?.seriesInfo.serieName}
+                    {data?.seriesInfo?.serieName}
                   </a>
                 </Skeleton>
               </div>

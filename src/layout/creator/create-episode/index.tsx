@@ -15,6 +15,7 @@ import {notifyError} from "@components/toastify";
 import {PendingCreateNftModal} from "./PendingCreateNftModal";
 import {NFTPreview} from "src/layout/creator/create-episode/preview";
 import style from "./create-episode.module.scss";
+import CreatorCreateApi from "../../../api/creator/series";
 
 const scrollToTop = () => {
   document.body.scrollTop = 0;
@@ -371,20 +372,17 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     setVisible(true);
     const category = uploadContent.seriesInfo?.category;
     const uploadSingleFile = (data): Promise<any> =>
-      new Promise((res, rej) => {
+      new Promise(async (resolve, reject) => {
         const form = new FormData();
-        if (!data) {
-          rej("Errorrr");
-        }
         form.append("file", data);
         SeriesAPI.uploadFile({
           formdata: form,
           userInfo: GetUserInfo(),
         })
-          .then(({ key, location, pageNumber }) => {
-            res({ key, location, pageNumber });
+          .then(({ key, location }) => {
+            resolve({ key, location });
           })
-          .catch(rej);
+          .catch(reject);
       });
 
     const upload = await Promise.all([
@@ -395,7 +393,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     const formdata = {
       chapter: uploadContent.chapter.content,
       name: uploadContent.title.content,
-      price: uploadContent.type === "0" ? 0 : 0,
+      price: parseInt(uploadContent.numberOfEdition.num, 10),
       key: upload[1].key,
       thumbnail: upload[0].location,
       pageNumber: upload[1].pageNumber,
@@ -552,7 +550,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
             </section>
             <section className={`${style["serie-info-ep"]}`}>
               <div className={`${style["serie-title"]}`}>
-                <div>{t("create-series:serieTit")}</div>
+                <div>{t("create-series:series")}</div>
                 <div className={`${style["title"]}`}>
                   {uploadContent.seriesInfo?.serieName || "Library of abc"}
                 </div>
@@ -577,7 +575,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
             </section>
             <Form layout="vertical">
               <Form.Item
-                label={t("create-series:epTilte")}
+                label={t("create-series:epTitle")}
                 style={{width: "48%"}}
               >
                 <div
@@ -588,7 +586,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                   }`}
                 >
                   <Input
-                    placeholder={t("create-series:max60Charac")}
+                    placeholder={t("create-series:max60Character")}
                     value={uploadContent.title.content}
                     onChange={episodeTitleChange}
                   />
@@ -608,25 +606,25 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 )}
               </Form.Item>
               <Form.Item
-                label={t("create-series:epTilte")}
+                label={"Chapter"}
                 style={{width: "48%"}}
               >
                 <div
                   className={`${
-                    uploadContent.title.isEmpty || !uploadContent.title.isValid
+                    uploadContent.chapter.isEmpty
                       ? "error-border"
                       : ""
                   }`}
                 >
                   <Input
-                    placeholder={t("create-series:max60Charac")}
+                    placeholder={t("create-series:max60Character")}
                     value={uploadContent.chapter.content}
                     onChange={(e) => handleChapterInput(e.target.value)}
                   />
                 </div>
                 {uploadContent.chapter.isEmpty && (
                   <div className={`${style["error-msg-input"]}`}>
-                    {t("create-series:inputEpTitleAlert")}
+                    Please input chapter
                   </div>
                 )}
               </Form.Item>
@@ -672,13 +670,10 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                     <div className={`${style["episode-option-type"]}`}>
                       {t("create-series:limitedEdition")}
                     </div>
-                    <div className={`${style["episode-option-detail"]}`}>
-                      {t("create-series:epOption1")}
-                    </div>
                     <Form layout="vertical">
                       <Form.Item
-                        label={t("create-series:numOfEdition")}
-                        style={{width: "44%"}}
+                        label={"Price"}
+                        style={{width: "100%"}}
                       >
                         <div
                           className={`${
@@ -700,7 +695,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                           <>
                             {uploadContent.numberOfEdition.isEmpty ? (
                               <div className={`${style["error-msg-input"]}`}>
-                                {t("create-series:numberEditionEmpty")}
+                                Please input price
                               </div>
                             ) : (
                               <>
