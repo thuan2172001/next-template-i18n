@@ -170,7 +170,7 @@ export const FileUpload = ({
             )}
             {fileExt === "epub" && (
               <div className={`${style["video-preview"]}`}>
-                <img src={"/images/epub-default.png"}></img>
+                <img src={"/assets/icons/epub-default.png"}></img>
               </div>
             )}
             {(fileExt === "mp4" || fileExt === "m4v") && (
@@ -198,7 +198,7 @@ export const FileUpload = ({
                   <div className={`${style["preview-btn"]}`}>
                     <img src={"/assets/icons/preview.svg"}></img>
                   </div>
-                  <img src={"/images/music-default.png"}></img>
+                  <img src={"assets/icons/music-default.png"}></img>
                 </div>
               </a>
             )}

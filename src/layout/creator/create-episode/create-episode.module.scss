@@ -258,7 +258,7 @@
 }
 
 .cancel-button {
-  align-items: right;
+  align-items: flex-end;
   width: rem(160px);
   margin-left: auto;
   margin-right: rem(30px);
@@ -317,3 +317,76 @@
     margin-left: rem(14px);
   }
 }
+
+.modal-common {
+  font-style: normal;
+  letter-spacing: rem(0.2px);
+  padding-left: rem(30px);
+  padding-right: rem(26px);
+
+  .confirm-icon {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 38px;
+    width: 56px;
+  }
+
+  .text-align-start {
+    text-align: start;
+  }
+
+  .center-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .align-top-container {
+    margin-top: 11px;
+  }
+}
+
+.success-message {
+  text-align: center;
+  font-weight: bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-light-black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.custom-modal-footer {
+  display: flex;
+  justify-content: center;
+
+  .save-active-margin-right {
+    background: $color-blue-2;
+    color: $color-white;
+    margin-right: rem(30px);
+  }
+
+  .cancel-not-margin {
+    border: rem(1px) solid $color-gray-1;
+  }
+}
+
+.footer-button {
+  margin-top: rem(40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  width: rem(160px);
+  height: rem(40px);
+  cursor: pointer;
+}
+
+.cancel {
+  border: rem(1px) solid $color-gray-6;
+  margin-right: rem(30px);
+}
+
+
