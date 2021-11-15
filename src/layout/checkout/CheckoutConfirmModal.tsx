@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import CustomerPaymentAPI from "../../api/customer/payment";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import CustomerBookshelfAPI from "../../api/customer/bookshelf";
 import { useSelector, useDispatch } from "react-redux";
 import style from "./checkout-confirm.module.scss";
 
@@ -14,6 +13,7 @@ export const CheckoutConfirmModal = ({
   cartList,
   paymentMethod,
   triggerRefetchCart,
+  totalPrice,
 }) => {
   const { t } = useTranslation();
 
@@ -27,39 +27,12 @@ export const CheckoutConfirmModal = ({
   const [isLoading, setLoading] = useState(isCheckoutPending);
   const [isSuccess, setSuccess] = useState(false);
   const [bookshelf, setBookshelf] = useState([]);
-  const [failedModal, setFailedModal] = useState(false);
 
   useEffect(() => {
     setLoading(isCheckoutPending);
   }, [isCheckoutPending]);
 
-  // useEffect(() => {
-  //   if (typeof window !== "undefined" && window.localStorage.userInfo) {
-  //     CustomerBookshelfAPI.getBookShelf({
-  //       userInfo: JSON.parse(window.localStorage.userInfo),
-  //     }).then((response) => {
-  //       const data = response.data || response;
-  //
-  //       const cartItems = cartList
-  //         .filter((e) => e._id && e.numberEdition > 0)
-  //         .map((e) => e._id);
-  //
-  //       const sameEpisode = data.filter((episode) => {
-  //         const { price } = episode;
-  //
-  //         if (price > 0) {
-  //           return cartItems.indexOf(episode._id) > -1;
-  //         }
-  //
-  //         return false;
-  //       });
-  //       setBookshelf(sameEpisode);
-  //     });
-  //   }
-  // }, []);
-
   const doCheckout = () => {
-    // setLoading(true);
     dispatch({ type: "UPDATE_CHECKOUT_PENDING", payload: true });
 
     const userInfo = JSON.parse(window.localStorage.userInfo);
@@ -73,12 +46,11 @@ export const CheckoutConfirmModal = ({
         return e.episodeId
       }),
       paymentMethod,
+      totalPrice,
     }).then((response) => {
       const data = response.data || response;
 
       if (data.code === 500 && data.reason === "CART.EXCEED_ITEM_QUANTITY") {
-        setFailedModal(true);
-
         setSuccess(false);
       }
 
@@ -255,17 +227,6 @@ export const CheckoutConfirmModal = ({
   );
 
   const _renderModal = () => {
-    // if (failedModal)
-    //   return (
-    //     <CheckoutFailureModel
-    //       visibleProp={failedModal}
-    //       modalType="out-of-edition"
-    //       onClickButton={() => {
-    //         setFailedModal(false);
-    //       }}
-    //     />
-    //   );
-
     return _renderConfirmMultipleModal();
   };
 

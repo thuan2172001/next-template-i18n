@@ -69,7 +69,7 @@ export default {
 		});
 	},
 
-	checkout: ({ userInfo, cartList, paymentMethod }) => {
+	checkout: ({ userInfo, cartList, paymentMethod, totalPrice }) => {
 		const customAxios = createCustomAxios(userInfo);
 
 		return customAxios({
@@ -79,6 +79,7 @@ export default {
 				cartList,
 				payment: paymentMethod,
 				currency: 'USD',
+				totalPrice,
 			},
 		}).then((data) => {
 			return data;

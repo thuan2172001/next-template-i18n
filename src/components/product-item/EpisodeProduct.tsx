@@ -63,8 +63,6 @@ export const EpisodeProduct = ({ serieId, episode }) => {
         })
   };
 
-
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
@@ -82,7 +80,10 @@ export const EpisodeProduct = ({ serieId, episode }) => {
   return (
     <div className={`${style["episode-component"]}`}>
       <div
-        onClick={() => router.push(`/episode?serieId=${serieId}&episodeId=${episode.episodeId}`)}
+        onClick={() => {
+          router.push(`/episode?serieId=${serieId}&episodeId=${episode.episodeId}`);
+          location.reload();
+        }}
         className={`${style["cursor_pointer"]}`}>
         <img
           src={thumbnail}

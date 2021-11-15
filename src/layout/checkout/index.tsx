@@ -20,10 +20,6 @@ export const CheckoutTemplate = ({ cartList }) => {
 
     const dispatch = useDispatch();
 
-    const storedCart = useSelector((state: any) => {
-        return state.cart.cartList;
-    });
-
     const isCheckoutPending = useSelector((state: any) => {
         return state.cart.isCheckoutPending;
     });
@@ -31,14 +27,11 @@ export const CheckoutTemplate = ({ cartList }) => {
     const router = useRouter();
 
     const [paymentList, setPaymentList] = useState([]);
-    // const [cartList, setCartList] = useState(storedCart);
     const [modalType, setModalType] = useState("");
     const [paymentMethod, setPaymentMethod] = useState("");
     const [refetchPaymentMethod, forceRefetchPaymentMethod] = useState(1);
-    const [sameEpisode, setSameEpisode] = useState([]);
     const [isLoading, setLoading] = useState(isCheckoutPending);
     const [openSuccessModal, closeSuccessModal] = useState(false);
-    const [failedModal, setFailedModal] = useState(false);
     const [currentTotal, setCurrentTotal] = useState(0);
 
     useEffect(() => {
@@ -47,49 +40,14 @@ export const CheckoutTemplate = ({ cartList }) => {
 
     const calculateTotalPrice = (cartList) => {
         let tmpTotalPrice = 0;
-        // let tmpTotalChecked = 0;
         cartList.forEach((cart) => {
-            // if (cart.isCheck) {
             tmpTotalPrice += parseInt(cart.price);
-            // tmpTotalChecked += 1;
-            // }
         });
         console.log(tmpTotalPrice);
         setCurrentTotal(tmpTotalPrice);
     };
-    // useEffect(() => {
-    //     getCartLists()
-    // },[])
-
-    // useEffect(() => {
-    //     setLoading(isCheckoutPending)
-    // },[isCheckoutPending])
-
 
     useEffect(() => {
-        // async function fetchCartList() {
-
-        //     CustomerBookshelfAPI.getBookShelf({
-        //         userInfo: GetUserInfo(),
-        //     }).then((response) => {
-        //         const data = response.episode || response;
-
-        //         const cartItems = cartList.map((e: any) => e._id);
-
-        //         setSameEpisode(
-        //             data.filter((episode) => {
-        //                 const { price } = episode;
-
-        //                 if (price > 0) {
-        //                     return cartItems.indexOf(episode._id) > -1;
-        //                 }
-
-        //                 return false;
-        //             })
-        //         );
-        //     });
-        // }
-
         CustomerPaymentAPI.getAllPaymentMethod({ userInfo: GetUserInfo() }).then(
             (response) => {
                 const data = response.data || response;
@@ -115,49 +73,7 @@ export const CheckoutTemplate = ({ cartList }) => {
                 setPaymentList(customerPaymentList);
             }
         );
-
-        // fetchCartList();
-    }, [cartList]);
-
-    // useEffect(() => {
-    //     if (typeof window !== "undefined" && window.localStorage.userInfo) {
-    //         CustomerPaymentAPI.getAllPaymentMethod({ userInfo: GetUserInfo() }).then(
-    //             (response) => {
-    //                 const data = response.data || response;
-    //
-    //                 const customerPaymentList = data
-    //                     .map((method) => ({
-    //                         id: method.id,
-    //                         imgSrc:
-    //                             method.card.brand === "visa"
-    //                                 ? "/assets/icons/visa.svg"
-    //                                 : "/assets/icons/master-card.svg",
-    //                         name: method.card.brand === "visa" ? "Visa" : "Mastercard",
-    //                         cardNumber: `**** **** **** ${method.card.last4}`,
-    //                     }))
-    //                     .sort((a, b) => b.created - a.created);
-    //
-    //                 const defaultPaymentMethod = customerPaymentList[0]
-    //                     ? customerPaymentList[0].id
-    //                     : "";
-    //
-    //                 setPaymentMethod(defaultPaymentMethod);
-    //
-    //                 setPaymentList(customerPaymentList);
-    //             }
-    //         );
-    //     }
-    // }, [refetchPaymentMethod]);
-
-    // const getCartLists = () => {
-    //     const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
-    //     CustomerCartAPI.getCartCheckout({ userInfo}).then(res => {
-    //         if(res.cartItems) {
-    //             setCartList(res.cartItems.reverse());
-    //             setCurrentTotal(calculateTotalPrice(res.cartItems))
-    //         }
-    //     })
-    // }
+    }, [cartList, refetchPaymentMethod]);
 
     const renderPaymentSuccessModal = () => {
         return (
@@ -203,7 +119,6 @@ export const CheckoutTemplate = ({ cartList }) => {
     };
 
     const refetchCart = () => {
-        // router.push('/user/cart');
     };
 
     const doCheckout = (cartList) => {
@@ -219,6 +134,7 @@ export const CheckoutTemplate = ({ cartList }) => {
                 return e.episodeId
             }),
             paymentMethod,
+            totalPrice: currentTotal,
         }).then((response) => {
             if (!response.error) {
                 closeSuccessModal(true);
@@ -227,34 +143,6 @@ export const CheckoutTemplate = ({ cartList }) => {
             setLoading(false);
         });
     };
-
-    // const _isPurchaseMultiple = (cartList) => {
-    //     if (!cartList || !Array.isArray(cartList) || cartList.length === 0)
-    //         return false;
-    //
-    //     if (Array.isArray(sameEpisode) && sameEpisode.length > 0) return true;
-    //
-    //     return cartList.filter((item) => item.numberEdition > 1).length > 0;
-    // };
-    //
-    // const handleChangeCartQuantity = ({ cartItemId, count }) => {
-    //     let newCartList = [];
-    //
-    //     for (let i = 0; i < cartList.length; i++) {
-    //         if (cartList[i] && cartList[i].cartItemId === cartItemId) {
-    //             newCartList.push({
-    //                 ...cartList[i],
-    //                 numberEdition: count,
-    //             });
-    //         } else {
-    //             newCartList.push(cartList[i]);
-    //         }
-    //     }
-    //
-    //     dispatch({ type: "UPDATE_CART", payload: newCartList });
-    //
-    //     setCurrentTotal(calculateTotalPrice(newCartList));
-    // };
 
     return (
         <div
@@ -273,9 +161,6 @@ export const CheckoutTemplate = ({ cartList }) => {
                             return (
                                 <div key={index}>
                                     <CartItem
-                                        // updateQuantity={({ cartItemId, count }) => {
-                                        //     handleChangeCartQuantity({ cartItemId, count });
-                                        // }}
                                         key={index}
                                         itemInfo={itemInfo}
                                         type="checkout"
@@ -390,11 +275,10 @@ export const CheckoutTemplate = ({ cartList }) => {
                         modalType={modalType}
                         cartList={cartList}
                         paymentMethod={paymentMethod}
+                        totalPrice={currentTotal}
                         triggerRefetchCart={(value) => value && refetchCart()}
                     />
                 )}
-
-                {/*{modalType === "pending" && <PendingCheckoutModal pendingModal={modalType === "pending"}/>}*/}
             </section>
         </div>
     );
