@@ -96,7 +96,7 @@
     "allReserved": "All rights reserved.",
     "fullCopyright": "Copyright ©︎ WEBTOONZ. All rights reserved."
   },
-  "loginFailedMessage": "tên đăng nhập hoặc mật khẩu của bạn không chính xác",
+  "loginFailedMessage": "Tên đăng nhập hoặc mật khẩu của bạn không chính xác",
   "userID": "Tên đăng nhập",
   "password": "Mật khẩu",
   "forgotPw": "Quên mật khẩu ?",
@@ -176,6 +176,7 @@
     "payment" : "Phương thức thanh toán",
     "value" : "Giá trị"
   },
+  "banned": "Tài khoản đã bị khóa",
   "errorMsg": {
     "createFailed": "Tạo mới thất bại !"
   }

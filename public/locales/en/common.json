@@ -202,6 +202,7 @@
     "payment" : "Payment method",
     "value" : "Value"
   },
+  "banned": "Account is banned",
   "errorMsg": {
     "createFailed": "Create failed !"
   }

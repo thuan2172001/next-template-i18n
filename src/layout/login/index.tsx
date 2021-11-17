@@ -85,6 +85,9 @@ const LoginTemplate = (props) => {
 				ping(userInfo);
 			})
 			.catch((err) => {
+				if (err === "AUTH.BANNED") {
+					setNotification(t('common:banned'))
+				}
 				setNotification(t('common:loginFailedMessage'));
 			});
 	};

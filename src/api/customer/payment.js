@@ -79,7 +79,7 @@ export default {
 				cartList,
 				payment: paymentMethod,
 				currency: 'USD',
-				totalPrice,
+				value: totalPrice,
 			},
 		}).then((data) => {
 			return data;
