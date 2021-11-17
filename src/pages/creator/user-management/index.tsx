@@ -5,7 +5,7 @@ import { Footer } from "@components/footer";
 import { Header } from "@components/header";
 import { UsersManagementTemplate } from "src/layout/user-management";
 
-const SerieManagement = () => {
+const UserManagement = () => {
 
   return (
     <React.Fragment>
@@ -23,4 +23,4 @@ export const getServerSideProps = async ({ locale }) => ({
   },
 });
 
-export default connect(null, {})(SerieManagement);
+export default connect(null, {})(UserManagement);

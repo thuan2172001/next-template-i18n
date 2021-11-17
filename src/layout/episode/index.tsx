@@ -23,7 +23,6 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
 
   const { t } = useTranslation();
   const router = useRouter();
-  const [shareModal, setShareModal] = useState(false);
   const dispatch = useDispatch();
   const cartList = useSelector((state: any) => state.cart?.cartList);
   const [favorite, setFavorite] = useState(false);
@@ -64,8 +63,6 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
   };
 
   const onClickFavorite = () => {
-    // if (!isLogged) setModalVisible(true);
-    console.log(favorite);
     favorite ?
       EpisodeManagementAPI.unlike({
         userInfo: GetUserInfo(),
@@ -108,9 +105,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
 
   useEffect(() => {
     fetchData();
-  }, [episodeId]);
-
-  // const [isPurchasedItem, setIsPurchased] = useState(false);
+  }, [episodeId, router.query]);
 
   const fetchData = () => {
     if (episodeId) {
@@ -124,9 +119,6 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
         });
         setFavorite(episode?.alreadyLiked);
         setTotalLikes(episode?.likes);
-        console.log(episodeInfo?.isBought);
-        // setIsPurchased(episode?.numEditionInBookshelf !== null);
-        // setAddedToBookshelf(episode?.addedToBookshelf);
       });
     }
   };
@@ -134,7 +126,6 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
   const getCartList = () => {
     const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
     CustomerCartAPI.getCart({ userInfo }).then((data) => {
-      console.log({ data })
       if (data) {
         dispatch({
           type: "UPDATE_CART",
@@ -149,12 +140,10 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
   };
 
   const handleAddToCart = () => {
-    console.log({ "amount": amountInCart });
     let newCartList = [];
     if (cartList) {
       newCartList = [...new Set([...cartList, episodeInfo.episodeId])];
     } else newCartList = [episodeInfo.episodeId]
-    console.log({ newCartList })
     const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
     if (userInfo) {
       CustomerCartAPI.updateCart({
@@ -243,11 +232,15 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
                 <img src={"/assets/icons/separate-line.svg"} width={1} height={22} />
               </span>
 
-              <span className={style["category-list"]}>
-                <span className={style["category-name"]}>
-                  {t(`common:category.${episodeInfo?.category?.categoryName}`)}
+              <Skeleton
+                loading={!episodeInfo?.category?.categoryName}
+              >
+                <span className={style["category-list"]}>
+                  <span className={style["category-name"]}>
+                    {t(`common:category.${episodeInfo?.category?.categoryName}`)}
+                  </span>
                 </span>
-              </span>
+              </Skeleton>
             </div>
 
             <div>

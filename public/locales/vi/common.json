@@ -168,5 +168,12 @@
   "leave": "Rời đi",
   "cancel": "Hủy",
   "signup": "Đăng ký ngay !",
-  "dontHaveAcc": "Chưa có tài khoản ?"
+  "dontHaveAcc": "Chưa có tài khoản ?",
+  "transaction": {
+    "title" : "Lịch sử giao dịch",
+    "transactionId": "Mã giao dịch",
+    "items" : "Sản phẩm",
+    "payment" : "Phương thức thanh toán",
+    "value" : "Giá trị"
+  }
 }

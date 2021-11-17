@@ -41,7 +41,7 @@ export default {
 	},
 
 	editPassword: ({
-		userInfo,
+	userInfo,
 		currentPassword,
 		newPassword,
 		publicKey,

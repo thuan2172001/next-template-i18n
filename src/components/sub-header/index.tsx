@@ -31,22 +31,6 @@ export const SubHeader = ({
         });
     }, []);
 
-    // useMemo(async () => {
-    //   if (categoryId) {
-    //     console.log(categoryId)
-    //     if (categories.filter(cate => cate._id == categoryId).length > 0) {
-    //       console.log({ categoryId });
-    //       setSelectedCate(categoryId)
-    //     } else {
-    //       const parentId = await getKeyByValue(subCategories, categoryId)
-    //       console.log({ parentId, categoryId });
-    //       if (parentId && parentId !== 'all' && categoryId) {
-    //         setSelectedCate(parentId)
-    //       }
-    //     }
-    //   }
-    // }, [categoryId, categories])
-
     return (
         <>
             <div className={`${style["subheader-container"]}`}>

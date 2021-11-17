@@ -81,7 +81,9 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 				>
 					{t("common:header.dropdown.liked")}
 				</Menu.Item>
-				<Menu.Item key="6">
+				<Menu.Item key="6"
+					onClick={() => router.push("/user/transaction")}
+				>
 					{t("common:header.dropdown.purchaseHistory")}
 				</Menu.Item>
 				<Menu.Item
@@ -181,8 +183,8 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 		router.push("/shop-setting?tab=general-setting");
 	};
 
-	const handleMoveToMU = () => {
-		router.push("/um");
+	const handleMoveToUserMangement = () => {
+		router.push("/creator/user-management");
 	}
 
 
@@ -213,7 +215,7 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 				<Menu.Item
 					key="manageUsers"
 					className={`${style["disable-antd-css"]} ${style["creator-sub-btn"]}`}
-					onClick={handleMoveToMU}
+					onClick={handleMoveToUserMangement}
 				>
 					{t("common:header.creator.manageUsers")}
 				</Menu.Item>

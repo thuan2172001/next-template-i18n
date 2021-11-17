@@ -194,5 +194,12 @@
   "leave": "Leave",
   "cancel": "Cancel",
   "signup": "Register now !",
-  "dontHaveAcc": "Don't have account ?"
+  "dontHaveAcc": "Don't have account ?",
+  "transaction": {
+    "title" : "Transaction history",
+    "transactionId": "Transaction ID",
+    "items" : "Items",
+    "payment" : "Payment method",
+    "value" : "Value"
+  }
 }

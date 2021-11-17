@@ -10,10 +10,11 @@ export const UsersManagementTemplate = () => {
   const [totalUser, setTotalUser] = useState(0);
   const [userPerPage, setUserPerPage] = useState([]);
   const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
   const [modalType, setModalType] = useState("");
   const [currentUserId, setCurrentUserId] = useState("");
   const [currentUserStatus, setCurrentUserStatus] = useState("");
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   const fetchData = (page, limit) => {
     let body = {
@@ -32,13 +33,9 @@ export const UsersManagementTemplate = () => {
   useEffect(() => {
     let userInfo = GetUserInfo();
     if (userInfo?.role === "creator") {
-      fetchData(1, 10);
+      fetchData(page, limit);
     }
-  }, []);
-
-  // useMemo(() => {
-  //   fetchData(page, 10);
-  // }, [totalUser, page]);
+  }, [page, limit]);
 
   return (
     <div className={style["container"]}>
