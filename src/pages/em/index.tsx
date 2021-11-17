@@ -5,7 +5,6 @@ import { Footer } from "@components/footer";
 import { Header } from "@components/header";
 import EpisodeManagementTemplate from "src/layout/episode-management/index";
 import { useRouter } from 'next/router';
-// import { NotFoundPage } from "@components/no-result/NotFoundPage";
 
 const EpisodeManagement = () => {
   const router = useRouter();
@@ -19,8 +18,6 @@ const EpisodeManagement = () => {
 			view: router.query.view
 		});
 	}, [router])
-
-  // if(roleValid === 'false') return <NotFoundPage />
 
   return (
     <React.Fragment>

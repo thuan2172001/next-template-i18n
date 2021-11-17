@@ -8,11 +8,6 @@ import SeriesManagementAPI from "../../api/series-management/series-management";
 import { GetUserInfo } from "src/api/auth";
 import { PageNavigation } from "@components/pagination";
 import { SeeMoreNoResult } from "@components/no-result/SeeMoreNoResult";
-// import { PublishSeriesModal } from "src/templates/nft/modal/PublishSeriesModal";
-// import { PrivateSeriesModal } from "../nft/modal/PrivateSeriesModal";
-// import { PendingPrivateSerieModal } from "./modal/PendingPrivateSerieModal";
-// import { SuccessPrivateSerieModal } from "./modal/SuccessPrivateSerieModal";
-// import { FailedPrivateSerieModal } from "./modal/FailedPrivateModal";
 
 export const SeriesManagementTemplate = () => {
   const { t } = useTranslation();
@@ -220,45 +215,6 @@ export const SeriesManagementTemplate = () => {
           itemsPerPage={itemsPagination * 10}
         />
       )}
-      {/*{modalVisible && modalType === "publish" ? (*/}
-      {/*  <PublishSeriesModal*/}
-      {/*    updateModalVisible={({ data }) => {*/}
-      {/*      setModalVisible(data);*/}
-      {/*    }}*/}
-      {/*    serieInfo={chosenSeries}*/}
-      {/*    updateRefetch={() => setRefetch(!refetch)}*/}
-      {/*  ></PublishSeriesModal>*/}
-      {/*) : (*/}
-      {/*  modalVisible &&*/}
-      {/*  modalType === "private" && (*/}
-      {/*    <PrivateSeriesModal*/}
-      {/*      updateModalVisible={({ data }) => {*/}
-      {/*        setModalVisible(data);*/}
-      {/*      }}*/}
-      {/*      serieInfo={chosenSeries}*/}
-      {/*      updateModalType={({ type }) => setModalType(type)}*/}
-      {/*    ></PrivateSeriesModal>*/}
-      {/*  )*/}
-      {/*)}*/}
-      {/*{modalType === "pending" && (*/}
-      {/*  <PendingPrivateSerieModal*/}
-      {/*    serieInfo={chosenSeries}*/}
-      {/*    updateModalType={({ type }) => setModalType(type)}*/}
-      {/*  />*/}
-      {/*)}*/}
-
-      {/*{modalType === "success" && (*/}
-      {/*  <SuccessPrivateSerieModal*/}
-      {/*    serieName={chosenSeries.name}*/}
-      {/*    updateModalType={({ type }) => setModalType(type)}*/}
-      {/*  />*/}
-      {/*)}*/}
-      {/*{modalType === "fail" && (*/}
-      {/*  <FailedPrivateSerieModal*/}
-      {/*    serieName={chosenSeries.name}*/}
-      {/*    updateModalType={({ type }) => setModalType(type)}*/}
-      {/*  />*/}
-      {/*)}*/}
     </div>
   );
 };

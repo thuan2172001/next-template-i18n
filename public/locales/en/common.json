@@ -201,5 +201,8 @@
     "items" : "Items",
     "payment" : "Payment method",
     "value" : "Value"
+  },
+  "errorMsg": {
+    "createFailed": "Create failed !"
   }
 }

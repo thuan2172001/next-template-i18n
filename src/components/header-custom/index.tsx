@@ -94,7 +94,6 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
     window.localStorage.setItem("popup-url", "/sm?view=public");
   };
   const handleMoveToEP = () => {
-    // const url = window.location.href
     if (router.pathname !== "/creator/edit-profile") {
       window.localStorage.setItem("popup-url", "/creator/edit-profile");
       setLeave(true);

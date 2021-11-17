@@ -113,7 +113,6 @@ export const PreviewSerieTemplate = ({
                   key={index}
                   serieId={series._id}
                   episode={episode}
-                  // clickable={!editSeries}
                 />
               );
             })

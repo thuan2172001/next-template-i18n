@@ -16,7 +16,6 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 	const dispatch = useDispatch();
 
 	const totalItemsInCart = useSelector((state: any) => {
-		console.log(state)
 		let total = state.cart?.cartList.length || 0
 		return total;
 	});

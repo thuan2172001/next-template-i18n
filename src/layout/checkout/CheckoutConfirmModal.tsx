@@ -37,12 +37,9 @@ export const CheckoutConfirmModal = ({
 
     const userInfo = JSON.parse(window.localStorage.userInfo);
 
-    console.log({ cartList })
-
     CustomerPaymentAPI.checkout({
       userInfo,
       cartList: cartList.map((e) => {
-        console.log({ e })
         return e.episodeId
       }),
       paymentMethod,

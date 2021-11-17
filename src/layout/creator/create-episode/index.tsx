@@ -55,10 +55,6 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
   });
 
   useEffect(() => {
-    console.log("Pr", preview);
-  }, [preview]);
-
-  useEffect(() => {
     history.pushState(null, null, location.href);
     window.onpopstate = function () {
       history.go(1);
@@ -128,7 +124,6 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     )
       .then((data) => {
         setUploadContent({...uploadContent, seriesInfo: data,})
-        console.log(data)
       })
       .catch(() => {
         setRoleValid("false");

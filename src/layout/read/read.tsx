@@ -94,7 +94,6 @@ export const Read = ({
       slidesDirection[currentView] = "next-for-hidden";
 
       if (checkpointState) {
-        console.log({ checkpointState });
         checkpointState[episodeId] = {
           page: currentView + 1,
           pageNumber,

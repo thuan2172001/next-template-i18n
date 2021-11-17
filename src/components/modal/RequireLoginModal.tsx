@@ -11,8 +11,6 @@ export const RequireLoginModal = ({ updateModalVisible, isFrom = "" }) => {
   const handleRoute = () => {
     localStorage.setItem("routeFromLoginModal", isFrom);
     router.push("/login");
-    // if (isFrom !== "") router.push(`/login?isFrom=${isFrom}`);
-    // else router.push("/login");
   };
   return (
     <Modal

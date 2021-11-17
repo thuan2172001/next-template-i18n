@@ -78,7 +78,6 @@ export const ReadHeader = ({
 
   useEffect(() => {
     if (!currentEps) return;
-    console.log({ currentEps })
     setFavorite(currentEps.alreadyLiked);
     setTotalLikes(currentEps.likes);
   }, [currentEps]);

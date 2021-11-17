@@ -1,33 +1,8 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-// import MoonLoader from "react-spinners/MoonLoader";
 import { useTranslation } from "next-i18next";
-// import SeriesAPI from "../../api/creator/series";
-// import CreatorSettingAPI from "../../api/creator/setting";
-// import ShopSettingAPI from "../../api/creator/shop-setting";
-import { GetUserInfo } from "src/api/auth";
 import style from "./cover.module.scss";
 import { Input, Button } from "antd";
-
-const colors = [
-  "#54ACEC",
-  "#EA2763",
-  "#F54336",
-  "#9B27B0",
-  "#EA2763",
-  "#8BC44A",
-  "#FFC206",
-  "#FF9800",
-  "#029688",
-  "#54ACEC",
-  "#02BCD4",
-  "#F54336",
-  "#54AFEC",
-  "#795648",
-  "#434343",
-  "#CCCCCC",
-  "#8BC44A",
-];
 
 const validateImage = (size, src, componentType, name): any =>
   new Promise((resolve) => {
@@ -196,26 +171,6 @@ export const HomePageCover = ({ creator }) => {
       const formData = new FormData();
 
       formData.append("file", coverFile);
-
-      // SeriesAPI.uploadFile({
-      //   formdata: formData,
-      //   userInfo: GetUserInfo(),
-      // }).then((data) => {
-      //   setTimeout(() => {
-      //     setAction('');
-      //     setEditBannerClick(!editBannerClicked);
-      //     setLoading(false);
-      //   }, 1500);
-      //   const { location } = data;
-
-      //   CreatorSettingAPI.setCover({
-      //     userInfo: JSON.parse(window.localStorage.userInfo),
-      //     cover: location,
-      //   }).then(() => {
-      //     setCover(location);
-      //     setErrorMessage("");
-      //   });
-      // });
     } catch (error) {
       getErrorMessage(error.message)
       setCover(creator ? creator.cover : 'https://nftjapan-backup.s3.ap-northeast-1.amazonaws.com/image/be3bc26a-565e-499b-aa69-967baa1c6fdb-KEY%20VUSUAL%201.png');
@@ -226,13 +181,6 @@ export const HomePageCover = ({ creator }) => {
   };
 
   const handleResetCover = () => {
-    // CreatorSettingAPI.resetCover({
-    //   userInfo: JSON.parse(window.localStorage.userInfo),
-    // }).then((response) => {
-    //   const { cover: defaultBanner } = response.data || response;
-
-    //   setCover(defaultBanner);
-    // });
     setAction('')
     setEditBannerClick(!editBannerClicked);
   }
@@ -256,23 +204,6 @@ export const HomePageCover = ({ creator }) => {
 
     if (!hexColorRule.test(color) || color.length !== 7)
       return getErrorMessage('INVALID_COLOR')
-    // ShopSettingAPI.editProfileCreator({
-    //   userInfo: GetUserInfo(),
-    //   params: {
-    //     color: {
-    //       pgbcolor: color
-    //     }
-    //   },
-    // }).then((res) => {
-    //   if (res.status == "success") {
-    //     setBgColor(color);
-    //     setErrorMessage('')
-    //     setEditBgColor(false);
-    //   }
-    // })
-    // .catch(() => {
-    //   return getErrorMessage('')
-    // });
   }
 
   useEffect(() => {
@@ -300,48 +231,6 @@ export const HomePageCover = ({ creator }) => {
           className="change-color"
           onClickFunction={() => setEditBgColor(!editBgColor)}
         />
-
-        {editBgColor && (
-          <div className={`${style["color-picker"]}`}>
-            <div className={`${style["color-choice"]}`}>
-              {colors.map((item, index) => (
-                <div
-                  style={{ backgroundColor: item }}
-                  className={`${style["color-item"]}`}
-                  onClick={() => updateBackgroundColor(item)}
-                  key={index}
-                ></div>
-              ))}
-              <label
-                className={`${style["color-item"]} ${style["color-button"]}`}
-              >
-                <input
-                  type="color"
-                  className={`${style["input"]}`}
-                  onChange={(e) => updateBackgroundColor(e.target.value)}
-                ></input>
-              </label>
-            </div>
-            <div className={`${style["color-input"]}`}>
-              <Input
-                className={`${style["color-input-input"]}`}
-                onChange={(e) => {
-                  setInputColor(e.target.value)
-                  validateColor(e.target.value)
-                }}
-                maxLength={7}
-              />
-              <Button
-                className={`${style["color-input-btn"]}`}
-                onClick={() => {
-                  updateBackgroundColor(inputColor);
-                }}
-              >
-                Apply
-              </Button>
-            </div>
-          </div>
-        )}
 
         {editBannerClicked && (
           <>

@@ -19,7 +19,6 @@ const CheckoutPage = () => {
         if (userInfo) {
             CustomerCartAPI.getCartData({userInfo}).then(data => {
                 if (data) {
-                    console.log({data})
                     setData(data)
                 }
             })

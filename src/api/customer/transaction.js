@@ -6,7 +6,6 @@ const creator = CREATOR;
 
 export default {
   getAllTransactions: ({ userInfo, page, limit }) => {
-    console.log(page, limit);
     const customAxios = createCustomAxios(userInfo);
     return customAxios({
       method: "get",

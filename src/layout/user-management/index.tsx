@@ -23,7 +23,7 @@ export const UsersManagementTemplate = () => {
     };
     CreatorManageAPI.getAllUser({ body: body, userInfo: GetUserInfo() }).then(
       (response) => {
-        console.log(response);
+        
         setTotalUser(response.total);
         setUserPerPage(response.data);
       }

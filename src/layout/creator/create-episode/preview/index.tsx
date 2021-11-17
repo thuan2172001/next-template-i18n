@@ -2,10 +2,8 @@ import { Col, Row, Skeleton, Button } from "antd";
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import { HeartFilled } from "@ant-design/icons";
-// import SeriesAPI from "../../../../api/creator/series";
 import { GetUserInfo } from "../../../../api/auth";
 import { useRouter } from "next/router";
-// import { ShareModal } from "@components/share-modal";
 import { RequireLoginModal } from "@components/modal/RequireLoginModal";
 import { NonPurchasedItem } from "../../../episode/NonPurchasedItem";
 import { PurchasedItem } from "../../../episode/PurchasedItem";
@@ -14,23 +12,17 @@ import style from "../../../episode/episode.module.scss";
 
 export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => {
   const { t } = useTranslation();
-  const router = useRouter();
-  const { serie } = router.query;
-  const [shareModal, setShareModal] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
   let userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
   const [isPurchasedItem, setIsPurchased] = useState(false);
-  const [amount, setAmount] = useState(1);
   const [episodeInfo, setEpisodeInfo] = useState<any>({
     price: data.isFree ? 0 : data.numberOfEdition.num,
-    currency: "JPY",
+    currency: "USD",
     totalLikes: 1,
     addedToBookshelf: false,
     isFavoriting: false,
     isFree: data.isFree,
     owner: data?.seriesInfo?.createdBy?.user?.fullName,
-    creatorAddress: "0xb6e85340E6000000000dF5551",
-    contractID: "0xC6FDB39E59000000000A10990",
     created: new Date(),
     seriesName: data?.seriesInfo?.name,
   });
@@ -81,13 +73,6 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
     <div className={`${style["container"]}`}>
       <div className={`${style["overlay"]}`}></div>
       <div className={`${style["nft"]} ${style["preview"]}`}>
-        {/*<ShareModal*/}
-        {/*  visible={shareModal}*/}
-        {/*  setVisible={setShareModal}*/}
-        {/*  content={episodeInfo?._id}*/}
-        {/*  imageUrl={episodeInfo.thumbnail}*/}
-        {/*/>*/}
-
         <Row gutter={30}>
           <Col span={12}>
             <div className="nft-image" style={{ position: "relative" }}>
@@ -184,16 +169,12 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
               {isPurchasedItem ? (
                 <PurchasedItem
                   episodeInfo={episodeInfo}
-                  // handleBuyMoreEdition={() => setIsPurchased(false)}
                 />
               ) : (
                 <NonPurchasedItem
                   episodeInfo={episodeInfo}
                   addedToBookshelf={addedToBookshelf}
                   handelAddToBookshelf={() => console.log("Add")}
-                  // setCartAmount={({ count }) => {
-                  //   setAmount(count);
-                  // }}
                   handleAddToCart={() => console.log("Add")}
                 />
               )}

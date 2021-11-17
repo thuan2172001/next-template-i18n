@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
-import { Footer } from "@components/footer";
 import { Header } from "@components/header";
-import { HomePageCover } from "./HomePageCover";
 import { CreatorNewRelease } from "./CreatorNewRelease";
-// import { ThreeBoxes } from "@components/three-boxes-shop";
-// import CreatorSettingAPI from "../../api/creator/setting";
 import { GetUserInfo } from "src/api/auth";
 import { ShopProfile } from "@components/shop-profile";
 import { CoverPhoto } from "@components/shop_component/CoverPhoto";
@@ -12,7 +8,6 @@ import { CoverPhoto } from "@components/shop_component/CoverPhoto";
 export const CreatorHomePageTemplate = () => {
   const [creatorData, setCreatorData] = useState(null);
   const [shopOpening, setOpening] = useState(true);
-  const [template, setTemplate] = useState(0);
 
   useEffect(() => {
     getCreatorData();

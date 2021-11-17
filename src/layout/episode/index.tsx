@@ -68,7 +68,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
         userInfo: GetUserInfo(),
         episodeId: episodeId,
       }).then((res) => {
-        console.log(res);
+        
         if (res.data == "success") {
           setFavorite(false);
           setTotalLikes(episodeTotalLikes - 1);
@@ -77,7 +77,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
         userInfo: GetUserInfo(),
         episodeId: episodeId,
       }).then((res) => {
-        console.log(res);
+        
         if (res.data == "success") {
           setFavorite(true);
           setTotalLikes(episodeTotalLikes + 1);
@@ -85,8 +85,6 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
       })
   };
 
-  // const [isCreatorMode, setCreatorMode] = useState(false);
-  //
   useEffect(() => {
     if (typeof window !== "undefined") {
       userInfo =
@@ -96,7 +94,6 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
 
       if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
         setIsLogged(true);
-        // if (userInfo.role.role === "creator") setCreatorMode(true);
       } else {
         setIsLogged(false);
       }

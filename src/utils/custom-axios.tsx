@@ -59,11 +59,7 @@ const _getActionModule = (_url) => {
 const _setupAxios = (originAxios, auth) => {
     originAxios.interceptors.request.use(
         (config) => {
-            console.log(123);
-            console.log(config.headers);
-
             config.paramsSerializer = (params) => {
-                console.log({ params });
                 return qs.stringify(params, {
                     allowDots: true,
                     arrayFormat: 'comma',
@@ -71,10 +67,7 @@ const _setupAxios = (originAxios, auth) => {
                 });
             };
 
-            console.log({auth})
-
             if (!auth?._id) return config;
-            console.log(JSON.stringify(auth._certificate));
             config.headers["Authorization"] = `${JSON.stringify(auth._certificate)}`;
             if (config.method.toUpperCase() !== 'GET') {
                 const _getActionType = () =>
@@ -84,7 +77,6 @@ const _setupAxios = (originAxios, auth) => {
                         _getActionModule(config.url ?? '/')
                     ).toUpperCase();
                 if (!config.data || !auth._privateKey) return config;
-                // goi lai vao data, signature giu nguyen
                 if (config.data instanceof FormData) {
                     config.data.append('_timestamp', new Date().toISOString());
                     config.data.append('_actionType', _getActionType());

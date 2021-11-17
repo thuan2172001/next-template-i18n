@@ -62,18 +62,6 @@ export default {
 			return data;
 		});
 	},
-	//
-	// checkEmailExist: ({ email }) => {
-	// 	const customAxios = createCustomAxios(null);
-	//
-	// 	return customAxios({
-	// 		method: 'post',
-	// 		url: `${baseURL}/customer/check-email-exist`,
-	// 		data: { email },
-	// 	}).then((data) => {
-	// 		return data;
-	// 	});
-	// },
 
 	getSettingRead: ({userInfo}) => {
 		const customAxios = createCustomAxios(userInfo);

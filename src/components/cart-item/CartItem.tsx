@@ -22,73 +22,6 @@ export const CartItem = ({
     const {thumbnail, price, serieId, episodeId, name} = itemInfo;
     const [authorId, setAuthorId] = useState("");
 
-    // const toogleIsCheckCart = (cartItem) => {
-    //   const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
-    //   if (userInfo) {
-    //     CustomerCartAPI.toogleIsCheckCart({ userInfo, cartItem }).then((res) => {
-    //       if (res.cartItems) {
-    //         getCartList();
-    //       }
-    //     });
-    //   } else {
-    //     const newCartList = cartList.map((cart) => {
-    //       if (cart.episode._id === episode._id || cart.episode === episode._id) {
-    //         return {
-    //           ...cart,
-    //           isCheck: !cart.isCheck,
-    //         };
-    //       }
-    //       return cart;
-    //     });
-
-    //     dispatch({
-    //       type: "UPDATE_CART",
-    //       payload: newCartList,
-    //     });
-    //     getCartListGuest(newCartList);
-    //   }
-    // };
-
-    // const updateQuantity = (quantity) => {
-    //   if (quantity === itemInfo.quantity) return;
-    //   const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
-    //   if (userInfo) {
-    //     CustomerCartAPI.updateCart({
-    //       userInfo,
-    //       cartItems: []
-    //     }).then(() => {
-    //       getCartList();
-    //     });
-    //   } else {
-    //     let newCartList = cartList.map((cart) => {
-    //       if (cart.episode._id === episode._id || cart.episode === episode._id) {
-    //         return {
-    //           ...cart,
-    //           quantity: quantity > maxNumberCanBuy ? maxNumberCanBuy : quantity,
-    //         };
-    //       }
-    //       return cart;
-    //     });
-
-    //     newCartList = newCartList.filter((cart) => cart.quantity > 0);
-    //     dispatch({
-    //       type: "UPDATE_CART",
-    //       payload: newCartList,
-    //     });
-    //     getCartListGuest(newCartList);
-    //   }
-    // };
-
-    // useEffect(() => {
-    //   const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
-    //   CustomerSerieAPI.getSerieData({
-    //     serieId: itemInfo.episode.serieId,
-    //     userInfo: userInfo,
-    //   }).then((data) => {
-    //     setAuthorId(data.createdBy._id);
-    //   });
-    // }, []);
-
     const removeItem = () => {
         let newCartList = [];
         console.log(cartList)
@@ -97,7 +30,6 @@ export const CartItem = ({
         console.log(index);
         cartList.splice(index, 1);
         newCartList = [...new Set([...cartList])];
-        console.log({newCartList})
         const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
         if (userInfo) {
             CustomerCartAPI.updateCart({

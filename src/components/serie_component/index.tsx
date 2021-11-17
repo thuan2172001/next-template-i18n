@@ -37,8 +37,6 @@ export const SerieComponent = ({
 
   const [data, setData] = useState({
     creatorName: 'Thuan',
-    // creatorAvatar: "",
-    // isLiked: serie.alreadyLiked,
     serieName: serie.serieName,
     thumbanailSrc: serie.thumbnail,
   });
@@ -49,8 +47,6 @@ export const SerieComponent = ({
   useEffect(() => {
     const initialData = {
       creatorName: 'Thuan',
-      // creatorAvatar: serie.createdBy.avatar,
-      // isLiked: serie.alreadyLiked,
       serieName: serie.serieName,
       thumbanailSrc: serie.thumbnail,
     };
@@ -63,7 +59,6 @@ export const SerieComponent = ({
           userInfo: GetUserInfo(),
           serieId: serie.serieId,
         }).then((res) => {
-          console.log(res);
           if (res.data == "success") {
             setFavorite(false);
           }
@@ -71,7 +66,6 @@ export const SerieComponent = ({
           userInfo: GetUserInfo(),
           serieId: serie.serieId,
         }).then((res) => {
-          console.log(res);
           if (res.data == "success") {
             setFavorite(true);
           }

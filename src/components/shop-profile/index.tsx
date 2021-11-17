@@ -2,16 +2,9 @@ import React, { useRef, useState, useEffect } from "react";
 import { TwitterEmbbed } from "@components/twitter-homepage";
 import { Modal, Input, Button, Row, Col } from "antd";
 import { cnumberWithCommas } from "src/utils/common-function";
-// import CreatorSettingAPI from "../../api/creator/setting";
 import { GetUserInfo } from "src/api/auth";
-// import CreatorManagementApi from "../../api/creator/creators-management";
-// import { RequireLoginModal } from "@components/modal/RequireLoginModal";
-
 import style from "./shop-profile.module.scss";
-import { BASE_URL } from "../../api/const";
 import { useTranslation } from "react-i18next";
-
-const { TextArea } = Input;
 
 const getMediaImage = (mediaLink, index) => {
   let urlImage = `media-default${index + 1}`;
@@ -89,28 +82,7 @@ export const ShopProfile = ({ template }) => {
     }
   }, [userInfo]);
 
-  // useEffect(() => {
-  // CreatorSettingAPI.getCreatorInfo({
-  //   userInfo: GetUserInfo(),
-  //   creator: creatorId
-  // }).then(res => {
-  //   setCreatorInfo(res);
-  //   setFollower(res.totalFollower)
-  //   setIsFollowing(res.isFollowing)
-  //   setLinhSNS(res.mediaLinks)
-  // })
-  // }, [creatorId])
-
   const onClickFollow = () => {
-    // if (!isLogged) setModalVisible(true);
-    // else {
-    // CreatorManagementApi.toggleFollowCreator({userInfo: GetUserInfo(), creator: creatorId}).then((res) => {
-    //   if(res.success) {
-    //     setIsFollowing(res.isFollowing);
-    //     setFollower(res.totalFollower);
-    //   }
-    // })
-    // }
   };
 
   return (

@@ -49,14 +49,13 @@ const SerieTemplate = ({ serieId }) => {
     }, []);
 
     const onClickFavorite = () => {
-        // if (!isLogged) setModalVisible(true);
 
         favorite ?
             EpisodeManagementAPI.unlike({
                 userInfo: GetUserInfo(),
                 serieId: serieId,
             }).then((res) => {
-                console.log(res);
+                
                 if (res.data == "success") {
                     setFavorite(false);
                     setLikes(likes - 1);
@@ -65,7 +64,7 @@ const SerieTemplate = ({ serieId }) => {
                 userInfo: GetUserInfo(),
                 serieId: serieId,
             }).then((res) => {
-                console.log(res);
+                
                 if (res.data == "success") {
                     setFavorite(true);
                     setLikes(likes + 1);

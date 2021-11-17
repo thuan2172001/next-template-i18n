@@ -46,7 +46,6 @@ export const TransactionTemplate = () => {
         <tbody className={style["body"]}>
           {transactions?.map((el, index) => {
             const payment = el.payment;
-            console.log({ payment })
             const imgSrc = payment.card.brand === "visa"
               ? "/assets/icons/visa.svg"
               : "/assets/icons/master-card.svg";
@@ -63,7 +62,6 @@ export const TransactionTemplate = () => {
                   <div
                     style={{
                       display: "flex",
-                      // width: "500px",
                       position: "relative",
                     }}
                     className={`${style["card-list"]}`}

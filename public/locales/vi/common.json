@@ -175,5 +175,8 @@
     "items" : "Sản phẩm",
     "payment" : "Phương thức thanh toán",
     "value" : "Giá trị"
+  },
+  "errorMsg": {
+    "createFailed": "Tạo mới thất bại !"
   }
 }

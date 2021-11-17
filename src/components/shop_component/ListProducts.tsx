@@ -37,7 +37,6 @@ export const ListProducts = ({ selectedCate }) => {
       isDaily: "true",
     })
       .then((res) => {
-        console.log({ res })
         setDataListProducts(res.data);
         setTotalProduct(res.totalSeries);
         setIsLoading(false);

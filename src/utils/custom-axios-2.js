@@ -5,7 +5,6 @@ let totalNoInternetRequest = 0;
 
 const customAxios2 = axios.create();
 
-// Request interceptor for API calls
 customAxios2.interceptors.request.use(
     async config => {
 

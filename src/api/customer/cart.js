@@ -24,16 +24,6 @@ export default {
 		});
 	},
 
-	// getCartCheckout: ({ userInfo }) => {
-	// 	const customAxios = createCustomAxios(userInfo);
-	// 	return customAxios({
-	// 		method: 'get',
-	// 		url: `${baseURL}/user/cart-checkout`,
-	// 	}).then((data) => {
-	// 		return data;
-	// 	});
-	// },
-
 	updateCart: ({ userInfo, cartItems }) => {
 		const customAxios = createCustomAxios(userInfo);
 		return customAxios
@@ -44,27 +34,4 @@ export default {
 				return data;
 			});
 	},
-
-	// updateCartMutiple: ({ userInfo, cartInfo }) => {
-	// 	const customAxios = createCustomAxios(userInfo);
-
-	// 	return customAxios
-	// 		.post(`${baseURL}/user/cart/multiple`, {
-	// 			cartInfo,
-	// 		})
-	// 		.then((data) => {
-	// 			return data;
-	// 		});
-	// },
-
-	// toogleIsCheckcommon: ({ userInfo, cartItem }) => {
-	// 	const customAxios = createCustomAxios(userInfo);
-	// 	return customAxios
-	// 		.post(`${baseURL}/user/cart/toggle-ischeck`, {
-	// 			cartItem,
-	// 		})
-	// 		.then((data) => {
-	// 			return data;
-	// 		});
-	// }
 };

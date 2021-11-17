@@ -43,7 +43,7 @@ export default {
         limit,
       },
     }).then((data) => {
-      console.log(data);
+      
       return data;
     });
   },

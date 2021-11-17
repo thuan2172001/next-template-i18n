@@ -23,13 +23,11 @@ export const EpisodeProduct = ({ serieId, episode }) => {
   const [favorite, setFavorite] = useState(alreadyLiked);
 
   const onClickFavorite = () => {
-    console.log(favorite);
     favorite ?
       EpisodeManagementAPI.unlike({
         userInfo: GetUserInfo(),
         episodeId: episode.episodeId,
       }).then((res) => {
-        console.log(res);
         if (res.data == "success") {
           setFavorite(false);
         }
@@ -37,7 +35,6 @@ export const EpisodeProduct = ({ serieId, episode }) => {
         userInfo: GetUserInfo(),
         episodeId: episode.episodeId,
       }).then((res) => {
-        console.log(res);
         if (res.data == "success") {
           setFavorite(true);
         }

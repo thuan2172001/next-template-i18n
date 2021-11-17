@@ -10,7 +10,6 @@ import { HeartFilled } from "@ant-design/icons";
 import { PublicNft } from "@components/product-item/PublicNft";
 import { PrivateNft } from "@components/product-item/PrivateNft";
 import { SeeMoreNoResult } from "@components/no-result/SeeMoreNoResult";
-// import { PendingPrivateSerieModal } from "src/templates/serie-management/modal/PendingPrivateSerieModal";
 
 const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
   const { t } = useTranslation();
@@ -64,10 +63,6 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
   }, [router.isReady, router.query?.page]);
 
   const [isPrivating, setPrivating] = useState(false);
-
-  useEffect(() => {
-    console.log(serieData)
-  }, [serieData])
 
   useEffect(() => {
     if (!serieId) return;

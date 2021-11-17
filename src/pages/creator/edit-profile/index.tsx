@@ -5,7 +5,6 @@ import { Footer } from "@components/footer";
 import { CreatorLayout } from "@components/creator-tab-layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { EditProfileTemplate } from "src/layout/creator/edit-profile";
-// import { NotFoundPage } from "@components/no-result/NotFoundPage";
 import { GetUserInfo } from "src/api/auth";
 
 const EditProfile: React.FC = () => {
@@ -22,7 +21,6 @@ const EditProfile: React.FC = () => {
   return (
     <React.Fragment>
       {roleValid === "" && <></>}
-      {/*{roleValid === "false" && <NotFoundPage />}*/}
       {roleValid === "true" && (
         <>
           {" "}

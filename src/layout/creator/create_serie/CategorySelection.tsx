@@ -21,7 +21,7 @@ export const CatagorySelection = ({
 
   useEffect(() => {
     CategoriesAPI.getAllCategories().then((res) => {
-      console.log(res);
+      
       setCategoryList(res);
     });
   }, []);

@@ -8,12 +8,9 @@ import { GetUserInfo } from "src/api/auth";
 import { CheckoutConfirmModal } from "./CheckoutConfirmModal";
 import { useRouter } from "next/router";
 import CustomerPaymentAPI from "../../api/customer/payment";
-import CustomerBookshelfAPI from "../../api/customer/bookshelf";
 import { useTranslation } from "next-i18next";
-// import { PendingCheckoutModal } from "@components/account-modal/PendingCheckoutModal";
 import { AddPaymentMethodModal } from "./AddPaymentMethodModal";
 import style from "./checkout.module.scss";
-import CustomerCartAPI from "../../api/customer/cart";
 
 export const CheckoutTemplate = ({ cartList }) => {
     const { t } = useTranslation();
@@ -43,7 +40,6 @@ export const CheckoutTemplate = ({ cartList }) => {
         cartList.forEach((cart) => {
             tmpTotalPrice += parseInt(cart.price);
         });
-        console.log(tmpTotalPrice);
         setCurrentTotal(tmpTotalPrice);
     };
 
@@ -125,12 +121,9 @@ export const CheckoutTemplate = ({ cartList }) => {
         setLoading(true);
         dispatch({ type: 'UPDATE_CHECKOUT_PENDING', payload: true });
 
-        console.log({ cartList })
-
         CustomerPaymentAPI.checkout({
             userInfo: GetUserInfo(),
             cartList: cartList.map((e) => {
-                console.log({ e })
                 return e.episodeId
             }),
             paymentMethod,

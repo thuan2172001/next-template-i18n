@@ -332,14 +332,6 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
           rej("Errorrr");
         }
         form.append("file", data);
-        // SeriesAPI.uploadFile({
-        //   formdata: form,
-        //   userInfo: GetUserInfo(),
-        // })
-        //   .then(({ key, location, pageNumber }) => {
-        //     res({ key, location, pageNumber });
-        //   })
-        //   .catch(rej);
       });
 
     const upload = episodeThumbnail.thumb
@@ -368,23 +360,6 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
         color: uploadContent.color,
       };
     }
-
-    // ShopSettingAPI.editProfileCreator({
-    //   userInfo: GetUserInfo(),
-    //   params: formdata,
-    // })
-    //   .then((res) => {
-    //     if (res.status == "success") {
-    //       getCreatorData();
-    //     }
-    //     setIsLoading(false);
-    //     setChanged(true);
-    //   })
-    //   .catch((err) => {
-    //     notifyError(err);
-    //     setIsLoading(false);
-    //     setChanged(false);
-    //   });
   };
 
   const validateAll = async () => {
@@ -413,7 +388,6 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
       !isUserExisted &&
       isValidSns
     ) {
-      console.log("upload", uploadContent);
       setIsLoading(true);
       Upload();
     } else {

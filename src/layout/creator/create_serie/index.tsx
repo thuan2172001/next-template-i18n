@@ -12,6 +12,7 @@ import { PreviewSerieTemplate } from "./preview/PreviewSerieTemplate";
 import { SaveAlertModal } from "./save-alert-modal";
 import { useRouter } from "next/router";
 import category from "../../../api/category/category";
+import { notifyError } from "@components/toastify";
 
 const scrollToTop = () => {
   document.body.scrollTop = 0;
@@ -91,7 +92,7 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
       return "Dude, are you sure you want to leave? Think of the kittens!";
     };
     return () => {
-      window.onbeforeunload = () => {};
+      window.onbeforeunload = () => { };
     };
   }, []);
   useEffect(() => {
@@ -101,12 +102,11 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
       setModalType("save-alert");
     };
     return () => {
-      window.onpopstate = () => {};
+      window.onpopstate = () => { };
     };
   }, []);
 
   const Upload = async () => {
-    console.log("Uploading...");
     const uploadSingleFile = (data): Promise<any> =>
       new Promise(async (resolve, reject) => {
         const form = new FormData();
@@ -139,7 +139,11 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
       userInfo: GetUserInfo(),
     }).then((res) => {
       if (res.series) router.push(`/sm?view=private`);
-      else console.log("create failed");
+      else {
+        notifyError(t("common:errorMsg.createFailed"));
+      }
+    }).catch(err => {
+      notifyError(t("common:errorMsg.createFailed"));
     });
   };
 
@@ -167,7 +171,7 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
       return "Dude, are you sure you want to leave? Think of the kittens!";
     };
     return () => {
-      window.onbeforeunload = () => {};
+      window.onbeforeunload = () => { };
     };
   }, []);
 
@@ -218,7 +222,6 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
           <div className={`${style["divider"]}`} />
           <SerieThumbnail
             updateFile={({ thumb }) => {
-              console.log({ thumb });
               setThumbnail(thumb);
             }}
             isEmpty={isThumbnailEmpty}

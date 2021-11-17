@@ -1,7 +1,6 @@
 import Image from "next/image";
 import {useTranslation} from "next-i18next";
 import {useRef, useState} from "react";
-// import VideoThumbnail from "react-video-thumbnail";
 import style from "./upload-photo.module.scss";
 import {Document, Page, pdfjs} from "react-pdf";
 
@@ -46,13 +45,10 @@ export const FileUpload = ({
         window.localStorage.setItem("book-url", bookUrl);
       }
 
-      console.log(file.size);
-
       if (
-        ((ext === "pdf" || ext === "epub")  &&
+        ((ext === "pdf")  &&
           file.size < 50000000)
       ) {
-        console.log("ok")
         setFilePreview(file);
         setFileName(file.name);
         setFileExt(ext);

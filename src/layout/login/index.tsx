@@ -32,12 +32,6 @@ const LoginTemplate = (props) => {
 	const [notification, setNotification] = useState('');
 
 	const handleLogin = () => {
-		// let b = {}
-		// for (let i = 0; i < 30; i++) {
-		// 	const a = GenerateKeyPairAndEncrypt('medichain123');
-		// 	b = { ...b, [i]: a }
-		// }
-		// console.log(b)
 		if (username.length == 0 || password.length == 0) {
 			setNotification(
 				"Username or password is empty !"
@@ -59,10 +53,7 @@ const LoginTemplate = (props) => {
 					setNotification(t('common:loginFailedMessage'));
 					return;
 				}
-				console.log({ encryptedPrivateKey });
-
 				const privateKey = SymmetricDecrypt(encryptedPrivateKey, password);
-				console.log({ privateKey });
 
 				if (!privateKey) {
 					setNotification(t('common:loginFailedMessage'));
@@ -76,7 +67,6 @@ const LoginTemplate = (props) => {
 				};
 
 				const signature = SignMessage(privateKey, certificateInfo);
-				console.log({ signature });
 
 				const authorizationHeader = {
 					signature,
@@ -91,7 +81,6 @@ const LoginTemplate = (props) => {
 					_id,
 					_certificate: authorizationHeader,
 				};
-				console.log({ userInfo });
 
 				ping(userInfo);
 			})
@@ -107,7 +96,6 @@ const LoginTemplate = (props) => {
 			exp: 2799360000000,
 		};
 
-		console.log({ _userInfor });
 		const signature = SignMessage(_userInfor['_privateKey'], certificateInfo);
 
 		const authorizationHeader = {

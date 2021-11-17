@@ -26,7 +26,7 @@ export const SubHeader = ({
 
     useEffect(() => {
         CategoriesAPI.getAllCategories().then((res) => {
-            console.log(res);
+            
             setCategories(res);
         });
     }, []);
@@ -50,7 +50,6 @@ export const SubHeader = ({
                     </Menu.Item>
 
                     {categories.map((cate) => {
-                        console.log(cate.categoryName);
                         return (
                             <Menu.Item
                                 className={`${selectedCate == cate.categoryId && style["active-item"]} ${style["sub-item"]

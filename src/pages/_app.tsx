@@ -21,8 +21,6 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 	useEffect(() => {
 		CustomerPaymentAPI.getApiKey().then((response) => {
 			const { apiKey } = response.data || response;
-
-			console.log({ apiKey })
 			setStripeAPIKey(loadStripe(apiKey));
 		});
 	}, []);

@@ -61,17 +61,6 @@ export const DocumentTemplate = ({ serieId, episodeId }) => {
   const handlePointerMove = (event) => {
     const { pageX } = event;
 
-    // pageX <= (area / 100) * window.innerWidth &&
-    //   currentPage != 0 &&
-    //   setPointerClassName("cursor-left");
-    // pageX > (area / 100) * window.innerWidth &&
-    //   pageX < ((100 - area) / 100) * window.innerWidth &&
-    //   setPointerClassName("cursor-mid");
-    // if (pageX > ((100 - area) / 100) * window.innerWidth) {
-    //   if (currentPage < totalPage - 1) setPointerClassName("cursor-right");
-    //   else setPointerClassName("cursor-mid");
-    // }
-
     if (pageX <= (area / 100) * window.innerWidth) {
       if (currentPage < totalPage - 1) setPointerClassName("cursor-left");
       else setPointerClassName("cursor-mid");

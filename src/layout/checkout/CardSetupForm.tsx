@@ -62,8 +62,6 @@ const CardSetupForm = ({ markSetupSuccess, markCancel, type }) => {
   const handleSubmit = async (event) => {
     setLoading(true);
 
-    // event.preventDefault();
-
     if (!stripe || !elements) {
       return;
     }

@@ -67,7 +67,7 @@ export const BookshelfProduct = ({
           userInfo: GetUserInfo(),
           episodeId: episode.episodeId,
         }).then((res) => {
-          console.log(res);
+          
           if (res.data == "success") {
             setFavorite(false);
           }
@@ -75,7 +75,7 @@ export const BookshelfProduct = ({
           userInfo: GetUserInfo(),
           episodeId: episode.episodeId,
         }).then((res) => {
-          console.log(res);
+          
           if (res.data == "success") {
             setFavorite(true);
           }
