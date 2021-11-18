@@ -1,0 +1,185 @@
+@import "../../../components/global-scss/variables.scss";
+
+.modal-common {
+  text-align: center;
+
+  .modal-header {
+    margin-top: rem(26px);
+    font-family: $font-euclid-medium;
+    font-weight: bold;
+    font-size: $fs3;
+    line-height: $lh3;
+    margin-bottom: rem(50px);
+  }
+
+  .ep-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 rem(24px);
+    margin-bottom: rem(22px);
+    .name {
+      font-family: $font-euclid-medium;
+      font-weight: bold;
+      font-size: $fs5;
+      line-height: $lh3;
+      margin-left: rem(11px);
+    }
+  }
+
+  .sold-out-msg {
+    font-family: $font-euclid-regular;
+    font-weight: normal;
+    font-size: $fs1;
+    line-height: $lh2;
+    padding: 0 rem(150px);
+    margin-bottom: rem(35px);
+  }
+
+  .modal-detail {
+    background-color: $color-blue-8;
+    margin: 0 22% rem(16px) 22%;
+    padding: rem(11px) rem(16px);
+
+    .sub-detail {
+      display: flex;
+      justify-content: space-between;
+      color: $color-light-black;
+      font-size: $fs1;
+      line-height: $lh2;
+
+      .name {
+        font-family: $font-euclid-regular;
+        font-weight: normal;
+        max-width: rem(260px);
+        text-align: right;
+      }
+
+      .title {
+        font-family: $font-euclid-regular;
+        font-weight: normal;
+      }
+
+      .quantity {
+        font-family: $font-euclid-regular;
+        font-weight: bold;
+      }
+    }
+    .divider {
+      margin: rem(12px) 0;
+    }
+  }
+
+  .open-shop {
+    background-color: $color-blue-2;
+    color: $color-white;
+  }
+
+  .confirm-button {
+    margin-top: rem(60px) !important;
+  }
+
+  .modal-message {
+    font-family: $font-euclid-regular;
+    font-weight: normal;
+    font-size: $fs1;
+    line-height: $lh2;
+    padding: 0 rem(135px);
+    margin-bottom: rem(40px);
+  }
+
+  .modal-message-private {
+    font-family: $font-euclid-regular;
+    font-weight: normal;
+    font-size: $fs1;
+    line-height: $lh2;
+    padding: 0 rem(100px);
+    margin-bottom: rem(40px);
+  }
+
+  .modal-message-publish {
+    font-family: $font-euclid-regular;
+    font-weight: normal;
+    font-size: $fs1;
+    line-height: $lh2;
+    padding: 0 rem(60px);
+    margin-bottom: rem(40px);
+  }
+
+  .input-row {
+    margin: 0 20% !important;
+
+    .input {
+      height: 40px;
+    }
+
+    .color-disabled {
+      color: $color-gray-5;
+    }
+
+    .color-light-black {
+      color: $color-light-black;
+    }
+  }
+
+  .input-burn-quantity {
+    margin: 0 22% !important;
+
+    .quantity {
+      display: flex;
+      height: rem(40px);
+      align-items: center;
+    }
+
+    .input {
+      height: 40px;
+    }
+
+    .commitment {
+      text-align: start;
+    }
+    // .check-box {
+    //   input {
+    //     width: 24px !important;
+    //     height: 24px !important;
+    //   }
+    // }
+
+    .max-btn {
+      color: $color-blue;
+      cursor: pointer;
+    }
+  }
+
+  .footer-btn {
+    width: rem(160px);
+    height: rem(40px);
+    border: rem(1px) solid $color-gray-3;
+    font-family: $font-euclid-medium;
+    font-style: normal;
+    font-weight: bold;
+    font-size: $fs1;
+    line-height: $lh2;
+  }
+
+  .save {
+    background: $color-blue-2;
+    border-color: $color-blue-2;
+    color: $color-white;
+    margin-left: rem(30px);
+  }
+
+  .ml-30 {
+    margin-left: rem(30px);
+  }
+
+  .name {
+    font-family: $font-euclid-medium;
+    font-weight: bold;
+    font-size: $fs1;
+    line-height: $lh2;
+  }
+  .form-item {
+    text-align: left !important;
+  }
+}

@@ -1,0 +1,116 @@
+@import "../../../components/global-scss/variables.scss";
+
+.modal-common {
+  letter-spacing: rem(0.2px);
+  padding-left: rem(30px);
+  padding-right: rem(30px);
+
+  .confirm-icon {
+    margin: rem(13px) auto rem(24px);
+    width: 56px;
+  }
+
+  .text-align-start {
+    text-align: start;
+  }
+
+  .center-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .align-top-container {
+    margin-top: 11px;
+  }
+}
+
+.success-message {
+  font-family: $font-euclid-medium;
+  text-align: center;
+  font-weight: $fw-bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-light-black;
+  margin-left: auto;
+  margin-right: auto;
+
+  .series-name {
+    color: $color-blue-2;
+  }
+}
+
+.fail-message {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: $font-euclid-medium;
+
+  font-style: normal;
+  font-weight: $fw-bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  color: $color-red3;
+
+  .series-name {
+    color: $color-blue-2;
+  }
+}
+
+.custom-modal-footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: rem(16px);
+
+  .save-active-margin-right {
+    background: $color-light-orange;
+    color: $color-white;
+    margin-right: rem(30px);
+  }
+
+  .cancel-not-margin {
+    border: rem(1px) solid $color-gray-1;
+  }
+}
+
+.footer-button {
+  margin-top: rem(40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-euclid-medium;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  width: rem(173px);
+  height: rem(40px);
+  cursor: pointer;
+}
+
+.cancel {
+  border: rem(1px) solid $color-light-gray;
+}
+.save-active {
+  background: $color-blue-2;
+  color: $color-white;
+}
+
+.continue-create {
+  border: rem(1px) solid $color-blue-2;
+  color: $color-blue-2;
+}
+
+.close {
+  border: rem(1px) solid $color-gray-3;
+  color: $color-black;
+  background-color: $color-blue-8;
+}
+
+.m-r-10 {
+  margin-right: rem(7.5px);
+}
+
+.m-l-10 {
+  margin-left: rem(7.5px);
+}
