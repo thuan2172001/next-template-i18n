@@ -205,5 +205,14 @@
   "banned": "Account is banned",
   "errorMsg": {
     "createFailed": "Create failed !"
+  },
+  "smModal": {
+    "confirmPublish": "Comfirm publish series",
+    "confirmPublish1": "Series",
+    "confirmPublish2": "will be made public to users. You will need to publish each item manually.",
+    "privateSeries": "Private series",
+    "confirmPrivate": "Confirm private series",
+    "confirmPrivate1": "All items in series",
+    "confirmPrivate2": "will be made private along with the series. You can publish again anytime you want, but you will need to publish each item manually."
   }
 }
