@@ -68,7 +68,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
         userInfo: GetUserInfo(),
         episodeId: episodeId,
       }).then((res) => {
-        
+
         if (res.data == "success") {
           setFavorite(false);
           setTotalLikes(episodeTotalLikes - 1);
@@ -77,7 +77,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
         userInfo: GetUserInfo(),
         episodeId: episodeId,
       }).then((res) => {
-        
+
         if (res.data == "success") {
           setFavorite(true);
           setTotalLikes(episodeTotalLikes + 1);
@@ -101,8 +101,9 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
   }, [userInfo]);
 
   useEffect(() => {
+    console.log('a');
     fetchData();
-  }, [episodeId, router.query]);
+  }, [episodeId]);
 
   const fetchData = () => {
     if (episodeId) {
@@ -300,7 +301,10 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
           {episodeInfo?.similarEpisodes?.map((ep) => {
             return (
               <div className={`${style["slide-component"]}`}>
-                <EpisodeProduct serieId={seriesId} episode={ep} />
+                <EpisodeProduct
+                  serieId={seriesId}
+                  episode={ep}
+                />
               </div>
             )
           })}

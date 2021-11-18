@@ -48,9 +48,6 @@ export const EpisodeProduct = ({ serieId, episode }) => {
           router.push(
             `/episode?serieId=${serieId}&episodeId=${episode.episodeId}`
           );
-          setTimeout(() => {
-            window.location.reload();
-          }, 500)
         }}
         className={`${style["cursor_pointer"]}`}>
         <img
