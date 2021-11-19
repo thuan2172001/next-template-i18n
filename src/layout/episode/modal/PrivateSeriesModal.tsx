@@ -16,8 +16,8 @@ export const PrivateSeriesModal = ({
   const updateSeries = () => {
     setLoading(true);
     const body = {
-      action: "unpublish",
-      seriesId: serieInfo?._id,
+      type: "UNPUBLISH",
+      serieId: serieInfo?.serieId,
     };
 
     updateModalType({ type: "pending" });
@@ -55,7 +55,7 @@ export const PrivateSeriesModal = ({
         </div>
         <div className={`${style["modal-message-publish"]}`}>
           {`${t("common:smModal.confirmPrivate1")} `}
-          <span className={`${style["name"]}`}>{serieInfo?.name}</span>
+          <span className={`${style["name"]}`}>{serieInfo?.serieName}</span>
           {` ${t("common:smModal.confirmPrivate2")}`}
         </div>
         <Divider className={`${style["divider"]}`} />

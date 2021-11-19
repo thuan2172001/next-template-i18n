@@ -2,74 +2,68 @@ import style from "./c-modal.module.scss";
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { Modal, Divider, Button } from "antd";
-import SeriesManagement from "../../../api/creator/series";
+import CreatorEpisodeAPI from "../../../api/creator/episode";
 import { GetUserInfo } from "src/api/auth";
 
-export const PublishSeriesModal = ({
+export const PublishFreeItemModal = ({
   updateModalVisible,
-  serieInfo,
-  updateRefetch,
+  episodeInfo,
+  showPendingModal,
 }) => {
   const { t } = useTranslation();
-
   const [loading, setLoading] = useState(false);
 
-  const body = {
-    type: "PUBLISH",
-    serieId: serieInfo?.serieId,
-  };
-
-  const updateSeries = () => {
+  const publishEpisode = () => {
     setLoading(true);
-    SeriesManagement.updateSeries({
+    showPendingModal();
+    CreatorEpisodeAPI.handleEpisodePublishStatus({
       userInfo: GetUserInfo(),
-      body: body,
-    }).then((res) => {
-      updateModalVisible({ data: false });
-      updateRefetch();
+      action: "publish",
+      episodeId: episodeInfo?._id,
     });
   };
 
   return (
     <Modal
       visible={true}
-      width={600}
+      width={732}
       transitionName="none"
       maskTransitionName="none"
       closable={false}
       maskClosable={false}
-      onCancel={() => updateModalVisible({ data: false })}
+      onCancel={updateModalVisible}
       centered={true}
       bodyStyle={{ padding: "24px 0px" }}
       footer={null}
     >
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["modal-header"]}`}>
-          {t("common:smModal.confirmPublish")}
+          {t("common:nft.publishItem")}
+        </div>
+        <div className={`${style["ep-name"]}`}>
+          <img src="/icons/nft-product-item/book.svg" height={30} width={30} />
+          <div className={`${style["name"]}`}>{episodeInfo?.name}</div>
         </div>
 
-        <div className={`${style["modal-message-publish"]}`}>
-          {`${t("common:smModal.confirmPublish1")} `}
-          <span className={`${style["name"]}`}>{serieInfo?.serieName}</span>
-          {` ${t("common:smModal.confirmPublish2")}`}
+        <div className={`${style["modal-message"]}`}>
+          {t("common:nft.publishFreeMessage")}
         </div>
         <Divider className={`${style["divider"]}`} />
 
         <div className={`${style["modal-footer"]}`}>
           <Button
-            disabled={loading}
             className={`${style["footer-btn"]}`}
-            onClick={() => updateModalVisible({ data: false })}
+            onClick={updateModalVisible}
           >
             {t("common:cancel")}
           </Button>
           <Button
-            disabled={loading}
             loading={loading}
-            className={`${style["footer-btn"]} ${style["save"]} ${style["ml-30"]}`}
-            onClick={updateSeries}
+            disabled={loading}
+            className={`${style["footer-btn"]} ${style["save"]}`}
+            onClick={publishEpisode}
           >
-            {t("common:publishSeries")}
+            {t("common:nft.publishItem")}
           </Button>
         </div>
       </div>

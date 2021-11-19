@@ -34,7 +34,7 @@ export const PrivateNft = ({ episode }) => {
   };
 
   const moveToNft = () => {
-    route.push(`/nft?serieId=${episode.serie}&&episodeId=${episode._id}`);
+    route.push(`/episode?serieId=${episode.serieId}&&episodeId=${episode.episodeId}`);
   };
 
   return (

@@ -213,6 +213,24 @@
     "privateSeries": "Private series",
     "confirmPrivate": "Confirm private series",
     "confirmPrivate1": "All items in series",
-    "confirmPrivate2": "will be made private along with the series. You can publish again anytime you want, but you will need to publish each item manually."
+    "confirmPrivate2": "will be made private along with the series. You can publish again anytime you want, but you will need to publish each item manually.",
+    "pendingPrivate1": "is being privated.",
+    "pendingPrivate2": "You will get a notification when it is completed",
+    "successPrivated": "Successfully privated",
+    "failPrivated1": "Oh no!",
+    "failPrivated2": "privated failed.",
+    "goToHomePage": "Go to Homepage",
+    "backToSeries": "Back to Series",
+    "seeInSeries": "See in Series",
+    "tryAgain": "Try again",
+    "close": "Close pop-up",
+    "backToShopSetting": "Back to shop setting"
+  },
+  "nft": {
+    "privateItem": "Private item",
+    "publishItem": "Publish item",
+    "privateItem1": "When private,",
+    "privateItem2": "will be hidden and users will not be able to see and add it to their bookshelves. Are you sure you want to private?",
+    "privateItem3": "will be hidden and users will not be able to see and buy it. Are you sure you want to private?"
   }
 }
