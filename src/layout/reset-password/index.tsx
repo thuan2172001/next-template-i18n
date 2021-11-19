@@ -75,6 +75,9 @@ export const NewPasswordTemplate = (props) => {
 
   return (
     <div className={` ${style["container"]}`}>
+      <Head>
+        <title>WebtoonZ | {t("account:changePassword")}</title>
+      </Head>
       <div className={style['margin-top-container']}></div>
       <div className={`${style["reset-password-container"]}`}>
         <div className={`${style["signin-title"]} ${style["text-size-24"]}`}>

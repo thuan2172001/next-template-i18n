@@ -96,6 +96,9 @@ const ForgotPasswordTemplate = (props) => {
 
   return (
     <div>
+      <Head>
+        <title>WebtoonZ | {t("common:forgotPassword")}</title>
+      </Head>
       {isEmailsent ? (
         <div className={`${style["login-container"]}`}>
           <div className={`${style["forgot-password-title"]}`}>

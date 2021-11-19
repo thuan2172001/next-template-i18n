@@ -162,6 +162,9 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
 
   return (
     <div className={style.nft}>
+      <Head>
+        <title>WebtoonZ | {episodeInfo?.name}</title> //Todo
+      </Head>
       <Row gutter={30}>
         <Col span={12}>
           <Skeleton active loading={!episodeInfo?.thumbnail}>

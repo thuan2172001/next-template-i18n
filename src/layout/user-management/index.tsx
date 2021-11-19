@@ -40,6 +40,9 @@ export const UsersManagementTemplate = () => {
 
   return (
     <div className={style["container"]}>
+      <Head>
+        <title>WebtoonZ | {t("common:manageUsers.title")}</title>
+      </Head>
       <div className={style["header"]}>{t("common:manageUsers.title")}</div>
       <table className={style["table"]}>
         <thead>

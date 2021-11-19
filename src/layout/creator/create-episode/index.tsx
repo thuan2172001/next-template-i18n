@@ -436,6 +436,9 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
 
   return (
     <>
+      <Head>
+        <title>WebtoonZ | {t("common:episodeManagement:createNewEp")}</title>
+      </Head>
       {
         <div
           style={{

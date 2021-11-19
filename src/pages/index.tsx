@@ -37,7 +37,7 @@ const Home: React.FC<{ homepageContent: any }> = () => {
     return (
         <React.Fragment>
             <Head>
-                <title>WebtoonZ | Home</title>
+                <title>WebtoonZ</title>
             </Head>
             <div
                 style={{

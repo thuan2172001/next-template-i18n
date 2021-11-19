@@ -24,6 +24,9 @@ export const BookshelfTemplate = ({ episodeList, totalEpisode, page, setPage}) =
 
   return (
     <div className={`${style["cointainer"]}`} id="main-container">
+      <Head>
+        <title>WebtoonZ | {t("common:bookshelf.bookShelf")}</title>
+      </Head>
       <div className={`${style["header"]}`}>
         <div className={`${style["header-name"]}`}>
           {t("common:bookshelf.bookShelf")}

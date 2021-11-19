@@ -53,8 +53,8 @@
     "noItem": "You have no item in your Bookshelf yet"
   },
   "favorItem": {
-    "noItem": "Favor items",
-    "header": "You have no favor item yet"
+    "header": "Favor items",
+    "noItem": "You have no favor item yet"
   },
   "category": {
     "all": "All",
@@ -133,12 +133,14 @@
     "signUp": "Create a new account"
   },
   "episodeManagement": {
+    "header": "Episode Management",
     "private": "Private",
     "public": "Public",
     "createNewEp": "Create new episode",
     "privateEpisode": "Private episode"
   },
   "seriesManagement": {
+    "header": "Series Management",
     "createNewSeries": "Create new series",
     "create": "Create",
     "update": "Update",
@@ -148,7 +150,7 @@
       "privateSeries": "Private Series",
       "publishSeries": "Pulish Series"
     },
-    "Amount": "Số lượng",
+    "Amount": "Amount",
     "public": "Public",
     "private": "Private",
     "episodeAmount": "Episode amount"

@@ -8,7 +8,7 @@ import { GetUserInfo } from "src/api/auth";
 import { CustomCancelCreateNftModal } from "../../../layout/creator/create-episode/CustomCancelCreateNftModal";
 import style from "./edit-profile.module.scss";
 import Head from "next/head";
-
+//todo
 const scrollToTop = () => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
@@ -457,6 +457,9 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
   return (
     uploadContent && (
       <>
+        <Head>
+          <title>WebtoonZ | {t("common:creatorProfile.editProfile")}</title>
+        </Head>
         {
           <div
             style={{

@@ -102,6 +102,9 @@ export const SeriesManagementTemplate = () => {
   const TabLayOut = () => {
     return (
       <>
+        <Head>
+          <title>WebtoonZ | {t("common:seriesManagement.header")}</title>
+        </Head>
         <div className={`${style["tab-layout"]}`}>
           <Button
             className={`${style["tab-btn"]} ${

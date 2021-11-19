@@ -145,6 +145,9 @@ export const CheckoutTemplate = ({ cartList }) => {
                 minHeight: "100vh",
             }}
         >
+            <Head>
+                <title>WebtoonZ | {t("cart:cartHeader")}</title>
+            </Head>
             <TabLayout type="checkout" />
 
             <section className={style["cart"]}>

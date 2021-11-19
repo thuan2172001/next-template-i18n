@@ -25,6 +25,9 @@ export const FavorPageTemplate = ({ episodeList, totalEpisode, page, setPage}) =
 
   return (
     <div className={`${style["cointainer"]}`} id="main-container">
+      <Head>
+        <title>WebtoonZ | {t("common:favorItem.header")}</title>
+      </Head>
       <div className={`${style["header"]}`}>
         <div className={`${style["header-name"]}`}>
           {t("common:favorItem.header")}

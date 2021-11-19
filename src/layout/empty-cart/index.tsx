@@ -2,6 +2,7 @@ import style from "./empty-cart.module.scss";
 import { Button } from "antd";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export const EmptyCartTemplate = () => {
   const { t } = useTranslation();
@@ -9,6 +10,9 @@ export const EmptyCartTemplate = () => {
   return (
     <>
       <div style={{ height: 50 }} />
+      <Head>
+        <title>WebtoonZ | {t("common:cartItem.shoppingCart")}</title>
+      </Head>
       <div className={`${style["empty-cart"]}`}>
         <img
           src="/assets/icons/empty-cart.svg"

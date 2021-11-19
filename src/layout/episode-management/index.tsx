@@ -157,6 +157,9 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
   const TabLayOut = () => {
     return (
       <>
+        <Head>
+          <title>WebtoonZ | {t("common:episodeManagement.header")}</title>
+        </Head>
         <div className={`${style["serie-info"]}`}>
           <div
             className={`${style["tab-btn"]} ${
