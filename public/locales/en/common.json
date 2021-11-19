@@ -256,5 +256,6 @@
     "privateItem1": "When private,",
     "privateItem2": "will be hidden and users will not be able to see and add it to their bookshelves. Are you sure you want to private?",
     "privateItem3": "will be hidden and users will not be able to see and buy it. Are you sure you want to private?"
-  }
+  },
+  "noResult": "No result"
 }

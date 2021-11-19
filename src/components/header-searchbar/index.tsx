@@ -43,7 +43,7 @@ export const SearchBar2 = () => {
 
   return (
     <div className={`${style["searchbox-2"]}`}>
-      <input onChange={(e) => handleChangeInput(e.target.value)} placeholder={t('common:search')} type="text"/>
+      <input onChange={(e) => handleChangeInput(e.target.value)} placeholder={t('common:search')} type="text">router.query.pattern.toString()</input>
       <Button onClick={handleSearch}><img src={'/assets/icons/search_icon.svg'}></img></Button>
     </div>
   );
