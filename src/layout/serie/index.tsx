@@ -187,13 +187,6 @@ const SerieTemplate = ({ serieId }) => {
                             <span className={`${style["cate-item"]}`}>
                                 {t(`common:category.${serieData?.category.categoryName}`)}
                             </span>
-                            {/*{serieData?.category?.map((category) => {*/}
-                            {/*  return (*/}
-                            {/*    <span className={`${style["cate-item"]}`}>*/}
-                            {/*      {category.name}*/}
-                            {/*    </span>*/}
-                            {/*  );*/}
-                            {/*})}*/}
                         </div>
                     </Skeleton>
                     <div className={` ${style["bottom-detail"]}`}>
@@ -230,10 +223,6 @@ const SerieTemplate = ({ serieId }) => {
                     </div>
                 </Skeleton>
             </section>
-
-            {/*{modalVisible && (*/}
-            {/*  <RequireLoginModal updateModalVisible={() => setModalVisible(false)} />*/}
-            {/*)}*/}
 
             {serieData?.episodes.length === 0 ? (
                 <SeeMoreNoResult />

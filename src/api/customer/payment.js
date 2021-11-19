@@ -63,7 +63,6 @@ export default {
 		return customAxios({
 			method: 'get',
 			url: `${baseURL}/user/api-key`,
-			// params: { creator },
 		}).then((data) => {
 			return data;
 		});

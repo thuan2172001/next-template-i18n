@@ -255,7 +255,6 @@ export const HomePageCover = ({ creator }) => {
                 />
               )}
 
-              {/* <MoonLoader color={"#ffffff"} loading={isLoading} size={60} /> */}
 
               <input
                 type="file"

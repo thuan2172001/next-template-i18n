@@ -95,12 +95,6 @@ export const PrivateItem = ({
           }}
         />
       )}
-      {/*{modalType === "request-burn" && (*/}
-      {/*  <RequestBurnModal*/}
-      {/*    updateModalVisible={setModalType}*/}
-      {/*    episodeInfo={episodeInfo}*/}
-      {/*  />*/}
-      {/*)}*/}
       {modalType === "publish-nonfree" && (
         <PublishNonFreeItemModal
           updateModalVisible={setModalType}

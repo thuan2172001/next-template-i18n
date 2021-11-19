@@ -15,6 +15,7 @@ export const EpisodeProduct = ({ serieId, episode }) => {
     name,
     price,
     thumbnail,
+    totalLikes,
     alreadyLiked,
   } = episode;
 
@@ -28,10 +29,8 @@ export const EpisodeProduct = ({ serieId, episode }) => {
 
   const [clientType, setClientType] = useState("");
 
-  // const [episodeTotalLikes, setTotalLikes] = useState(totalLikes);
 
   const onClickFavorite = () => {
-    // if (!isLogged) setModalVisible(true);
     console.log(favorite);
     favorite ?
         EpisodeManagementAPI.unlike({
@@ -41,7 +40,6 @@ export const EpisodeProduct = ({ serieId, episode }) => {
           console.log(res);
           if (res.data == "success") {
             setFavorite(false);
-            // setTotalLikes(episodeTotalLikes - 1);
           }
         }) : EpisodeManagementAPI.like({
           userInfo: GetUserInfo(),
@@ -50,7 +48,6 @@ export const EpisodeProduct = ({ serieId, episode }) => {
           console.log(res);
           if (res.data == "success") {
             setFavorite(true);
-            // setTotalLikes(episodeTotalLikes + 1);
           }
         })
   };

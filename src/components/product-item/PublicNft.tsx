@@ -58,24 +58,6 @@ export const PublicNft = ({ episode }) => {
           <div className={`${style["price"]}`}>
             {episode?.price + " USD" }
           </div>
-          {/*<div className={`${style["quantity"]}`}>*/}
-          {/*  <div className={`${style["detail"]}`}>*/}
-          {/*    <img*/}
-          {/*      src="/icons/nft-product-item/world.svg"*/}
-          {/*      className={`${style["icon"]}`}*/}
-          {/*    />*/}
-          {/*    <span>*/}
-          {/*      {episode?.forSale + "/" + (episode?.total - episode?.inventory)}*/}
-          {/*    </span>*/}
-          {/*  </div>*/}
-          {/*  <div className={`${style["detail"]} ${style["right-detail"]}`}>*/}
-          {/*    <img*/}
-          {/*      src="/icons/nft-product-item/shelf.svg"*/}
-          {/*      className={`${style["icon"]}`}*/}
-          {/*    />*/}
-          {/*    <span>{episode?.inventory + "/" + episode?.total}</span>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
         </>
       )}
     </div>

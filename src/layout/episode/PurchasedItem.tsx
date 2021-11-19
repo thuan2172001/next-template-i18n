@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import style from "./episode.module.scss";
 import { useRouter } from "next/router";
-import episode from "../../api/customer/episode";
 
 export const PurchasedItem = ({
   episodeInfo = null,

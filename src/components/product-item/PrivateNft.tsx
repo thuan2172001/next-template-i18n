@@ -6,8 +6,6 @@ import { useRouter } from "next/router";
 import React from "react";
 
 export const PrivateNft = ({ episode }) => {
-  const isFree = episode?.price == 0;
-
   const { t } = useTranslation();
   const route = useRouter();
 

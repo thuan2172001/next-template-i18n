@@ -134,11 +134,7 @@ export const ShopProfile = ({ template }) => {
           </div>
         </>
       )}
-      {/* {modalVisible && (
-        <RequireLoginModal
-          updateModalVisible={() => setModalVisible(false)}
-        />
-      )} */}
+
     </div>
   );
 };
