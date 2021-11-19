@@ -388,4 +388,66 @@
   margin-right: rem(30px);
 }
 
+.nft-modal {
+  text-align: center;
+  padding-top: rem(13px);
+
+  .confirm-msg {
+    font-weight: bold;
+    font-size: $fs1;
+    line-height: $lh2;
+    letter-spacing: rem(0.2px);
+    color: $color-light-black;
+    margin-top: rem(34px);
+  }
+
+  .create-nft-btn {
+    margin-top: rem(59px) !important;
+    margin-bottom: rem(26px) !important;
+  }
+}
+
+.modal-common {
+  font-style: normal;
+  letter-spacing: rem(0.2px);
+  padding-left: rem(30px);
+  padding-right: rem(26px);
+
+  .confirm-icon {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 38px;
+    width: 56px;
+  }
+
+  .text-align-start {
+    text-align: start;
+  }
+
+  .center-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .align-top-container {
+    margin-top: 11px;
+  }
+}
+
+.custom-modal-footer {
+  display: flex;
+  justify-content: center;
+
+  .save-active-margin-right {
+    background: $color-light-orange;
+    color: $color-white;
+    margin-right: rem(30px);
+  }
+
+  .cancel-not-margin {
+    border: rem(1px) solid $color-gray-1;
+  }
+}
+
 

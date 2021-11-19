@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import { convertLongString } from "src/utils/common-function";
 import { GetUserInfo } from "../../api/auth";
 import { HeartFilled, HeartOutlined } from "@ant-design/icons";
-// import { RequireLoginModal } from "@components/modal/RequireLoginModal";
 import EpisodeManagementAPI from "../../api/episode-management/episode-management";
 import style from "./product-item.module.scss";
 
@@ -13,13 +12,9 @@ export const EpisodeProduct = ({ serieId, episode }) => {
   const { t } = useTranslation();
 
   const {
-    isNewRelease,
-    remainEdition,
     name,
     price,
-    isLocked,
     thumbnail,
-    // currency,
     totalLikes,
     alreadyLiked,
   } = episode;
@@ -28,18 +23,14 @@ export const EpisodeProduct = ({ serieId, episode }) => {
 
   const [favorite, setFavorite] = useState(alreadyLiked);
 
-  const [modalVisible, setModalVisible] = useState(false);
-
   const userInfo = GetUserInfo();
 
   const [isLogged, setIsLogged] = useState(false);
 
   const [clientType, setClientType] = useState("");
 
-  // const [episodeTotalLikes, setTotalLikes] = useState(totalLikes);
 
   const onClickFavorite = () => {
-    // if (!isLogged) setModalVisible(true);
     console.log(favorite);
     favorite ?
         EpisodeManagementAPI.unlike({
@@ -49,7 +40,6 @@ export const EpisodeProduct = ({ serieId, episode }) => {
           console.log(res);
           if (res.data == "success") {
             setFavorite(false);
-            // setTotalLikes(episodeTotalLikes - 1);
           }
         }) : EpisodeManagementAPI.like({
           userInfo: GetUserInfo(),
@@ -58,7 +48,6 @@ export const EpisodeProduct = ({ serieId, episode }) => {
           console.log(res);
           if (res.data == "success") {
             setFavorite(true);
-            // setTotalLikes(episodeTotalLikes + 1);
           }
         })
   };

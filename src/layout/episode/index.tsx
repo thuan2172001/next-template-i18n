@@ -18,8 +18,10 @@ import Share from "@components/share-component/share";
 import Slider from "react-slick";
 import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
 import Head from "next/head";
+import { PublicItem } from "./PublicItem";
+import { PrivateItem } from "./PrivateItem";
 
-const EpisodeTemplate = ({ seriesId, episodeId }) => {
+const EpisodeTemplate = ({ seriesId, episodeId, isCreatorMode }) => {
   let userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
 
   const { t } = useTranslation();
@@ -34,6 +36,7 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [addedToBookshelf, setAddedToBookshelf] = useState(false);
   const [itemSlider, setItemSlider] = useState(Math.floor((window.innerWidth - window.innerHeight * 30 / 100) / 180));
+  const [publishInPrivatSerie, setPublishInPrivateSerie] = useState(false);
 
   useEffect(() => {
     const updateWindowDimensions = () => {
@@ -165,6 +168,14 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
       <Head>
         <title>WebtoonZ | {episodeInfo?.name}</title> //Todo
       </Head>
+      {isCreatorMode && publishInPrivatSerie && (
+        <div className={`${style["error-msg"]}`}>
+          <img src="/assets/icons/invalid.svg" height={24} width={24} />
+          <div className={`${style["error-content"]}`}>
+            Please publish the series before publish this item.
+          </div>
+        </div>
+      )}
       <Row gutter={30}>
         <Col span={12}>
           <Skeleton active loading={!episodeInfo?.thumbnail}>
@@ -270,6 +281,20 @@ const EpisodeTemplate = ({ seriesId, episodeId }) => {
               }}
               handleAddToCart={handleAddToCart}
             />}
+          </div>
+
+          <div>
+            {isCreatorMode && episodeInfo?.isPublished && (
+              <PublicItem episodeInfo={episodeInfo} />
+            )}
+            {isCreatorMode && !episodeInfo?.isPublished && (
+              <PrivateItem
+                episodeInfo={episodeInfo}
+                updatePublishInPrivateSerie={() =>
+                  setPublishInPrivateSerie(true)
+                }
+              />
+            )}
           </div>
         </Col>
       </Row>

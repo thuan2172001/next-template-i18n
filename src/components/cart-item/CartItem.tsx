@@ -2,12 +2,9 @@ import {useTranslation} from "next-i18next";
 import {useState} from "react";
 import Image from "next/image";
 import style from "./item.module.scss";
-import {Checkbox} from "antd";
 import CustomerCartAPI from "../../api/customer/cart";
 import {useRouter} from "next/router";
 import {useDispatch, useSelector} from "react-redux";
-import CustomerSerieAPI from "../../api/customer/serie";
-import {useEffect} from "react";
 
 export const CartItem = ({
                              itemInfo,
@@ -57,7 +54,6 @@ export const CartItem = ({
         <>
             <div className={`${style["cart-item"]}`}>
                 <div className={`${style["check-box"]}`}>
-                    {/* <Checkbox checked={isCheck} onClick={() => toogleIsCheckCart(_id)} /> */}
                 </div>
                 <div
                     className={`${style["cart-item-image"]}`}

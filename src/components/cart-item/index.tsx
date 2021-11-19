@@ -21,9 +21,6 @@ const CartItem = ({ itemInfo, type = "" }) => {
 
           <div className={`${style["cart-item-name"]}`}>
             {name ? name : ""}
-            {/*<div className={`${style["cart-item-creator"]}`}>*/}
-            {/*  {creatorName ? creatorName : ""}*/}
-            {/*</div>*/}
           </div>
 
           <div
@@ -33,7 +30,6 @@ const CartItem = ({ itemInfo, type = "" }) => {
             {typeof price === "number" && (price + " USD")}
           </div>
 
-          {/*<div className={`${style["edition-count-1"]}`}>{numberEdition}</div>*/}
           <div className={`${style["cart-item-price"]}`} style={{ padding: 0 }}>
             {price + " USD"}
                

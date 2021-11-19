@@ -12,7 +12,6 @@ const CreateEpisode: React.FC = () => {
   return (
     <React.Fragment>
       <Header leave = {leave} setLeave = {setLeave}/>
-      {/*<CreatorLayout />*/}
       <CreateEpisodeTemplate leave = {leave} setLeave = {setLeave} setRoleValid={setRoleValid}/>
       <Footer />
     </React.Fragment>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Footer } from "@components/footer";

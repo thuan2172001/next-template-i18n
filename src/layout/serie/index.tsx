@@ -12,8 +12,10 @@ import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
 import EpisodeManagementAPI from "../../api/episode-management/episode-management";
 import Share from "@components/share-component/share";
 import Head from "next/head";
+import {useRouter} from "next/router";
 
 const SerieTemplate = ({ serieId }) => {
+    const router = useRouter();
     const { t } = useTranslation();
     const [serieData, setSerieData] = useState(null);
     const [episodeListComponent, setEpisodeList] = useState(null);
@@ -32,6 +34,7 @@ const SerieTemplate = ({ serieId }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [likes, setLikes] = useState(0);
     const [favorite, setFavorite] = useState(false);
+    const [pattern, setPattern] = useState(router.query["pattern"])
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -48,6 +51,11 @@ const SerieTemplate = ({ serieId }) => {
             }
         }
     }, []);
+
+    useEffect(() => {
+        setPattern(router.query.pattern)
+        console.log(pattern);
+    }, [router])
 
     const onClickFavorite = () => {
 
@@ -74,7 +82,7 @@ const SerieTemplate = ({ serieId }) => {
     };
 
     useEffect(() => {
-        CustomerSerieAPI.getSerieData({ serieId: serieId, userInfo: GetUserInfo(), page, limit: itemPerPage })
+        CustomerSerieAPI.getSerieData({ serieId: serieId, userInfo: GetUserInfo(), page, limit: itemPerPage, pattern: pattern })
             .then((data) => {
                 setSerieData(data);
                 setLikes(data?.likes);
@@ -97,7 +105,7 @@ const SerieTemplate = ({ serieId }) => {
             .catch((err) => {
                 console.log({ err });
             });
-    }, [page]);
+    }, [page, pattern]);
 
     useMemo(() => {
         serieData &&
@@ -191,13 +199,6 @@ const SerieTemplate = ({ serieId }) => {
                             <span className={`${style["cate-item"]}`}>
                                 {t(`common:category.${serieData?.category.categoryName}`)}
                             </span>
-                            {/*{serieData?.category?.map((category) => {*/}
-                            {/*  return (*/}
-                            {/*    <span className={`${style["cate-item"]}`}>*/}
-                            {/*      {category.name}*/}
-                            {/*    </span>*/}
-                            {/*  );*/}
-                            {/*})}*/}
                         </div>
                     </Skeleton>
                     <div className={` ${style["bottom-detail"]}`}>
@@ -234,10 +235,6 @@ const SerieTemplate = ({ serieId }) => {
                     </div>
                 </Skeleton>
             </section>
-
-            {/*{modalVisible && (*/}
-            {/*  <RequireLoginModal updateModalVisible={() => setModalVisible(false)} />*/}
-            {/*)}*/}
 
             {serieData?.episodes.length === 0 ? (
                 <SeeMoreNoResult />

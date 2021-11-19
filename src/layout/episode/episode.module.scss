@@ -121,7 +121,6 @@
   letter-spacing: rem(0.2px);
   justify-content: center;
   align-items: center;
-  display: flex;
   margin-top: rem(20px);
 
   .btn-add-to-cart {
@@ -164,6 +163,39 @@
   .btn-add-to-bookshelf {
     color: $color-bg;
     border-color: $color-bg;
+  }
+}
+
+.publish-action {
+  margin-left: rem(32px);
+  margin-top: rem(40px);
+  display: flex;
+  height: rem(40px);
+
+  .publish-btn {
+    margin-left: rem(16px);
+    width: 100%;
+    height: rem(40px);
+    background-color: $color-blue-2;
+    font-family: $font-euclid-medium;
+    font-style: normal;
+    font-weight: bold;
+    font-size: $fs1;
+    line-height: $lh2;
+    color: $color-white;
+  }
+
+  .private-btn {
+    margin-left: rem(16px);
+    width: 100%;
+    height: rem(40px);
+    background-color: $color-blue-2;
+    font-family: $font-euclid-medium;
+    font-style: normal;
+    font-weight: bold;
+    font-size: $fs1;
+    line-height: $lh2;
+    color: $color-white;
   }
 }
 
@@ -284,4 +316,28 @@
     color: $color-blue;
     padding: rem(10px) rem(12px) rem(10px) 0;
   }
+}
+
+.border {
+  display: flex;
+  justify-content: center;
+  margin-bottom: rem(100px);
+  border-top: 1px solid $color-gray-11;
+  padding-top: rem(60px);
+}
+
+.bottom-btn {
+  width: rem(160px);
+  height: rem(40px);
+  font-size: rem($fs1);
+  line-height: rem($lh2);
+  font-weight: $fw-bold;
+  border-color: $color-light-gray;
+}
+
+.active-btn {
+  border: none;
+  margin-left: rem(30px);
+  background-color: $color-blue-2;
+  color: $color-white;
 }

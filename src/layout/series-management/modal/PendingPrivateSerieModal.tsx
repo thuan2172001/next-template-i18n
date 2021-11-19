@@ -25,7 +25,7 @@ export const PendingPrivateSerieModal = ({
     >
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["confirm-icon"]}`}>
-          <Image src="/icons/pending-payment.svg" height={56} width={56} />
+          <Image src="/assets/icons/pending-payment.svg" height={56} width={56} />
         </div>
 
         <div className={`${style["success-message"]}`}>
@@ -54,7 +54,7 @@ export const PendingPrivateSerieModal = ({
 
             }}
           >
-            {closeShop ? t("shop:confirmShopStatus.backToShopSetting") : t("common:smModal.backToSeries")}
+            {closeShop ? t("common:smModal.backToShopSetting") : t("common:smModal.backToSeries")}
           </div>
         </div>
       </div>

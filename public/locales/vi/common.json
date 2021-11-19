@@ -107,7 +107,11 @@
   "editItem": "Chỉnh sửa",
   "search": "Tìm kiếm",
   "noProduct": "Không có sản phẩm trong giỏ hàng",
+  "forgotPasswordMessage1": "Chúng tôi sẽ gửi một đường dẫn để thay đổi mật khẩu của bạn.",
+  "forgotPasswordMessage2": "Xin vui lòng nhập địa chỉ email bạn đã đăng ký cho nền tảng WebtoonZ.",
   "continueBrowse": "Tiếp tục mua",
+  "checkout": "Thanh toán",
+  "successPurchased": "Mua hàng thành công",
   "free": "Miễn phí",
   "enjoy": "Đọc ngay ",
   "seriesManagement": {
@@ -177,7 +181,29 @@
     "value" : "Giá trị"
   },
   "banned": "Tài khoản đã bị khóa",
+  "createAcc": {
+    "signup": "Đăng ký",
+    "privacy1": "Tôi đã đọc và đồng ý với",
+    "privacy2": "Chính sách sử dụng",
+    "privacy3": "và",
+    "privacy4": "Chính sách bảo mật",
+    "confirmPw": "Nhập lại mật khẩu",
+    "title": "Tạo tài khoản"
+  },
   "errorMsg": {
-    "createFailed": "Tạo mới thất bại !"
+    "createFailed": "Tạo mới thất bại !",
+    "min6": "Tối thiểu 6 kí tự",
+    "max15": "Tố đa 15 kí tự",
+    "invalidEmail": "Email sai định dạng",
+    "emailRequired": "Email không được để trống",
+    "usernameRequired": "Tên đăng nhập không được để trống",
+    "fullNameRequired": "Họ và tên không được để trống",
+    "passwordRequired": "Mật khẩu không được để trống",
+    "passwordNotMatch": "Mật khẩu không trùng khớp",
+    "confirmPwRequired": "Bạn cần nhập lại mật khẩu",
+    "confirmTerms": "Bạn cần đồng ý với chính sách sử dụng và chính sách về quyền",
+    "passwordRuleNotPassed": "Mật khẩu cần chứa ít nhất 8 kí tự, một chữ viết hoa, một chữ số và một chữ cái đặc biệt",
+    "usernameExisted": "Tên đăng nhập đã tồn tại",
+    "emailExisted": "Email đã tồn tại"
   }
 }

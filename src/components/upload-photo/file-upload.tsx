@@ -180,7 +180,6 @@ export const FileUpload = ({
                   <div className={`${style["preview-btn"]}`}>
                     <img src={"/assets/icons/preview.svg"}></img>
                   </div>
-                  {/*<VideoThumbnail videoUrl={videoUrl} />*/}
                 </div>
               </a>
             )}

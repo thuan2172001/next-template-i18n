@@ -431,7 +431,6 @@ export const ReadHeader = ({
       <MiddleItem />
       <RightItem />
 
-      {/* setting */}
       {isComponentVisible && (
         <div className={`${style["setting-content"]}`} ref={ref}>
           <div className={`${style["setting-header"]} ${style["mt-12"]}`}>

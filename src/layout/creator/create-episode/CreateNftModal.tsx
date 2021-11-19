@@ -38,7 +38,7 @@ export const CreateNftModal = ({ updateModalVisible, upLoad, isLoading }) => {
             }}
             loading={isLoading}
           >
-            {t("create-series:createNft.creatItem")}
+            {t("create-series:createNft.createItem")}
           </Button>
         </div>
       </div>

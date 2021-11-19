@@ -1,16 +1,8 @@
 import { customAxios2 } from './custom-axios-2';
-import { CONTRACT_ADDRESS, PREFIX_IMG_URL } from '../constants';
+import {  PREFIX_IMG_URL } from '../constants';
 import { reduxStore } from '../store'; 
 import { isAuthenticatedUser } from './auth';
 import { Router } from '../translate/init';
-import Web3 from 'web3'
-import sotaABI from '../constants/ABI/sota.json';
-import ABI from '../constants/ABI/tether.json';
-
-const FILE_TYPE_TO_PREFIX_MIME = {
-    png: 'image',
-
-}
 
 const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));

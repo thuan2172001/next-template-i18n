@@ -6,8 +6,6 @@ import { useRouter } from "next/router";
 import React from "react";
 
 export const PrivateNft = ({ episode }) => {
-  const isFree = episode?.price == 0;
-
   const { t } = useTranslation();
   const route = useRouter();
 
@@ -34,7 +32,7 @@ export const PrivateNft = ({ episode }) => {
   };
 
   const moveToNft = () => {
-    route.push(`/nft?serieId=${episode.serie}&&episodeId=${episode._id}`);
+    route.push(`/episode?serieId=${episode.serieId}&&episodeId=${episode.episodeId}`);
   };
 
   return (

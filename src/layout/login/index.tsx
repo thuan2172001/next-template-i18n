@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import UserAPI from '../../api/auth';
 import {
-	GenerateKeyPair,
-	GenerateKeyPairAndEncrypt,
 	SignMessage,
 	SymmetricDecrypt,
 } from 'src/api/auth/service/auth-cryptography';
@@ -12,7 +10,6 @@ import { useTranslation } from 'next-i18next';
 import style from './login.module.scss'
 import CustomerCartAPI from "../../api/customer/cart";
 import { useSelector, useDispatch } from 'react-redux';
-import cart from '../../api/customer/cart';
 import Head from "next/head"
 
 const LoginTemplate = (props) => {
@@ -32,6 +29,8 @@ const LoginTemplate = (props) => {
 
 	const [notification, setNotification] = useState('');
 
+	const [loading, setLoading] = useState(false);
+
 	const handleLogin = () => {
 		if (username.length == 0 || password.length == 0) {
 			setNotification(
@@ -39,6 +38,7 @@ const LoginTemplate = (props) => {
 			);
 			return;
 		}
+		setLoading(true);
 		UserAPI.credential({ username })
 			.then((response) => {
 				const {
@@ -52,12 +52,14 @@ const LoginTemplate = (props) => {
 					encryptedPrivateKey.length <= 0
 				) {
 					setNotification(t('common:loginFailedMessage'));
+					setLoading(false);
 					return;
 				}
 				const privateKey = SymmetricDecrypt(encryptedPrivateKey, password);
 
 				if (!privateKey) {
 					setNotification(t('common:loginFailedMessage'));
+					setLoading(false);
 					return;
 				}
 
@@ -88,8 +90,9 @@ const LoginTemplate = (props) => {
 			.catch((err) => {
 				if (err === "AUTH.BANNED") {
 					setNotification(t('common:banned'))
-				}
-				setNotification(t('common:loginFailedMessage'));
+				} else
+					setNotification(t('common:loginFailedMessage'));
+				setLoading(false);
 			});
 	};
 
@@ -156,10 +159,12 @@ const LoginTemplate = (props) => {
 							});
 						}).catch((err) => console.log(err))
 				}
+				setLoading(false);
 
 				Router.push('/');
 			})
 			.catch((err) => {
+				setLoading(false);
 				setNotification(t('common:loginFailedMessage'));
 			});
 	};
@@ -217,6 +222,7 @@ const LoginTemplate = (props) => {
 				<Row className={style['btn-controller']}>
 					<div className={style['btn-controller-login']}>
 						<Button
+							loading={loading}
 							className={`${style['ant-btn-login']}`}
 							onClick={handleLogin}>
 							{t('common:header.logIn')}

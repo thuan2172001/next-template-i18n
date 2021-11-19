@@ -8,29 +8,37 @@ import CustomerBookshelfAPI from "../../../api/customer/bookshelf";
 import { GetUserInfo } from "src/api/auth";
 import { EmptyFavorItem } from "src/layout/favorItem/FavorItem";
 import { FavorPageTemplate } from "src/layout/favorItem";
+import {useRouter} from "next/router";
 
 const LikedBook = () => {
+    const router = useRouter();
     const [selectedCate, setSelectedCate] = useState("all");
     const [selectedSubCate, setSelectedSubCate] = useState("");
     const [categoryId, setCategoryId] = useState("");
     const [totalEpisode, setTotalEpisode] = useState(0);
     const [listEpisode, setListEpisode] = useState(null);
     const [page, setPage] = useState(1);
+    const [pattern, setPattern] = useState(router.query["pattern"])
 
     useEffect(() => {
         setCategoryId(selectedSubCate !== "" ? selectedSubCate : selectedCate);
     }, [selectedCate, selectedSubCate]);
 
     useEffect(() => {
+        setPattern(router.query.pattern)
+    }, [router])
+
+    useEffect(() => {
         CustomerBookshelfAPI.getLikedBook({
             userInfo: GetUserInfo(),
             page,
             limit: 30,
+            pattern: pattern?.toString()
         }).then((res) => {
             setTotalEpisode(res.totalEpisodes);
             setListEpisode(res.data);
         });
-    }, [categoryId, page]);
+    }, [categoryId, page, pattern]);
 
     return (
         <React.Fragment>

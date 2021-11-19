@@ -12,7 +12,7 @@ import { useTranslation } from "next-i18next";
 import { AddPaymentMethodModal } from "./AddPaymentMethodModal";
 import style from "./checkout.module.scss";
 import Head from "next/head";
-
+import { notifySuccess } from "@components/toastify";
 
 export const CheckoutTemplate = ({ cartList }) => {
     const { t } = useTranslation();
@@ -73,49 +73,6 @@ export const CheckoutTemplate = ({ cartList }) => {
         );
     }, [cartList, refetchPaymentMethod]);
 
-    const renderPaymentSuccessModal = () => {
-        return (
-            <Modal
-                visible={true}
-                onCancel={() => {
-                }}
-                footer={null}
-                closable={false}
-                maskClosable={false}
-            >
-                <div className="modal-common">
-                    <div className="confirm-icon">
-                        <Image src={"/assets/icons/success-purchase.svg"} height={56} width={56} />
-                    </div>
-
-                    <div className={`success-message`}>
-                        {t("account:successPurchase")}
-                    </div>
-
-                    <div className="custom-modal-footer">
-                        <div
-                            className="footer-button save-active-margin-right"
-                            onClick={() => router.push("/user/bookshelf")}
-                        >
-                            {t("account:goToBookshelf")}
-                        </div>
-
-                        <div
-                            className={`footer-button cancel-not-margin`}
-                            onClick={() => {
-                                closeSuccessModal(false);
-
-                                router.push("/user/cart");
-                            }}
-                        >
-                            {t("account:closePopup1")}
-                        </div>
-                    </div>
-                </div>
-            </Modal>
-        );
-    };
-
     const refetchCart = () => {
     };
 
@@ -133,8 +90,10 @@ export const CheckoutTemplate = ({ cartList }) => {
         }).then((response) => {
             if (!response.error) {
                 closeSuccessModal(true);
-                renderPaymentSuccessModal();
+                notifySuccess(t("common:successPurchased"));
+                router.push("/user/bookshelf");
             }
+            dispatch({ type: "UPDATE_CART", payload: [] });
             setLoading(false);
         });
     };
@@ -252,10 +211,8 @@ export const CheckoutTemplate = ({ cartList }) => {
                         doCheckout(cartList);
                     }}
                 >
-                    Checkout
+                    {t("common:checkout")}
                 </Button>
-
-                {openSuccessModal && renderPaymentSuccessModal()}
 
                 {modalType !== "" && modalType !== "checkout" && (
                     <AddPaymentMethodModal

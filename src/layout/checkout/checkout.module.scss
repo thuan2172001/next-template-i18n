@@ -134,3 +134,31 @@
   cursor: pointer;
   margin: rem(35px) auto rem(40px) rem(24px);
 }
+
+.modal-common {
+  font-style: normal;
+  letter-spacing: rem(0.2px);
+  padding-left: rem(30px);
+  padding-right: rem(26px);
+
+  .confirm-icon {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 38px;
+    width: 56px;
+  }
+
+  .text-align-start {
+    text-align: start;
+  }
+
+  .center-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .align-top-container {
+    margin-top: 11px;
+  }
+}

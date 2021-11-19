@@ -15,5 +15,14 @@ export default {
     });
   },
 
-
+  handleEpisodePublishStatus: ({ body, userInfo }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: "post",
+      url: `${baseURL}/episode/status`,
+      data: body,
+    }).then((data) => {
+      return data;
+    });
+  },
 };

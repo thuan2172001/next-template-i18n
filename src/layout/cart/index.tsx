@@ -1,16 +1,16 @@
 import style from "./cart.module.scss";
 import { useTranslation } from "next-i18next";
 import { CartItem } from "@components/cart-item/CartItem";
-import { Checkbox, Button } from "antd";
+import {  Button } from "antd";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { GetUserInfo } from "src/api/auth";
-import { useDispatch, useSelector } from 'react-redux';
 import Head from "next/head";
 
 export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListGuest }) => {
   const router = useRouter();
   const { t } = useTranslation();
+  const [loading, setLoading] = useState(false);
 
   const [isLogged, setIsLogged] = useState(false);
 
@@ -26,12 +26,12 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
     }
   }, []);
 
-  const [modalVisible, setModalVisible] = useState(false);
 
   const handleCheckout = () => {
+    setLoading(true);
     if (isLogged) router.push("/user/checkout");
     else {
-      setModalVisible(true);
+      router.push("/login");
     }
   }
 
@@ -88,6 +88,7 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
         </div>
 
         <Button
+          loading={loading}
           className={`${style["checkout-cart"]}`}
           onClick={handleCheckout}
           disabled={numberCheckedItem === 0}

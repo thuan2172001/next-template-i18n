@@ -15,8 +15,8 @@ export const PublishSeriesModal = ({
   const [loading, setLoading] = useState(false);
 
   const body = {
-    action: "publish",
-    seriesId: serieInfo?._id,
+    type: "PUBLISH",
+    serieId: serieInfo?.serieId,
   };
 
   const updateSeries = () => {
@@ -50,7 +50,7 @@ export const PublishSeriesModal = ({
 
         <div className={`${style["modal-message-publish"]}`}>
           {`${t("common:smModal.confirmPublish1")} `}
-          <span className={`${style["name"]}`}>{serieInfo?.name}</span>
+          <span className={`${style["name"]}`}>{serieInfo?.serieName}</span>
           {` ${t("common:smModal.confirmPublish2")}`}
         </div>
         <Divider className={`${style["divider"]}`} />
