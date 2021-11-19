@@ -145,12 +145,6 @@ export const SerieComponent = ({
             className={`${style["serie-detail"]}`}
             onClick={handleMoveToShop}
           >
-            {/* {data.creatorAvatar && (
-              <img
-                src={data.creatorAvatar}
-                className={`${style["avatar-creator"]}`}
-              />
-            )} */}
             <span
               className={`${style["serie-creator-name"]} ${style["cursor_pointer"]}`}
             >
@@ -158,10 +152,6 @@ export const SerieComponent = ({
                 <span
                   className={`${style["text-color-black"]} ${style["creator-name"]}`}
                 >
-                  {/* {convertLongString(
-                    data.creatorName,
-                    12 - data.likes.toString().length
-                  )} */}
                 </span>
               </Tooltip>
             </span>

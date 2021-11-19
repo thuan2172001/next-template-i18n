@@ -228,12 +228,6 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
 
   return (
     <div className={`${style["serie-content"]}`}>
-      {/*{isPrivating && (*/}
-      {/*  <PendingPrivateSerieModal*/}
-      {/*    serieInfo={serieData}*/}
-      {/*    updateModalType={({ type }) => console.log({ type })}*/}
-      {/*  />*/}
-      {/*)}*/}
       <section
         className={`${style["image-cover-hidden"]} ${style["image-place"]}`}
         style={{ backgroundColor: bgColor }}
@@ -268,24 +262,6 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
                   </span>
             </div>
           </Skeleton>
-          {/*<div className={` ${style["bottom-detail"]}`}>*/}
-            {/*<span className={`${style["serie-detail"]}`}>*/}
-            {/*  {serieData?.createdBy?.avatar && (*/}
-            {/*    <img*/}
-            {/*      src={serieData?.createdBy?.avatar}*/}
-            {/*      className={`${style["avatar-creator"]}`}*/}
-            {/*    />*/}
-            {/*  )}*/}
-            {/*  <span className={`${style["serie-creator-name"]}`}>*/}
-            {/*    {serieData?.createdBy?.user?.fullName}*/}
-            {/*  </span>*/}
-            {/*</span>*/}
-          {/*  <div className={`${style["share-section"]}`}>*/}
-          {/*    <span className={`${style["share-item"]}`}>*/}
-          {/*      <img src={"/icons/share/share-link.svg"} />*/}
-          {/*    </span>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
         </div>
 
         <Skeleton loading={!serieData?.description && serieData?.description != ""}>

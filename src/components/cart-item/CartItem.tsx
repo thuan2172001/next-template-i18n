@@ -54,7 +54,6 @@ export const CartItem = ({
         <>
             <div className={`${style["cart-item"]}`}>
                 <div className={`${style["check-box"]}`}>
-                    {/* <Checkbox checked={isCheck} onClick={() => toogleIsCheckCart(_id)} /> */}
                 </div>
                 <div
                     className={`${style["cart-item-image"]}`}
