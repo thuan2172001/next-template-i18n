@@ -20,10 +20,10 @@
   "invalidEmail": "Địa chỉ email không hợp lệ",
   "resend": "Gửi lại",
   "changePassword": "Đổi mật khẩu",
-  "newPasswordSyntax": "Password must have at least 8 characters with 1 uppercase letter, 1 lowercase letter and 1 number. No accented character or space is allowed",
-  "emptyNewPassword": "Please input new password",
-  "confirmPasswordNotMatch": "Password doesn’t match",
-  "emptyConfirmPassword": "Please confirm new password",
-  "successChangePassword": "Successfully changed password",
-  "confirmPassword": "Please confirm your password"
+  "newPasswordSyntax": "Mật khẩu phải có ít nhất 8 kí tự, không chứa dấu cách với ít nhất 1 chữ viết hoa, 1 chữ cái đặc biệt và 1 chữ số.",
+  "emptyNewPassword": "Mật khẩu không được để trống.",
+  "confirmPasswordNotMatch": "Mật khẩu không khớp.",
+  "emptyConfirmPassword": "Mật khẩu nhập lại không được để trống.",
+  "successChangePassword": "Thay đổi mạt khẩu thành công",
+  "confirmPassword": "Vui lòng nhập lại mật khẩu"
 }

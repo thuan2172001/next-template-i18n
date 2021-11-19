@@ -205,8 +205,30 @@
     "value" : "Value"
   },
   "banned": "Account is banned",
+  "createAcc": {
+    "signup": "Sign up",
+    "privacy1": "I have read and agree to the",
+    "privacy2": "Terms of Uses",
+    "privacy3": "and",
+    "privacy4": "Privacy Policy",
+    "confirmPw": "Confirm password",
+    "title": "Create account"
+  },
   "errorMsg": {
-    "createFailed": "Create failed !"
+    "createFailed": "Create failed !",
+    "min6": "Minimum 6 characters",
+    "max15": "Maximum 15 characters",
+    "invalidEmail": "Invalid email",
+    "emailRequired": "Email is required",
+    "usernameRequired": "Username is required",
+    "fullNameRequired": "Fullname is required",
+    "passwordRequired": "Password is required",
+    "passwordNotMatch": "Confirm password is not match with password",
+    "confirmPwRequired": "Confirm password is required",
+    "confirmTerms": "You need to confirm Terms of Uses and Privacy Policy",
+    "passwordRuleNotPassed": "Must Contain at least 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character",
+    "usernameExisted": "Username has been used by another account!",
+    "emailExisted": "This email has been used by another account!"
   },
   "smModal": {
     "confirmPublish": "Comfirm publish series",
