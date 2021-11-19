@@ -16,6 +16,7 @@ import {PendingCreateNftModal} from "./PendingCreateNftModal";
 import {NFTPreview} from "src/layout/creator/create-episode/preview";
 import style from "./create-episode.module.scss";
 import CreatorCreateApi from "../../../api/creator/series";
+import Head from "next/head";
 
 const scrollToTop = () => {
   document.body.scrollTop = 0;

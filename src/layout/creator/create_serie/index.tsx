@@ -13,6 +13,7 @@ import { SaveAlertModal } from "./save-alert-modal";
 import { useRouter } from "next/router";
 import category from "../../../api/category/category";
 import { notifyError } from "@components/toastify";
+import Head from "next/head";
 
 const scrollToTop = () => {
   document.body.scrollTop = 0;

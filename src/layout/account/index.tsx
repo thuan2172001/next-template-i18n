@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import AuthService, { GetUserInfo } from "../../api/auth/index";
 import { AddPaymentMethodModal } from "../checkout/AddPaymentMethodModal";
 import CustomerPaymentAPI from "../../api/customer/payment";
+import Head from "next/head";
 
 export const AccountTemplate = () => {
   const { t } = useTranslation();

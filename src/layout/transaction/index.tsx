@@ -1,10 +1,11 @@
-import { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import style from "./transaction.module.scss";
 import { PageNavigation } from "@components/pagination";
 import { GetUserInfo } from "src/api/auth";
 import TransactionAPI from "../../api/customer/transaction";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
+import Head from "next/head";
 
 export const TransactionTemplate = () => {
   const [totalTransaction, setTotalTransaction] = useState(0);
@@ -33,6 +34,9 @@ export const TransactionTemplate = () => {
 
   return (
     <div className={style["container"]}>
+      <Head>
+        <title>WebtoonZ | {t("common:transaction.title")}</title>
+      </Head>
       <div className={style["header"]}>{t("common:transaction.title")}</div>
       <table className={style["table"]}>
         <thead>

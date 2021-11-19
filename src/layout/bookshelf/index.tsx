@@ -3,6 +3,7 @@ import { PageNavigation } from "@components/pagination";
 import React, { useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { BookshelfProduct } from "@components/product-item/BookshelfProduct";
+import Head from "next/head";
 
 export const BookshelfTemplate = ({ episodeList, totalEpisode, page, setPage}) => {
   const { t } = useTranslation();

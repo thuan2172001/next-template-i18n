@@ -11,6 +11,8 @@ import CustomerPaymentAPI from "../../api/customer/payment";
 import { useTranslation } from "next-i18next";
 import { AddPaymentMethodModal } from "./AddPaymentMethodModal";
 import style from "./checkout.module.scss";
+import Head from "next/head";
+
 
 export const CheckoutTemplate = ({ cartList }) => {
     const { t } = useTranslation();

@@ -13,6 +13,7 @@ import { PrivateSeriesModal } from "../episode/modal/PrivateSeriesModal";
 import { PendingPrivateSerieModal } from "./modal/PendingPrivateSerieModal";
 import { SuccessPrivateSerieModal } from "./modal/SuccessPrivateSerieModal";
 import { FailedPrivateSerieModal } from "./modal/FailedPrivateModal";
+import Head from "next/head";
 
 export const SeriesManagementTemplate = () => {
   const { t } = useTranslation();

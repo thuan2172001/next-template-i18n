@@ -4,6 +4,7 @@ import { Button } from "antd";
 import { useTranslation } from "next-i18next";
 import CustomerProfileAPI from "../../api/customer/profile";
 import style from "./forgot-password.module.scss";
+import Head from "next/head";
 
 const ForgotPasswordTemplate = (props) => {
   const { t } = useTranslation();

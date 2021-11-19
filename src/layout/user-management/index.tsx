@@ -5,6 +5,7 @@ import { GetUserInfo } from "src/api/auth";
 import CreatorManageAPI from "../../api/creator/usermanagement";
 import { UserManagementModal } from "./user-modal";
 import { useTranslation } from "react-i18next";
+import Head from "next/head";
 
 export const UsersManagementTemplate = () => {
   const [totalUser, setTotalUser] = useState(0);

@@ -17,6 +17,7 @@ import { RequireLoginModal } from "@components/modal/RequireLoginModal";
 import Share from "@components/share-component/share";
 import Slider from "react-slick";
 import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
+import Head from "next/head";
 
 const EpisodeTemplate = ({ seriesId, episodeId }) => {
   let userInfo = JSON.parse(window.localStorage.getItem("userInfo"));

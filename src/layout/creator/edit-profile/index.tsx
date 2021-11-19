@@ -7,6 +7,7 @@ import CreatorInfo from "../../../api/creator/profile"
 import { GetUserInfo } from "src/api/auth";
 import { CustomCancelCreateNftModal } from "../../../layout/creator/create-episode/CustomCancelCreateNftModal";
 import style from "./edit-profile.module.scss";
+import Head from "next/head";
 
 const scrollToTop = () => {
   document.body.scrollTop = 0;

@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { GetUserInfo } from "src/api/auth";
 import { useDispatch, useSelector } from 'react-redux';
+import Head from "next/head";
 
 export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListGuest }) => {
   const router = useRouter();

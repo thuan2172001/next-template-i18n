@@ -4,6 +4,7 @@ import { CreatorNewRelease } from "./CreatorNewRelease";
 import { GetUserInfo } from "src/api/auth";
 import { ShopProfile } from "@components/shop-profile";
 import { CoverPhoto } from "@components/shop_component/CoverPhoto";
+import Head from "next/head";
 
 export const CreatorHomePageTemplate = () => {
   const [creatorData, setCreatorData] = useState(null);
