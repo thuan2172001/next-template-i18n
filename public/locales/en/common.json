@@ -10,6 +10,7 @@
     "signUp": "Sign up",
     "logIn": "Next",
     "account": "Account",
+    "send": "Send",
     "dropdown": {
       "account": "Account",
       "bookshelf": "Bookshelf",
@@ -19,7 +20,6 @@
       "changeLanguage": "Change language",
       "logOut": "Log out"
     },
-    "send": "Send",
     "creator": {
       "shopSetting": "SHOP SETTING",
       "manageItem": "MANAGE ITEM",
