@@ -1,16 +1,16 @@
 import style from "./c-modal.module.scss";
-import React, { useState } from "react";
-import { useTranslation } from "next-i18next";
-import { Modal, Divider, Button } from "antd";
+import React, {useState} from "react";
+import {useTranslation} from "next-i18next";
+import {Modal, Divider, Button} from "antd";
 import CreatorEpisodeAPI from "../../../api/creator/episode";
-import { GetUserInfo } from "src/api/auth";
+import {GetUserInfo} from "src/api/auth";
 
 export const PublishFreeItemModal = ({
-  updateModalVisible,
-  episodeInfo,
-  showPendingModal,
-}) => {
-  const { t } = useTranslation();
+                                       updateModalVisible,
+                                       episodeInfo,
+                                       showPendingModal,
+                                     }) => {
+  const {t} = useTranslation();
   const [loading, setLoading] = useState(false);
 
   const publishEpisode = () => {
@@ -18,8 +18,10 @@ export const PublishFreeItemModal = ({
     showPendingModal();
     CreatorEpisodeAPI.handleEpisodePublishStatus({
       userInfo: GetUserInfo(),
-      action: "publish",
-      episodeId: episodeInfo?._id,
+      body: {
+        type: "publish",
+        episodeId: episodeInfo?.episodeId,
+      }
     });
   };
 
@@ -33,7 +35,7 @@ export const PublishFreeItemModal = ({
       maskClosable={false}
       onCancel={updateModalVisible}
       centered={true}
-      bodyStyle={{ padding: "24px 0px" }}
+      bodyStyle={{padding: "24px 0px"}}
       footer={null}
     >
       <div className={`${style["modal-common"]}`}>
@@ -41,14 +43,14 @@ export const PublishFreeItemModal = ({
           {t("common:nft.publishItem")}
         </div>
         <div className={`${style["ep-name"]}`}>
-          <img src="/icons/nft-product-item/book.svg" height={30} width={30} />
+          <img src="/icons/nft-product-item/book.svg" height={30} width={30}/>
           <div className={`${style["name"]}`}>{episodeInfo?.name}</div>
         </div>
 
         <div className={`${style["modal-message"]}`}>
           {t("common:nft.publishFreeMessage")}
         </div>
-        <Divider className={`${style["divider"]}`} />
+        <Divider className={`${style["divider"]}`}/>
 
         <div className={`${style["modal-footer"]}`}>
           <Button
