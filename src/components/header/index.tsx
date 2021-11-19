@@ -259,7 +259,7 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 					<Link href="/">
 						<a>
 							<img
-								src="/assets/icons/autharium_logo.svg"
+								src="/assets/icons/logo.svg"
 								className={`${style["logo-img"]}`}
 							/>
 							<span className={`${style["logo"]}`}>

@@ -110,17 +110,19 @@
     "copyright": "Copyright",
     "technicalDebt": "TECHNICAL DEBT",
     "allReserved": "All rights reserved.",
-    "fullCopyright": "Copyright ©︎ AUTHARIUM. All rights reserved."
+    "fullCopyright": "Copyright ©︎ WebtoonZ. All rights reserved."
   },
   "forgotPassword": "Forgot password",
   "forgotPasswordMessage1": "We will send you a URL to reset your password.",
-  "forgotPasswordMessage2": "Please enter the email address you have registered for AUTHARIUM.",
+  "forgotPasswordMessage2": "Please enter the email address you have registered for WebtoonZ.",
   "sentMailLink": "Password reset link has been sent to email address",
   "checkMailBox": "Please check your mailbox.",
   "notReceiveLink": "Did not receive the confirmation link?",
   "notReceiveLink2": "Did not receive the link?",
   "resendLinkMsg": "Did not receive the confirmation link?",
   "resendIn": "Resend in",
+  "checkout": "Checkout",
+  "successPurchased": "Purchase items successfully",
   "enjoy": "Enjoy",
   "episode": {
     "episode": "Episode",

@@ -107,7 +107,11 @@
   "editItem": "Chỉnh sửa",
   "search": "Tìm kiếm",
   "noProduct": "Không có sản phẩm trong giỏ hàng",
+  "forgotPasswordMessage1": "Chúng tôi sẽ gửi một đường dẫn để thay đổi mật khẩu của bạn.",
+  "forgotPasswordMessage2": "Xin vui lòng nhập địa chỉ email bạn đã đăng ký cho nền tảng WebtoonZ.",
   "continueBrowse": "Tiếp tục mua",
+  "checkout": "Thanh toán",
+  "successPurchased": "Mua hàng thành công",
   "free": "Miễn phí",
   "enjoy": "Đọc ngay ",
   "seriesManagement": {

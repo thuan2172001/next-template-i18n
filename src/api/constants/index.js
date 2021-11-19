@@ -17,12 +17,6 @@ const CONTRACT_ADDRESS = {
 		}`,
 };
 
-const NFT_MARKET = {
-	topCreation: 2,
-	popularMarket: 1,
-	noMarket: 0,
-};
-
 const USER_TYPES = {
 	common: 0,
 	verified: 1,
@@ -100,44 +94,10 @@ const HOMEPAGE_CONTENT = {
 	notification: Array(374).join("X"),
 };
 
-const BOTTOM_BOX = [
-	{
-		iconSrc: "icons/three-boxes/AboutAutharium.svg",
-		imgSrc: "images/three-boxes/AboutAutharium.png",
-		text: "ABOUT AUTHARIUM",
-		link: "/#",
-	},
-	{
-		iconSrc: "icons/three-boxes/CreateShop.svg",
-		imgSrc: "images/three-boxes/CreateShop.png",
-		text: "CREATE SHOP",
-		link: "/#",
-	},
-	{
-		iconSrc: "icons/three-boxes/JoinedAuthors.svg",
-		imgSrc: "images/three-boxes/JoinedAuthors.png",
-		text: "JOINED AUTHORS",
-		link: "/list-series/all?queryBy=allAuthor&category=all&isDaily=true",
-	},
-	{
-		iconSrc: "icons/three-boxes/PrivacyPolicy.svg",
-		imgSrc: "images/three-boxes/PrivacyPolicy.png",
-		text: "PRIVACY POLICY",
-		link: "/#",
-	},
-	{
-		iconSrc: "icons/three-boxes/TermsAndConditions.svg",
-		imgSrc: "images/three-boxes/TermsAndConditions.png",
-		text: "TERMS AND CONDITIONS",
-		link: "/#",
-	},
-];
-
 export {
 	STATUS_CODE,
 	INFURAID,
 	CONTRACT_ADDRESS,
-	NFT_MARKET,
 	ALLOWED_IMAGE_TYPES,
 	ALLOWED_IMAGE_SIZE,
 	DEFAULT_COLLECTION_TYPE,
@@ -163,5 +123,4 @@ export {
 	SECURITY_OPTION,
 	ALLOWED_PREVIEW_IMAGE_TYPES,
 	HOMEPAGE_CONTENT,
-	BOTTOM_BOX,
 };

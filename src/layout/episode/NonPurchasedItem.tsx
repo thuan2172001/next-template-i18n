@@ -1,5 +1,5 @@
 import { Col, Row, Button } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
 import style from "./episode.module.scss";
 import { useRouter } from "next/router";
@@ -8,6 +8,7 @@ import { GetUserInfo } from "src/api/auth";
 export const NonPurchasedItem = ({ episodeInfo = null, amountInCart = 0, addedToBookshelf = null, handelAddToBookshelf = null, handleAddToCart = null, serieId = null }) => {
   const { t } = useTranslation();
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   return (
     <>
@@ -75,6 +76,7 @@ export const NonPurchasedItem = ({ episodeInfo = null, amountInCart = 0, addedTo
             <Col span={2}></Col>
             <Col span={11}>
               <Button
+                loading={loading}
                 onClick={() => {
                   const userInfo = GetUserInfo();
                   handleAddToCart();
@@ -83,6 +85,7 @@ export const NonPurchasedItem = ({ episodeInfo = null, amountInCart = 0, addedTo
                   } else {
                     router.push("/login");
                   }
+                  setLoading(true);
                 }}
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
               >

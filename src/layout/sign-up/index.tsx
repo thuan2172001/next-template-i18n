@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {Button, Input, Checkbox, notification} from 'antd'
+import { Button, Input, Checkbox, notification } from 'antd'
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { useTranslation } from 'next-i18next'
 import style from './sign-up.module.scss'
@@ -13,6 +13,7 @@ const SignupTemplate = (props) => {
     const [signupStatus, setSignupStatus] = useState(false);
     const [availableUsername, setAvailableUsername] = useState(true);
     const [availableEmail, setAvailableEmail] = useState(true);
+    const [loading, setLoading] = useState(false);
     const formik = useFormik({
         initialValues: {
             user_name: "",
@@ -44,13 +45,16 @@ const SignupTemplate = (props) => {
             checkbox: Yup.boolean().oneOf([true], "You need to confirm Terms of Uses and Privacy Policy")
         }),
         onSubmit: values => {
-            const {user_name, email, full_name, password, confirm_password, checkbox} = values;
-            AuthServiceAPI.signup({user_name, email, full_name, password}).then(response => {
-                if(!response.reason) {
+            const { user_name, email, full_name, password, confirm_password, checkbox } = values;
+            setLoading(true);
+            AuthServiceAPI.signup({ user_name, email, full_name, password }).then(response => {
+                if (!response.reason) {
                     setSignupStatus(true);
+                    setLoading(false);
                 }
             }).catch(err => {
                 console.log(err)
+                setLoading(false);
                 if (err == "USER.CREATE_USER.EXISTED_USERNAME") {
                     setAvailableUsername(false);
                 } else {
@@ -66,7 +70,7 @@ const SignupTemplate = (props) => {
     })
 
     if (signupStatus) {
-        return <VerifySignUpTemplate/>
+        return <VerifySignUpTemplate />
     }
     return (
         <div className={style["container"]}>
@@ -162,6 +166,7 @@ const SignupTemplate = (props) => {
 
                     <div className={style['btn-controller']}>
                         <Button
+                            loading={loading}
                             htmlType="submit"
                             className={`${style['ant-btn-signup']}`}
                         >
