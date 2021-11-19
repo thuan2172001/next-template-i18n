@@ -5,6 +5,7 @@ import {  Button } from "antd";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { GetUserInfo } from "src/api/auth";
+import Head from "next/head";
 
 export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListGuest }) => {
   const router = useRouter();
@@ -50,8 +51,10 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
 
   return (
     <>
+      <Head>
+        <title>WebtoonZ | {t("common:cartItem.shoppingCart")}</title>
+      </Head>
       <div style={{ height: 50 }} />
-
       <div className={`${style["cart"]}`}>
         <div className={`${style["cart-header"]}`}>
           {t("common:cartItem.shoppingCart")}

@@ -9,6 +9,7 @@ import CustomerProfileAPI from "../../api/customer/profile";
 import MailServiceApi from "../../api/mail-service/sent-mail";
 import style from "./change-password.module.scss";
 import { notifyError, notifySuccess } from "@components/toastify";
+import Head from "next/head";
 
 export const NewPasswordTemplate = (props) => {
   const { t } = useTranslation();
@@ -74,6 +75,9 @@ export const NewPasswordTemplate = (props) => {
 
   return (
     <div className={` ${style["container"]}`}>
+      <Head>
+        <title>WebtoonZ | {t("account:changePassword")}</title>
+      </Head>
       <div className={style['margin-top-container']}></div>
       <div className={`${style["reset-password-container"]}`}>
         <div className={`${style["signin-title"]} ${style["text-size-24"]}`}>

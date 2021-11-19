@@ -3,6 +3,7 @@ import { PageNavigation } from "@components/pagination";
 import React, { useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { BookshelfProduct } from "@components/product-item/BookshelfProduct";
+import Head from "next/head";
 
 export const BookshelfTemplate = ({ episodeList, totalEpisode, page, setPage}) => {
   const { t } = useTranslation();
@@ -23,6 +24,9 @@ export const BookshelfTemplate = ({ episodeList, totalEpisode, page, setPage}) =
 
   return (
     <div className={`${style["cointainer"]}`} id="main-container">
+      <Head>
+        <title>WebtoonZ | {t("common:bookshelf.bookShelf")}</title>
+      </Head>
       <div className={`${style["header"]}`}>
         <div className={`${style["header-name"]}`}>
           {t("common:bookshelf.bookShelf")}

@@ -4,13 +4,13 @@
     "continueBrowse": "Tiếp tục mua hàng"
   },
   "addPaymentMethod" : "Thêm hình thức thanh toán",
-  "orderTotal" : "Order Total",
+  "orderTotal" : "Tổng",
   "paymentMethod" : "Hình thức thanh toán",
   "cartHeader": "Giỏ hàng",
   "useOtherCard" : "Sử dụng hình thức khác",
   "cartItem": {
     "shoppingCart": "Giỏ hàng",
-    "orderTotal": "Order Total",
+    "orderTotal": "Tổng",
     "item": "sản phẩm",
     "items": "sản phẩm",
     "proceedCheckout": "Tiếp tục thanh toán",

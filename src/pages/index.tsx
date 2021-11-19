@@ -10,6 +10,7 @@ import { ListProducts } from "@components/shop_component/ListProducts";
 import { ShopProfile } from "@components/shop-profile";
 import { CreatorHomePageTemplate } from "src/layout/creator-home";
 import { Footer } from "@components/footer";
+import Head from "next/head";
 
 const Home: React.FC<{ homepageContent: any }> = () => {
     const { t } = useTranslation();
@@ -35,6 +36,9 @@ const Home: React.FC<{ homepageContent: any }> = () => {
 
     return (
         <React.Fragment>
+            <Head>
+                <title>WebtoonZ</title>
+            </Head>
             <div
                 style={{
                     minHeight: "100vh",

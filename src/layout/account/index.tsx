@@ -9,10 +9,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AuthService, { GetUserInfo } from "../../api/auth/index";
 import { AddPaymentMethodModal } from "../checkout/AddPaymentMethodModal";
 import CustomerPaymentAPI from "../../api/customer/payment";
+import Head from "next/head";
 
 export const AccountTemplate = () => {
   const { t } = useTranslation();
@@ -139,6 +140,9 @@ export const AccountTemplate = () => {
 
   return (
     <div className={`${style["container"]}`}>
+      <Head>
+        <title>WebtoonZ | {t("account:accountPage.account")}</title>
+      </Head>
       <div className={`${style["big-bold"]}`}>
         {t("account:accountPage.account")}
       </div>

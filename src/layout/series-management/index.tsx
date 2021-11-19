@@ -13,6 +13,7 @@ import { PrivateSeriesModal } from "../episode/modal/PrivateSeriesModal";
 import { PendingPrivateSerieModal } from "./modal/PendingPrivateSerieModal";
 import { SuccessPrivateSerieModal } from "./modal/SuccessPrivateSerieModal";
 import { FailedPrivateSerieModal } from "./modal/FailedPrivateModal";
+import Head from "next/head";
 
 export const SeriesManagementTemplate = () => {
   const { t } = useTranslation();
@@ -101,6 +102,9 @@ export const SeriesManagementTemplate = () => {
   const TabLayOut = () => {
     return (
       <>
+        <Head>
+          <title>WebtoonZ | {t("common:seriesManagement.header")}</title>
+        </Head>
         <div className={`${style["tab-layout"]}`}>
           <Button
             className={`${style["tab-btn"]} ${

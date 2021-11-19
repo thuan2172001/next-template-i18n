@@ -10,6 +10,7 @@ import { HeartFilled } from "@ant-design/icons";
 import { PublicNft } from "@components/product-item/PublicNft";
 import { PrivateNft } from "@components/product-item/PrivateNft";
 import { SeeMoreNoResult } from "@components/no-result/SeeMoreNoResult";
+import Head from "next/head";
 
 const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
   const { t } = useTranslation();
@@ -156,6 +157,9 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
   const TabLayOut = () => {
     return (
       <>
+        <Head>
+          <title>WebtoonZ | {t("common:episodeManagement.header")}</title>
+        </Head>
         <div className={`${style["serie-info"]}`}>
           <div
             className={`${style["tab-btn"]} ${

@@ -7,6 +7,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import AuthServiceAPI from '../../api/auth'
 import VerifySignUpTemplate from './verify'
+import Head from "next/head";
 
 const SignupTemplate = (props) => {
     const { t } = useTranslation();
@@ -74,6 +75,9 @@ const SignupTemplate = (props) => {
     }
     return (
         <div className={style["container"]}>
+            <Head>
+                <title>WebtoonZ | {t('common:header.signUp')}</title>
+            </Head>
             <div className={style["signup-container"]}>
                 <div className={style['signup-title']}>{t("common:createAcc.title")}</div>
                 <form onSubmit={formik.handleSubmit} className={style['signup-form']}>

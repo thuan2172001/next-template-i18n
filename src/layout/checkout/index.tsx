@@ -11,6 +11,7 @@ import CustomerPaymentAPI from "../../api/customer/payment";
 import { useTranslation } from "next-i18next";
 import { AddPaymentMethodModal } from "./AddPaymentMethodModal";
 import style from "./checkout.module.scss";
+import Head from "next/head";
 import { notifySuccess } from "@components/toastify";
 
 export const CheckoutTemplate = ({ cartList }) => {
@@ -103,6 +104,9 @@ export const CheckoutTemplate = ({ cartList }) => {
                 minHeight: "100vh",
             }}
         >
+            <Head>
+                <title>WebtoonZ | {t("cart:cartHeader")}</title>
+            </Head>
             <TabLayout type="checkout" />
 
             <section className={style["cart"]}>

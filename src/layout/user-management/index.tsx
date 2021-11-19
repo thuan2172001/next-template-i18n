@@ -5,6 +5,7 @@ import { GetUserInfo } from "src/api/auth";
 import CreatorManageAPI from "../../api/creator/usermanagement";
 import { UserManagementModal } from "./user-modal";
 import { useTranslation } from "react-i18next";
+import Head from "next/head";
 
 export const UsersManagementTemplate = () => {
   const [totalUser, setTotalUser] = useState(0);
@@ -39,6 +40,9 @@ export const UsersManagementTemplate = () => {
 
   return (
     <div className={style["container"]}>
+      <Head>
+        <title>WebtoonZ | {t("common:manageUsers.title")}</title>
+      </Head>
       <div className={style["header"]}>{t("common:manageUsers.title")}</div>
       <table className={style["table"]}>
         <thead>

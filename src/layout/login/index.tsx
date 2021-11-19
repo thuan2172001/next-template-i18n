@@ -10,6 +10,7 @@ import { useTranslation } from 'next-i18next';
 import style from './login.module.scss'
 import CustomerCartAPI from "../../api/customer/cart";
 import { useSelector, useDispatch } from 'react-redux';
+import Head from "next/head"
 
 const LoginTemplate = (props) => {
 	const { t } = useTranslation();
@@ -170,6 +171,9 @@ const LoginTemplate = (props) => {
 
 	return (
 		<div className={style["container"]}>
+			<Head>
+				<title>WebtoonZ | {t('common:header.signIn')}</title>
+			</Head>
 			<div className={style['margin-top-container']}></div>
 			<div className={style['login-container']}>
 				<div className={`${style['company-name']}`}>

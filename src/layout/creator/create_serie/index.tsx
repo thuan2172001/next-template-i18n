@@ -13,7 +13,8 @@ import { SaveAlertModal } from "./save-alert-modal";
 import { useRouter } from "next/router";
 import category from "../../../api/category/category";
 import { notifyError } from "@components/toastify";
-
+import Head from "next/head";
+//todo
 const scrollToTop = () => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
@@ -26,6 +27,9 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
   const TabLayout = () => {
     return (
       <div className={`${style["switch-tab"]}`}>
+        <Head>
+          <title>WebtoonZ | {t('common:create_serie.title')}</title>
+        </Head>
         <div
           className={`${style["switch-tab-item"]}  ${style["switch-tab-active"]}`}
         >

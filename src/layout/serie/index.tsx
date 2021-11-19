@@ -11,6 +11,7 @@ import { GetUserInfo } from "src/api/auth";
 import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
 import EpisodeManagementAPI from "../../api/episode-management/episode-management";
 import Share from "@components/share-component/share";
+import Head from "next/head";
 import {useRouter} from "next/router";
 
 const SerieTemplate = ({ serieId }) => {
@@ -153,6 +154,9 @@ const SerieTemplate = ({ serieId }) => {
 
     return (
         <div className={`${style["serie-content"]}`}>
+            <Head>
+                <title>WebtoonZ | {serieData?.serieName}</title>
+            </Head>
             <section
                 className={`${style["image-cover-hidden"]} ${style["image-place"]}`}
             >

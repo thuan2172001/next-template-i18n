@@ -17,6 +17,7 @@ import { RequireLoginModal } from "@components/modal/RequireLoginModal";
 import Share from "@components/share-component/share";
 import Slider from "react-slick";
 import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
+import Head from "next/head";
 import { PublicItem } from "./PublicItem";
 import { PrivateItem } from "./PrivateItem";
 
@@ -164,6 +165,9 @@ const EpisodeTemplate = ({ seriesId, episodeId, isCreatorMode }) => {
 
   return (
     <div className={style.nft}>
+      <Head>
+        <title>WebtoonZ | {episodeInfo?.name}</title> //Todo
+      </Head>
       {isCreatorMode && publishInPrivatSerie && (
         <div className={`${style["error-msg"]}`}>
           <img src="/assets/icons/invalid.svg" height={24} width={24} />
@@ -172,7 +176,6 @@ const EpisodeTemplate = ({ seriesId, episodeId, isCreatorMode }) => {
           </div>
         </div>
       )}
-
       <Row gutter={30}>
         <Col span={12}>
           <Skeleton active loading={!episodeInfo?.thumbnail}>

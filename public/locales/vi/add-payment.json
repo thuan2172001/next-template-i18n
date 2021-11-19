@@ -10,9 +10,9 @@
 		"block2": "Thông tin cá nhân sẽ dược giữ an toàn và bao mật. Webtoonz sẽ không có quyền truy cập thông tin thẻ của bạn."
 	},
 	"label": {
-		"nameOnCard": "Name on card",
-		"cardNumber": "Card number",
-		"expirationDate": "Expiration Date"
+		"nameOnCard": "Tên chủ thẻ",
+		"cardNumber": "Số thẻ",
+		"expirationDate": "Ngày hết hạn"
 	},
-	"invalidCardInfo": "Please input the right value!"
+	"invalidCardInfo": "Vui lòng nhập giá trị hợp lệ!"
 }
