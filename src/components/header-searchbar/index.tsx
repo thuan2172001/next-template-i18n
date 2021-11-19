@@ -1,7 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
 import { Button, Space } from 'antd';
-import { Menu, Dropdown } from 'antd';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import style from './header-searchbar.module.scss';

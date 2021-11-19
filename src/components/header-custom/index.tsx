@@ -13,7 +13,6 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
   const router = useRouter();
 
   const dispatch = useDispatch();
-  const [redirect, setRedirect] = useState(false);
 
   const [clientType, setClientType] = useState("");
   const [isLogged, setIsLogged] = useState(false);
