@@ -14,7 +14,7 @@ const EpisodePage = (props) => {
 			seriesId: router.query.serieId,
 			episodeId: router.query.episodeId
 		});
-	}, [router.isReady])
+	}, [router.isReady, router.query])
 
 	return (
 		<React.Fragment>
