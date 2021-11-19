@@ -18,23 +18,28 @@ export const ListProducts = ({ selectedCate }) => {
   const [page, setPage] = useState(1);
   const [dataListProducts, setDataListProducts] = useState(null);
   const [category, setCategory] = useState(router.query["category"]);
+  const [pattern, setPattern] = useState(router.query["pattern"]);
 
   useEffect(() => {
     router.isReady && setCategory(router.query.category);
+    setPattern(router.query.pattern);
+    console.log(pattern)
   }, [router]);
 
   useEffect(() => {
     featDataListProducts(selectedCate);
-  }, [category, page, selectedCate, itemsPerPage]);
+  }, [category, page, selectedCate, itemsPerPage, pattern]);
 
   const featDataListProducts = (selectedCate) => {
     setIsLoading(true);
+    console.log(pattern)
     SeriesManagementAPI.getSerieQuery({
       userInfo: GetUserInfo(),
       limit: itemsPerPage,
       page: page,
       category: selectedCate,
       isDaily: "true",
+      pattern: pattern
     })
       .then((res) => {
         setDataListProducts(res.data);
