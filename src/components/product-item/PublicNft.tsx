@@ -12,7 +12,7 @@ export const PublicNft = ({ episode }) => {
   const route = useRouter();
   
   const moveToNft = () => {
-    route.push(`/episode?serieId=${episode.serie}&&episodeId=${episode._id}`);
+    route.push(`/episode?serieId=${episode.serieId}&&episodeId=${episode.episodeId}`);
   };
 
   const menu = (

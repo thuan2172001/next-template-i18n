@@ -49,5 +49,20 @@ export default {
         }).then((data) => {
             return data;
         });
+    },
+
+    updateSeries: ({userInfo, body}) => {
+        const customAxios = createCustomAxios(userInfo);
+
+        return customAxios({
+            method: "post",
+            url: `${baseURL}/serie/status`,
+            data: {
+                type: body.type,
+                serieId: body.serieId
+            }
+        }).then((data) => {
+            return data;
+        });
     }
 };

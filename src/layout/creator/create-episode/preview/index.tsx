@@ -219,7 +219,7 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
           onClick={() => setConfirmModal(true)}
           className={`${style["bottom-btn"]} ${style["active-btn"]}`}
         >
-          {t("create-series:createNft.creatItem")}
+          {t("create-series:createNft.createItem")}
         </Button>
       </div>
     </div>
