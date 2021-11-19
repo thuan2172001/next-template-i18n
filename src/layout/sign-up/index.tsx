@@ -35,7 +35,7 @@ const SignupTemplate = (props) => {
                 .required(t("common:errorMsg.fullNameRequired")),
             password: Yup.string()
                 .matches(
-                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){8,})/,
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\()_+=\-/*+{}|\[\]'"<,>.?/~`\\])(?=.{8,})/,
                     t("common:errorMsg.passwordRuleNotPassed")
                 )
                 .required(t("common:errorMsg.passwordRequired")),
