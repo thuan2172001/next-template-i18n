@@ -406,6 +406,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
         if (res.status === "pending") {
           setIsPending(true);
         } else setVisible(false);
+        router.push("/sm?view=public")
       })
       .catch((err) => {
         setVisible(false);

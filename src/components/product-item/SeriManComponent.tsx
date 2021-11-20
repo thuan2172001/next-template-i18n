@@ -51,7 +51,7 @@ export const SerieManagementComponent = ({
   );
 
   const handleMoveToEm = () => {
-    router.push(`/em?view=public&&serieId=${series.serieId}&page=1`);
+    router.push(`/em?view=public&serieId=${series.serieId}&page=1`);
   };
 
   return (

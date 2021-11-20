@@ -23,7 +23,7 @@ export const CancelCreateNftModal = ({ updateModalVisible, serieID }) => {
           <Button
             className={`${style["footer-button"]} ${style["cancel"]} ${style["create-nft-btn"]}`}
             onClick={() => {
-              router.push(serieID ? `/em?view=public&&serieId=${serieID}&page=1` :`/`);
+              router.push(serieID ? `/em?view=public&serieId=${serieID}&page=1` :`/`);
             }}
           >
             {t("create-series:createNft.leave")}

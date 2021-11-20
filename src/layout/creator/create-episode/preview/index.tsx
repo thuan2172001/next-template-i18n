@@ -7,6 +7,7 @@ import { NonPurchasedItem } from "../../../episode/NonPurchasedItem";
 import { PurchasedItem } from "../../../episode/PurchasedItem";
 import { CreateNftModal } from "../CreateNftModal";
 import style from "../../../episode/episode.module.scss";
+import router from "next/router";
 
 export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => {
   const { t } = useTranslation();
@@ -214,7 +215,9 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
           {t("create-series:createNft.continueEditing")}
         </Button>
         <Button
-          onClick={() => setConfirmModal(true)}
+          onClick={() => {
+            setConfirmModal(true)
+          }}
           className={`${style["bottom-btn"]} ${style["active-btn"]}`}
         >
           {t("create-series:createNft.createItem")}

@@ -18,8 +18,8 @@ export const EpManagePendingModal = ({
 
   const moveToEM = () => {
     if (type === "publish")
-      router.push(`/em?view=private&&serieId=${serieId}&page=1`);
-    else router.push(`/em?view=public&&serieId=${serieId}&page=1`);
+      router.push(`/em?view=private&serieId=${serieId}&page=1`);
+    else router.push(`/em?view=public&serieId=${serieId}&page=1`);
   };
 
   const { t } = useTranslation();

@@ -78,7 +78,7 @@ export const SerieComponent = ({
 
   const handleRouteForEm = () => {
     if (role !== "creator") router.push(`/serie/${serie.serieId}`);
-    else router.push(`/em?view=public&&serieId=${serie.serieId}`);
+    else router.push(`/em?view=public&serieId=${serie.serieId}`);
   };
 
   if (!displayAuthor)
