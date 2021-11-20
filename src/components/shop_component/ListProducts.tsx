@@ -7,6 +7,7 @@ import SeriesManagementAPI from "../../api/series-management/series-management";
 import { GetUserInfo } from "../../api/auth";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import { Skeleton } from "antd";
 
 export const ListProducts = ({ selectedCate }) => {
   const router = useRouter();
@@ -61,7 +62,7 @@ export const ListProducts = ({ selectedCate }) => {
       {!isLoading && totalProduct === 0 ? (
         <SeeMoreNoResult />
       ) : (
-        <>
+        <Skeleton loading={isLoading}>
           <div className={`${style["list-series-content"]}`}>
             {!isLoading &&
               dataListProducts?.map((serie, index) => (
@@ -80,7 +81,7 @@ export const ListProducts = ({ selectedCate }) => {
               itemsPerPage={itemsPerPage}
             />
           )}
-        </>
+        </Skeleton>
       )}
     </div>
   );

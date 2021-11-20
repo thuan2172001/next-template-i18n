@@ -3,10 +3,10 @@ import { PageNavigation } from "@components/pagination";
 import React, { useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { BookshelfProduct } from "@components/product-item/BookshelfProduct";
-import { LoadEffect } from "@components/load-effect";
 import Head from "next/head";
+import { Skeleton } from "antd";
 
-export const FavorPageTemplate = ({ episodeList, totalEpisode, page, setPage}) => {
+export const FavorPageTemplate = ({ episodeList, totalEpisode, page, setPage, loading }) => {
   const { t } = useTranslation();
   const itemsPagination = 30;
   const [episodeListComponent, setEpisodeList] = useState(null);
@@ -33,16 +33,18 @@ export const FavorPageTemplate = ({ episodeList, totalEpisode, page, setPage}) =
           {t("common:favorItem.header")}
         </div>
       </div>
-        <LoadEffect/>
-      <div className={`${style["item-list"]}`}>{episodeListComponent}</div>
-      {totalEpisode > itemsPagination && (
-        <PageNavigation
-          totalItem={totalEpisode}
-          itemsPerPage={itemsPagination}
-          page={page}
-          setPage={setPage}
-        />
-      )}
+      {/* <LoadEffect/> */}
+      <Skeleton loading={loading} paragraph={true}>
+        <div className={`${style["item-list"]}`}>{episodeListComponent}</div>
+        {totalEpisode > itemsPagination && (
+          <PageNavigation
+            totalItem={totalEpisode}
+            itemsPerPage={itemsPagination}
+            page={page}
+            setPage={setPage}
+          />
+        )}
+      </Skeleton>
     </div>
   );
 };

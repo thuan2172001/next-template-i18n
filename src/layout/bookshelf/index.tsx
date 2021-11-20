@@ -4,8 +4,13 @@ import React, { useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { BookshelfProduct } from "@components/product-item/BookshelfProduct";
 import Head from "next/head";
+import { Skeleton } from "antd";
 
-export const BookshelfTemplate = ({ episodeList, totalEpisode, page, setPage}) => {
+export const BookshelfTemplate = ({ episodeList,
+  totalEpisode,
+  page,
+  setPage, loading
+}) => {
   const { t } = useTranslation();
   const itemsPagination = 30;
   const [episodeListComponent, setEpisodeList] = useState(null);
@@ -33,15 +38,17 @@ export const BookshelfTemplate = ({ episodeList, totalEpisode, page, setPage}) =
         </div>
       </div>
 
-      <div className={`${style["item-list"]}`}>{episodeListComponent}</div>
-      {totalEpisode > itemsPagination && (
-        <PageNavigation
-          totalItem={totalEpisode}
-          itemsPerPage={itemsPagination}
-          page={page}
-          setPage={setPage}
-        />
-      )}
+      <Skeleton loading={loading}>
+        <div className={`${style["item-list"]}`}>{episodeListComponent}</div>
+        {totalEpisode > itemsPagination && (
+          <PageNavigation
+            totalItem={totalEpisode}
+            itemsPerPage={itemsPagination}
+            page={page}
+            setPage={setPage}
+          />
+        )}
+      </Skeleton>
     </div>
   );
 };

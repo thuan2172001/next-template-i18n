@@ -8,17 +8,18 @@ import { BookshelfTemplate } from "../../../layout/bookshelf";
 import CustomerBookshelfAPI from "../../../api/customer/bookshelf";
 import { EmptyBookshelf } from "src/layout/bookshelf/EmptyBookshelf";
 import { GetUserInfo } from "src/api/auth";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 const Bookshelf = () => {
   const router = useRouter();
   const [selectedCate, setSelectedCate] = useState("all");
   const [selectedSubCate, setSelectedSubCate] = useState("");
   const [categoryId, setCategoryId] = useState("");
-  const [totalEpisode, setTotalEpisode] = useState(0);
+  const [totalEpisode, setTotalEpisode] = useState(-1);
   const [listEpisode, setList] = useState(null);
   const [page, setPage] = useState(1);
-  const [pattern, setPattern] = useState(router.query["pattern"])
+  const [pattern, setPattern] = useState(router.query["pattern"]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setCategoryId(selectedSubCate !== "" ? selectedSubCate : selectedCate);
@@ -29,6 +30,7 @@ const Bookshelf = () => {
   }, [router])
 
   useEffect(() => {
+    setLoading(true);
     CustomerBookshelfAPI.getBookShelf({
       userInfo: GetUserInfo(),
       page: page,
@@ -37,6 +39,10 @@ const Bookshelf = () => {
     }).then((res) => {
       setTotalEpisode(res.totalEpisodes);
       setList(res.data);
+      setLoading(false);
+    }).catch(err => {
+      setTotalEpisode(0)
+      setLoading(false);
     });
   }, [categoryId, page, pattern]);
 
@@ -53,7 +59,13 @@ const Bookshelf = () => {
       {totalEpisode === 0 ? (
         <EmptyBookshelf />
       ) : (
-        <BookshelfTemplate episodeList={listEpisode} totalEpisode={totalEpisode} page={page} setPage={setPage}/>
+        <BookshelfTemplate
+          episodeList={listEpisode}
+          totalEpisode={totalEpisode}
+          page={page}
+          setPage={setPage}
+          loading={loading}
+        />
       )}
 
       <Footer />

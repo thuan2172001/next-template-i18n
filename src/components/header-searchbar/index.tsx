@@ -1,14 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {Button, Space} from 'antd';
-import {useTranslation} from 'next-i18next';
-import {useRouter} from 'next/router';
+import React, { useEffect, useState } from 'react';
+import { Button, Space } from 'antd';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import style from './header-searchbar.module.scss';
-import {root} from "postcss";
-import CustomerBookshelfAPI from "../../api/customer/bookshelf";
-import {GetUserInfo} from "src/api/auth";
 
 export const SearchBar2 = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const router = useRouter();
   const [page, setPage] = useState("");
   const [searchInput, setSearchInput] = useState("")
@@ -24,10 +21,10 @@ export const SearchBar2 = () => {
   const handleSearch = () => {
     switch (page) {
       case "": case "account":
-        router.push(`/?pattern=${searchInput}` )
+        router.push(`/?pattern=${searchInput}`)
         break;
       case "liked":
-        router.push(`/user/liked?category=all&liked=serie&pattern=${searchInput}` )
+        router.push(`/user/liked?category=all&liked=serie&pattern=${searchInput}`)
         break;
       case "bookshelf":
         router.push(`/user/bookshelf?pattern=${searchInput}`)
@@ -43,8 +40,22 @@ export const SearchBar2 = () => {
 
   return (
     <div className={`${style["searchbox-2"]}`}>
-      <input onChange={(e) => handleChangeInput(e.target.value)} placeholder={t('common:search')} type="text">router.query.pattern.toString()</input>
-      <Button onClick={handleSearch}><img src={'/assets/icons/search_icon.svg'}></img></Button>
+      <input
+        onChange={(e) => handleChangeInput(e.target.value)}
+        placeholder={t('common:search')}
+        type="text"
+        onKeyPress={(e) => {
+          console.log(e)
+          if (e.code === "Enter") {
+            e.preventDefault();
+            handleSearch();
+          }
+        }}
+      />
+      <Button
+        onClick={handleSearch}>
+        <img src={'/assets/icons/search_icon.svg'} />
+      </Button>
     </div>
   );
 };

@@ -8,17 +8,18 @@ import CustomerBookshelfAPI from "../../../api/customer/bookshelf";
 import { GetUserInfo } from "src/api/auth";
 import { EmptyFavorItem } from "src/layout/favorItem/FavorItem";
 import { FavorPageTemplate } from "src/layout/favorItem";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 const LikedBook = () => {
     const router = useRouter();
     const [selectedCate, setSelectedCate] = useState("all");
     const [selectedSubCate, setSelectedSubCate] = useState("");
     const [categoryId, setCategoryId] = useState("");
-    const [totalEpisode, setTotalEpisode] = useState(0);
+    const [totalEpisode, setTotalEpisode] = useState(-1);
     const [listEpisode, setListEpisode] = useState(null);
     const [page, setPage] = useState(1);
     const [pattern, setPattern] = useState(router.query["pattern"])
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setCategoryId(selectedSubCate !== "" ? selectedSubCate : selectedCate);
@@ -29,6 +30,7 @@ const LikedBook = () => {
     }, [router])
 
     useEffect(() => {
+        setLoading(true);
         CustomerBookshelfAPI.getLikedBook({
             userInfo: GetUserInfo(),
             page,
@@ -37,6 +39,10 @@ const LikedBook = () => {
         }).then((res) => {
             setTotalEpisode(res.totalEpisodes);
             setListEpisode(res.data);
+            setLoading(false);
+        }).catch(err => {
+            setTotalEpisode(0);
+            setLoading(false);
         });
     }, [categoryId, page, pattern]);
 
@@ -53,7 +59,13 @@ const LikedBook = () => {
             {totalEpisode === 0 ? (
                 <EmptyFavorItem />
             ) : (
-                <FavorPageTemplate episodeList={listEpisode} totalEpisode={totalEpisode} page={page} setPage={setPage} />
+                <FavorPageTemplate
+                    episodeList={listEpisode}
+                    totalEpisode={totalEpisode}
+                    page={page}
+                    setPage={setPage}
+                    loading={loading}
+                />
             )}
 
             <Footer />
