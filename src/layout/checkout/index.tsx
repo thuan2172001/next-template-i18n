@@ -132,7 +132,7 @@ export const CheckoutTemplate = ({ cartList }) => {
 
                 <div className={style["order-total"]}>
                     <span className={style["order-total-name"]}>
-                        {t("cart:orderTotal")} {`(${cartList.length} ${cartList.length > 1 ? ' items' : ' item'}):`}
+                        {t("cart:orderTotal")} {`(${cartList.length} ${cartList.length > 1 ? ` ${t("common:cartItem.items")}` : ` ${t("common:cartItem.item")}`}):`}
                     </span>
                     <span className={style["order-total-number"]}>{currentTotal + " USD"}</span>
                 </div>

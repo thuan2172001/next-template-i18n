@@ -41,20 +41,20 @@ export const PrivateItemModal = ({
     >
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["modal-header"]}`}>
-          {t("common:nft.privateItem")}
+          {t("common:episode.privateItem")}
         </div>
 
         <div className={`${style["modal-message-private"]}`}>
           {episodeInfo?.isFree ? (
             <>
-              {`${t("common:nft.privateItem1")} "${episodeInfo?.name}" ${t(
-                "common:nft.privateItem2"
+              {`${t("common:episode.privateItem1")} "${episodeInfo?.name}" ${t(
+                "common:episode.privateItem2"
               )}`}
             </>
           ) : (
             <>
-              {`${t("common:nft.privateItem1")} "${episodeInfo?.name}" ${t(
-                "common:nft.privateItem3"
+              {`${t("common:episode.privateItem1")} "${episodeInfo?.name}" ${t(
+                "common:episode.privateItem3"
               )}`}
             </>
           )}
@@ -74,7 +74,7 @@ export const PrivateItemModal = ({
             className={`${style["footer-btn"]} ${style["ml-30"]}`}
             onClick={() => handelUnPublishItem()}
           >
-            {t("common:nft.privateItem")}
+            {t("common:episode.privateItem")}
           </Button>
         </div>
       </div>

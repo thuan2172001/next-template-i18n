@@ -63,14 +63,14 @@ export const AboutTerm = ( {coverImage = ""} ) => {
     return (
       <Space size={60}>
         <a
-          href="https://www.w3schools.com"
+          href="https://discord.gg/VzDBscSK"
           target="_blank"
           className={`${style["left-item"]} ${style["cursor-pointer"]}`}
         >
           {t("common:aboutTerm.about")}
         </a>
         <a
-          href="https://www.w3schools.com"
+          href="https://discord.gg/VzDBscSK"
           target="_blank"
           className={`${style["left-item"]} ${style["cursor-pointer"]}`}
         >

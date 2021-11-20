@@ -459,14 +459,14 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
           >
             <div className={`${style["switch-tab"]}`}>
               <div className={`${style["switch-tab-item"]}`}>
-                <span className={`${style["switch-tab-rank"]}`}>1</span>Create
-                series
+                <span className={`${style["switch-tab-rank"]}`}>1</span>
+                {t("create-series:createSeries")}
               </div>
               <div
                 className={`${style["switch-tab-item"]} ${style["switch-tab-active"]}`}
               >
                 <span className={`${style["switch-tab-rank"]} `}>2</span>
-                Create episode
+                {t("create-series:createNft.createItem")}
               </div>
             </div>
             <section className={`${style["select-episode-thumb"]}`}>
@@ -564,7 +564,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                   checked
                 >
                   <div className={`${style["radio-value"]}`}>
-                    {uploadContent.seriesInfo?.category.categoryName || "Video"}
+                    {uploadContent.seriesInfo?.category.categoryName || "Comedy"}
                     <div className={`${style["checked-icon"]}`}>
                       <Image src="/assets/icons/checked.svg" width={19} height={19}/>
                     </div>
@@ -585,7 +585,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                   }`}
                 >
                   <Input
-                    placeholder={t("create-series:max60Character")}
+                    placeholder={t("create-series:max60Characters")}
                     value={uploadContent.title.content}
                     onChange={episodeTitleChange}
                   />
@@ -598,7 +598,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                   <>
                     {!uploadContent.title.isValid && (
                       <div className={`${style["error-msg-input"]}`}>
-                        {t("create-series:characterAlert1")}
+                        {t("create-series:max60Characters")}
                       </div>
                     )}
                   </>
@@ -631,7 +631,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 style={{
                   width: "48%",
                 }}
-                label={t("create-series:episodeDescription")}
+                label={t("create-series:summary")}
               >
                 <div
                   className={`${
@@ -639,7 +639,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                   }`}
                 >
                   <TextArea
-                    placeholder={t("create-series:episodeDescription")}
+                    placeholder={t("create-series:summary")}
                     autoSize={{minRows: 4, maxRows: 5}}
                     name="summary"
                     value={uploadContent.description.content}
@@ -648,7 +648,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 </div>
                 {!uploadContent.description.isValid && (
                   <div className={`${style["error-msg-input"]}`}>
-                    {t("create-series:characterAlert2")}
+                    {t("create-series:max500Characters")}
                   </div>
                 )}
               </Form.Item>
@@ -658,7 +658,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
               <div
                 className={`${style["episode-option-header"]} ${style["episode-option"]}`}
               >
-                {t("create-series:epType")}
+                {t("create-series:category")}
               </div>
               <Radio.Group
                 value={uploadContent.type}

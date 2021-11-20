@@ -12,7 +12,7 @@ import { PreviewSerieTemplate } from "./preview/PreviewSerieTemplate";
 import { SaveAlertModal } from "./save-alert-modal";
 import { useRouter } from "next/router";
 import category from "../../../api/category/category";
-import { notifyError } from "@components/toastify";
+import { notifyError, notifySuccess } from "@components/toastify";
 import Head from "next/head";
 //todo
 const scrollToTop = () => {
@@ -23,26 +23,7 @@ const scrollToTop = () => {
 export const CreateSerieTemplate = ({ leave, setLeave }) => {
   const { t } = useTranslation();
   const router = useRouter();
-
-  const TabLayout = () => {
-    return (
-      <div className={`${style["switch-tab"]}`}>
-        <Head>
-          <title>WebtoonZ | {t('common:create_serie.title')}</title>
-        </Head>
-        <div
-          className={`${style["switch-tab-item"]}  ${style["switch-tab-active"]}`}
-        >
-          <span className={`${style["switch-tab-rank"]}`}>1</span>
-          {t('common:create_serie.title')}
-        </div>
-        <div className={`${style["switch-tab-item"]}`}>
-          <span className={`${style["switch-tab-rank"]} `}>2</span>
-          {t('common:create_episode.title')}
-        </div>
-      </div>
-    );
-  };
+  const [loading, setLoading] = useState(false);
 
   const [firstInit, setFirstInit] = useState(true);
 
@@ -66,6 +47,26 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
   })
 
   let cateInputValid = category.name !== "";
+
+  const TabLayout = () => {
+    return (
+      <div className={`${style["switch-tab"]}`}>
+        <Head>
+          <title>WebtoonZ | {t('common:create_serie.title')}</title>
+        </Head>
+        <div
+          className={`${style["switch-tab-item"]}  ${style["switch-tab-active"]}`}
+        >
+          <span className={`${style["switch-tab-rank"]}`}>1</span>
+          {t('common:create_serie.title')}
+        </div>
+        <div className={`${style["switch-tab-item"]}`}>
+          <span className={`${style["switch-tab-rank"]} `}>2</span>
+          {t('common:create_episode.title')}
+        </div>
+      </div>
+    );
+  };
 
   const handlePreview = () => {
     setFirstInit(false);
@@ -125,6 +126,7 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
           .catch(reject);
       });
 
+    setLoading(true);
     const upload = await Promise.all([
       uploadSingleFile(coverPhoto),
       uploadSingleFile(thumbnail),
@@ -142,12 +144,17 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
       body: body,
       userInfo: GetUserInfo(),
     }).then((res) => {
-      if (res.series) router.push(`/sm?view=private`);
+      if (!res.reason) {
+        router.push(`/sm?view=private`);
+        notifySuccess(t("common:successMsg.createSuccess"));
+      }
       else {
         notifyError(t("common:errorMsg.createFailed"));
       }
+      setLoading(false);
     }).catch(err => {
       notifyError(t("common:errorMsg.createFailed"));
+      setLoading(false);
     });
   };
 
@@ -192,6 +199,7 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
           }}
           setPreview={setPreview}
           upload={Upload}
+          loading={loading}
         />
       )}
       <div

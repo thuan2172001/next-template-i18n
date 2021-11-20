@@ -40,7 +40,7 @@ export const PublishFreeItemModal = ({
     >
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["modal-header"]}`}>
-          {t("common:nft.publishItem")}
+          {t("common:episode.publishItem")}
         </div>
         <div className={`${style["ep-name"]}`}>
           <img src="/icons/nft-product-item/book.svg" height={30} width={30}/>
@@ -48,7 +48,7 @@ export const PublishFreeItemModal = ({
         </div>
 
         <div className={`${style["modal-message"]}`}>
-          {t("common:nft.publishFreeMessage")}
+          {t("common:episode.publishFreeMessage")}
         </div>
         <Divider className={`${style["divider"]}`}/>
 
@@ -65,7 +65,7 @@ export const PublishFreeItemModal = ({
             className={`${style["footer-btn"]} ${style["save"]}`}
             onClick={publishEpisode}
           >
-            {t("common:nft.publishItem")}
+            {t("common:episode.publishItem")}
           </Button>
         </div>
       </div>

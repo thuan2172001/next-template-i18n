@@ -9,10 +9,18 @@
   "browse": "Nhấn",
   "chooseFile": "để chọn tệp tải lên",
   "coverRecommend": "Tỉ lệ 20:9. ĐỊnh dạng PNG, JPG, JPEG. Kích cỡ tối đa 10MB",
+  "noItem": "Series này hiện không có truyện nào",
+  "createSeries": "Tạo mới series",
   "preview": "Xem trước",
   "cancel": "Hủy",
   "createNft": {
-    "continueEditing": "Tiếp tục chỉnh sửa"
+    "continueEditing": "Tiếp tục chỉnh sửa",
+    "cancelAlert": "Thay đổi chưa được lưu.",
+    "cancelConfirm": "Bạn có chắc muốn rời đi?",
+    "cancel": "Hủy",
+    "leave": "Rời",
+    "createItem": "Tạo truyện",
+    "createNftConfirm": "Bạn muốn tiếp tục?"
   },
   "seriesTitle": "Tiêu đề ",
   "summary": "Tóm tắt (Không bắt buộc)",
@@ -22,5 +30,20 @@
   "seriesTitleNeed": "Tên series chưa được nhập",
   "max60Characters": "Tối đa 60 kí tự",
   "max500Characters": "Tối đa 500 kí tự",
-  "alertNotSave": "Thay đổi chưa được lưu. Bạn có chắc muốn rời đi không ?"
+  "alertNotSave": "Thay đổi chưa được lưu. Bạn có chắc muốn rời đi không ?",
+  
+  "inputEpThumbAlert": "Vui lòng đăng ảnh thu nhỏ",
+  "inputEpTitleAlert": "Tiêu đề không được để trống",
+  "series": "Series",
+  "epTitle": "Tiêu đề ",
+  "limitedEdition": "Phiên bản thu phí",
+  "epOption1": "Bạn có thể chỉnh sửa giá khi bạn công khai truyện.",
+  "positiveAlert": "Số nhập vào phải lớn hơn không",
+  "freeEdition": "Phiên bản miễn phí",
+  "epOption2": "Người dùng có thể tùy ý xem và thêm truyện này vào giá sách của họ",
+  "uploadContent": "Tải nội dung",
+  "next": "Tiếp",
+  "selectEpThumb": "Chọn ảnh thu nhỏ",
+  "uploadFile": "Tải tệp lên",
+  "fileUploadNotice": "Tệp phải có kích cỡ nhỏ hơn 50MB với định dạng PDF"
 }

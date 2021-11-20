@@ -293,8 +293,6 @@
 .copy-link {
   display: inline-flex;
   margin-top: rem(10px);
-  //margin-left: rem(40px);
-  //margin-bottom: rem(15px);
   border: 1px solid $color-black-3;
   width: rem(350px);
   .url {
@@ -336,8 +334,12 @@
 }
 
 .active-btn {
-  border: none;
   margin-left: rem(30px);
   background-color: $color-blue-2;
   color: $color-white;
+}
+
+.thumbnail-image {
+  height: rem(450px);
+  width: rem(450px);
 }

@@ -14,6 +14,7 @@ export const PreviewSerieTemplate = ({
   upload,
   editSeries = false,
   series = null,
+  loading = false,
 }) => {
   const { t } = useTranslation();
   const [width, setWidth] = useState(window.innerWidth);
@@ -27,7 +28,6 @@ export const PreviewSerieTemplate = ({
   const [clickSeeAll, setClickSeeAll] = useState(false);
   const [lines, setLines] = useState(0);
   const [clickCreate, setClickCreate] = useState(false);
-
   const [episodeListComponent, setEpisodeList] = useState(null);
   const [containerWidth, setContainerWidth] = useState(0);
   const [itemsPerLine, setItemsPerLine] = useState(0);
@@ -57,6 +57,7 @@ export const PreviewSerieTemplate = ({
           {t("create-series:createNft.continueEditing")}
         </Button>
         <Button
+          loading={loading}
           className={`${style["button"]} ${style["active-save"]} ${style["confirm-button"]}`}
           onClick={() => {
             upload();
@@ -159,7 +160,7 @@ export const PreviewSerieTemplate = ({
           <div className={`${style["name"]}`}>{info?.title}</div>
           <div className={`${style["small-detail"]}`}>
             <div className={`${style["number"]}`}>
-              {series ? series.episodes.length : 0} item
+              {series ? series.episodes.length : 0} {t("common:cartItem.item")}
             </div>
             <div className={`${style["vertical-line"]}`} />
             <div className={`${style["heart"]}`}>
@@ -173,7 +174,7 @@ export const PreviewSerieTemplate = ({
           </div>
           <div className={`${style["category-info"]}`}>
             {info?.category?.map((cate) => {
-              return <span className={`${style["cate-item"]}`}>{cate}</span>;
+              return <span className={`${style["cate-item"]}`}>{t(`common:category.${cate}`)}</span>;
             })}
           </div>
           <div className={` ${style["bottom-detail"]}`}>
@@ -199,15 +200,13 @@ export const PreviewSerieTemplate = ({
         </div>
 
         <div
-          className={`${style["long-description-container"]} ${
-            seeAll && style["see-all"]
-          }`}
+          className={`${style["long-description-container"]} ${seeAll && style["see-all"]
+            }`}
         >
           <div
             style={dynamicHeight}
-            className={`${style["long-description"]} ${style["detail"]} ${
-              seeAll && style["see-all"]
-            }`}
+            className={`${style["long-description"]} ${style["detail"]} ${seeAll && style["see-all"]
+              }`}
           >
             <p className={`${style["serie-summary"]}`} ref={contentRef}>
               {info?.summary}
@@ -229,7 +228,7 @@ export const PreviewSerieTemplate = ({
       </section>
 
       {(!editSeries || series?.episodes.length === 0) && (
-        <NoResult message="This series does not have any item yet" />
+        <NoResult message={t("create-series:noItem")} />
       )}
 
       {editSeries && series?.episodes.length > 0 && (

@@ -37,7 +37,7 @@ export const PublishNonFreeItemModal = ({
     >
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["modal-header"]}`}>
-          {t("common:nft.publishItem")}
+          {t("common:episode.publishItem")}
         </div>
         <div className={`${style["ep-name"]}`}>
           <div className={`${style["name"]}`}>{episodeInfo?.name}</div>
@@ -57,7 +57,7 @@ export const PublishNonFreeItemModal = ({
             className={`${style["footer-btn"]} ${style["save"]}`}
             onClick={handlePublish}
           >
-            {t("common:nft.publishItem")}
+            {t("common:episode.publishItem")}
           </Button>
         </div>
       </div>

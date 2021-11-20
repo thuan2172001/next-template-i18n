@@ -54,7 +54,7 @@
   },
   "favorItem": {
     "header": "Favor items",
-    "noItem": "You have no favor item yet"
+    "noItem": "You have no favorite items yet"
   },
   "category": {
     "all": "All",
@@ -127,7 +127,20 @@
   "episode": {
     "episode": "Episode",
     "addToBookshelf": "Add to bookshelf",
-    "addedToBookshelf": "Added to bookshelf"
+    "addedToBookshelf": "Added to bookshelf",
+    "privateItem": "Private item",
+    "publishItem": "Publish item",
+    "privateItem1": "When private,",
+    "privateItem2": "will be hidden and users will not be able to see and add it to their bookshelves. Are you sure you want to private?",
+    "privateItem3": "will be hidden and users will not be able to see and buy it. Are you sure you want to private?",
+    "isBeing": "is being",
+    "published": "published",
+    "privated": "privated",
+    "backToEpisode": "Back to episode",
+    "goHomePage": "Back to homepage"
+  },
+  "successMsg": {
+    "createSuccess": "Create new series successfully"
   },
   "requireSignInModal": {
     "modalHeader": "Please log in to enjoy full features of Webtoonz",
@@ -200,11 +213,11 @@
   "signup": "Register now !",
   "dontHaveAcc": "Don't have account ?",
   "transaction": {
-    "title" : "Transaction history",
+    "title": "Transaction history",
     "transactionId": "Transaction ID",
-    "items" : "Items",
-    "payment" : "Payment method",
-    "value" : "Value"
+    "items": "Items",
+    "payment": "Payment method",
+    "value": "Value"
   },
   "banned": "Account is banned",
   "createAcc": {
@@ -251,13 +264,6 @@
     "tryAgain": "Try again",
     "close": "Close pop-up",
     "backToShopSetting": "Back to shop setting"
-  },
-  "nft": {
-    "privateItem": "Private item",
-    "publishItem": "Publish item",
-    "privateItem1": "When private,",
-    "privateItem2": "will be hidden and users will not be able to see and add it to their bookshelves. Are you sure you want to private?",
-    "privateItem3": "will be hidden and users will not be able to see and buy it. Are you sure you want to private?"
   },
   "noResult": "No result"
 }

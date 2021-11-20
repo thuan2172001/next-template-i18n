@@ -21,7 +21,7 @@ export const SeriesManagementTemplate = () => {
   const router = useRouter();
 
   const [listType, setListType] = useState(router?.query.view);
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(-1);
   const [series, setSeries] = useState([]);
   const [publicAmount, setPublicAmount] = useState(0);
   const [privateAmount, setPrivateAmount] = useState(0);
@@ -79,7 +79,9 @@ export const SeriesManagementTemplate = () => {
           setPrivateAmount(res.unpublishedSeries);
         }
       })
-      .catch();
+      .catch(err => {
+        setTotal(0);
+      });
   }, [listType, refetch]);
 
   const handleViewType = (type) => {
@@ -182,7 +184,7 @@ export const SeriesManagementTemplate = () => {
   };
 
   return (
-    <div>
+    <div className={style["sm-container"]}>
       {showErrMsg && (
         <div className={`${style["error-msg"]}`}>
           <img src="/assets/icons/invalid.svg" height={24} width={24} />

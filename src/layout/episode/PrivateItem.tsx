@@ -47,7 +47,7 @@ export const PrivateItem = ({
               }}
               disabled={episodeInfo?.inventoryEdition === 0}
             >
-              {t("common:nft.publishItem")}
+              {t("common:episode.publishItem")}
             </Button>
       </>
     );
@@ -72,7 +72,7 @@ export const PrivateItem = ({
                 episodeInfo?.purchasedQuantity === 0
               }
             >
-              {t("common:nft.publishItem")}
+              {t("common:episode.publishItem")}
             </Button>
           </div>
         </Row>

@@ -82,7 +82,7 @@ export const AccountTemplate = () => {
         const defaultPaymentMethod = customerPaymentList[0]
           ? customerPaymentList[0].id
           : "";
-          
+
         setPaymentList(customerPaymentList);
       }
     );
@@ -209,9 +209,7 @@ export const AccountTemplate = () => {
                 >
                   <FontAwesomeIcon
                     icon={faTimes}
-                    className={`
-                                                     ${style["icon-button"]} 
-                                                     ${style["blue"]}`}
+                    className={`${style["icon-button"]} ${style["blue"]}`}
                   />
                   <div className={`${style["text-button"]}`}>
                     {t("account:accountPage.cancel")}

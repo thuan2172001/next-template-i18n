@@ -2,8 +2,6 @@ import { Col, Row, Skeleton, Button } from "antd";
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import { HeartFilled } from "@ant-design/icons";
-import { GetUserInfo } from "../../../../api/auth";
-import { useRouter } from "next/router";
 import { RequireLoginModal } from "@components/modal/RequireLoginModal";
 import { NonPurchasedItem } from "../../../episode/NonPurchasedItem";
 import { PurchasedItem } from "../../../episode/PurchasedItem";
@@ -75,7 +73,7 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
       <div className={`${style["nft"]} ${style["preview"]}`}>
         <Row gutter={30}>
           <Col span={12}>
-            <div className="nft-image" style={{ position: "relative" }}>
+            <div className={style["image"]} style={{ position: "relative" }}>
               <img
                 src={window.localStorage.getItem("thumbnail") || "ok"}
                 className={`${style["thumbnail-image"]} ${style["cursor_pointer"]}`}
@@ -130,7 +128,7 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
                   {
                     <span className={style["category-name"]}>
                       {
-                        data?.seriesInfo.category.categoryName
+                        data?.seriesInfo?.category.categoryName
                       }
                     </span>
                   }

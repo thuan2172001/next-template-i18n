@@ -1,33 +1,33 @@
-$font-euclid-medium: "EuclidCircularA-Medium";
-$font-euclid-semibold: "EuclidCircularA-SemiBold";
-$font-euclid-regular: "EuclidCircularA-Regular";
-$font-euclid-bold: "EuclidCircularA-Bold";
+$font-euclid-medium: "Arial";
+$font-euclid-semibold: "Arial";
+$font-euclid-regular: "Arial";
+$font-euclid-bold: "Arial";
 @use "sass:math";
 
-@font-face {
-  font-family: $font-euclid-medium;
-  src: url("/fonts/EuclidCircularA-Medium.ttf");
-}
+// @font-face {
+//   font-family: $font-euclid-medium;
+//   src: url("/fonts/EuclidCircularA-Medium.ttf");
+// }
 
-@font-face {
-  font-family: $font-euclid-semibold;
-  src: url("/fonts/EuclidCircularA-SemiBold.ttf");
-}
+// @font-face {
+//   font-family: $font-euclid-semibold;
+//   src: url("/fonts/EuclidCircularA-SemiBold.ttf");
+// }
 
-@font-face {
-  font-family: $font-euclid-bold;
-  src: url("/fonts/EuclidCircularA-Bold.ttf");
-}
+// @font-face {
+//   font-family: $font-euclid-bold;
+//   src: url("/fonts/EuclidCircularA-Bold.ttf");
+// }
 
-@font-face {
-  font-family: $font-euclid-regular;
-  src: url("/fonts/EuclidCircularA-Regular.ttf");
-}
+// @font-face {
+//   font-family: $font-euclid-regular;
+//   src: url("/fonts/EuclidCircularA-Regular.ttf");
+// }
 
-@font-face {
-  font-family: $font-euclid-bold;
-  src: url("/fonts/EuclidCircularA-Bold.ttf");
-}
+// @font-face {
+//   font-family: $font-euclid-bold;
+//   src: url("/fonts/EuclidCircularA-Bold.ttf");
+// }
 
 $font-family-main: Arial;
 

@@ -72,7 +72,6 @@ const EpisodeTemplate = ({ seriesId, episodeId, isCreatorMode }) => {
         userInfo: GetUserInfo(),
         episodeId: episodeId,
       }).then((res) => {
-
         if (res.data == "success") {
           setFavorite(false);
           setTotalLikes(episodeTotalLikes - 1);
@@ -81,7 +80,6 @@ const EpisodeTemplate = ({ seriesId, episodeId, isCreatorMode }) => {
         userInfo: GetUserInfo(),
         episodeId: episodeId,
       }).then((res) => {
-
         if (res.data == "success") {
           setFavorite(true);
           setTotalLikes(episodeTotalLikes + 1);
@@ -105,7 +103,6 @@ const EpisodeTemplate = ({ seriesId, episodeId, isCreatorMode }) => {
   }, [userInfo]);
 
   useEffect(() => {
-    console.log('a');
     fetchData();
   }, [episodeId]);
 
@@ -121,6 +118,7 @@ const EpisodeTemplate = ({ seriesId, episodeId, isCreatorMode }) => {
         });
         setFavorite(episode?.alreadyLiked);
         setTotalLikes(episode?.likes);
+        setAmountInCart(0);
       });
     }
   };
@@ -267,20 +265,21 @@ const EpisodeTemplate = ({ seriesId, episodeId, isCreatorMode }) => {
             <Row>
               <Share episodeId={episodeId} thumbnail={episodeInfo?.thumbnail} />
             </Row>
-
-            {episodeInfo.isBought ? <PurchasedItem
-              episodeInfo={episodeInfo}
-              serieId={seriesId}
-            /> : <NonPurchasedItem
-              serieId={seriesId}
-              episodeInfo={episodeInfo}
-              amountInCart={amountInCart}
-              addedToBookshelf={addedToBookshelf}
-              handelAddToBookshelf={() => {
-                addToBookshelf()
-              }}
-              handleAddToCart={handleAddToCart}
-            />}
+            {!isCreatorMode && <>
+              {episodeInfo.isBought ? <PurchasedItem
+                episodeInfo={episodeInfo}
+                serieId={seriesId}
+              /> : <NonPurchasedItem
+                serieId={seriesId}
+                episodeInfo={episodeInfo}
+                amountInCart={amountInCart}
+                addedToBookshelf={addedToBookshelf}
+                handelAddToBookshelf={() => {
+                  addToBookshelf()
+                }}
+                handleAddToCart={handleAddToCart}
+              />}
+            </>}
           </div>
 
           <div>

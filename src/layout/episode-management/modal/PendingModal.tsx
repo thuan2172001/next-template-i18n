@@ -2,6 +2,7 @@ import style from "./modal.module.scss";
 import React from "react";
 import { Modal, Button } from "antd";
 import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
 
 export const EpManagePendingModal = ({
   updateModalVisible,
@@ -21,6 +22,8 @@ export const EpManagePendingModal = ({
     else router.push(`/em?view=public&&serieId=${serieId}&page=1`);
   };
 
+  const { t } = useTranslation();
+
   return (
     <Modal
       visible={true}
@@ -38,16 +41,15 @@ export const EpManagePendingModal = ({
         <div className={`${style["modal-header"]}`}>
         </div>
         <div className={`${style["modal-msg"]}`}>
-          <span className={`${style["nft-name"]}`}>{episodeName}</span> is being{" "}
-          {type === "publish" ? <span>published</span> : <span>privated</span>}.
-          <div>You will get a notification when it is completed.</div>
+          <span className={`${style["nft-name"]}`}>{episodeName}</span> {t("common:episode.isBeing")}{" "}
+          {type === "publish" ? <span>{t("common:episode.published")}</span> : <span>{t("common:episode.privated")}</span>}.
         </div>
         <div className={`${style["footer"]}`}>
           <Button className={`${style["active-btn"]}`} onClick={movetToHome}>
-            Go to Homepage
+            {t("common:episode.goHomePage")}
           </Button>
           <Button className={`${style["normal-btn"]}`} onClick={moveToEM}>
-            Back to Episodes
+            {t("common:episode.backToEpisode")}
           </Button>
         </div>
       </div>

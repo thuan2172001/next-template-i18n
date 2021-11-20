@@ -19,7 +19,7 @@ export const PublicItem = ({episodeInfo}) => {
             className={`${style['private-btn']}`}
             onClick={() => setModalType('private-item')}
           >
-            {t('common:nft.privateItem')}
+            {t('common:episode.privateItem')}
           </Button>
         </Row>
       </>
@@ -35,7 +35,7 @@ export const PublicItem = ({episodeInfo}) => {
             className={`${style['private-btn']}`}
             onClick={() => setModalType('private-item')}
           >
-            {t('common:nft.privateItem')}
+            {t('common:episode.privateItem')}
           </Button>
         </div>
       </>

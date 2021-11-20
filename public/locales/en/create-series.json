@@ -11,6 +11,8 @@
   "coverRecommend": "Ratio 20:9. Only PNG, JPG, JPEG. Max 10MB",
   "preview": "Preview",
   "cancel": "Cancel",
+  "createSeries": "Create series",
+  "noItem": "This series does not have any item yet",
   "createNft": {
     "continueEditing": "Continue editing",
     "cancelAlert": "Changes you made will not be saved.",
@@ -39,15 +41,13 @@
   "episodeDescription": "Item description (optional)",
   "epType": "Item type",
   "limitedEdition": "Limited edition",
-  "epOption1": "You can change the price when you publish episode but you can't change the number of edition once it's set up.",
-  "numOfEdition": "Number of editions",
-  "numberEditionEmpty": "Please input number of editions",
+  "epOption1": "You can change the price when you publish episode.",
   "positiveAlert": "Please input a whole number greater than 0",
   "freeEdition": "Free edition",
-  "epOption2": "Users are free to enjoy the content and add this NFT to their bookshelves.",
+  "epOption2": "Users are free to enjoy the content and add this episode to their bookshelves.",
   "uploadContent": "Upload content",
   "next": "Next",
   "selectEpThumb": "Select thumbnail",
   "uploadFile": "Upload your file",
-  "fileUploadNotice": "File must be less than 50MB for PDF and less than 10GB for MP4, MPEG4, MP3, M4A format."
+  "fileUploadNotice": "File must be less than 50MB for PDF format."
 }

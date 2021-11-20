@@ -95,15 +95,15 @@
 .disable-antd-css {
   &:hover {
     color: $color-white !important;
-    border: none !important;
+    // border: none !important;
   }
   &:focus {
     color: $color-white !important;
-    border: none !important;
+    // border: none !important;
   }
   &:active {
     color: $color-white !important;
-    border: none !important;
+    // border: none !important;
   }
 }
 
