@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Input, Checkbox, notification } from 'antd'
+import { Button, Input, Checkbox, notification, Popover } from 'antd'
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { useTranslation } from 'next-i18next'
 import style from './sign-up.module.scss'
@@ -82,94 +82,113 @@ const SignupTemplate = (props) => {
                 <div className={style['signup-title']}>{t("common:createAcc.title")}</div>
                 <form onSubmit={formik.handleSubmit} className={style['signup-form']}>
                     <h4>{t("account:accountPage.username")}</h4>
-                    <Input
-                        className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
-                        placeholder={t("account:accountPage.username")}
-                        name="user_name"
-                        autoComplete="off"
-                        value={formik.values.user_name}
-                        onChange={formik.handleChange}
-                    />
+                    <Popover
+                        placement={"right"}
+                        content={formik.errors.user_name}
+                        visible={formik.touched.user_name}
+                        trigger={"click"}
+                    >
+                        <Input
+                            className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
+                            placeholder={t("account:accountPage.username")}
+                            name="user_name"
+                            autoComplete="off"
+                            value={formik.values.user_name}
+                            onChange={formik.handleChange}
+                        />
+                    </Popover>
 
                     {!availableUsername && <p className={`${style["signup-notify"]}`}>{t("common:errorMsg.usernameExisted")}</p>}
 
-                    {formik.errors.user_name && formik.touched.user_name && (
-                        <p className={`${style["signup-notify"]}`}>{formik.errors.user_name}</p>
-                    )}
-
                     <h4>{t("account:accountPage.emailAddress")}</h4>
-                    <Input
-                        className={`${style["ant-input-custom"]} ${style['ant-input-signup-form']}`}
-                        placeholder={t("account:accountPage.emailAddress")}
-                        name="email"
-                        autoComplete="off"
-                        value={formik.values.email}
-                        onChange={formik.handleChange}
-                    />
+                    <Popover
+                        placement={"right"}
+                        content={formik.errors.email}
+                        visible={formik.touched.email}
+                        trigger={"click"}
+                    >
+                        <Input
+                            className={`${style["ant-input-custom"]} ${style['ant-input-signup-form']}`}
+                            placeholder={t("account:accountPage.emailAddress")}
+                            name="email"
+                            autoComplete="off"
+                            value={formik.values.email}
+                            onChange={formik.handleChange}
+                        />
+                    </Popover>
 
                     {!availableEmail && <p className={`${style["signup-notify"]}`}>{t("common:errorMsg.emailExisted")}</p>}
 
-                    {formik.errors.email && formik.touched.email && (
-                        <p className={`${style["signup-notify"]}`}>{formik.errors.email}</p>
-                    )}
-
                     <h4>{t("account:accountPage.fullName")}</h4>
-                    <Input
-                        className={`${style["ant-input-custom"]} ${style['ant-input-signup-form']}`}
-                        placeholder={t("account:accountPage.fullName")}
-                        name="full_name"
-                        autoComplete="off"
-                        value={formik.values.full_name}
-                        onChange={formik.handleChange}
-                    />
-
-                    {formik.errors.full_name && formik.touched.full_name && (
-                        <p className={`${style["signup-notify"]}`}>{formik.errors.full_name}</p>
-                    )}
+                    <Popover
+                        placement={"right"}
+                        content={formik.errors.full_name}
+                        visible={formik.touched.full_name}
+                        trigger={"click"}
+                    >
+                        <Input
+                            className={`${style["ant-input-custom"]} ${style['ant-input-signup-form']}`}
+                            placeholder={t("account:accountPage.fullName")}
+                            name="full_name"
+                            autoComplete="off"
+                            value={formik.values.full_name}
+                            onChange={formik.handleChange}
+                        />
+                    </Popover>
 
                     <h4>{t("account:accountPage.password")}</h4>
-                    <Input.Password
-                        className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
-                        placeholder="Your password"
-                        name="password"
-                        autoComplete="off"
-                        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                        value={formik.values.password}
-                        onChange={formik.handleChange}
-                    />
-
-                    {formik.errors.password && formik.touched.password && (
-                        <p className={`${style["signup-notify"]}`}>{formik.errors.password}</p>
-                    )}
+                    <Popover
+                        style={{ width: 400 }}
+                        placement={"right"}
+                        content={formik.errors.password}
+                        visible={formik.touched.password}
+                        trigger={"click"}
+                    >
+                        <Input.Password
+                            className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
+                            placeholder="Your password"
+                            name="password"
+                            autoComplete="off"
+                            iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                            value={formik.values.password}
+                            onChange={formik.handleChange}
+                        />
+                    </Popover>
 
                     <h4>{t("common:createAcc.confirmPw")}</h4>
-                    <Input.Password
-                        className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
-                        placeholder="Confirm your password"
-                        name="confirm_password"
-                        autoComplete="off"
-                        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                        value={formik.values.confirm_password}
-                        onChange={formik.handleChange}
-                    />
-
-                    {formik.errors.confirm_password && formik.touched.confirm_password && (
-                        <p className={`${style["signup-notify"]}`}>{formik.errors.confirm_password}</p>
-                    )}
-
-                    <Checkbox
-                        name="checkbox"
-                        onChange={formik.handleChange}
+                    <Popover
+                        placement={"right"}
+                        content={formik.errors.confirm_password}
+                        visible={formik.touched.confirm_password}
+                        trigger={"click"}
                     >
-                        {t("common:createAcc.privacy1")} 
-                        <a href="">{t("common:createAcc.privacy2")}</a> 
-                        {t("common:createAcc.privacy3")} 
-                        <a href="">{t("common:createAcc.privacy4")}</a>
-                    </Checkbox>
+                        <Input.Password
+                            className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
+                            placeholder="Confirm your password"
+                            name="confirm_password"
+                            autoComplete="off"
+                            iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                            value={formik.values.confirm_password}
+                            onChange={formik.handleChange}
+                        />
+                    </Popover>
 
-                    {formik.errors.checkbox && formik.touched.confirm_password && (
-                        <p className={`${style["signup-notify"]}`}>{formik.errors.checkbox}</p>
-                    )}
+                    <Popover
+                        placement={"bottom"}
+                        content={formik.errors.checkbox}
+                        visible={formik.touched.checkbox}
+                        trigger={"click"}
+                    >
+                        <Checkbox
+                            name="checkbox"
+                            onChange={formik.handleChange}
+                        >
+                            {t("common:createAcc.privacy1")}&nbsp;
+                            <a href="">{t("common:createAcc.privacy2")}</a>&nbsp;
+                            {t("common:createAcc.privacy3")}&nbsp;
+                            <a href="">{t("common:createAcc.privacy4")}</a>
+                        </Checkbox>
+                    </Popover>
 
                     <div className={style['btn-controller']}>
                         <Button
