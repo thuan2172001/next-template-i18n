@@ -4,65 +4,91 @@ import { createCustomAxios } from "../../utils/custom-axios";
 const baseURL = API_BASE_URL;
 
 export default {
-    uploadFile: ({ formdata, userInfo }) => {
-        const customAxios = createCustomAxios(userInfo);
-        return customAxios({
-            method: "post",
-            url: `${baseURL}/upload`,
-            data: formdata,
-        }).then((data) => {
-            return data;
-        });
-    },
-    createSeries: ({ body, userInfo }) => {
-        const customAxios = createCustomAxios(userInfo);
-        return customAxios({
-            method: "post",
-            url: `${baseURL}/serie`,
-            data: body,
-        }).then((data) => {
-            return data;
-        });
-    },
-    getSeriesInfo: ({userInfo, seriesId}) => {
-        const customAxios = createCustomAxios(userInfo);
-        return customAxios({
-            method: "get",
-            url: `${baseURL}/serie/${seriesId}`,
-        }).then((data) => {
-            return data;
-        });
-    },
+  uploadFile: ({ formdata, userInfo }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: "post",
+      url: `${baseURL}/upload`,
+      data: formdata,
+    }).then((data) => {
+      return data;
+    });
+  },
+  createSeries: ({ body, userInfo }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: "post",
+      url: `${baseURL}/serie`,
+      data: body,
+    }).then((data) => {
+      return data;
+    });
+  },
+  getSeriesInfo: ({ userInfo, seriesId }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: "get",
+      url: `${baseURL}/serie/${seriesId}`,
+    }).then((data) => {
+      return data;
+    });
+  },
 
-    getAllEpisodes: ({userInfo, isPublished, limit, page, seriesId}) => {
-        const customAxios = createCustomAxios(userInfo);
+  getAllEpisodes: ({ userInfo, isPublished, limit, page, seriesId }) => {
+    const customAxios = createCustomAxios(userInfo);
 
-        return customAxios({
-            method: "get",
-            url: `${baseURL}/serie/${seriesId}/episodes`,
-            params: {
-                isCreator: userInfo?.role === "creator",
-                isPublished: isPublished,
-                limit: limit,
-                page: page
-            }
-        }).then((data) => {
-            return data;
-        });
-    },
+    return customAxios({
+      method: "get",
+      url: `${baseURL}/serie/${seriesId}/episodes`,
+      params: {
+        isCreator: userInfo?.role === "creator",
+        isPublished: isPublished,
+        limit: limit,
+        page: page,
+      },
+    }).then((data) => {
+      return data;
+    });
+  },
 
-    updateSeries: ({userInfo, body}) => {
-        const customAxios = createCustomAxios(userInfo);
+  updateSeries: ({ userInfo, body }) => {
+    const customAxios = createCustomAxios(userInfo);
 
-        return customAxios({
-            method: "post",
-            url: `${baseURL}/serie/status`,
-            data: {
-                type: body.type,
-                serieId: body.serieId
-            }
-        }).then((data) => {
-            return data;
-        });
-    }
+    return customAxios({
+      method: "post",
+      url: `${baseURL}/serie/status`,
+      data: {
+        type: body.type,
+        serieId: body.serieId,
+      },
+    }).then((data) => {
+      return data;
+    });
+  },
+
+  editSeries: ({
+    userInfo,
+    seriesId,
+    serieName,
+    thumbnail,
+    cover,
+    description,
+    categoryId,
+  }) => {
+    const customAxios = createCustomAxios(userInfo);
+
+    return customAxios({
+      method: "put",
+      url: `${baseURL}/serie/${seriesId}`,
+      data: {
+        serieName,
+        thumbnail,
+        cover,
+        description,
+        categoryId,
+      },
+    }).then((data) => {
+      return data;
+    });
+  },
 };

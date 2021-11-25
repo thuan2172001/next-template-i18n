@@ -19,7 +19,6 @@ const SerieTemplate = ({ serieId }) => {
     const { t } = useTranslation();
     const [serieData, setSerieData] = useState(null);
     const [episodeListComponent, setEpisodeList] = useState(null);
-    const [tooltip, setTooltip] = useState("Copy link");
     const [serieInfoHeight, setSerieInfoHeight] = useState(0);
     const [serieInfoHeight2, setSerieInfoHeight2] = useState(0);
     const serieInfoRef = useRef(null);
@@ -29,32 +28,12 @@ const SerieTemplate = ({ serieId }) => {
     const [lines, setLines] = useState(0);
     const [itemPerPage, setItemPerPage] = useState(30)
     const [page, setPage] = useState(1);
-    const [isLogged, setIsLogged] = useState(false);
-    const [clientType, setClientType] = useState("");
-    const [modalVisible, setModalVisible] = useState(false);
     const [likes, setLikes] = useState(0);
     const [favorite, setFavorite] = useState(false);
     const [pattern, setPattern] = useState(router.query["pattern"])
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            const userInfo = GetUserInfo();
-
-            if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
-                setIsLogged(true);
-
-                setClientType(userInfo.role["role"]);
-            } else {
-                setIsLogged(false);
-
-                setClientType("");
-            }
-        }
-    }, []);
-
-    useEffect(() => {
         setPattern(router.query.pattern)
-        console.log(pattern);
     }, [router])
 
     const onClickFavorite = () => {
@@ -116,22 +95,7 @@ const SerieTemplate = ({ serieId }) => {
             );
     }, [serieData]);
 
-    const shareToTwitter = () => {
-        window.open(
-            `https://twitter.com/intent/tweet?text=${BASE_URL}/serie/${serieData.serieId}`,
-            "_blank"
-        );
-    };
-
-    const shareToFacebook = () => {
-        window.open(
-            `https://www.facebook.com/sharer/sharer.php?u=${BASE_URL}/serie/${serieData.serieId}`,
-            "_blank"
-        );
-    };
-
     const [width, setWidth] = useState(window.innerWidth);
-    const [firstInit, setFirstInit] = useState(true);
 
     const dynamicHeight = {
         height:
@@ -144,7 +108,6 @@ const SerieTemplate = ({ serieId }) => {
     useEffect(() => {
         function handleResize() {
             setWidth(window.innerWidth);
-            setFirstInit(false);
         }
 
         setSerieInfoHeight(serieInfoRef.current.clientHeight);
@@ -176,8 +139,8 @@ const SerieTemplate = ({ serieId }) => {
                             <div className={`${style["number"]}`}>
                                 {`${serieData?.episodes?.length}
                                 ${serieData?.episodes?.length > 1
-                                        ? t(`common:items`)
-                                        : t(`common:item`)
+                                        ? t(`common:cartItem.items`)
+                                        : t(`common:cartItem.item`)
                                     }`}
                             </div>
                             <div className={`${style["vertical-line"]}`} />

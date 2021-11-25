@@ -25,15 +25,12 @@ export const SeriesManagementTemplate = () => {
   const [series, setSeries] = useState([]);
   const [publicAmount, setPublicAmount] = useState(0);
   const [privateAmount, setPrivateAmount] = useState(0);
-
   const [firstItemIndex, setFirstItemIndex] = useState(0);
   const [page, setPage] = useState(1);
-
   const [itemsPerLine, setItemsPerLine] = useState(2);
   const [itemsPagination, setItemsPagination] = useState(2);
   const [prevPage, setPrevPage] = useState(1);
   const [refetch, setRefetch] = useState(true);
-
   const [modalVisible, setModalVisible] = useState(false);
   const [modalType, setModalType] = useState("");
   const [chosenSeries, setChosenSeries] = useState(null);
@@ -55,7 +52,7 @@ export const SeriesManagementTemplate = () => {
 
   useEffect(() => {
     if (router.isReady) setListType(router?.query.view);
-  }, [router]);
+  }, [router.isReady]);
 
   const [shopOpening, setShopOpening] = useState(true);
 
@@ -87,16 +84,22 @@ export const SeriesManagementTemplate = () => {
   const handleViewType = (type) => {
     switch (type) {
       case "public":
+        setListType("public")
         router.push({
           pathname: "/sm",
           query: { ...router.query, view: "public" },
-        });
+        },
+          undefined, { shallow: true }
+        );
         break;
       case "private":
+        setListType("private")
         router.push({
           pathname: "/sm",
           query: { ...router.query, view: "private" },
-        });
+        },
+          undefined, { shallow: true }
+        );
         break;
     }
   };
@@ -109,31 +112,27 @@ export const SeriesManagementTemplate = () => {
         </Head>
         <div className={`${style["tab-layout"]}`}>
           <Button
-            className={`${style["tab-btn"]} ${
-              listType === "public" && style["active"]
-            }`}
+            className={`${style["tab-btn"]} ${listType === "public" && style["active"]
+              }`}
             onClick={() => handleViewType("public")}
           >
             <div>{t("common:episodeManagement.public")}</div>
             <div
-              className={`${style["number-item"]} ${
-                listType === "public" && style["number-item-active"]
-              }`}
+              className={`${style["number-item"]} ${listType === "public" && style["number-item-active"]
+                }`}
             >
               {publicAmount}
             </div>
           </Button>
           <Button
-            className={`${style["tab-btn"]} ${
-              listType === "private" && style["active"]
-            }`}
+            className={`${style["tab-btn"]} ${listType === "private" && style["active"]
+              }`}
             onClick={() => handleViewType("private")}
           >
             <div>{t("common:episodeManagement.private")}</div>
             <div
-              className={`${style["number-item"]} ${
-                listType === "private" && style["number-item-active"]
-              }`}
+              className={`${style["number-item"]} ${listType === "private" && style["number-item-active"]
+                }`}
             >
               {privateAmount}
             </div>

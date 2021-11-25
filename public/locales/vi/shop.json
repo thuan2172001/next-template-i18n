@@ -3,15 +3,15 @@
     "save": "Lưu",
     "saved": "Đã lưu",
     "editAboutTerm": {
-      "shopName": "Tên cửa hàng",
+      "shopName": "Tên tác giả",
       "description": "Mô tả",
       "SNSPlugin": "SNS plugin",
       "addURL": "Liên kết bên ngoài",
       "enterUrl": "Nhập URL",
       "convention": "Bạn có thể có tối đa 5 đường dẫn",
-      "shopNameErr": "Tên cửa hàng chứa tối đa 60 kí tự.",
+      "shopNameErr": "Tên tác giả chứa tối đa 60 kí tự.",
       "shopDesErr": "Tối đa 500 kí tự",
-      "shopNameErr2": "Tên cửa hàng chưa được nhập",
+      "shopNameErr2": "Tên tác giả chưa được nhập",
       "shopDesErr2": "Mô tả chưa được nhập",
       "socialUrlErr": "Định dạng URL không chính xác"
     }

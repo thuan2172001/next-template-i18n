@@ -25,7 +25,7 @@ export const PrivateNft = ({ episode }) => {
             src="/assets/icons/world-blue.svg"
             className={`${style["button-icon"]}`}
           />
-          {t("common:publish")}
+          {t("common:header.creator.publish")}
         </Button>
       </div>
     );

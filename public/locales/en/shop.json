@@ -1,18 +1,18 @@
 {
-  "shopAvatar": "Shop avatar",
+  "shopAvatar": "Creator's avatar",
   "save": "Save",
   "saved": "Saved",
   "editAboutTerm": {
-    "shopName": "Shop name",
+    "shopName": "Creator's name",
     "description": "Description",
     "SNSPlugin": "SNS plugin",
     "addURL": "Additional URL",
     "enterUrl": "Enter URL",
     "convention": "You can add up to 5 links",
-    "shopNameErr": "Shop name must be equal or less than 60 characters.",
+    "shopNameErr": "Creator name must be equal or less than 60 characters.",
     "shopDesErr": "Max 500 characters",
-    "shopNameErr2": "Please input shop name",
-    "shopDesErr2": "Please input shop description",
+    "shopNameErr2": "Please input creator's name",
+    "shopDesErr2": "Please input creator's description",
     "socialUrlErr": "Please input the right URL format"
   }
 }

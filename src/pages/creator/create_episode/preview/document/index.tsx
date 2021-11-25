@@ -16,7 +16,7 @@ export const getStaticProps = async ({ locale }) => ({
     ...(await serverSideTranslations(locale, [
       "common",
       "home",
-      "create_serie",
+      "create-series",
       "account",
     ])),
   },

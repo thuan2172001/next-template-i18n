@@ -120,7 +120,7 @@
     "update": "Cập nhật",
     "addItem": "Thêm truyện",
     "dropDown": {
-      "editSeries": "Sửa",
+      "editSeries": "Sửa Series",
       "privateSeries": "Ẩn Series",
       "publishSeries": "Công khai Series"
     },
@@ -167,7 +167,8 @@
     "private": "Đã ẩn",
     "public": "Công khai",
     "createNewEp": "Tạo mới tập truyện",
-    "privateEpisode": "Ẩn tập truyện"
+    "privateEpisode": "Ẩn tập truyện",
+    "editEpisode": "Sửa truyện"
   },
   "leave": "Rời đi",
   "cancel": "Hủy",
@@ -207,7 +208,8 @@
     "emailExisted": "Email đã tồn tại"
   },
   "successMsg": {
-    "createSuccess": "Tạo mới thành công"
+    "createSuccess": "Tạo mới thành công",
+    "editSuccess": "Sửa thành công"
   },
   "epTitle": "Tiêu đề",
   "episode": {

@@ -455,8 +455,12 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
   };
 
   return (
-    uploadContent && (
-      <>
+    <div style={{
+      minHeight: "70vh",
+    }}>
+      {uploadContent && (
+      <div
+      >
         <Head>
           <title>WebtoonZ | {t("common:creatorProfile.editProfile")}</title>
         </Head>
@@ -553,9 +557,9 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
                 >
                   <div
                     className={`${uploadContent.title.isEmpty ||
-                        !uploadContent.title.isValid
-                        ? "error-border"
-                        : ""
+                      !uploadContent.title.isValid
+                      ? "error-border"
+                      : ""
                       }`}
                   >
                     <Input
@@ -725,7 +729,7 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
         }
 
         {leave && <CustomCancelCreateNftModal updateModalVisible={setLeave} />}
-      </>
-    )
+      </div>)}
+    </div>
   );
 };

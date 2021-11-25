@@ -54,7 +54,7 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
       setPrevPage(page);
     } else if (prevPage > page) {
       const newFirstIndex =
-      setPrevPage(page);
+        setPrevPage(page);
     }
     setRefetch(!refetch);
   }, [page]);
@@ -75,7 +75,7 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
       seriesId: serieId
     })
       .then((res) => {
-        const series= res;
+        const series = res;
 
         if (view === "public") setTotal(series?.publishedEpisodesTotal);
         else setTotal(series.privateEpisodesTotal);
@@ -162,31 +162,27 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
         </Head>
         <div className={`${style["serie-info"]}`}>
           <div
-            className={`${style["tab-btn"]} ${
-              listType === "public" && style["active"]
-            }`}
+            className={`${style["tab-btn"]} ${listType === "public" && style["active"]
+              }`}
             onClick={() => handleViewType("public")}
           >
             <div>{t("common:episodeManagement.public")}</div>
             <div
-              className={`${style["number-item"]} ${
-                listType === "public" && style["number-item-active"]
-              }`}
+              className={`${style["number-item"]} ${listType === "public" && style["number-item-active"]
+                }`}
             >
               {serieData?.publishedEpisodesTotal}
             </div>
           </div>
           <div
-            className={`${style["tab-btn"]} ${
-              listType === "private" && style["active"]
-            }`}
+            className={`${style["tab-btn"]} ${listType === "private" && style["active"]
+              }`}
             onClick={() => handleViewType("private")}
           >
             <div>{t("common:episodeManagement.private")}</div>
             <div
-              className={`${style["number-item"]} ${
-                listType === "private" && style["number-item-active"]
-              }`}
+              className={`${style["number-item"]} ${listType === "private" && style["number-item-active"]
+                }`}
             >
               {serieData?.privateEpisodesTotal}
             </div>
@@ -247,7 +243,7 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
             <div className={`${style["small-detail"]}`}>
               <div className={`${style["number"]}`}>
                 {`${serieData?.totalEpisodes}
-            ${serieData?.totalEpisodes > 1 ? t(`common:items`) : t(`common:item`)}`}
+            ${serieData?.totalEpisodes > 1 ? t(`common:cartItem.items`) : t(`common:cartItem.item`)}`}
               </div>
               <div className={`${style["vertical-line"]}`} />
               <div className={`${style["heart"]}`}>
@@ -260,25 +256,22 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
               </div>
             </div>
             <div className={`${style["category-info"]}`}>
-
-                  <span className={`${style["cate-item"]}`}>
-                    {serieData?.category.categoryName}
-                  </span>
+              <span className={`${style["cate-item"]}`}>
+                {t(`common:category.${serieData?.category.categoryName}`)}
+              </span>
             </div>
           </Skeleton>
         </div>
 
         <Skeleton loading={!serieData?.description && serieData?.description != ""}>
           <div
-            className={`${style["long-description-container"]} ${
-              seeAll && style["see-all"]
-            }`}
+            className={`${style["long-description-container"]} ${seeAll && style["see-all"]
+              }`}
           >
             <div
               style={dynamicHeight}
-              className={`${style["long-description"]} ${style["detail"]} ${
-                seeAll && style["see-all"]
-              }`}
+              className={`${style["long-description"]} ${style["detail"]} ${seeAll && style["see-all"]
+                }`}
             >
               <p ref={contentRef}>{`${serieData?.description}`}</p>
             </div>
@@ -310,12 +303,12 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
 
       {listType === "public" && total === 0 && (
         <SeeMoreNoResult
-          message={t("common:episode-management.noPublicResult")}
+          message={t("common:noResult")}
         />
       )}
       {listType === "private" && total === 0 && (
         <SeeMoreNoResult
-          message={t("common:episode-management.noPrivateResult")}
+          message={t("common:noResult")}
         />
       )}
 

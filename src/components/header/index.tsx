@@ -174,7 +174,6 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 		router.push("/sm?view=public");
 	};
 	const handleMoveToEP = () => {
-
 		router.push("/creator/edit-profile");
 	};
 
@@ -185,7 +184,9 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 	const handleMoveToUserMangement = () => {
 		router.push("/creator/user-management");
 	}
-
+	const handleMoveToSaleMangement = () => {
+		router.push("/creator/sale-management");
+	}
 
 	const CreatorMenu = () => {
 		return (
@@ -221,6 +222,7 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 				<Menu.Item
 					key="manageSales"
 					className={`${style["disable-antd-css"]} ${style["creator-sub-btn"]}`}
+					onClick={handleMoveToSaleMangement}
 				>
 					{t("common:header.creator.manageSales")}
 				</Menu.Item>

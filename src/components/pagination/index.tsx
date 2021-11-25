@@ -22,9 +22,8 @@ export const PageNavigation = ({
           const canPrev = page > 1;
           return (
             <span
-              className={`${style["page-item"]} ${
-                !canPrev && style["btn-pagination-disable"]
-              }`}
+              className={`${style["page-item"]} ${!canPrev && style["btn-pagination-disable"]
+                }`}
               onClick={() => setPage(canPrev ? page - 1 : page)}
             >
               <img
@@ -39,9 +38,8 @@ export const PageNavigation = ({
           const canNext = page < totalItem / itemsPerPage;
           return (
             <span
-              className={`${style["page-item"]} ${
-                !canNext && style["btn-pagination-disable"]
-              }`}
+              className={`${style["page-item"]} ${!canNext && style["btn-pagination-disable"]
+                }`}
               onClick={() => setPage(canNext ? page + 1 : page)}
             >
               <img
@@ -52,6 +50,7 @@ export const PageNavigation = ({
             </span>
           );
         }
+        if (type === "jump-next" || type === "jump-prev") return originalElement;
         return (
           <span
             className={style["page-item"]}

@@ -12,14 +12,23 @@ export const PublicNft = ({ episode }) => {
   const route = useRouter();
   
   const moveToNft = () => {
-    route.push(`/episode?serieId=${episode.serieId}&&episodeId=${episode.episodeId}`);
+    route.push(`/episode?serieId=${episode.serieId}&episodeId=${episode.episodeId}`);
   };
+
+  const editEpisode = () => {
+    route.push(`/creator/edit-episode?serieId=${episode.serieId}&episodeId=${episode.episodeId}`);
+  }
 
   const menu = (
     <Menu className={`${style["dropdown-menu"]}`}>
       <Menu.Item key="unpublish" onClick={moveToNft}>
         <span className={`${style["dropdown-item"]}`}>
           {t(`common:episodeManagement.privateEpisode`)}
+        </span>
+      </Menu.Item>
+      <Menu.Item key="editEpisode" onClick={editEpisode}>
+        <span className={`${style["dropdown-item"]}`}>
+          {t(`common:episodeManagement.editEpisode`)}
         </span>
       </Menu.Item>
     </Menu>

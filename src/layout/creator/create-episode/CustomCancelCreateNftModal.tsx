@@ -1,11 +1,13 @@
 import { Modal, Button } from "antd";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import style from "./create-episode.module.scss";
 
 export const CustomCancelCreateNftModal = ({ updateModalVisible }) => {
   const { t } = useTranslation();
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   return (
     <Modal visible={true} footer={null} closable={false} maskClosable={false}>
@@ -25,9 +27,10 @@ export const CustomCancelCreateNftModal = ({ updateModalVisible }) => {
             onClick={() => {
               let link = window.localStorage.getItem("popup-url");
               link?.length > 1 ? router.push(link) : router.push(`/`);
-
               window.localStorage.removeItem("popup-url");
+              setLoading(true)
             }}
+            loading={loading}
           >
             {t("create-series:createNft.leave")}
           </Button>

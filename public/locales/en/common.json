@@ -140,7 +140,8 @@
     "goHomePage": "Back to homepage"
   },
   "successMsg": {
-    "createSuccess": "Create new series successfully"
+    "createSuccess": "Create new series successfully",
+    "editSuccess": "Edit series successfully"
   },
   "requireSignInModal": {
     "modalHeader": "Please log in to enjoy full features of Webtoonz",
@@ -152,7 +153,8 @@
     "private": "Private",
     "public": "Public",
     "createNewEp": "Create new episode",
-    "privateEpisode": "Private episode"
+    "privateEpisode": "Private episode",
+    "editEpisode": "Edit"
   },
   "seriesManagement": {
     "header": "Series Management",
@@ -161,7 +163,7 @@
     "update": "Update",
     "addItem": "Add item",
     "dropDown": {
-      "editSeries": "Edit",
+      "editSeries": "Edit series",
       "privateSeries": "Private Series",
       "publishSeries": "Pulish Series"
     },

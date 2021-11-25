@@ -71,16 +71,16 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
     return (
       <Menu className={`${style["dropdown-menu"]}`}>
         <Menu.Item
-					key="3"
-					onClick={() => {
-						const locale = router?.locale || 'vi';
-						const newLocale = locale === 'vi' ? 'en' : 'vi'
-						i18n.changeLanguage(newLocale)
-						router.push(`${router.asPath}`, `${router.asPath}`, { locale: newLocale })
-					}}
-				>
-					{t("common:header.dropdown.changeLanguage")}
-				</Menu.Item>
+          key="3"
+          onClick={() => {
+            const locale = router?.locale || 'vi';
+            const newLocale = locale === 'vi' ? 'en' : 'vi'
+            i18n.changeLanguage(newLocale)
+            router.push(`${router.asPath}`, `${router.asPath}`, { locale: newLocale })
+          }}
+        >
+          {t("common:header.dropdown.changeLanguage")}
+        </Menu.Item>
         <Menu.Item key="2" onClick={handleLogout}>
           {t("common:header.creator.dropdown.logOut")}
         </Menu.Item>
@@ -98,6 +98,14 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
       setLeave(true);
     }
   };
+  const handleMoveToSaleMangement = () => {
+    setLeave(true);
+    window.localStorage.setItem("popup-url", "/creator/sale-management");
+  }
+  const handleMoveToUserMangement = () => {
+    setLeave(true);
+    window.localStorage.setItem("popup-url", "/creator/user-management");
+  }
 
   const CreatorMenu = () => {
     return (
@@ -124,9 +132,16 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
           {t("common:header.creator.editProfile")}
         </Menu.Item>
         <Menu.Item
+          key="manageUsers"
+          className={`${style["disable-antd-css"]} ${style["creator-sub-btn"]}`}
+          onClick={handleMoveToUserMangement}
+        >
+          {t("common:header.creator.manageUsers")}
+        </Menu.Item>
+        <Menu.Item
           key="manageSales"
           className={`${style["disable-antd-css"]} ${style["creator-sub-btn"]}`}
-          onClick={handleMoveToEP}
+          onClick={handleMoveToSaleMangement}
         >
           {t("common:header.creator.manageSales")}
         </Menu.Item>

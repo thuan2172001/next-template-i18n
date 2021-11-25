@@ -16,12 +16,11 @@ export const CatagorySelection = ({
 
 
   const chooseCate = (_id, name) => {
-    setCategory({name: name, id: _id})
+    setCategory({categoryName: name, categoryId: _id})
   };
 
   useEffect(() => {
     CategoriesAPI.getAllCategories().then((res) => {
-      
       setCategoryList(res);
     });
   }, []);
@@ -38,7 +37,7 @@ export const CatagorySelection = ({
           return (
             <div
               key={index}
-              className={`${style["serie-btn"]} ${el.categoryName === category.name && style["active"]}`}
+              className={`${style["serie-btn"]} ${el.categoryName === category?.categoryName && style["active"]}`}
               onClick={() => {
                 chooseCate(el.categoryId, el.categoryName);
               }}
@@ -54,7 +53,7 @@ export const CatagorySelection = ({
                 }}
               >
                 {t(`common:category.${el.categoryName}`)}
-                {el.categoryName === category.name && (
+                {el.categoryName === category?.categoryName && (
                   <div className={`${style["checked-icon"]}`}>
                     <Image src="/assets/icons/checked.svg" width={19} height={19}/>
                   </div>

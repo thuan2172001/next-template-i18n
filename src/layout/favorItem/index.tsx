@@ -33,7 +33,6 @@ export const FavorPageTemplate = ({ episodeList, totalEpisode, page, setPage, lo
           {t("common:favorItem.header")}
         </div>
       </div>
-      {/* <LoadEffect/> */}
       <Skeleton loading={loading} paragraph={true}>
         <div className={`${style["item-list"]}`}>{episodeListComponent}</div>
         {totalEpisode > itemsPagination && (
