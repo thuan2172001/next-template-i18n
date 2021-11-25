@@ -111,13 +111,6 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
     return (
       <>
         <Menu.Item
-          key="shopSetting"
-          className={`${style["disable-antd-css"]} ${style["creator-sub-btn"]} ${style["padding-left-30"]}`}
-          onClick={handleMoveToSM}
-        >
-          {t("common:header.creator.shopSetting")}
-        </Menu.Item>
-        <Menu.Item
           key="manageItem"
           className={`${style["disable-antd-css"]} ${style["creator-sub-btn"]}`}
           onClick={handleMoveToSM}

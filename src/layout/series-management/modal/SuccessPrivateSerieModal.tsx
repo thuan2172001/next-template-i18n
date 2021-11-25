@@ -26,7 +26,6 @@ export const SuccessPrivateSerieModal = ({
     } else {
       updateModalType({ type: "" });
       if (
-        router.asPath === "/shop-setting?tab=general-setting" ||
         router.pathname === "/sm" ||
         router.pathname === "/em" ||
         router.pathname === "/"
@@ -65,9 +64,6 @@ export const SuccessPrivateSerieModal = ({
             onClick={() => {
               if (closeShop) {
                 updateModalType("");
-                if (router.asPath === "/shop-setting?tab=general-setting")
-                  window.location.reload();
-                else router.push("/shop-setting?tab=general-setting");
               } else {
                 switchToPrivateTab();
               }

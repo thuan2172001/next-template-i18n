@@ -219,7 +219,8 @@
     "transactionId": "Transaction ID",
     "items": "Items",
     "payment": "Payment method",
-    "value": "Value"
+    "value": "Value",
+    "username": "Customer"
   },
   "banned": "Account is banned",
   "createAcc": {

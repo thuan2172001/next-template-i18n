@@ -232,13 +232,13 @@ export const ManageSalesTemplate = () => {
   return (
     <div className={`${style["body"]}`}>
       <div className={`${style["container"]}`}>
-        <div className={`${style["hd-title"]}`}>Payout request</div>
+        <div className={`${style["hd-title"]}`}>{t("common:header.creator.manageSales")}</div>
         <div className={`${style["info-container"]}`}>
-          <div className={`${style["sub-title"]}`}>Amount to be transfer</div>
+          <div className={`${style["sub-title"]}`}>Total income</div>
           <Row className={`${style["info-row"]}`}>
             <Col lg={12} className={`${style["info-col"]} ${style["price"]}`}>
               <div className={`${style["info-price"]}`}>
-                JPY{" "}
+                USD{" "}
                 <div className={`${style["price-number"]}`}>{creatorShare}</div>
               </div>
               <Button
@@ -256,47 +256,22 @@ export const ManageSalesTemplate = () => {
             <Col lg={12} className={`${style["info-col"]} ${style["table"]}`}>
               <Row className={`${style["info-item"]}`}>
                 <Col className={`${style["item-label"]}`} span={11}>
-                  Sale period:
+                  Sale period (month)
                 </Col>
                 <Col span={13}>
-                  {fromDate}
-                  -
-                  {toDate}
+                  Total
                 </Col>
-              </Row>
-              <Row className={`${style["info-item"]}`}>
-                <Col span={11}>Revenue:</Col>
-                <Col span={13}>JPY {revenue}</Col>
-              </Row>
-              <Row className={`${style["info-item"]}`}>
-                <Col className={`${style["item-label"]}`} span={11}>
-                  Consumption tax:
-                </Col>
-                <Col span={13}>JPY {consumptionTax} (10%)</Col>
-              </Row>
-              <Row className={`${style["info-item"]}`}>
-                <Col className={`${style["item-label"]}`} span={11}>
-                  Revenue after tax:
-                </Col>
-                <Col span={13}>JPY {revenueAfterTax} </Col>
               </Row>
               <Row
                 className={`${style["info-item"]} ${style["disable-border"]}`}
               >
                 <Col className={`${style["item-label"]}`} span={11}>
-                  Creator’s share:
+                  January
                 </Col>
-                <Col span={13}>JPY {creatorShare} </Col>
+                <Col span={13}>{creatorShare} USD</Col>
               </Row>
             </Col>
           </Row>
-        </div>
-        <div className={`${style["note-container"]}`}>
-          {[...Array(5)].map((x, i) => (
-            <div key={i} className={`${style["note-item"]}`}>
-              {t(`common:manageSales.note${i + 1}`)}
-            </div>
-          ))}
         </div>
         <div className={`${style["history-container"]}`}>
           <div className={`${style["sub-title"]}`}>Payment history</div>
@@ -304,40 +279,13 @@ export const ManageSalesTemplate = () => {
             <table className={style["table"]}>
               <thead>
                 <tr>
-                  <th>Delivery date</th>
-                  <th>Sales period</th>
-                  <th>Creator’s share</th>
-                  <th>Detail</th>
+                  <th>{t("common:transaction.transactionId")}</th>
+                  <th>{t("common:transaction.username")}</th>
+                  <th>{t("common:transaction.items")}</th>
+                  <th>{t("common:transaction.value")}</th>
                 </tr>
               </thead>
               <tbody className={style["body"]}>
-                {paymentPerPage?.map((el, index) => (
-                  <tr key={index}>
-                    <td>
-                      {el && el.deliveryDate && el.isPaid
-                        ? el.deliveryDate
-                        : ""}
-                    </td>
-                    <td>
-                      {el && el.saleStart
-                        ? el.saleStart
-                        : ""}
-                      -
-                      {el && el.saleFinish
-                        ? el.saleFinish
-                        : ""}
-                    </td>
-                    <td className={style["creator-share"]}>
-                      {+el?.revenueShare.toFixed(2)}
-                    </td>
-                    <td
-                      style={{ cursor: "pointer" }}
-                      onClick={() => epxortCsvData(el._id)}
-                    >
-                      CSV
-                    </td>
-                  </tr>
-                ))}
               </tbody>
             </table>
             {paymentList?.length > 10 && (

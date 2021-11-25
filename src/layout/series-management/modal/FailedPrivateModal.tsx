@@ -21,7 +21,6 @@ export const FailedPrivateSerieModal = ({
     } else {
       updateModalType({ type: "" });
       if (
-        router.asPath === "/shop-setting?tab=general-setting" ||
         router.pathname === "/sm" ||
         router.pathname === "/em" ||
         router.pathname === "/"
@@ -61,7 +60,6 @@ export const FailedPrivateSerieModal = ({
             onClick={() => {
               updateModalType({ type: "" });
               if (closeShop) {
-                router.push("/shop-setting?tab=general-setting");
               } else {
                 router.push("/sm?view=public&page=1");
               }

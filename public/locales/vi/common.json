@@ -179,7 +179,8 @@
     "transactionId": "Mã giao dịch",
     "items" : "Sản phẩm",
     "payment" : "Phương thức thanh toán",
-    "value" : "Giá trị"
+    "value" : "Giá trị",
+    "username": "Người mua"
   },
   "banned": "Tài khoản đã bị khóa",
   "createAcc": {
