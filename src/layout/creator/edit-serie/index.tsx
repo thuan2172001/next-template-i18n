@@ -65,7 +65,7 @@ export const EditSerieTemplate = ({
     })
       .then((data) => {
         console.log({ data })
-        setCurrentCover(data.header);
+        setCurrentCover(data.cover);
         setTitle(data?.serieName);
         setSummary(data?.description);
         setCurrentThumbnail(data?.thumbnail);

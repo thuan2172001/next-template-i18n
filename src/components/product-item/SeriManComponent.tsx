@@ -3,7 +3,6 @@ import {Button, Dropdown, Tooltip, Menu} from "antd";
 import {PlusOutlined, MoreOutlined} from "@ant-design/icons";
 import {useTranslation} from "next-i18next";
 import {useRouter} from "next/router";
-import serie from "../../api/customer/serie";
 
 export const SerieManagementComponent = ({
                                            type = "public",
