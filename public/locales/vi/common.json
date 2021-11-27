@@ -206,7 +206,8 @@
     "confirmTerms": "Bạn cần đồng ý với chính sách sử dụng và chính sách về quyền",
     "passwordRuleNotPassed": "Mật khẩu cần chứa ít nhất 8 kí tự, một chữ viết hoa, một chữ số và một chữ cái đặc biệt",
     "usernameExisted": "Tên đăng nhập đã tồn tại",
-    "emailExisted": "Email đã tồn tại"
+    "emailExisted": "Email đã tồn tại",
+    "uploadFileFailed": "Tải ảnh lỗi"
   },
   "successMsg": {
     "createSuccess": "Tạo mới thành công",

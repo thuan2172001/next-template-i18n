@@ -22,6 +22,9 @@
     "createItem": "Tạo truyện",
     "createNftConfirm": "Bạn muốn tiếp tục?"
   },
+  "price": "Giá",
+  "inputChapter": "Vui lòng nhập tập truyện",
+  "inputPrice": "Vui lòng nhập giá",
   "seriesTitle": "Tiêu đề ",
   "summary": "Tóm tắt (Không bắt buộc)",
   "seriesThumb": "Ảnh thu nhỏ",

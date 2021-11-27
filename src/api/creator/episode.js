@@ -15,12 +15,34 @@ export default {
     });
   },
 
+  editEpisode: ({ body, userInfo, episodeId }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: "put",
+      url: `${baseURL}/episode/${episodeId}`,
+      data: body,
+    }).then((data) => {
+      return data;
+    });
+  },
+
   handleEpisodePublishStatus: ({ body, userInfo }) => {
     const customAxios = createCustomAxios(userInfo);
     return customAxios({
       method: "post",
       url: `${baseURL}/episode/status`,
       data: body,
+    }).then((data) => {
+      return data;
+    });
+  },
+
+  getEpisodeInfo: ({ userInfo, episodeId }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: 'get',
+      url: `${baseURL}/episode/${episodeId}`,
+      params: { guest: !userInfo },
     }).then((data) => {
       return data;
     });

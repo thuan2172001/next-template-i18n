@@ -1,50 +1,31 @@
-import React, {useEffect, useState} from "react";
-import {PhotoUpload} from "@components/upload-photo";
-import {FileUpload} from "@components/upload-photo/file-upload";
-import {Form, Input, Radio, Space, Button} from "antd";
+import React, { useEffect, useState } from "react";
+import { PhotoUpload } from "@components/upload-photo";
+import { Form, Input, Radio, Space, Button } from "antd";
 import Image from "next/image";
-import {useTranslation} from "next-i18next";
+import { useTranslation } from "next-i18next";
 import TextArea from "antd/lib/input/TextArea";
 import SeriesAPI from "../../../api/creator/series";
 import EpisodesAPI from "../../../api/creator/episode";
-import {GetUserInfo} from "src/api/auth";
-import {CancelCreateNftModal} from "./CancelCreateNftModal";
-import {CustomCancelCreateNftModal} from "./CustomCancelCreateNftModal";
-import {useRouter} from "next/router";
-import {notifyError} from "@components/toastify";
-import {PendingCreateNftModal} from "./PendingCreateNftModal";
-import {NFTPreview} from "src/layout/creator/create-episode/preview";
-import style from "./create-episode.module.scss";
-import CreatorCreateApi from "../../../api/creator/series";
+import { GetUserInfo } from "src/api/auth";
+import { useRouter } from "next/router";
+import { notifyError, notifySuccess } from "@components/toastify";
+import style from "../create-episode/create-episode.module.scss";
 import Head from "next/head";
+import { CustomCancelCreateNftModal } from "../create-episode/CustomCancelCreateNftModal";
+import { CancelCreateNftModal } from "../create-episode/CancelCreateNftModal";
 
 const scrollToTop = () => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 };
 
-export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
+export const EditEpisodeTemplate = ({ leave, setLeave }) => {
   const router = useRouter();
-  const {serie} = router.query;
-  const {t} = useTranslation();
+  const { serieId, episodeId } = router.query;
+  const { t } = useTranslation();
   const [modalType, setModalType] = useState("");
-  const [isLoading, setLoading] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const [preview, setPreview] = useState(false);
-  const [serieData, setSerieData] = useState({});
-  const [fileExt, setFileExt] = useState("xyz");
-  const [cateInfo, setCateInfo] = useState();
-  const [coverErrMsg, setCoverErrMsg] = useState("");
   const [submitClicked, setSubmitClicked] = useState(false);
-
-  useEffect(() => {
-    if (submitClicked) {
-      validateAll();
-    }
-  }, [submitClicked]);
-
-  const [isPending, setIsPending] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const [episodeThumbnail, setEpisodeThumbnail] = useState({
     thumb: null,
     isEmpty: true,
@@ -54,6 +35,12 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     extClassname: "",
     errMsg: "",
   });
+
+  useEffect(() => {
+    if (submitClicked) {
+      validateAll();
+    }
+  }, [submitClicked]);
 
   useEffect(() => {
     history.pushState(null, null, location.href);
@@ -66,10 +53,10 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
       };
     };
   }, []);
+
   useEffect(() => {
     window.onbeforeunload = () => {
       window.localStorage.removeItem("thumbnail");
-
       return "Dude, are you sure you want to leave? Think of the kittens!";
     };
     return () => {
@@ -77,8 +64,6 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
       };
     };
   }, []);
-
-  const [subCategories, setSubCategories] = useState(["Sub1", "Sub2", "Sub3"]);
 
   const [uploadContent, setUploadContent] = useState({
     title: {
@@ -96,35 +81,35 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
       isEmpty: true,
       isValid: false,
     },
-    file: {
-      file: null,
-      isEmpty: true,
-      errMsg: "",
-    },
     chapter: {
       content: "",
       isEmpty: false
     },
     isFree: false,
     seriesInfo: null,
+    category: null
   });
 
   useEffect(() => {
-    if (!serie) return;
-
-    SeriesAPI.getSeriesInfo(
-      {
-        userInfo: GetUserInfo(),
-        seriesId: serie
-      }
-    )
-      .then((data) => {
-        setUploadContent({...uploadContent, seriesInfo: data,})
+    if (!serieId || !episodeId) return;
+    EpisodesAPI.getEpisodeInfo({ userInfo: GetUserInfo(), episodeId: episodeId }).then((data) => {
+      router.isReady && setUploadContent({
+        ...uploadContent,
+        chapter: { content: data?.data?.chapter || "", isEmpty: false },
+        description: { content: data?.data?.description || "", isValid: true },
+        title: { content: data?.data?.name || "", isEmpty: false, isValid: true },
+        type: data?.data?.price > 0 ? "editions" : "free",
+        numberOfEdition: { num: data?.data?.price?.toString(), isEmpty: false, isValid: true },
+        seriesInfo: data?.data?.serie,
+        category: data?.data?.category
       })
-      .catch(() => {
-        setRoleValid("false");
-      });
-  }, [serie]);
+      router.isReady && setEpisodeThumbnail({
+        ...episodeThumbnail,
+        thumb: data?.data?.thumbnail,
+        isEmpty: false
+      })
+    })
+  }, [router.isReady]);
 
   const handleChapterInput = (value) => {
     const isEmpty = value === ""
@@ -134,7 +119,6 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
         content: value,
         isEmpty: isEmpty
       }
-
     }))
   }
 
@@ -260,12 +244,10 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     const isValid = ext === "png" || ext === "jpg" || ext === "jpeg";
 
     type === "thumb" &&
-    setEpisodeThumbnail((episodeThumbnail) => ({
-      ...episodeThumbnail,
-      extClassname: isValid ? "convention-valid" : "convention-invalid",
-    }));
-
-
+      setEpisodeThumbnail((episodeThumbnail) => ({
+        ...episodeThumbnail,
+        extClassname: isValid ? "convention-valid" : "convention-invalid",
+      }));
     return isValid;
   };
 
@@ -295,43 +277,6 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     }));
   };
 
-  const validateFileEmpty = () => {
-    const isEmpty =
-      uploadContent.file.file === null || uploadContent.file.file === undefined;
-
-    setUploadContent((uploadContent) => ({
-      ...uploadContent,
-      file: {
-        ...uploadContent.file,
-        isEmpty: isEmpty,
-        errMsg: isEmpty ? t("create-series:uploadFileAlert") : "",
-      },
-    }));
-  };
-
-  const validateFile = (size, name) => {
-    const lastDot = name.lastIndexOf(".");
-    const ext = name.substring(lastDot);
-    const category = uploadContent.seriesInfo?.category;
-    let extValid = true;
-    let sizeValid =
-      size <= (uploadContent.seriesInfo?.sizeAllowed || 100000000);
-    let checkMsg = "";
-    if (!extValid) {
-      checkMsg = t(`create-series:fileInvalidType${category}`);
-    } else if (!sizeValid) {
-      checkMsg = t(`create-series:fileTooLarge${category}`);
-    } else checkMsg = "";
-    setUploadContent((uploadContent) => ({
-      ...uploadContent,
-      file: {
-        ...uploadContent.file,
-        errMsg: checkMsg,
-      },
-    }));
-    return extValid && sizeValid;
-  };
-
   const isPositiveInteger = (str) => {
     return str > 0;
   };
@@ -347,21 +292,8 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     }));
   };
 
-  const [transferData, setTransferData] = useState({});
-
-  useEffect(() => {
-    let data = {
-      thumnails: episodeThumbnail?.thumb?.pictureAsFile || "not",
-      serie: serieData || "not",
-      ...uploadContent,
-    };
-    setTransferData(data);
-  }, [uploadContent, episodeThumbnail]);
-
   const Upload = async () => {
     setLoading(true);
-    setVisible(true);
-    const category = uploadContent.seriesInfo?.category;
     const uploadSingleFile = (data): Promise<any> =>
       new Promise(async (resolve, reject) => {
         const form = new FormData();
@@ -377,34 +309,30 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
       });
 
     const upload = await Promise.all([
-      uploadSingleFile(episodeThumbnail.thumb.pictureAsFile),
-      uploadSingleFile(uploadContent.file.file.file),
+      uploadSingleFile(episodeThumbnail.thumb.pictureAsFile).catch(err => {
+        setLoading(false);
+        notifyError(t("common:errorMsg.uploadFileFailed"))
+      }),
     ]);
 
     const formdata = {
       chapter: uploadContent.chapter.content,
       name: uploadContent.title.content,
       price: parseInt(uploadContent.numberOfEdition.num, 10),
-      key: upload[1].key,
       thumbnail: upload[0].location,
-      pageNumber: upload[1].pageNumber,
-      serieId: serie,
       description: uploadContent.description.content,
     };
 
-    EpisodesAPI.createEpisode({
+    EpisodesAPI.editEpisode({
       body: formdata,
       userInfo: GetUserInfo(),
+      episodeId: episodeId,
     })
       .then((res) => {
-        setLoading(false);
-        if (res.status === "pending") {
-          setIsPending(true);
-        } else setVisible(false);
-        router.push("/sm?view=public")
+        notifySuccess(t("common:successMsg.editSuccess"));
+        router.push(`/episode?serieId=${serieId}&episodeId=${episodeId}`)
       })
       .catch((err) => {
-        setVisible(false);
         notifyError(err);
         setLoading(false);
       });
@@ -414,18 +342,20 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     validateThumbEmpty();
     validateEpisodeTitle(uploadContent.title.content);
     validateNumberOfEdition(uploadContent.numberOfEdition.num);
-    validateFileEmpty();
 
     if (
       !uploadContent.title.isEmpty &&
       !uploadContent.chapter.isEmpty &&
       uploadContent.title.isValid &&
       uploadContent.description.isValid &&
-      !episodeThumbnail.isEmpty &&
-      !uploadContent.file.isEmpty
+      !episodeThumbnail.isEmpty
     ) {
       setModalType("nft-confirm");
-      submitClicked && setPreview(!preview);
+      if (submitClicked) {
+        Upload().then(data => {
+          console.log(data)
+        }).catch(console.log)
+      }
     }
     setSubmitClicked(false);
   };
@@ -433,20 +363,18 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
   return (
     <>
       <Head>
-        <title>WebtoonZ | {t("common:episodeManagement:createNewEp")}</title>
+        <title>WebtoonZ | {t("common:episodeManagement:editEpisode")}</title>
       </Head>
       {
         <div
           style={{
             minHeight: "70vh",
-            opacity: preview ? 0 : 1,
-            position: preview ? "absolute" : "static",
-            top: preview ? "-100000px" : "0",
+            opacity: 1,
+            position: "static",
+            top: "0",
           }}
           className={`${style["biggest"]}`}
         >
-          {isPending && <PendingCreateNftModal refreshPage={refreshPage}/>}
-
           <div
             style={{
               minHeight: "70vh",
@@ -456,13 +384,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
             <div className={`${style["switch-tab"]}`}>
               <div className={`${style["switch-tab-item"]}`}>
                 <span className={`${style["switch-tab-rank"]}`}>1</span>
-                {t("create-series:createSeries")}
-              </div>
-              <div
-                className={`${style["switch-tab-item"]} ${style["switch-tab-active"]}`}
-              >
-                <span className={`${style["switch-tab-rank"]} `}>2</span>
-                {t("create-series:createNft.createItem")}
+                {t("common:episodeManagement.editEpisode")}
               </div>
             </div>
             <section className={`${style["select-episode-thumb"]}`}>
@@ -473,7 +395,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
               <div className={`${style["thumbnail-detail"]}`}>
                 <PhotoUpload
                   className={"thumbnail-cover"}
-                  setPagePicture={async ({pictureAsFile, pictureSrc}) => {
+                  setPagePicture={async ({ pictureAsFile, pictureSrc }) => {
                     if (pictureAsFile === undefined) {
                       setEpisodeThumbnail({
                         isEmpty: true,
@@ -495,7 +417,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                       if (isValidated) {
                         setEpisodeThumbnail((episodeThumbnail) => ({
                           ...episodeThumbnail,
-                          thumb: {pictureAsFile},
+                          thumb: { pictureAsFile },
                           errMsg: "",
                           isEmpty: false,
                         }));
@@ -513,30 +435,26 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
 
                 <ul className={`${style["thumbnail-cover-convention"]}`}>
                   <li
-                    className={`${style[episodeThumbnail.widthClassname]} ${
-                      style["convention-item"]
-                    }`}
+                    className={`${style[episodeThumbnail.widthClassname]} ${style["convention-item"]
+                      }`}
                   >
                     {t("create-series:convention1")}
                   </li>
                   <li
-                    className={`${style[episodeThumbnail.ratioClassname]} ${
-                      style["convention-item"]
-                    }`}
+                    className={`${style[episodeThumbnail.ratioClassname]} ${style["convention-item"]
+                      }`}
                   >
                     {t("create-series:convention2")}
                   </li>
                   <li
-                    className={`${style[episodeThumbnail.sizeClassname]} ${
-                      style["convention-item"]
-                    }`}
+                    className={`${style[episodeThumbnail.sizeClassname]} ${style["convention-item"]
+                      }`}
                   >
                     {t("create-series:convention3")}
                   </li>
                   <li
-                    className={`${style[episodeThumbnail.extClassname]} ${
-                      style["convention-item"]
-                    }`}
+                    className={`${style[episodeThumbnail.extClassname]} ${style["convention-item"]
+                      }`}
                   >
                     {t("create-series:convention4")}
                   </li>
@@ -552,17 +470,16 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
               </div>
               <div className={`${style["category-info"]}`}>
                 <div>{t("create-series:category")}</div>
-
                 <Radio.Button
-                  value={uploadContent.seriesInfo?.category.categoryName}
-                  style={{marginLeft: 0}}
+                  value={uploadContent.category?.categoryName}
+                  style={{ marginLeft: 0 }}
                   className={`${style["serie-btn"]}`}
                   checked
                 >
                   <div className={`${style["radio-value"]}`}>
-                    {uploadContent.seriesInfo?.category.categoryName || "Comedy"}
+                    {uploadContent.category?.categoryName || "Comedy"}
                     <div className={`${style["checked-icon"]}`}>
-                      <Image src="/assets/icons/checked.svg" width={19} height={19}/>
+                      <Image src="/assets/icons/checked.svg" width={19} height={19} />
                     </div>
                   </div>
                 </Radio.Button>
@@ -571,14 +488,13 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
             <Form layout="vertical">
               <Form.Item
                 label={t("create-series:epTitle")}
-                style={{width: "48%"}}
+                style={{ width: "48%" }}
               >
                 <div
-                  className={`${
-                    uploadContent.title.isEmpty || !uploadContent.title.isValid
-                      ? "error-border"
-                      : ""
-                  }`}
+                  className={`${uploadContent.title.isEmpty || !uploadContent.title.isValid
+                    ? "error-border"
+                    : ""
+                    }`}
                 >
                   <Input
                     placeholder={t("create-series:max60Characters")}
@@ -602,14 +518,13 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
               </Form.Item>
               <Form.Item
                 label={"Chapter"}
-                style={{width: "48%"}}
+                style={{ width: "48%" }}
               >
                 <div
-                  className={`${
-                    uploadContent.chapter.isEmpty
-                      ? "error-border"
-                      : ""
-                  }`}
+                  className={`${uploadContent.chapter.isEmpty
+                    ? "error-border"
+                    : ""
+                    }`}
                 >
                   <Input
                     placeholder={t("create-series:max60Character")}
@@ -619,7 +534,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 </div>
                 {uploadContent.chapter.isEmpty && (
                   <div className={`${style["error-msg-input"]}`}>
-                    Please input chapter
+                    {t("create-series:inputChapter")}
                   </div>
                 )}
               </Form.Item>
@@ -630,13 +545,12 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 label={t("create-series:summary")}
               >
                 <div
-                  className={`${
-                    !uploadContent.description.isValid ? "error-border" : ""
-                  }`}
+                  className={`${!uploadContent.description.isValid ? "error-border" : ""
+                    }`}
                 >
                   <TextArea
                     placeholder={t("create-series:summary")}
-                    autoSize={{minRows: 4, maxRows: 5}}
+                    autoSize={{ minRows: 4, maxRows: 5 }}
                     name="summary"
                     value={uploadContent.description.content}
                     onChange={descriptionChange}
@@ -667,17 +581,16 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                     </div>
                     <Form layout="vertical">
                       <Form.Item
-                        label={"Price"}
-                        style={{width: "100%"}}
+                        label={t("create-series:price")}
+                        style={{ width: "100%" }}
                       >
                         <div
-                          className={`${
-                            !uploadContent.isFree &&
+                          className={`${!uploadContent.isFree &&
                             (uploadContent.numberOfEdition.isEmpty ||
                               !uploadContent.numberOfEdition.isValid)
-                              ? "error-border"
-                              : ""
-                          }`}
+                            ? "error-border"
+                            : ""
+                            }`}
                         >
                           <Input
                             placeholder="1"
@@ -690,7 +603,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                           <>
                             {uploadContent.numberOfEdition.isEmpty ? (
                               <div className={`${style["error-msg-input"]}`}>
-                                Please input price
+                                {t("create-series:inputPrice")}
                               </div>
                             ) : (
                               <>
@@ -719,61 +632,6 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 </Space>
               </Radio.Group>
             </section>
-
-            <section className={`${style["upload-episode"]}`}>
-              <div
-                className={`${style["episode-option-header"]} ${style["episode-option"]}`}
-              >
-                {t("create-series:uploadContent")}
-
-              </div>
-
-              <FileUpload
-                validateAll={validateAll}
-                className={`${style["file-upload"]}`}
-                setFile={({file}) => {
-                  if (file === undefined) {
-                    setUploadContent((uploadContent) => ({
-                      ...uploadContent,
-                      file: {
-                        file: null,
-                        isEmpty: true,
-                        errMsg: t("create-series:uploadFileAlert"),
-                      },
-                    }));
-                  } else {
-                    let isValidated = validateFile(file.size, file.name);
-                    if (isValidated) {
-                      setUploadContent((uploadContent) => ({
-                        ...uploadContent,
-                        file: {
-                          file: {file},
-                          isEmpty: false,
-                          errMsg: "",
-                        },
-                      }));
-                    } else {
-                      setUploadContent((uploadContent) => ({
-                        ...uploadContent,
-                        file: {
-                          ...uploadContent.file,
-                          file: null,
-                        },
-                      }));
-                    }
-                  }
-                }}
-                setCoverType={setFileExt}
-                errorMsg={uploadContent.file.errMsg}
-                seriesInfo={cateInfo}
-                hasCover={null}
-                setCoverErrMsg={(errMsg) => {
-                  setCoverErrMsg(errMsg);
-                }}
-              />
-
-
-            </section>
           </div>
 
           <div className={`${style["custom-serie-btn"]}`}>
@@ -792,8 +650,9 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
                 setSubmitClicked(true);
                 if (episodeThumbnail.errMsg !== "") scrollToTop();
               }}
+              loading={loading}
             >
-              {t("create-series:next")}
+              {t("account:accountPage.save")}
             </Button>
           </div>
         </div>
@@ -801,20 +660,10 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
       {modalType === "cancel-nft" && (
         <CancelCreateNftModal
           updateModalVisible={setModalType}
-          serieID={serie}
+          serieID={serieId}
         />
       )}
-      {leave && <CustomCancelCreateNftModal updateModalVisible={setLeave}/>}
-
-      {preview && (
-        <NFTPreview
-          data={transferData}
-          setVisible={setPreview}
-          upLoad={Upload}
-          isLoading={isLoading}
-          pending={isPending}
-        />
-      )}
+      {leave && <CustomCancelCreateNftModal updateModalVisible={setLeave} />}
     </>
   );
 };

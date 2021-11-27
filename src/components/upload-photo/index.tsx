@@ -50,11 +50,6 @@ export const PhotoUpload = ({
               resolve(false);
             }
           }
-          if (componentType === "music-thumb") {
-            if (width !== height) {
-              resolve(false);
-            }
-          }
           resolve(true);
         };
       } else {
@@ -74,10 +69,6 @@ export const PhotoUpload = ({
       );
       if (type == "thumb") {
         window.localStorage.setItem("thumbnail", imgSrc);
-      } else if (type == "music-thumb") {
-        window.localStorage.setItem("music-thumbnail", imgSrc);
-      } else if (type == "media-thumb") {
-        window.localStorage.setItem("video-thumbnail", imgSrc);
       }
       if (isValidated) setPicturePreview(imgSrc);
 
@@ -105,9 +96,6 @@ export const PhotoUpload = ({
             setPicturePreview(null);
             setPagePicture({});
             emptyInput();
-            if (type !== "thumb") {
-              window.localStorage.removeItem("music-thumbnail");
-            }
           }}
         >
           <Image src="/assets/icons/trash.svg" width={41} height={41} />
@@ -121,10 +109,6 @@ export const PhotoUpload = ({
           {type === "cover" && <>{t("create-series:uploadCover")} </>}
 
           {type === "thumb" && <>{t("create-series:uploadImage")} </>}
-
-          {(type === "video-thumb" || type === "music-thumb") && (
-            <>{t("create-series:uploadFile")}</>
-          )}
         </div>
 
         <div className={`${style["cover-photo-subtitle"]}`}>

@@ -22,7 +22,6 @@ export const FileUpload = ({
   const [filePreview, setFilePreview] = useState(null);
   const [fileName, setFileName] = useState("");
   const [fileExt, setFileExt] = useState("");
-  const [videoUrl, setVideoUrl] = useState("");
   const containerRef = useRef(null);
   const [imageUrl, setImageUrl] = useState("");
 
@@ -37,7 +36,6 @@ export const FileUpload = ({
       let file = e.target.files[0];
       let lastDot = file.name.lastIndexOf(".");
       let ext = file.name.substring(lastDot + 1);
-      let videoUrl = URL.createObjectURL(file);
       let bookUrl = "";
 
       if (ext == "pdf" || "png" || "jpeg" || "jpg") {
@@ -52,7 +50,6 @@ export const FileUpload = ({
         setFilePreview(file);
         setFileName(file.name);
         setFileExt(ext);
-        setVideoUrl(videoUrl);
         setCoverType(ext);
         setImageUrl(bookUrl);
       }
@@ -86,9 +83,6 @@ export const FileUpload = ({
             setFilePreview(null);
             emptyInput();
             setFile({});
-            window.localStorage.removeItem("video-url");
-            window.localStorage.removeItem("music-url");
-            window.localStorage.removeItem("video-thumbnail");
           }}
         >
           <Image src="/assets/icons/trash.svg" width={41} height={41} />
@@ -124,7 +118,7 @@ export const FileUpload = ({
           onChange={(e) => {
             onFileChange(e);
           }}
-          accept="application/pdf, .epub, .png, .jpeg, .jpg, video/mp4, video/mpeg4, video/m4v, audio/mp3, audio/mpeg4"
+          accept="application/pdf, .epub, .png, .jpeg, .jpg"
           style={{ display: "none" }}
         />
         {errorMsg !== "" && (

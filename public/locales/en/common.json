@@ -154,7 +154,7 @@
     "public": "Public",
     "createNewEp": "Create new episode",
     "privateEpisode": "Private episode",
-    "editEpisode": "Edit"
+    "editEpisode": "Edit episode"
   },
   "seriesManagement": {
     "header": "Series Management",
@@ -246,7 +246,8 @@
     "confirmTerms": "You need to confirm Terms of Uses and Privacy Policy",
     "passwordRuleNotPassed": "Must Contain at least 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character",
     "usernameExisted": "Username has been used by another account!",
-    "emailExisted": "This email has been used by another account!"
+    "emailExisted": "This email has been used by another account!",
+    "uploadFileFailed": "Upload file failed"
   },
   "smModal": {
     "confirmPublish": "Comfirm publish series",

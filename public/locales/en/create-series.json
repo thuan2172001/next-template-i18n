@@ -22,6 +22,9 @@
     "createItem": "Create episode",
     "createNftConfirm": "Do you want to proceed?"
   },
+  "price": "Price",
+  "inputPrice": "Please input price",
+  "inputChapter": "Please input chapter",
   "seriesTitle": "Series title",
   "summary": "Summary (optional)",
   "seriesThumb": "Series thumbnail",

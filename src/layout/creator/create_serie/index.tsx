@@ -87,12 +87,7 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
 
   useEffect(() => {
     window.onbeforeunload = () => {
-      window.localStorage.removeItem("video-url");
-      window.localStorage.removeItem("music-url");
       window.localStorage.removeItem("thumbnail");
-      window.localStorage.removeItem("music-thumbnail");
-      window.localStorage.removeItem("media-thumbnail");
-      window.localStorage.removeItem("video-thumbnail");
 
       return "Dude, are you sure you want to leave? Think of the kittens!";
     };
