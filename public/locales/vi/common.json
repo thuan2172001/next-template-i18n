@@ -194,6 +194,7 @@
   },
   "errorMsg": {
     "createFailed": "Tạo mới thất bại !",
+    "editFailed": "Thay đổi thông tin thất bại !",
     "min6": "Tối thiểu 6 kí tự",
     "max15": "Tố đa 15 kí tự",
     "invalidEmail": "Email sai định dạng",

@@ -140,8 +140,8 @@
     "goHomePage": "Back to homepage"
   },
   "successMsg": {
-    "createSuccess": "Create new series successfully",
-    "editSuccess": "Edit series successfully"
+    "createSuccess": "Create successfully",
+    "editSuccess": "Edit information successfully"
   },
   "requireSignInModal": {
     "modalHeader": "Please log in to enjoy full features of Webtoonz",
@@ -234,6 +234,7 @@
   },
   "errorMsg": {
     "createFailed": "Create failed !",
+    "editFailed": "Edit failed !",
     "min6": "Minimum 6 characters",
     "max15": "Maximum 15 characters",
     "invalidEmail": "Invalid email",

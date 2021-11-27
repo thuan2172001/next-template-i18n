@@ -4,7 +4,7 @@ import { createCustomAxios } from "../../utils/custom-axios";
 const baseURL = API_BASE_URL;
 
 export default {
-  getProfile: ({userInfo }) => {
+  getProfile: ({ userInfo }) => {
     const customAxios = createCustomAxios(userInfo);
     return customAxios({
       method: "get",
@@ -14,5 +14,14 @@ export default {
     });
   },
 
-
+  editProfile: ({ userInfo, data }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: "post",
+      url: `${baseURL}/creator/profile`,
+      data: data,
+    }).then((data) => {
+      return data;
+    });
+  },
 };

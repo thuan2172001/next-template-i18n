@@ -8,6 +8,7 @@ import { GetUserInfo } from "src/api/auth";
 import { CustomCancelCreateNftModal } from "../../../layout/creator/create-episode/CustomCancelCreateNftModal";
 import style from "./edit-profile.module.scss";
 import Head from "next/head";
+import { notifyError, notifySuccess } from "@components/toastify";
 //todo
 const scrollToTop = () => {
   document.body.scrollTop = 0;
@@ -350,7 +351,6 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
         description: uploadContent.description.content,
         sns: uploadContent.snsurl,
         metalinks: uploadContent.addurl,
-        color: uploadContent.color,
       };
     } else {
       formdata = {
@@ -358,9 +358,18 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
         description: uploadContent.description.content,
         sns: uploadContent.snsurl,
         metalinks: uploadContent.addurl,
-        color: uploadContent.color,
       };
     }
+    CreatorInfo.editProfile({
+      userInfo: GetUserInfo(),
+      data: formdata
+    }).then(data => {
+      console.log({ data })
+      notifySuccess(t("common:successMsg.editSuccess"));
+    }).catch(err => {
+      console.log({ err })
+      notifyError(t("common:errorMsg.editFailed"));
+    })
   };
 
   const validateAll = async () => {
@@ -459,277 +468,277 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
       minHeight: "70vh",
     }}>
       {uploadContent && (
-      <div
-      >
-        <Head>
-          <title>WebtoonZ | {t("common:creatorProfile.editProfile")}</title>
-        </Head>
-        {
-          <div
-            style={{
-              minHeight: "70vh",
-              opacity: 1,
-              position: "static",
-              top: "0",
-            }}
-            className={`${style["biggest"]}`}
-          >
-            <div style={{}} className={`${style["edit-profile-content"]}`}>
-              <div className={`${style["header-title"]}`}>
-                {t("common:creatorProfile.editProfile")}
-              </div>
-              <section className={`${style["shop-avatar"]}`}>
-                <div className={`${style["serie-detail-header"]}`}>
-                  {t("shop:shopAvatar")}
+        <div
+        >
+          <Head>
+            <title>WebtoonZ | {t("common:creatorProfile.editProfile")}</title>
+          </Head>
+          {
+            <div
+              style={{
+                minHeight: "70vh",
+                opacity: 1,
+                position: "static",
+                top: "0",
+              }}
+              className={`${style["biggest"]}`}
+            >
+              <div style={{}} className={`${style["edit-profile-content"]}`}>
+                <div className={`${style["header-title"]}`}>
+                  {t("common:creatorProfile.editProfile")}
                 </div>
+                <section className={`${style["shop-avatar"]}`}>
+                  <div className={`${style["serie-detail-header"]}`}>
+                    {t("shop:shopAvatar")}
+                  </div>
 
-                <div className={`${style["thumbnail-detail"]}`}>
-                  <PhotoUpload
-                    className={"shop-avatar"}
-                    startImage={currentAvatar}
-                    setChanged={() => {
-                      setChanged(false);
-                    }}
-                    setPagePicture={async ({ pictureAsFile, pictureSrc }) => {
-                      if (pictureAsFile === undefined) {
-                        setShopAvatar({
-                          isEmpty: true,
-                          thumb: null,
-                          ratioClassname: "",
-                          sizeClassname: "",
-                          widthClassname: "",
-                          extClassname: "",
-                          errMsg: t("create-series:inputShopAvatarAlert"),
-                        });
-                        setCurrentAvatar(null);
-                      } else {
-                        let isValidated = await validateImage(
-                          "thumb",
-                          pictureAsFile.size,
-                          pictureSrc,
-                          pictureAsFile.name
-                        );
-
-                        if (isValidated) {
-                          setShopAvatar((episodeThumbnail) => ({
-                            ...episodeThumbnail,
-                            thumb: { pictureAsFile },
-                            errMsg: "",
-                            isEmpty: false,
-                          }));
-                        } else
-                          setShopAvatar((episodeThumbnail) => ({
-                            ...episodeThumbnail,
+                  <div className={`${style["thumbnail-detail"]}`}>
+                    <PhotoUpload
+                      className={"shop-avatar"}
+                      startImage={currentAvatar}
+                      setChanged={() => {
+                        setChanged(false);
+                      }}
+                      setPagePicture={async ({ pictureAsFile, pictureSrc }) => {
+                        if (pictureAsFile === undefined) {
+                          setShopAvatar({
+                            isEmpty: true,
                             thumb: null,
-                          }));
+                            ratioClassname: "",
+                            sizeClassname: "",
+                            widthClassname: "",
+                            extClassname: "",
+                            errMsg: t("create-series:inputShopAvatarAlert"),
+                          });
+                          setCurrentAvatar(null);
+                        } else {
+                          let isValidated = await validateImage(
+                            "thumb",
+                            pictureAsFile.size,
+                            pictureSrc,
+                            pictureAsFile.name
+                          );
+
+                          if (isValidated) {
+                            setShopAvatar((episodeThumbnail) => ({
+                              ...episodeThumbnail,
+                              thumb: { pictureAsFile },
+                              errMsg: "",
+                              isEmpty: false,
+                            }));
+                          } else
+                            setShopAvatar((episodeThumbnail) => ({
+                              ...episodeThumbnail,
+                              thumb: null,
+                            }));
+                        }
+                      }}
+                      type="shop-avatar"
+                      errorMsg={episodeThumbnail.errMsg}
+                    />
+
+                    <ul className={`${style["thumbnail-cover-convention"]}`}>
+                      <li
+                        className={`${style[episodeThumbnail.ratioClassname]} ${style["convention-item"]
+                          }`}
+                      >
+                        {t("create-series:convention2")}
+                      </li>
+                      <li
+                        className={`${style[episodeThumbnail.sizeClassname]} ${style["convention-item"]
+                          }`}
+                      >
+                        {t("create-series:convention3")}
+                      </li>
+                      <li
+                        className={`${style[episodeThumbnail.extClassname]} ${style["convention-item"]
+                          }`}
+                      >
+                        {t("create-series:convention4")}
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+                <Form layout="vertical">
+                  <Form.Item
+                    label={t("shop:editAboutTerm.shopName")}
+                    style={{ width: 731, marginBottom: 50 }}
+                  >
+                    <div
+                      className={`${uploadContent.title.isEmpty ||
+                        !uploadContent.title.isValid
+                        ? "error-border"
+                        : ""
+                        }`}
+                    >
+                      <Input
+                        placeholder={t("create-series:max60Charac")}
+                        value={uploadContent.title.content}
+                        onChange={shopNameChange}
+                      />
+                    </div>
+                    {uploadContent.title.isEmpty ? (
+                      <div className={`${style["error-msg-input"]}`}>
+                        {t("shop:editAboutTerm.shopNameErr2")}
+                      </div>
+                    ) : (
+                      <>
+                        {!uploadContent.title.isValid && (
+                          <div className={`${style["error-msg-input"]}`}>
+                            {t("shop:editAboutTerm.shopNameErr")}
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </Form.Item>
+
+                  <Form.Item
+                    style={{
+                      width: 731,
+                    }}
+                    label={t("shop:editAboutTerm.description")}
+                  >
+                    <div
+                      className={`${!uploadContent.description.isValid ? "error-border" : ""
+                        }`}
+                    >
+                      <TextArea
+                        placeholder={t("shop:editAboutTerm.shopDesErr")}
+                        autoSize={{ minRows: 4, maxRows: 5 }}
+                        name="summary"
+                        value={uploadContent.description.content}
+                        onChange={descriptionChange}
+                      />
+                    </div>
+                    {uploadContent.description.isEmpty ? (
+                      <div className={`${style["error-msg-input"]}`}>
+                        {t("shop:editAboutTerm.shopDesErr2")}
+                      </div>
+                    ) : (
+                      <>
+                        {!uploadContent.description.isValid && (
+                          <div className={`${style["error-msg-input"]}`}>
+                            {t("shop:editAboutTerm.shopDesErr")}
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </Form.Item>
+                </Form>
+
+                <section className={`${style["profile-box"]}`}>
+                  <div
+                    className={`${style["profile-option-header"]} ${style["episode-option"]}`}
+                  >
+                    {t("shop:editAboutTerm.SNSPlugin")}
+                  </div>
+                  <Radio.Group
+                    onChange={(e) => {
+                      if (e.target.value === value) {
+                        setValue("");
+                      } else {
+                        setValue(e.target.value);
                       }
                     }}
-                    type="shop-avatar"
-                    errorMsg={episodeThumbnail.errMsg}
-                  />
-
-                  <ul className={`${style["thumbnail-cover-convention"]}`}>
-                    <li
-                      className={`${style[episodeThumbnail.ratioClassname]} ${style["convention-item"]
-                        }`}
-                    >
-                      {t("create-series:convention2")}
-                    </li>
-                    <li
-                      className={`${style[episodeThumbnail.sizeClassname]} ${style["convention-item"]
-                        }`}
-                    >
-                      {t("create-series:convention3")}
-                    </li>
-                    <li
-                      className={`${style[episodeThumbnail.extClassname]} ${style["convention-item"]
-                        }`}
-                    >
-                      {t("create-series:convention4")}
-                    </li>
-                  </ul>
-                </div>
-              </section>
-              <Form layout="vertical">
-                <Form.Item
-                  label={t("shop:editAboutTerm.shopName")}
-                  style={{ width: 731, marginBottom: 50 }}
-                >
-                  <div
-                    className={`${uploadContent.title.isEmpty ||
-                      !uploadContent.title.isValid
-                      ? "error-border"
-                      : ""
-                      }`}
+                    value={value}
+                    className={`${style["sns-container-box"]}`}
                   >
-                    <Input
-                      placeholder={t("create-series:max60Charac")}
-                      value={uploadContent.title.content}
-                      onChange={shopNameChange}
-                    />
-                  </div>
-                  {uploadContent.title.isEmpty ? (
-                    <div className={`${style["error-msg-input"]}`}>
-                      {t("shop:editAboutTerm.shopNameErr2")}
-                    </div>
-                  ) : (
-                    <>
-                      {!uploadContent.title.isValid && (
-                        <div className={`${style["error-msg-input"]}`}>
-                          {t("shop:editAboutTerm.shopNameErr")}
-                        </div>
-                      )}
-                    </>
-                  )}
-                </Form.Item>
-
-                <Form.Item
-                  style={{
-                    width: 731,
-                  }}
-                  label={t("shop:editAboutTerm.description")}
-                >
-                  <div
-                    className={`${!uploadContent.description.isValid ? "error-border" : ""
-                      }`}
-                  >
-                    <TextArea
-                      placeholder={t("shop:editAboutTerm.shopDesErr")}
-                      autoSize={{ minRows: 4, maxRows: 5 }}
-                      name="summary"
-                      value={uploadContent.description.content}
-                      onChange={descriptionChange}
-                    />
-                  </div>
-                  {uploadContent.description.isEmpty ? (
-                    <div className={`${style["error-msg-input"]}`}>
-                      {t("shop:editAboutTerm.shopDesErr2")}
-                    </div>
-                  ) : (
-                    <>
-                      {!uploadContent.description.isValid && (
-                        <div className={`${style["error-msg-input"]}`}>
-                          {t("shop:editAboutTerm.shopDesErr")}
-                        </div>
-                      )}
-                    </>
-                  )}
-                </Form.Item>
-              </Form>
-
-              <section className={`${style["profile-box"]}`}>
-                <div
-                  className={`${style["profile-option-header"]} ${style["episode-option"]}`}
-                >
-                  {t("shop:editAboutTerm.SNSPlugin")}
-                </div>
-                <Radio.Group
-                  onChange={(e) => {
-                    if (e.target.value === value) {
-                      setValue("");
-                    } else {
-                      setValue(e.target.value);
-                    }
-                  }}
-                  value={value}
-                  className={`${style["sns-container-box"]}`}
-                >
-                  <Space
-                    direction="vertical"
-                    className={`${style["sns-container"]}`}
-                  >
-                    {uploadContent.snsurl.map((sns) => (
-                      <Radio
-                        value={sns.type}
-                        className={`${style["sns-item"]}`}
-                        onClick={handleOnclick}
-                        checked={value === sns.type}
-                        key={sns.type}
-                      >
-                        <div className={`${style["sns-item-container"]}`}>
-                          <div className={`${style["sns-item-label"]}`}>
-                            <img
-                              src={`/assets/icons/${sns.type}.svg`}
-                              alt={sns.type}
-                            />
-                            <div className={`${style["label"]}`}>
-                              {sns.type.charAt(0).toUpperCase() +
-                                sns.type.slice(1)}
+                    <Space
+                      direction="vertical"
+                      className={`${style["sns-container"]}`}
+                    >
+                      {uploadContent.snsurl.map((sns) => (
+                        <Radio
+                          value={sns.type}
+                          className={`${style["sns-item"]}`}
+                          onClick={handleOnclick}
+                          checked={value === sns.type}
+                          key={sns.type}
+                        >
+                          <div className={`${style["sns-item-container"]}`}>
+                            <div className={`${style["sns-item-label"]}`}>
+                              <img
+                                src={`/assets/icons/${sns.type}.svg`}
+                                alt={sns.type}
+                              />
+                              <div className={`${style["label"]}`}>
+                                {sns.type.charAt(0).toUpperCase() +
+                                  sns.type.slice(1)}
+                              </div>
                             </div>
+
+                            <Input
+                              className={`${style["item-url"]}`}
+                              placeholder={t("shop:editAboutTerm.enterUrl")}
+                              disabled={value !== sns.type}
+                              onChange={validateSocialLink}
+                              value={sns.url}
+                            />
                           </div>
-
-                          <Input
-                            className={`${style["item-url"]}`}
-                            placeholder={t("shop:editAboutTerm.enterUrl")}
-                            disabled={value !== sns.type}
-                            onChange={validateSocialLink}
-                            value={sns.url}
-                          />
-                        </div>
-                      </Radio>
-                    ))}
-                  </Space>
-                </Radio.Group>
-                {!validateLink && (
-                  <div className={`${style["error-msg-input"]}`}>
-                    {t("shop:editAboutTerm.socialUrlErr")}
-                  </div>
-                )}
-              </section>
-              <section
-                className={`${style["add-url"]} ${style["profile-box"]}`}
-              >
-                <div
-                  className={`${style["profile-option-header"]} ${style["episode-option"]}`}
+                        </Radio>
+                      ))}
+                    </Space>
+                  </Radio.Group>
+                  {!validateLink && (
+                    <div className={`${style["error-msg-input"]}`}>
+                      {t("shop:editAboutTerm.socialUrlErr")}
+                    </div>
+                  )}
+                </section>
+                <section
+                  className={`${style["add-url"]} ${style["profile-box"]}`}
                 >
-                  {t("shop:editAboutTerm.addURL")}
-                </div>
-                <div className={`${style["profile-option-convention"]}`}>
-                  {t("shop:editAboutTerm.convention")}
-                </div>
-
-                {[...Array(5)].map((x, i) => (
-                  <Row
-                    className={`${style["url"]} ${style[i == 4 ? "disable-border" : ""]
-                      }`}
-                    key={i}
+                  <div
+                    className={`${style["profile-option-header"]} ${style["episode-option"]}`}
                   >
-                    <Col span={8}>URL{i + 1}</Col>
-                    <Col span={16} className={`${style["url-box"]}`}>
-                      <Input
-                        className={`${style["item-url"]}  ${style["add-item-url"]}`}
-                        placeholder={t("shop:editAboutTerm.enterUrl")}
-                        onChange={validateUrl}
-                        value={uploadContent.addurl[`url${i + 1}`]}
-                        id={`url${i + 1}`}
-                      />
-                    </Col>
-                  </Row>
-                ))}
-                {!validateAddUrl && (
-                  <div className={`${style["error-msg-input"]}`}>
-                    {t("shop:editAboutTerm.socialUrlErr")}
+                    {t("shop:editAboutTerm.addURL")}
                   </div>
-                )}
-              </section>
-            </div>
-            <div className={`${style["custom-serie-btn"]}`}>
-              <Button
-                className={`${style["button"]} ${style["active-save"]} ${style["confirm-button"]}`}
-                onClick={() => {
-                  validateAll();
-                  if (episodeThumbnail.errMsg !== "") scrollToTop();
-                }}
-                disabled={isLoading || changed}
-              >
-                {changed ? t("shop:saved") : t("shop:save")}
-              </Button>
-            </div>
-          </div>
-        }
+                  <div className={`${style["profile-option-convention"]}`}>
+                    {t("shop:editAboutTerm.convention")}
+                  </div>
 
-        {leave && <CustomCancelCreateNftModal updateModalVisible={setLeave} />}
-      </div>)}
+                  {[...Array(5)].map((x, i) => (
+                    <Row
+                      className={`${style["url"]} ${style[i == 4 ? "disable-border" : ""]
+                        }`}
+                      key={i}
+                    >
+                      <Col span={8}>URL{i + 1}</Col>
+                      <Col span={16} className={`${style["url-box"]}`}>
+                        <Input
+                          className={`${style["item-url"]}  ${style["add-item-url"]}`}
+                          placeholder={t("shop:editAboutTerm.enterUrl")}
+                          onChange={validateUrl}
+                          value={uploadContent.addurl[`url${i + 1}`]}
+                          id={`url${i + 1}`}
+                        />
+                      </Col>
+                    </Row>
+                  ))}
+                  {!validateAddUrl && (
+                    <div className={`${style["error-msg-input"]}`}>
+                      {t("shop:editAboutTerm.socialUrlErr")}
+                    </div>
+                  )}
+                </section>
+              </div>
+              <div className={`${style["custom-serie-btn"]}`}>
+                <Button
+                  className={`${style["button"]} ${style["active-save"]} ${style["confirm-button"]}`}
+                  onClick={() => {
+                    validateAll();
+                    if (episodeThumbnail.errMsg !== "") scrollToTop();
+                  }}
+                  disabled={isLoading || changed}
+                >
+                  {changed ? t("shop:saved") : t("shop:save")}
+                </Button>
+              </div>
+            </div>
+          }
+
+          {leave && <CustomCancelCreateNftModal updateModalVisible={setLeave} />}
+        </div>)}
     </div>
   );
 };
