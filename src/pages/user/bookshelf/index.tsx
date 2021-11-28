@@ -35,6 +35,7 @@ const Bookshelf = () => {
       userInfo: GetUserInfo(),
       page: page,
       limit: 30,
+      selectedCate,
       pattern: pattern
     }).then((res) => {
       setTotalEpisode(res.totalEpisodes);

@@ -17,7 +17,7 @@ export default {
   editProfile: ({ userInfo, data }) => {
     const customAxios = createCustomAxios(userInfo);
     return customAxios({
-      method: "post",
+      method: "put",
       url: `${baseURL}/creator/profile`,
       data: data,
     }).then((data) => {

@@ -35,7 +35,8 @@ const LikedBook = () => {
             userInfo: GetUserInfo(),
             page,
             limit: 30,
-            pattern: pattern?.toString()
+            pattern: pattern?.toString(),
+            selectedCate,
         }).then((res) => {
             setTotalEpisode(res.totalEpisodes);
             setListEpisode(res.data);

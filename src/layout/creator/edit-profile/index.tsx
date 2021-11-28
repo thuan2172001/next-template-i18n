@@ -6,10 +6,11 @@ import TextArea from "antd/lib/input/TextArea";
 import CreatorInfo from "../../../api/creator/profile"
 import { GetUserInfo } from "src/api/auth";
 import { CustomCancelCreateNftModal } from "../../../layout/creator/create-episode/CustomCancelCreateNftModal";
+import CreatorCreateApi from "src/api/creator/series";
 import style from "./edit-profile.module.scss";
 import Head from "next/head";
 import { notifyError, notifySuccess } from "@components/toastify";
-//todo
+
 const scrollToTop = () => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
@@ -26,13 +27,7 @@ const defaultData = {
     isValid: true,
     isEmpty: false,
   },
-  snsurl: [
-    {
-      type: "twitter",
-      url: "",
-      isUsed: false,
-    },
-  ],
+  snsurl: "",
   addurl: {
     url1: "",
     url2: "",
@@ -81,29 +76,6 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
       };
     };
   }, []);
-  useEffect(() => {
-    window.onbeforeunload = () => {
-      return "Dude, are you sure you want to leave? Think of the kittens!";
-    };
-    return () => {
-      window.onbeforeunload = () => {
-      };
-    };
-  }, []);
-
-  const handleOnclick = (e) => {
-    uploadContent.snsurl.forEach((sns, index) => {
-      if (sns.type === e.target.value) {
-        if (sns.isUsed) {
-          uploadContent.snsurl[index].isUsed = false;
-          setValue("");
-        } else {
-          uploadContent.snsurl[index].isUsed = true;
-          setValue(sns.type);
-        }
-      } else uploadContent.snsurl[index].isUsed = false;
-    });
-  };
 
   const validateSocialLink = (e) => {
     const pattern = [
@@ -111,27 +83,17 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
     ];
     const twitterRule = new RegExp(pattern[0]);
 
-    if (value == "twitter") {
-      setValidateLink(twitterRule.test(e.target.value));
-      updateSnsUrl({ type: value, url: e.target.value, isUsed: true });
-    }
+    setValidateLink(twitterRule.test(e.target.value));
+    updateSnsUrl(e.target.value);
     setChanged(false);
   };
 
-  const updateSnsUrl = ({ type, url, isUsed }) => {
+  const updateSnsUrl = (url) => {
     let newUploadContent = JSON.parse(JSON.stringify(uploadContent));
-    uploadContent.snsurl.forEach((sns, index) => {
-      if (type === sns.type) {
-        newUploadContent.snsurl[index] = {
-          type,
-          url,
-          isUsed,
-        };
-        setUploadContent(newUploadContent);
-        setChanged(false);
-      }
-    });
-  };
+    newUploadContent.snsurl = url;
+    setUploadContent(newUploadContent);
+    setChanged(false);
+  }
 
   const [validateAddUrl, setvalidateAddUrl] = useState(true);
   const validateUrl = (e) => {
@@ -166,7 +128,6 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
       setChanged(false);
     }
   };
-
 
   const shopNameChange = (e) => {
     const isValid =
@@ -321,55 +282,8 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
     setShopAvatar((episodeThumbnail) => ({
       ...episodeThumbnail,
       isEmpty: isEmpty,
-      errMsg: isEmpty ? t("create-series:inputShopAvatarAlert") : "",
+      errMsg: isEmpty ? t("create-series:inputEpThumbAlert") : "",
     }));
-  };
-
-  const Upload = async () => {
-    setIsLoading(true);
-    const uploadSingleFile = (data): Promise<any> =>
-      new Promise((res, rej) => {
-        const form = new FormData();
-        if (!data) {
-          rej("Errorrr");
-        }
-        form.append("file", data);
-      });
-
-    const upload = episodeThumbnail.thumb
-      ? await Promise.all([
-        uploadSingleFile(episodeThumbnail.thumb.pictureAsFile),
-      ])
-      : null;
-
-    let formdata = null;
-
-    if (upload) {
-      formdata = {
-        shopName: uploadContent.title.content,
-        avatar: upload[0].location,
-        description: uploadContent.description.content,
-        sns: uploadContent.snsurl,
-        metalinks: uploadContent.addurl,
-      };
-    } else {
-      formdata = {
-        shopName: uploadContent.title.content,
-        description: uploadContent.description.content,
-        sns: uploadContent.snsurl,
-        metalinks: uploadContent.addurl,
-      };
-    }
-    CreatorInfo.editProfile({
-      userInfo: GetUserInfo(),
-      data: formdata
-    }).then(data => {
-      console.log({ data })
-      notifySuccess(t("common:successMsg.editSuccess"));
-    }).catch(err => {
-      console.log({ err })
-      notifyError(t("common:errorMsg.editFailed"));
-    })
   };
 
   const validateAll = async () => {
@@ -380,12 +294,11 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
     );
     let isValidSns = true;
 
-    uploadContent.snsurl.forEach((item) => {
-      if (item.isUsed && !item.url) {
-        setValidateLink(false);
-        isValidSns = false;
-      }
-    });
+    if (!uploadContent.snsurl) {
+      setValidateLink(false);
+      isValidSns = false;
+    }
+
     if (
       !uploadContent.title.isEmpty &&
       uploadContent.title.isValid &&
@@ -398,16 +311,75 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
       !isUserExisted &&
       isValidSns
     ) {
-      setIsLoading(true);
-      Upload();
+      console.log("upload")
+      await Upload();
     } else {
       console.log("validate error");
     }
   };
 
+  const Upload = async () => {
+    setIsLoading(true);
+    const uploadSingleFile = (data): Promise<any> =>
+      new Promise((resolve, rej) => {
+        const form = new FormData();
+        if (!data) {
+          rej("Errorrr");
+          setIsLoading(false);
+        }
+        form.append("file", data);
+        CreatorCreateApi.uploadFile({
+          formdata: form,
+          userInfo: GetUserInfo(),
+        })
+          .then(({ key, location }) => {
+            resolve({ key, location });
+          })
+          .catch(rej);
+      });
+
+    const upload = await uploadSingleFile(episodeThumbnail.thumb.pictureAsFile)
+
+    let formdata = null;
+
+    console.log("erras3");
+
+    if (upload) {
+      formdata = {
+        shopName: uploadContent.title.content,
+        avatar: upload.location,
+        description: uploadContent.description.content,
+        sns: uploadContent.snsurl,
+        metalinks: Object.keys(uploadContent.addurl).map((key) => uploadContent.addurl[key]).filter(e => e !== ""),
+      };
+    } else {
+      formdata = {
+        shopName: uploadContent.title.content,
+        description: uploadContent.description.content,
+        sns: uploadContent.snsurl,
+        metalinks: Object.keys(uploadContent.addurl).map((key) => uploadContent.addurl[key]).filter(e => e !== ""),
+      };
+    }
+
+    CreatorInfo.editProfile({
+      userInfo: GetUserInfo(),
+      data: formdata
+    }).then(data => {
+      notifySuccess(t("common:successMsg.editSuccess"));
+      setIsLoading(false);
+      setChanged(false);
+    }).catch(err => {
+      console.log({ err })
+      notifyError(t("common:errorMsg.editFailed"));
+      setIsLoading(false);
+      setChanged(false);
+    })
+  };
+
   useEffect(() => {
     getCreatorData();
   }, []);
+
   const getCreatorData = () => {
     let currentData = JSON.parse(JSON.stringify(defaultData));
 
@@ -423,9 +395,9 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
             setInitShopName(res.fullName);
           }
 
-          if (res.introduction) {
+          if (res.description) {
             currentData.description = {
-              content: res.introduction,
+              content: res.description,
               isEmpty: false,
               isValid: true,
             };
@@ -439,16 +411,8 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
             });
           }
 
-          if (res.SNSplugin && res.SNSplugin.length > 0) {
-            const currentSns = res.SNSplugin.map((sns) => {
-              if (sns?.isUsed) setValue(sns?.snsName);
-              return {
-                type: sns?.snsName,
-                url: sns?.link,
-                isUsed: sns?.isUsed,
-              };
-            });
-            currentData.snsurl = currentSns;
+          if (res.sns) {
+            currentData.snsurl = res.sns;
           }
 
           if (res.avatar) {
@@ -508,7 +472,7 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
                             sizeClassname: "",
                             widthClassname: "",
                             extClassname: "",
-                            errMsg: t("create-series:inputShopAvatarAlert"),
+                            errMsg: t("create-series:inputEpThumbAlert"),
                           });
                           setCurrentAvatar(null);
                         } else {
@@ -632,6 +596,7 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
                   >
                     {t("shop:editAboutTerm.SNSPlugin")}
                   </div>
+
                   <Radio.Group
                     onChange={(e) => {
                       if (e.target.value === value) {
@@ -647,36 +612,32 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
                       direction="vertical"
                       className={`${style["sns-container"]}`}
                     >
-                      {uploadContent.snsurl.map((sns) => (
-                        <Radio
-                          value={sns.type}
-                          className={`${style["sns-item"]}`}
-                          onClick={handleOnclick}
-                          checked={value === sns.type}
-                          key={sns.type}
-                        >
-                          <div className={`${style["sns-item-container"]}`}>
-                            <div className={`${style["sns-item-label"]}`}>
-                              <img
-                                src={`/assets/icons/${sns.type}.svg`}
-                                alt={sns.type}
-                              />
-                              <div className={`${style["label"]}`}>
-                                {sns.type.charAt(0).toUpperCase() +
-                                  sns.type.slice(1)}
-                              </div>
-                            </div>
-
-                            <Input
-                              className={`${style["item-url"]}`}
-                              placeholder={t("shop:editAboutTerm.enterUrl")}
-                              disabled={value !== sns.type}
-                              onChange={validateSocialLink}
-                              value={sns.url}
+                      <Radio
+                        value={"twitter"}
+                        className={`${style["sns-item"]}`}
+                        checked={true}
+                        key={"twitter"}
+                      >
+                        <div className={`${style["sns-item-container"]}`}>
+                          <div className={`${style["sns-item-label"]}`}>
+                            <img
+                              src={`/assets/icons/twitter.svg`}
+                              alt={"twitter"}
                             />
+                            <div className={`${style["label"]}`}>
+                              Twitter
+                            </div>
                           </div>
-                        </Radio>
-                      ))}
+
+                          <Input
+                            className={`${style["item-url"]}`}
+                            placeholder={t("shop:editAboutTerm.enterUrl")}
+                            disabled={false}
+                            onChange={validateSocialLink}
+                            value={uploadContent.snsurl}
+                          />
+                        </div>
+                      </Radio>
                     </Space>
                   </Radio.Group>
                   {!validateLink && (
@@ -725,10 +686,11 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
               <div className={`${style["custom-serie-btn"]}`}>
                 <Button
                   className={`${style["button"]} ${style["active-save"]} ${style["confirm-button"]}`}
-                  onClick={() => {
-                    validateAll();
+                  onClick={async () => {
+                    await validateAll();
                     if (episodeThumbnail.errMsg !== "") scrollToTop();
                   }}
+                  loading={isLoading}
                   disabled={isLoading || changed}
                 >
                   {changed ? t("shop:saved") : t("shop:save")}

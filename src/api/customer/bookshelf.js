@@ -5,7 +5,7 @@ const baseURL = API_BASE_URL;
 const creator = CREATOR;
 
 export default {
-  getBookShelf: ({ userInfo, page, limit, pattern = null }) => {
+  getBookShelf: ({ userInfo, page, limit, pattern = null, selectedCate }) => {
     const customAxios = createCustomAxios(userInfo);
 
     return customAxios({
@@ -14,7 +14,8 @@ export default {
       params: {
         page,
         limit,
-        pattern
+        pattern,
+        category: selectedCate,
       },
     }).then((data) => {
       return data;
@@ -33,7 +34,7 @@ export default {
     });
   },
 
-  getLikedBook: ({ userInfo, page, limit, pattern = null}) => {
+  getLikedBook: ({ userInfo, page, limit, pattern = null, selectedCate }) => {
     const customAxios = createCustomAxios(userInfo);
 
     return customAxios({
@@ -42,10 +43,10 @@ export default {
       params: {
         page,
         limit,
-        pattern
+        pattern,
+        category: selectedCate
       },
     }).then((data) => {
-      
       return data;
     });
   },

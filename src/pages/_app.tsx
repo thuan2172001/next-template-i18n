@@ -40,7 +40,15 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 			<ToastContainer />
 			<Elements stripe={stripeAPIKey}>
 				<Provider store={store}>
-					<PersistGate persistor={persistor} loading={<>Loading</>}>
+					<PersistGate persistor={persistor} loading={
+						<div style={{
+							"textAlign": "center",
+							"width": "100vw",
+							"marginTop": "30vh"
+						}}>
+							<img src="/assets/icons/loading-animation.gif" />
+						</div>}
+					>
 						<Component {...pageProps} />
 					</PersistGate>
 				</Provider>
