@@ -24,4 +24,24 @@ export default {
       return data;
     });
   },
+
+  getTotalSale: ({ userInfo }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: "get",
+      url: `${baseURL}/creator/sales`,
+    }).then((data) => {
+      return data;
+    });
+  },
+
+  getAllTransaction: ({ userInfo, page, limit }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: "get",
+      url: `${baseURL}/user/${userInfo._id}/transaction`,
+    }).then((data) => {
+      return data;
+    });
+  },
 };

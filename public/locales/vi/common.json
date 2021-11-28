@@ -226,5 +226,23 @@
     "privated": "ẩn",
     "backToEpisode": "Quay lại trang quản lý",
     "goHomePage": "Quay lại trang chủ"
+  },
+  "totalIncome": "Tổng thu nhập",
+  "salePeriodPerMonth": "Doanh thu (tháng)",
+  "total": "Doanh thu",
+  "transactionHistory": "Lịch sử giao dịch",
+  "month": {
+    "1": "Tháng một",
+    "2": "Tháng hai",
+    "3": "Tháng ba",
+    "4": "Tháng bốn",
+    "5": "Tháng năm",
+    "6": "Tháng sáu",
+    "7": "Tháng bảy",
+    "8": "Tháng tám",
+    "9": "Tháng chín",
+    "10": "Tháng mười",
+    "11": "Tháng mười một",
+    "12": "Tháng mười hai"
   }
 }

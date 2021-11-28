@@ -270,5 +270,23 @@
     "close": "Close pop-up",
     "backToShopSetting": "Back to shop setting"
   },
-  "noResult": "No result"
+  "noResult": "No result",
+  "totalIncome": "Total income",
+  "salePeriodPerMonth": "Sale period (Month)",
+  "total": "Total",
+  "transactionHistory": "Transaction history",
+  "month": {
+    "1": "January",
+    "2": "February",
+    "3": "March",
+    "4": "April",
+    "5": "May",
+    "6": "June",
+    "7": "July",
+    "8": "August",
+    "9": "September",
+    "10": "Octobus",
+    "11": "November",
+    "12": "December"
+  }
 }
