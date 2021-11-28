@@ -68,7 +68,7 @@ const SignupTemplate = (props) => {
                 }
             });
         }
-    })
+    })    
 
     if (signupStatus) {
         return <VerifySignUpTemplate />
@@ -85,8 +85,8 @@ const SignupTemplate = (props) => {
                     <Popover
                         placement={"right"}
                         content={formik.errors.user_name}
-                        visible={formik.touched.user_name}
-                        trigger={"click"}
+                        visible={formik.errors.user_name !== undefined ? formik.touched.user_name : false}
+                        trigger={"focus"}
                     >
                         <Input
                             className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
@@ -104,8 +104,8 @@ const SignupTemplate = (props) => {
                     <Popover
                         placement={"right"}
                         content={formik.errors.email}
-                        visible={formik.touched.email}
-                        trigger={"click"}
+                        visible={formik.errors.email !== undefined ? formik.touched.email : false}
+                        trigger={"focus"}
                     >
                         <Input
                             className={`${style["ant-input-custom"]} ${style['ant-input-signup-form']}`}
@@ -123,8 +123,8 @@ const SignupTemplate = (props) => {
                     <Popover
                         placement={"right"}
                         content={formik.errors.full_name}
-                        visible={formik.touched.full_name}
-                        trigger={"click"}
+                        visible={formik.errors.full_name !== undefined ? formik.touched.full_name : false}
+                        trigger={"focus"}
                     >
                         <Input
                             className={`${style["ant-input-custom"]} ${style['ant-input-signup-form']}`}
@@ -141,8 +141,8 @@ const SignupTemplate = (props) => {
                         style={{ width: 400 }}
                         placement={"right"}
                         content={formik.errors.password}
-                        visible={formik.touched.password}
-                        trigger={"click"}
+                        visible={formik.errors.password !== undefined ? formik.touched.password : false}
+                        trigger={"focus"}
                     >
                         <Input.Password
                             className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
@@ -159,8 +159,8 @@ const SignupTemplate = (props) => {
                     <Popover
                         placement={"right"}
                         content={formik.errors.confirm_password}
-                        visible={formik.touched.confirm_password}
-                        trigger={"click"}
+                        visible={formik.errors.confirm_password !== undefined ? formik.touched.confirm_password : false}
+                        trigger={"focus"}
                     >
                         <Input.Password
                             className={`${style['ant-input-custom']} ${style['ant-input-signup-form']}`}
@@ -176,8 +176,8 @@ const SignupTemplate = (props) => {
                     <Popover
                         placement={"bottom"}
                         content={formik.errors.checkbox}
-                        visible={formik.touched.checkbox}
-                        trigger={"click"}
+                        visible={formik.errors.checkbox !== undefined ? formik.touched.checkbox : false}
+                        trigger={"hover"}
                     >
                         <Checkbox
                             name="checkbox"
