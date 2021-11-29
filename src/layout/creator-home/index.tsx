@@ -31,9 +31,7 @@ export const CreatorHomePageTemplate = () => {
         creatorId={creatorData?.id}
         shopOpening={shopOpening}
       />
-      <ShopProfile
-        template={1}
-      />
+      <ShopProfile />
     </>
   );
 };

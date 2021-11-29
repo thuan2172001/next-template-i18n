@@ -52,7 +52,7 @@ const Home: React.FC<{ homepageContent: any }> = () => {
                             setSelectedCate={setSelectedCate} />
                         <CoverPhoto coverImage={"https://nftjapan-backup.s3.ap-northeast-1.amazonaws.com/image/74459496-fb29-42fe-940e-0be06406850e-cover1.png"} />
                         <ListProducts selectedCate={selectedCate} />
-                        <ShopProfile template={1} />
+                        <ShopProfile />
                     </>
                 }
                 <AboutTerm coverImage={"https://nftjapan-backup.s3.ap-northeast-1.amazonaws.com/image/74459496-fb29-42fe-940e-0be06406850e-cover1.png"} />
