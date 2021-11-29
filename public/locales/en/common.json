@@ -263,6 +263,8 @@
     "successPrivated": "Successfully privated",
     "failPrivated1": "Oh no!",
     "failPrivated2": "privated failed.",
+    "success": "Successfully",
+    "failed": "Failed",
     "goToHomePage": "Go to Homepage",
     "backToSeries": "Back to Series",
     "seeInSeries": "See in Series",

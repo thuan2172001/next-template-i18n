@@ -8,6 +8,7 @@ import { GetUserInfo } from "src/api/auth";
 export const PublishSeriesModal = ({
   updateModalVisible,
   serieInfo,
+  updateModalType,
   updateRefetch,
 }) => {
   const { t } = useTranslation();
@@ -25,8 +26,15 @@ export const PublishSeriesModal = ({
       userInfo: GetUserInfo(),
       body: body,
     }).then((res) => {
-      updateModalVisible({ data: false });
-      updateRefetch();
+      if (res === "success") {
+        updateModalVisible({ data: false });
+        updateModalType({ type: "success" });
+        updateRefetch();
+      } else {
+        updateModalType({ type: "fail" });
+      }
+    }).catch((err) => {
+      updateModalType({ type: "fail" });
     });
   };
 
@@ -69,7 +77,7 @@ export const PublishSeriesModal = ({
             className={`${style["footer-btn"]} ${style["save"]} ${style["ml-30"]}`}
             onClick={updateSeries}
           >
-            {t("common:publishSeries")}
+            {t("common:seriesManagement.dropDown.publishSeries")}
           </Button>
         </div>
       </div>

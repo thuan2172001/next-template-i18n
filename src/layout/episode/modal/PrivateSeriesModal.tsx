@@ -9,6 +9,7 @@ export const PrivateSeriesModal = ({
   updateModalVisible,
   serieInfo,
   updateModalType = null,
+  updateRefetch,
 }) => {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
@@ -20,16 +21,19 @@ export const PrivateSeriesModal = ({
       serieId: serieInfo?.serieId,
     };
 
-    updateModalType({ type: "pending" });
-
     SeriesManagement.updateSeries({
       userInfo: GetUserInfo(),
       body: body,
     })
       .then((res) => {
-        console.log({ res });
-        updateModalVisible({ data: false });
-        res.result !== "pending" && updateModalType({ type: "success" });
+        console.log({ res })
+        if (res === "success") {
+          updateModalVisible({ data: false });
+          updateModalType({ type: "success" });
+          updateRefetch();
+        } else {
+          updateModalType({ type: "fail" });
+        }
       })
       .catch((err) => {
         updateModalType({ type: "fail" });

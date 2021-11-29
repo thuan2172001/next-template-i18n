@@ -2,6 +2,7 @@ import style from "./modal.module.scss";
 import React from "react";
 import { Modal, Button } from "antd";
 import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
 
 export const EpManageSuccessModal = ({
   updateModalVisible,
@@ -11,6 +12,7 @@ export const EpManageSuccessModal = ({
   episodeId,
 }) => {
   const router = useRouter();
+  const { t } = useTranslation();
   const moveToNft = () => {
     updateModalVisible();
     router.push(`/episode?serieId=${serieId}&episodeId=${episodeId}`);
@@ -50,7 +52,7 @@ export const EpManageSuccessModal = ({
               }
             }}
           >
-            Close pop-up
+            {t("common:smModal.close")}
           </Button>
         </div>
       </div>

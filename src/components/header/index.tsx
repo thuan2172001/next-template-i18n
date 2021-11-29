@@ -183,7 +183,9 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 	const handleMoveToSaleMangement = () => {
 		router.push("/creator/sale-management");
 	}
-
+	const handleMoveToPublish = () => {
+		router.push("/creator/create_serie");
+	}
 	const CreatorMenu = () => {
 		return (
 			<>
@@ -221,7 +223,7 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 				>
 					<Button
 						className={`${style["creator-publish-btn"]}`}
-						onClick={handleMoveToSM}
+						onClick={handleMoveToPublish}
 					>
 						{t("common:header.creator.publish")}
 					</Button>

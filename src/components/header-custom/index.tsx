@@ -106,6 +106,10 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
     setLeave(true);
     window.localStorage.setItem("popup-url", "/creator/user-management");
   }
+  const handleMoveToPublish = () => {
+    setLeave(true);
+    window.localStorage.setItem("popup-url", "/creator/create_serie");
+  }
 
   const CreatorMenu = () => {
     return (
@@ -144,7 +148,7 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
         >
           <Button
             className={`${style["creator-publish-btn"]}`}
-            onClick={handleMoveToSM}
+            onClick={handleMoveToPublish}
           >
             {t("common:header.creator.publish")}
           </Button>

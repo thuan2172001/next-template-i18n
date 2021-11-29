@@ -2,20 +2,13 @@ import style from "./modal.module.scss";
 import React from "react";
 import { Modal, Button } from "antd";
 import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
 
 export const EpManageFailModal = ({
   updateModalVisible,
-  type,
-  episodeName,
-  serieId,
-  episodeId,
 }) => {
   const router = useRouter();
-
-  const moveToNft = () => {
-    updateModalVisible();
-    router.push(`/episode?serieId=${serieId}&episodeId=${episodeId}`);
-  };
+  const { t } = useTranslation();
 
   return (
     <Modal
@@ -32,27 +25,21 @@ export const EpManageFailModal = ({
     >
       <div className={`${style["modal-common"]}`}>
         <div className={`${style["modal-header"]}`}>
-          <img src="/assets/icons/em/oh-no.svg" />
+          <img src="/assets/icons/oh-no.svg" />
         </div>
         <div className={`${style["modal-msg"]}`}>
-          Oh no! <span className={`${style["nft-name"]}`}>{episodeName}</span>{" "}
-          {type === "publish" ? <span>public</span> : <span>private</span>}{" "}
-          failed.
+          {t("common:smModal.failed")}
         </div>
         <div className={`${style["footer"]}`}>
-          <Button className={`${style["active-btn"]}`} onClick={moveToNft}>
-            Try again
-          </Button>
           <Button
             className={`${style["normal-btn-1"]}`}
             onClick={() => {
               updateModalVisible();
               if (router.query.serieId) {
-                window.location.reload();
               }
             }}
           >
-            Close pop-up
+            {t("common:smModal.close")}
           </Button>
         </div>
       </div>

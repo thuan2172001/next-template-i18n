@@ -10,8 +10,6 @@ export const SerieManagementComponent = ({
                                            updateChosenSeries,
                                            updateModalType,
                                            updateModalVisible,
-                                           showErrMsg = null,
-                                           shopOpening,
                                          }) => {
   const {t} = useTranslation();
   const router = useRouter();

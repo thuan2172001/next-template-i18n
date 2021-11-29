@@ -10,7 +10,6 @@ import { PageNavigation } from "@components/pagination";
 import { SeeMoreNoResult } from "@components/no-result/SeeMoreNoResult";
 import { PublishSeriesModal } from "src/layout/episode/modal/PublishSeriesModal";
 import { PrivateSeriesModal } from "../episode/modal/PrivateSeriesModal";
-import { PendingPrivateSerieModal } from "./modal/PendingPrivateSerieModal";
 import { SuccessPrivateSerieModal } from "./modal/SuccessPrivateSerieModal";
 import { FailedPrivateSerieModal } from "./modal/FailedPrivateModal";
 import Head from "next/head";
@@ -54,8 +53,6 @@ export const SeriesManagementTemplate = () => {
     if (router.isReady) setListType(router?.query.view);
   }, [router.isReady]);
 
-  const [shopOpening, setShopOpening] = useState(true);
-
   useEffect(() => {
     SeriesManagementAPI.getSerieQuery({
       limit: itemsPerLine * 10,
@@ -68,7 +65,6 @@ export const SeriesManagementTemplate = () => {
     })
       .then((res) => {
         if (res.data) {
-          setShopOpening(res.shopOpening);
           if (listType === "public") setTotal(res.publishedSeriesTotal);
           else setTotal(res.unpublishedSeries);
           setSeries(res?.data);
@@ -152,8 +148,6 @@ export const SeriesManagementTemplate = () => {
     );
   };
 
-  const [showErrMsg, setShowErrMsg] = useState(false);
-
   const ListSerie = () => {
     return (
       <Row gutter={[30, 30]}>
@@ -171,10 +165,6 @@ export const SeriesManagementTemplate = () => {
               updateModalVisible={({ data }) => {
                 setModalVisible(data);
               }}
-              showErrMsg={() => {
-                setShowErrMsg(true);
-              }}
-              shopOpening={shopOpening}
             />
           </Col>
         ))}
@@ -184,15 +174,6 @@ export const SeriesManagementTemplate = () => {
 
   return (
     <div className={style["sm-container"]}>
-      {showErrMsg && (
-        <div className={`${style["error-msg"]}`}>
-          <img src="/assets/icons/invalid.svg" height={24} width={24} />
-          <div className={`${style["error-content"]}`}>
-            Please open shop in Shop setting before public series
-          </div>
-        </div>
-      )}
-      {showErrMsg && <div style={{ height: 50 }}></div>}
       <TabLayOut />
 
       {total > 0 && (
@@ -231,8 +212,9 @@ export const SeriesManagementTemplate = () => {
             setModalVisible(data);
           }}
           serieInfo={chosenSeries}
+          updateModalType={({ type }) => setModalType(type)}
           updateRefetch={() => setRefetch(!refetch)}
-        ></PublishSeriesModal>
+        />
       ) : (
         modalVisible &&
         modalType === "private" && (
@@ -242,16 +224,10 @@ export const SeriesManagementTemplate = () => {
             }}
             serieInfo={chosenSeries}
             updateModalType={({ type }) => setModalType(type)}
-          ></PrivateSeriesModal>
+            updateRefetch={() => setRefetch(!refetch)}
+          />
         )
       )}
-      {modalType === "pending" && (
-        <PendingPrivateSerieModal
-          serieInfo={chosenSeries}
-          updateModalType={({ type }) => setModalType(type)}
-        />
-      )}
-
       {modalType === "success" && (
         <SuccessPrivateSerieModal
           serieName={chosenSeries.name}
