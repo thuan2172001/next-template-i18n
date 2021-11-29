@@ -44,8 +44,8 @@ export const ManageSalesTemplate = () => {
           <Row className={`${style["info-row"]}`}>
             <Col lg={12} className={`${style["info-col"]} ${style["price"]}`}>
               <div className={`${style["info-price"]}`}>
-                USD{" "}
                 <div className={`${style["price-number"]}`}>{creatorShare}</div>
+                USD{" "}
               </div>
             </Col>
             <Col lg={12} className={`${style["info-col"]} ${style["table"]}`}>

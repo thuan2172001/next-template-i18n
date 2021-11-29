@@ -87,7 +87,7 @@ export const ShopProfile = () => {
           <div className={`${style["profile-info"]}`}>
             <div className={`${style["box"]}`}>
               <div className={`${style["top"]}`}>
-                <img src={creatorInfo?.avatar || "assets/demo/demo-author.svg"} />
+                <img src={creatorInfo?.avatar} />
                 <div className={`${style["creator-info"]}`}>
                   <div className={`${style["creator-name"]}`}>
                     {creatorInfo?.fullName}

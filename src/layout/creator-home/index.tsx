@@ -27,10 +27,7 @@ export const CreatorHomePageTemplate = () => {
       <Header />
       <div style={{ height: 50 }} />
       <CoverPhoto coverImage={"https://nftjapan-backup.s3.ap-northeast-1.amazonaws.com/image/74459496-fb29-42fe-940e-0be06406850e-cover1.png"} />
-      <CreatorNewRelease
-        creatorId={creatorData?.id}
-        shopOpening={shopOpening}
-      />
+      <CreatorNewRelease />
       <ShopProfile />
     </>
   );

@@ -338,7 +338,7 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
           .catch(rej);
       });
 
-    const upload = await uploadSingleFile(episodeThumbnail.thumb.pictureAsFile)
+    const upload = episodeThumbnail.thumb ? await uploadSingleFile(episodeThumbnail.thumb.pictureAsFile) : null
 
     let formdata = null;
 
@@ -350,14 +350,14 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
         avatar: upload.location,
         description: uploadContent.description.content,
         sns: uploadContent.snsurl,
-        metalinks: Object.keys(uploadContent.addurl).map((key) => uploadContent.addurl[key]).filter(e => e !== ""),
+        mediaLinks: Object.keys(uploadContent.addurl).map((key) => uploadContent.addurl[key]).filter(e => e !== ""),
       };
     } else {
       formdata = {
         shopName: uploadContent.title.content,
         description: uploadContent.description.content,
         sns: uploadContent.snsurl,
-        metalinks: Object.keys(uploadContent.addurl).map((key) => uploadContent.addurl[key]).filter(e => e !== ""),
+        mediaLinks: Object.keys(uploadContent.addurl).map((key) => uploadContent.addurl[key]).filter(e => e !== ""),
       };
     }
 
@@ -367,7 +367,7 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
     }).then(data => {
       notifySuccess(t("common:successMsg.editSuccess"));
       setIsLoading(false);
-      setChanged(false);
+      setChanged(true);
     }).catch(err => {
       console.log({ err })
       notifyError(t("common:errorMsg.editFailed"));
@@ -605,7 +605,7 @@ export const EditProfileTemplate = ({ leave, setLeave }) => {
                         setValue(e.target.value);
                       }
                     }}
-                    value={value}
+                    value={"twitter"}
                     className={`${style["sns-container-box"]}`}
                   >
                     <Space

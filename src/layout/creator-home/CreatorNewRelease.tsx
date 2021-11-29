@@ -8,11 +8,11 @@ import React, { useState, useEffect } from "react";
 import { GetUserInfo } from "src/api/auth";
 import SeriesManagementAPI from "../../api/series-management/series-management";
 
-export const CreatorNewRelease = ({ creatorId, shopOpening }) => {
+export const CreatorNewRelease = () => {
   const router = useRouter();
   const { t } = useTranslation();
 
-  const [totalProduct, setTotalProduct] = useState(0);
+  const [totalProduct, setTotalProduct] = useState(-1);
   const [isLoading, setIsLoading] = useState(true);
   const [containerWidth, setContainerWidth] = useState(0);
   const [itemsPerLine, setItemsPerLine] = useState(0);
@@ -52,7 +52,7 @@ export const CreatorNewRelease = ({ creatorId, shopOpening }) => {
 
   useEffect(() => {
     featDataListProducts();
-  }, [category, creatorId, refetch]);
+  }, [category, refetch]);
 
   const featDataListProducts = () => {
     setIsLoading(true);

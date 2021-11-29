@@ -8,7 +8,7 @@ export default {
     const customAxios = createCustomAxios(userInfo);
     return customAxios({
       method: "get",
-      url: `${baseURL}/auth/profile`,
+      url: `${baseURL}/creator/profile`,
     }).then((data) => {
       return data;
     });

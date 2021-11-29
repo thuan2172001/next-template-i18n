@@ -29,7 +29,6 @@
 
       .info-col {
         margin: rem(24px) 0;
-        padding-top: rem(20px);
         max-width: rem(555px);
         display: flex;
         flex-direction: column;
@@ -47,10 +46,8 @@
           display: flex;
           justify-content: center;
           color: $color-blue;
-          font-size: rem($fs9);
-          line-height: rem($lh2);
-          margin-top: rem(20px);
-          margin-bottom: rem(51px);
+          font-size: rem($f4);
+          margin: auto;
           .price-number {
             font-weight: $fw-semiBold;
             margin-left: rem(10px);
