@@ -13,6 +13,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from "@stripe/stripe-js";
 import CustomerPaymentAPI from '../api/customer/payment';
 import Head from "next/head"
+import NextNProgress from 'nextjs-progressbar';
 
 const { store, persistor } = configureStore();
 
@@ -49,6 +50,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 							<img src="/assets/icons/loading-animation.gif" />
 						</div>}
 					>
+						<NextNProgress
+							startPosition={0.3}
+							height={5}
+							showOnShallow={true}
+						/>
 						<Component {...pageProps} />
 					</PersistGate>
 				</Provider>

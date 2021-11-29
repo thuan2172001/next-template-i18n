@@ -15,10 +15,6 @@ const SeriePage = () => {
   return (
     <React.Fragment>
       <Header />
-      <SubHeader
-        selectedCate={null}
-        setSelectedCate={null}
-      />
       <div style={{ height: 50 }}></div>
       <SerieTemplate serieId={serieId ? serieId : ""} />
       <Footer />

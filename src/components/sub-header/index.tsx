@@ -4,7 +4,6 @@ import {useRouter} from "next/router";
 import {useTranslation} from "next-i18next";
 import style from "./sub-header.module.scss";
 import {SearchBar2} from "../../components/header-searchbar/index";
-import {useMemo} from "react";
 import CategoriesAPI from "../../api/category/category";
 
 export const SubHeader = ({
