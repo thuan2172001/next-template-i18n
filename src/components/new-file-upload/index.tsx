@@ -216,10 +216,6 @@ export const NewFileUpload = ({
                 <div className={`${style["big-guide"]}`}>
                   {t("common:editCover")}
                 </div>
-
-                <div className={`${style["small-guide"]}`}>
-                  {t("common:replaceBanner.guideContent")}
-                </div>
               </div>
             )}
 

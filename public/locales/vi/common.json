@@ -148,6 +148,7 @@
   "read": {
     "goShop": "Mua ngay"
   },
+  "upload": "Tải lên",
   "create_serie": {
     "coverRecommend": "Gợi ý ảnh",
     "browse": "Chọn",
@@ -214,6 +215,7 @@
     "createSuccess": "Tạo mới thành công",
     "editSuccess": "Sửa thành công"
   },
+  "editCover": "Chỉnh sửa ảnh bìa",
   "epTitle": "Tiêu đề",
   "episode": {
     "privateItem": "Ẩn truyện",

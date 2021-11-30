@@ -222,6 +222,7 @@
     "value": "Value",
     "username": "Customer"
   },
+  "editCover": "Edit cover",
   "banned": "Account is banned",
   "createAcc": {
     "signup": "Sign up",

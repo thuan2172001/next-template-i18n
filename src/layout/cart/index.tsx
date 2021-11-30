@@ -1,13 +1,13 @@
 import style from "./cart.module.scss";
 import { useTranslation } from "next-i18next";
 import { CartItem } from "@components/cart-item/CartItem";
-import {  Button } from "antd";
+import { Button, Skeleton } from "antd";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { GetUserInfo } from "src/api/auth";
 import Head from "next/head";
 
-export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListGuest }) => {
+export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListGuest, cartLoading }) => {
   const router = useRouter();
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,6 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
   useEffect(() => {
     if (typeof window !== "undefined") {
       const userInfo = GetUserInfo()
-
       if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
         setIsLogged(true);
       } else {
@@ -61,19 +60,21 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
         </div>
 
         <div className={`${style["cart-item-list"]}`}>
-          <hr className={`${style["line-1"]}`} />
-          {cartList.map(
-            (itemInfo, index) => {
-              if (itemInfo) return (
-                <div key={index}>
-                  <CartItem itemInfo={itemInfo} getCartList={getCartList} getCartListGuest={getCartListGuest} />
-                  {index < cartList.length - 1 && (
-                    <hr className={`${style["line"]}`} />
-                  )}
-                </div>
-              )
-            }
-          )}
+          <Skeleton loading={cartLoading}>
+            <hr className={`${style["line-1"]}`} />
+            {cartList.map(
+              (itemInfo, index) => {
+                if (itemInfo) return (
+                  <div key={index}>
+                    <CartItem itemInfo={itemInfo} getCartList={getCartList} getCartListGuest={getCartListGuest} />
+                    {index < cartList.length - 1 && (
+                      <hr className={`${style["line"]}`} />
+                    )}
+                  </div>
+                )
+              }
+            )}
+          </Skeleton>
         </div>
 
         <div className={`${style["order-total"]}`}>

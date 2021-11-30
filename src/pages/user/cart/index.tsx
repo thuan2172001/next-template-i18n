@@ -7,10 +7,11 @@ import { SubHeader } from "@components/sub-header";
 import { Footer } from "@components/footer";
 import CustomerCartAPI from "../../../api/customer/cart";
 import { useDispatch, useSelector, connect } from 'react-redux';
+import { Skeleton } from "antd";
 
 const CartPage = () => {
   const [selectedCate, setSelectedCate] = useState("all");
-  const [selectedSubCate, setSelectedSubCate] = useState("");
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [isAllChecked, setIsAllChecked] = useState(false);
   const cartList = useSelector((state: any) => state.cart?.cartList);
@@ -24,6 +25,7 @@ const CartPage = () => {
   const getCartList = () => {
     const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
     if (userInfo) {
+      setLoading(true);
       CustomerCartAPI.getCartData({ userInfo }).then(data => {
         if (data) {
           setData(data)
@@ -32,6 +34,7 @@ const CartPage = () => {
             payload: data.map((e) => e.episodeId),
           });
         }
+        setLoading(false)
       })
     } else {
       getCartListGuest(cartList)
@@ -51,17 +54,16 @@ const CartPage = () => {
   return (
     <React.Fragment>
       <Header />
-      <SubHeader
-        selectedCate={selectedCate}
-        setSelectedCate={setSelectedCate}
-      />
-      {data?.length > 0 ?
-        <CartTemplate
-          cartList={data}
-          getCartList={getCartList}
-          isAllChecked={isAllChecked}
-          getCartListGuest={getCartListGuest}
-        /> : <EmptyCartTemplate />}
+      <div style={{ minHeight: "100vh" }}>
+        {data.length > 0 ?
+          <CartTemplate
+            cartList={data}
+            getCartList={getCartList}
+            isAllChecked={isAllChecked}
+            getCartListGuest={getCartListGuest}
+            cartLoading={loading}
+          /> : <EmptyCartTemplate cartLoading={loading}/>}
+      </div>
       <Footer />
     </React.Fragment>
   );

@@ -1,11 +1,23 @@
 @import "@components/global-scss/variables.scss";
 
 .empty-cart {
+  background: $color-bold-white;
+  min-height: 100vh;
+  padding: rem(60px) 11% 0 11%;
   min-height: 65vh;
   display: flex;
   flex-direction: column;
   padding-top: rem(100px);
   margin-bottom: rem(50px);
+  .cart-header {
+    font-style: normal;
+    font-weight: $fw-bold;
+    font-size: $lh2;
+    line-height: $lh3;
+    letter-spacing: rem(0.2px);
+    color: $color-light-black;
+    margin-bottom: rem(40px);
+  }
   .empty-cart-img {
     width: rem(161px);
     height: rem(161px);
