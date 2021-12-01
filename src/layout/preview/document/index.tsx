@@ -10,6 +10,8 @@ import { useState, useEffect } from "react";
 import { Worker, PageChangeEvent } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import disableScrollPlugin from "./disableScroll";
+import Head from "next/head";
+
 const initialState = {
   animation: "none",
   speed: "fast",
@@ -107,6 +109,9 @@ export const DocumentTemplate = ({ serieId, episodeId }) => {
   };
   return (
     <>
+      <Head>
+        <title>WebtoonZ</title>
+      </Head>
       <div>
         <div>
           <ReadHeader
