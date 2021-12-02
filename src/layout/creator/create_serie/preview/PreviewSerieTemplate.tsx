@@ -7,9 +7,10 @@ import { GetUserInfo } from "src/api/auth";
 import { NoResult } from "./NoResult";
 import { PageNavigation } from "@components/pagination";
 import { EpisodeProduct } from "@components/product-item/EpisodeProduct";
+import category from "src/api/category/category";
 
 export const PreviewSerieTemplate = ({
-  info = { title: "", summary: "", category: [] },
+  info = { title: "", summary: "", category: "" },
   setPreview,
   upload,
   editSeries = false,
@@ -168,14 +169,12 @@ export const PreviewSerieTemplate = ({
                 className={`${style["favorite-icon"]} ${style["color-red"]}`}
               />
               <span className={`${style["like-count"]}`}>
-                {series ? formatTotalLike(series.totalLikes) : 0}
+                {series ? formatTotalLike(series.totalLikes) : 1}
               </span>
             </div>
           </div>
           <div className={`${style["category-info"]}`}>
-            {info?.category?.map((cate) => {
-              return <span className={`${style["cate-item"]}`}>{t(`common:category.${cate}`)}</span>;
-            })}
+            <span className={`${style["cate-item"]}`}>{t(`common:category.${info?.category}`)}</span>
           </div>
           <div className={` ${style["bottom-detail"]}`}>
             <span className={`${style["serie-detail"]}`}>

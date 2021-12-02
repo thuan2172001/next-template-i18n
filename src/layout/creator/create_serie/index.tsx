@@ -11,7 +11,6 @@ import { GetUserInfo } from "src/api/auth";
 import { PreviewSerieTemplate } from "./preview/PreviewSerieTemplate";
 import { SaveAlertModal } from "./save-alert-modal";
 import { useRouter } from "next/router";
-import category from "../../../api/category/category";
 import { notifyError, notifySuccess } from "@components/toastify";
 import Head from "next/head";
 //todo
@@ -42,11 +41,11 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
   let isThumbnailEmpty = thumbnail === null || thumbnail === undefined;
 
   const [category, setCategory] = useState({
-    name: "",
-    id: ""
+    categoryName: "",
+    categoryId: ""
   })
 
-  let cateInputValid = category.name !== "";
+  let cateInputValid = category.categoryName !== "";
 
   const TabLayout = () => {
     return (
@@ -131,7 +130,7 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
       cover: upload[0].location,
       thumbnail: upload[1].location,
       serieName: serieTitle,
-      categoryId: category.id,
+      categoryId: category.categoryId,
       description: summary,
     };
 
@@ -190,7 +189,7 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
           info={{
             title: serieTitle,
             summary: summary,
-            category: [category.name],
+            category: category.categoryName,
           }}
           setPreview={setPreview}
           upload={Upload}
@@ -234,6 +233,7 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
             isEmpty={isThumbnailEmpty}
             first={firstInit}
           />
+          {JSON.stringify(category)}
           <CatagorySelection
             setCategory={(cate) => {
               setCategory(cate);
