@@ -6,6 +6,7 @@ import { PageNavigation } from "@components/pagination";
 import CreatorAPI from "../../../api/creator/profile";
 import { GetUserInfo } from "src/api/auth";
 import Image from "next/image";
+import Head from "next/head";
 
 export const ManageSalesTemplate = () => {
   const { t } = useTranslation();
@@ -37,6 +38,9 @@ export const ManageSalesTemplate = () => {
 
   return (
     <div className={`${style["body"]}`}>
+      <Head>
+        <title>WebtoonZ | {t("common:header.creator.manageSales")}</title>
+      </Head>
       <div className={`${style["container"]}`}>
         <div className={`${style["hd-title"]}`}>{t("common:header.creator.manageSales")}</div>
         <div className={`${style["info-container"]}`}>

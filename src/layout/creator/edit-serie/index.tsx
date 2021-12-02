@@ -11,6 +11,7 @@ import { SaveAlertModal } from "../create_serie/save-alert-modal";
 import { useRouter } from "next/router";
 import { notifyError, notifySuccess } from "@components/toastify";
 import { GetUserInfo } from "src/api/auth";
+import Head from "next/head";
 
 export const EditSerieTemplate = ({
   seriesId,
@@ -148,6 +149,9 @@ export const EditSerieTemplate = ({
   const TabLayout = () => {
     return (
       <div className={`${style["switch-tab"]}`}>
+        <Head>
+          <title>WebtoonZ | {t("common:seriesManagement.dropDown.editSeries")}</title>
+        </Head>
         <div
           className={`${style["switch-tab-item"]}  ${style["switch-tab-active"]}`}
         >

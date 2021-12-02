@@ -5,6 +5,7 @@ import ReadAPI from "../../api/read/read";
 import { useRouter } from "next/router";
 import CustomerProfileAPI from "../../api/customer/profile";
 import { GetUserInfo } from "src/api/auth";
+import Head from "next/head";
 
 const initialState = {
   animation: "none",
@@ -102,6 +103,9 @@ export const ReadTemplate = () => {
   if (!setting) return <div></div>
   return (
     <>
+      <Head>
+        <title>WebtoonZ</title>
+      </Head>
       <ReadHeader
         setSettingData={({ setting }) => {
           setSetting(setting);

@@ -233,7 +233,6 @@ export const CreateSerieTemplate = ({ leave, setLeave }) => {
             isEmpty={isThumbnailEmpty}
             first={firstInit}
           />
-          {JSON.stringify(category)}
           <CatagorySelection
             setCategory={(cate) => {
               setCategory(cate);
