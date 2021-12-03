@@ -1,13 +1,15 @@
 import style from "./nft-product.module.scss";
 import { convertLongString } from "src/utils/common-function";
-import { Button, Tooltip } from "antd";
+import { Button, Modal, Tooltip } from "antd";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
+import { DeleteItemModal } from "src/layout/episode/modal/DeleteItemModal";
 
 export const PrivateNft = ({ episode }) => {
   const { t } = useTranslation();
   const route = useRouter();
+  const [showModal, setShowModal] = useState(false);
 
   const PrivateAction = () => {
     return (
@@ -16,8 +18,7 @@ export const PrivateNft = ({ episode }) => {
           src="/assets/icons/trash.svg"
           className={`${style["cursor_pointer"]}`}
           onClick={() => {
-            window.localStorage.setItem("modalType", "request-burn");
-            moveToNft();
+            setShowModal(true);
           }}
         />
         <Button className={`${style["publish-btn"]}`} onClick={moveToNft}>
@@ -59,13 +60,14 @@ export const PrivateNft = ({ episode }) => {
           <div className={`${style["quantity"]}`}>
             <div className={`${style["detail"]}`}>
               <span>
-                {episode?.price} USD
+                {episode?.price ? `${episode.price} USD` : "Free"}
               </span>
             </div>
           </div>
         </>
       )}
       <PrivateAction />
+      <DeleteItemModal modalVisible={showModal} updateModalVisible={(value) => setShowModal(value)} episodeInfo={episode} />
     </div>
   );
 };

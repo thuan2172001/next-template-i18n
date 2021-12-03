@@ -197,6 +197,19 @@
     line-height: $lh2;
     color: $color-white;
   }
+
+  .enjoy-btn {
+    margin-left: rem(16px);
+    width: 100%;
+    height: rem(40px);
+    background-color: $color-white;
+    font-family: $font-euclid-medium;
+    font-style: normal;
+    font-weight: bold;
+    font-size: $fs1;
+    line-height: $lh2;
+    color: $color-blue-2;
+  }
 }
 
 .counter-input {

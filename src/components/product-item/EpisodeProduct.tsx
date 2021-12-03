@@ -85,7 +85,7 @@ export const EpisodeProduct = ({ serieId, episode }) => {
 
       <div className={`${style["cursor_pointer"]} ${style["bottom-detail"]}`}>
         <span className={`${style["episode-price"]}`}>
-          {price}{' $'}
+          {price ? price + ' $' : 'Free'}
         </span>
         <span className={`${style["float-right"]} ${style["episode-heart"]}`}>
           {favorite ? (

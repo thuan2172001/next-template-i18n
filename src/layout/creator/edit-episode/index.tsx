@@ -204,10 +204,6 @@ export const EditEpisodeTemplate = ({ leave, setLeave }) => {
     }));
   };
 
-  const refreshPage = () => {
-    window.location.reload();
-  };
-
   const validateImage = (type, size, src, name) =>
     new Promise((resolve, reject) => {
       let lastDot = name.lastIndexOf(".");
@@ -308,18 +304,18 @@ export const EditEpisodeTemplate = ({ leave, setLeave }) => {
           .catch(reject);
       });
 
-    const upload = await Promise.all([
+    const upload = episodeThumbnail.thumb.pictureAsFile ? await Promise.all([
       uploadSingleFile(episodeThumbnail.thumb.pictureAsFile).catch(err => {
         setLoading(false);
         notifyError(t("common:errorMsg.uploadFileFailed"))
       }),
-    ]);
+    ]) : null;
 
     const formdata = {
       chapter: uploadContent.chapter.content,
       name: uploadContent.title.content,
-      price: parseInt(uploadContent.numberOfEdition.num, 10),
-      thumbnail: upload[0].location,
+      price: parseInt(uploadContent.numberOfEdition.num, 10) ?? 0,
+      thumbnail: upload ? upload[0].location : episodeThumbnail.thumb,
       description: uploadContent.description.content,
     };
 
@@ -395,6 +391,7 @@ export const EditEpisodeTemplate = ({ leave, setLeave }) => {
               <div className={`${style["thumbnail-detail"]}`}>
                 <PhotoUpload
                   className={"thumbnail-cover"}
+                  startImage={episodeThumbnail.thumb}
                   setPagePicture={async ({ pictureAsFile, pictureSrc }) => {
                     if (pictureAsFile === undefined) {
                       setEpisodeThumbnail({

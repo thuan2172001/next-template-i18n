@@ -11,10 +11,8 @@ export const PurchasedItem = ({
   const { t } = useTranslation();
   const router = useRouter();
 
-  const enjoyEpisode = ({ serieId, episodeId, type }) => {
-    if(type == 'watch')
-      router.push(`watch?serieId=${serieId}&episodeId=${episodeId}`);
-    else router.push(`read?serieId=${serieId}&episodeId=${episodeId}`);
+  const enjoyEpisode = ({ serieId, episodeId }) => {
+    router.push(`read?serieId=${serieId}&episodeId=${episodeId}`);
   };
 
   const AvailablePurchasedItem = () => {
@@ -34,7 +32,7 @@ export const PurchasedItem = ({
               <Button
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
                 onClick={() => {
-                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo.episodeId, type: episodeInfo.type });
+                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo.episodeId });
                 }}
               >
                 {t("common:enjoy")}
@@ -55,7 +53,7 @@ export const PurchasedItem = ({
               <Button
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
                 onClick={() => {
-                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo.episodeId, type: episodeInfo.type });
+                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo.episodeId });
                 }}
               >
                 {t("common:enjoy")}
@@ -85,7 +83,7 @@ export const PurchasedItem = ({
               <Button
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
                 onClick={() => {
-                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo.episodeId, type: episodeInfo.type });
+                  enjoyEpisode({ serieId: serieId, episodeId: episodeInfo.episodeId });
                 }}
               >
                 {t("common:enjoy")}

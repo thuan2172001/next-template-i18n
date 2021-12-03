@@ -40,7 +40,8 @@ export const CheckoutTemplate = ({ cartList }) => {
     const calculateTotalPrice = (cartList) => {
         let tmpTotalPrice = 0;
         cartList.forEach((cart) => {
-            tmpTotalPrice += parseInt(cart.price);
+            console.log(cart.price);
+            tmpTotalPrice += parseInt(cart.price ?? 0);
         });
         setCurrentTotal(tmpTotalPrice);
     };

@@ -125,6 +125,9 @@
   "successPurchased": "Purchase items successfully",
   "enjoy": "Enjoy",
   "episode": {
+    "deleteItem": "Delete episode",
+    "deleteItem1": "Are you sure to delete episode",
+    "deleteItem2": "?",
     "episode": "Episode",
     "addToBookshelf": "Add to bookshelf",
     "addedToBookshelf": "Added to bookshelf",
@@ -141,7 +144,8 @@
   },
   "successMsg": {
     "createSuccess": "Create successfully",
-    "editSuccess": "Edit information successfully"
+    "editSuccess": "Edit information successfully",
+    "deleteSuccess": "Delete successfully"
   },
   "requireSignInModal": {
     "modalHeader": "Please log in to enjoy full features of Webtoonz",
@@ -236,6 +240,7 @@
   },
   "errorMsg": {
     "createFailed": "Create failed !",
+    "deleteFailed": "Delete failed !",
     "editFailed": "Edit failed !",
     "min6": "Minimum 6 characters",
     "max15": "Maximum 15 characters",

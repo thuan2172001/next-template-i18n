@@ -5,7 +5,14 @@ import style from "./episode.module.scss";
 import { useRouter } from "next/router";
 import { GetUserInfo } from "src/api/auth";
 
-export const NonPurchasedItem = ({ episodeInfo = null, amountInCart = 0, addedToBookshelf = null, handelAddToBookshelf = null, handleAddToCart = null, serieId = null }) => {
+export const NonPurchasedItem = ({
+  episodeInfo = null,
+  amountInCart = 0,
+  addedToBookshelf = null,
+  handelAddToBookshelf = null,
+  handleAddToCart = null,
+  serieId = null
+}) => {
   const { t } = useTranslation();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -14,7 +21,7 @@ export const NonPurchasedItem = ({ episodeInfo = null, amountInCart = 0, addedTo
     <>
       <Row>
         <Col xs={24}>
-          {episodeInfo?.price == 0 ? (
+          {!episodeInfo?.price ? (
             <div className={`${style["free"]}`}>{t("common:free")}</div>
           ) : (
             <div className={`${style["price"]}`}>
@@ -48,7 +55,9 @@ export const NonPurchasedItem = ({ episodeInfo = null, amountInCart = 0, addedTo
             <Col span={11}>
               <Button
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
-                onClick={() => { }}
+                onClick={() => {
+                  router.push(`read?serieId=${serieId}&episodeId=${episodeInfo.episodeId}`);
+                }}
               >
                 {t("common:enjoy")}
               </Button>

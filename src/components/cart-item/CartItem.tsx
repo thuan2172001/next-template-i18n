@@ -77,7 +77,7 @@ export const CartItem = ({
                 </div>
 
                 <div className={`${style["cart-item-price"]} ${style["total-price"]}`}>
-                    {price} USD
+                    {price ?? 0} USD
                 </div>
                 <div
                     className={`${style["remove-item"]}`}

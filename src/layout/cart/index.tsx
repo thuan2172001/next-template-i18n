@@ -41,7 +41,8 @@ export const CartTemplate = ({ cartList, getCartList, isAllChecked, getCartListG
     let tmpTotalPrice = 0;
     let tmpTotalChecked = 0;
     cartList.forEach((cart) => {
-      tmpTotalPrice += parseInt(cart.price);
+      console.log(cart.price);
+      tmpTotalPrice += parseInt(cart.price ?? 0);
       tmpTotalChecked += 1;
     });
     setTotalPrice(tmpTotalPrice);

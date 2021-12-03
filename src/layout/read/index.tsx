@@ -46,7 +46,8 @@ export const ReadTemplate = () => {
             res.episodes.forEach((data, index) => {
               if (data.episodeId == episodeId) {
                 if (index > 0) setPreEps(res.episodes[index - 1]);
-                setCurrentEps(data);
+                const dt = {...data, isLocked: GetUserInfo().role === "creator" ? false : data.isLocked}
+                if (GetUserInfo().role === "creator") setCurrentEps(dt)
                 if (index < res.episodes.length - 1)
                   setNextEps(res.episodes[index + 1]);
               }
@@ -62,7 +63,8 @@ export const ReadTemplate = () => {
     seriesData.episodes.forEach((data, index) => {
       if (data.episodeId == episodeId) {
         if (index > 0) setPreEps(seriesData.episodes[index - 1]);
-        setCurrentEps(data);
+        const dt = {...data, isLocked: GetUserInfo().role === "creator" ? false : data.isLocked}
+        setCurrentEps(dt);
         if (index < seriesData.episodes.length - 1)
           setNextEps(seriesData.episodes[index + 1]);
       }

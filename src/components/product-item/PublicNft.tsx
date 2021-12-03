@@ -10,7 +10,7 @@ export const PublicNft = ({ episode }) => {
 
   const { t } = useTranslation();
   const route = useRouter();
-  
+
   const moveToNft = () => {
     route.push(`/episode?serieId=${episode.serieId}&episodeId=${episode.episodeId}`);
   };
@@ -65,7 +65,7 @@ export const PublicNft = ({ episode }) => {
       ) : (
         <>
           <div className={`${style["price"]}`}>
-            {episode?.price + " USD" }
+            {episode?.price ? `${episode.price} USD` : "Free"}
           </div>
         </>
       )}

@@ -195,6 +195,7 @@
   },
   "errorMsg": {
     "createFailed": "Tạo mới thất bại !",
+    "deleteFailed": "Xóa thất bại !",
     "editFailed": "Thay đổi thông tin thất bại !",
     "min6": "Tối thiểu 6 kí tự",
     "max15": "Tố đa 15 kí tự",
@@ -213,16 +214,21 @@
   },
   "successMsg": {
     "createSuccess": "Tạo mới thành công",
-    "editSuccess": "Sửa thành công"
+    "editSuccess": "Sửa thành công",
+    "deleteSuccess": "Xóa thành công"
   },
   "editCover": "Chỉnh sửa ảnh bìa",
   "epTitle": "Tiêu đề",
   "episode": {
+    "deleteItem": "Xóa truyện",
+    "deleteItem1": "Bạn có chắc muốn xóa truyện",
+    "deleteItem2": "không ?",
     "privateItem": "Ẩn truyện",
     "publishItem": "Công khai truyện",
     "privateItem1": "Khi bị ẩn,",
     "privateItem2": "sẽ bị ẩn đi và người dùng sẽ không thể thấy và thêm vào giá sách của họ. Bạn có chắc là muốn ẩn không ?",
     "privateItem3": "sẽ bị ẩn đi và người dùng sẽ không thể thấy và mua. Bạn có chắc là muốn ẩn không ?",
+    "addToBookshelf": "Thêm vào giỏ",
     "isBeing": "đang được",
     "published": "công khai",
     "privated": "ẩn",

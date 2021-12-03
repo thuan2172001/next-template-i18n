@@ -21,7 +21,7 @@ export const PhotoUpload = ({
 
   useEffect(() => {
     setPicturePreview(startImage);
-  }, []);
+  }, [startImage]);
 
   useEffect(() => {
     if (!first) {
@@ -101,7 +101,6 @@ export const PhotoUpload = ({
           <Image src="/assets/icons/trash.svg" width={41} height={41} />
         </div>
       )}
-
       <div className={`${style["cover-photo-content"]}`}>
         <Image src="/assets/icons/cloud.png" height={74} width={74} />
 

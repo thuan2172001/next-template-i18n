@@ -47,4 +47,14 @@ export default {
       return data;
     });
   },
+
+  deleteEpisode: ({ userInfo, episodeId }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: 'delete',
+      url: `${baseURL}/episode/${episodeId}`,
+    }).then((data) => {
+      return data;
+    });
+  },
 };

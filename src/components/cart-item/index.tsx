@@ -27,11 +27,11 @@ const CartItem = ({ itemInfo, type = "" }) => {
             className={`${style["cart-item-price"]} ${style["unit"]}`}
             style={{ padding: 0 }}
           >
-            {typeof price === "number" && (price + " USD")}
+            {typeof price === "number" && ((price ?? 0) + " USD")}
           </div>
 
           <div className={`${style["cart-item-price"]}`} style={{ padding: 0 }}>
-            {price + " USD"}
+            {(price ?? 0) + " USD"}
                
           </div>
         </div>
@@ -46,7 +46,7 @@ const CartItem = ({ itemInfo, type = "" }) => {
           </div>
 
           <div className={`${style["cart-item-price"]} ${style["unit"]}`}>
-            ${typeof price === "number" && (price + " USD")}
+            ${typeof price === "number" && ((price ?? 0) + " USD")}
           </div>
 
           <div
@@ -56,7 +56,7 @@ const CartItem = ({ itemInfo, type = "" }) => {
           </div>
           <div className={`${style["cart-item-price total-price"]}`}>
             $
-            {price + " USD"}
+            {(price ?? 0) + " USD"}
           </div>
           <div
             className={`${style["remove-item"]}`}

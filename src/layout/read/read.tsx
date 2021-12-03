@@ -169,7 +169,9 @@ export const Read = ({
   };
 
   if (currentEps && currentEps.isLocked)
-    return <ReadError data={currentEps} onWrapperClick={setShowHeader} />;
+    return <>
+      <ReadError data={currentEps} onWrapperClick={setShowHeader} />
+    </>;
 
   return (
     <>

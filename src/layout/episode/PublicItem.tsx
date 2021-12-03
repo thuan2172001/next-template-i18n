@@ -1,15 +1,16 @@
-import {useTranslation} from 'next-i18next'
+import { useTranslation } from 'next-i18next'
 import style from './episode.module.scss'
-import {Row, Button, Divider} from 'antd'
+import { Row, Button, Divider } from 'antd'
+import React, { useState } from 'react'
+import { useRouter } from "next/router";
 import {PrivateItemModal} from './modal/PrivateItemModal'
-import {useState} from 'react'
-import {EpManagePendingModal} from '../episode-management/modal/PendingModal'
+import { EpManagePendingModal } from "../episode-management/modal/PendingModal";
 
-export const PublicItem = ({episodeInfo}) => {
-  const {t} = useTranslation()
-
+export const PublicItem = ({ episodeInfo }) => {
+  const { t } = useTranslation()
   const [modalType, setModalType] = useState('')
   const [isPending, setIsPending] = useState(episodeInfo?.isUnpublishPending)
+  const router = useRouter();
 
   const FreeDetail = () => {
     return (
@@ -30,12 +31,19 @@ export const PublicItem = ({episodeInfo}) => {
     return (
       <>
         <div className={`${style["publish-action"]}`}>
-
           <Button
             className={`${style['private-btn']}`}
             onClick={() => setModalType('private-item')}
           >
             {t('common:episode.privateItem')}
+          </Button>
+          <Button
+            className={`${style["enjoy-btn"]}`}
+            onClick={() => {
+              router.push(`read?serieId=${episodeInfo.serieId}&episodeId=${episodeInfo.episodeId}`);
+            }}
+          >
+            {t('common:enjoy')}
           </Button>
         </div>
       </>
@@ -44,7 +52,7 @@ export const PublicItem = ({episodeInfo}) => {
 
   return (
     <div>
-      {episodeInfo?.isFree ? <FreeDetail/> : <NonFreeDetail/>}
+      {episodeInfo?.isFree ? <FreeDetail /> : <NonFreeDetail />}
       {modalType === 'private-item' && (
         <PrivateItemModal
           updateModalVisible={setModalType}
