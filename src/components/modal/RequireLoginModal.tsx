@@ -29,7 +29,7 @@ export const RequireLoginModal = ({ updateModalVisible, isFrom = "" }) => {
       </Button>
       <Button
         className={`${style["modal-btn"]}`}
-        onClick={() => router.push("/signup")}
+        onClick={() => router.push("/sign-up")}
       >
         {t("common:requireSignInModal.signUp")}
       </Button>

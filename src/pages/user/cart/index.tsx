@@ -42,6 +42,7 @@ const CartPage = () => {
   }
 
   const getCartListGuest = (tmpCartList) => {
+    console.log({ tmpCartList })
     setData(tmpCartList)
     let tmpIsAllChecked = true;
     tmpCartList.forEach((cart) => {
@@ -62,7 +63,7 @@ const CartPage = () => {
             isAllChecked={isAllChecked}
             getCartListGuest={getCartListGuest}
             cartLoading={loading}
-          /> : <EmptyCartTemplate cartLoading={loading}/>}
+          /> : <EmptyCartTemplate cartLoading={loading} />}
       </div>
       <Footer />
     </React.Fragment>

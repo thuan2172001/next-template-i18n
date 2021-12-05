@@ -182,7 +182,7 @@ const CardSetupForm = ({ markSetupSuccess, markCancel, type }) => {
             <Space direction="vertical">
               <Radio value={1}>Save payment method</Radio>
 
-              <Radio value={0}>Don't save payment method</Radio>
+              {/* <Radio value={0}>Don't save payment method</Radio> */}
             </Space>
           </Radio.Group>
         </Row>

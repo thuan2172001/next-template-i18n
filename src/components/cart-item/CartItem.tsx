@@ -17,7 +17,6 @@ export const CartItem = ({
 
     const cartList = useSelector((state: any) => state.cart?.cartList);
     const {thumbnail, price, serieId, episodeId, name} = itemInfo;
-    const [authorId, setAuthorId] = useState("");
 
     const removeItem = () => {
         let newCartList = [];
@@ -65,14 +64,6 @@ export const CartItem = ({
                 <div className={`${style["cart-item-name"]}`}>
                     <div onClick={() => moveToNft(episodeId)}>
                         {name ? name : ""}
-                    </div>
-                    <div
-                        className={`${style["cart-item-creator-name"]}`}
-                        onClick={() => {
-                            router.push(`/shop/${authorId}`);
-                        }}
-                    >
-                        {t('common:authorDefault.name')}
                     </div>
                 </div>
 

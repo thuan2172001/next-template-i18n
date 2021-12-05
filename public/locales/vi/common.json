@@ -116,6 +116,11 @@
   "successPurchased": "Mua hàng thành công",
   "free": "Miễn phí",
   "enjoy": "Đọc ngay ",
+  "requireSignInModal": {
+    "modalHeader": "Xin vui lòng đăng nhập để  thưởng thức toàn bộ tính năng của Webtoonz",
+    "login": "Đăng nhập",
+    "signUp": "Đăng ký"
+  },
   "seriesManagement": {
     "createNewSeries": "Tạo mới series",
     "create": "Ngày tạo",
@@ -230,7 +235,7 @@
     "privateItem1": "Khi bị ẩn,",
     "privateItem2": "sẽ bị ẩn đi và người dùng sẽ không thể thấy và thêm vào giá sách của họ. Bạn có chắc là muốn ẩn không ?",
     "privateItem3": "sẽ bị ẩn đi và người dùng sẽ không thể thấy và mua. Bạn có chắc là muốn ẩn không ?",
-    "addToBookshelf": "Thêm vào giỏ",
+    "addToBookshelf": "Thêm vào giá sách",
     "isBeing": "đang được",
     "published": "công khai",
     "privated": "ẩn",

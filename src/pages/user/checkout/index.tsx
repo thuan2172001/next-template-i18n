@@ -5,7 +5,6 @@ import {Header} from "@components/header";
 import { Footer } from "@components/footer";
 import {CheckoutTemplate} from "src/layout/checkout";
 import CustomerCartAPI from "../../../api/customer/cart";
-import {CartTemplate} from "../../../layout/cart";
 
 const CheckoutPage = () => {
     const [data, setData] = useState([]);

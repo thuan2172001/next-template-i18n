@@ -117,7 +117,13 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 					key="cart"
 					className={`${style["disable-antd-css"]} ${style["ml-auto"]}`}
 					style={{ position: "relative" }}
-					onClick={() => { router.push('/user/cart') }}
+					onClick={() => { 
+						if (GetUserInfo()) {
+							router.push('/user/cart') 
+						} else {
+							router.push('/login')
+						}
+					}}
 				>
 					{totalItemsInCart > 0 && (
 						<div className={`${style["cart-number-badge"]}`}>
