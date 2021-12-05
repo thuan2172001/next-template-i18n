@@ -177,15 +177,16 @@ export const Read = ({
     <>
       <div
         className={`${style["cursor-area1"]} ${isAreaChange && style["display-tapping-area"]
-          } ${currentView < pageNumber && style["cursor-left"]}`}
+          } ${currentView > 1 && style["cursor-left"]}`}
+        onClick={handlePrev}
         style={{ width: `${area}%` }}
-        onClick={handleNext}
       ></div>
       <div
         className={`${style["cursor-area2"]} ${isAreaChange && style["display-tapping-area"]
-          } ${currentView > 1 && style["cursor-right"]}`}
+          } ${currentView < pageNumber && style["cursor-right"]}`}
+
         style={{ width: `${area}%` }}
-        onClick={handlePrev}
+        onClick={handleNext}
       ></div>
 
       {pages && pages.length > 0 && (
