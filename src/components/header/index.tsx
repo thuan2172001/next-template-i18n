@@ -96,6 +96,9 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 				>
 					{t("common:header.dropdown.changeLanguage")}
 				</Menu.Item>
+				<Menu.Item key="8" onClick={() => router.push('/change-password')}>
+					{t("common:header.creator.dropdown.changePw")}
+				</Menu.Item>
 				<Menu.Item key="7" onClick={() => {
 					localStorage.clear();
 					router.push('/login')
@@ -162,6 +165,9 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 					}}
 				>
 					{t("common:header.dropdown.changeLanguage")}
+				</Menu.Item>
+				<Menu.Item key="1" onClick={() => router.push('/change-password')}>
+					{t("common:header.creator.dropdown.changePw")}
 				</Menu.Item>
 				<Menu.Item key="2" onClick={handleLogout}>
 					{t("common:header.creator.dropdown.logOut")}

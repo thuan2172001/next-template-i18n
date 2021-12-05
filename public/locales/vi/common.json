@@ -18,7 +18,8 @@
       "liked": "Yêu thích",
       "purchaseHistory": "Lịch sử giao dịch",
       "changeLanguage": "Đổi ngôn ngữ",
-      "logOut": "Đăng xuất"
+      "logOut": "Đăng xuất",
+      "changePw": "Đổi mật khẩu"
     },
     "creator": {
       "shopSetting": "CÀI ĐẶT",
@@ -29,7 +30,8 @@
       "publish": "Xuất bản",
       "dropdown": {
         "logOut": "Đăng xuất",
-        "changeLanguage": "Đổi ngôn ngữ"
+        "changeLanguage": "Đổi ngôn ngữ",
+        "changePw": "Đổi mật khẩu"
       }
     }
   },
@@ -176,11 +178,11 @@
   "signup": "Đăng ký ngay !",
   "dontHaveAcc": "Chưa có tài khoản ?",
   "transaction": {
-    "title" : "Lịch sử giao dịch",
+    "title": "Lịch sử giao dịch",
     "transactionId": "Mã giao dịch",
-    "items" : "Sản phẩm",
-    "payment" : "Phương thức thanh toán",
-    "value" : "Giá trị",
+    "items": "Sản phẩm",
+    "payment": "Phương thức thanh toán",
+    "value": "Giá trị",
     "username": "Người mua"
   },
   "banned": "Tài khoản đã bị khóa",

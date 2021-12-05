@@ -18,7 +18,8 @@
       "liked": "Liked",
       "purchaseHistory": "Purchase history",
       "changeLanguage": "Change language",
-      "logOut": "Log out"
+      "logOut": "Log out",
+      "changePw": "Change password"
     },
     "creator": {
       "shopSetting": "SHOP SETTING",
@@ -30,7 +31,8 @@
       "dropdown": {
         "viewShop": "View shop",
         "logOut": "Log out",
-        "changeLanguage": "Change language"
+        "changeLanguage": "Change language",
+        "changePw": "Change password"
       }
     }
   },

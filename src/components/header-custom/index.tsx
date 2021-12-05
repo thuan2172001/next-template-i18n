@@ -81,6 +81,9 @@ export const Header = ({ triggerCreatorLogout = null, leave, setLeave }) => {
         >
           {t("common:header.dropdown.changeLanguage")}
         </Menu.Item>
+        <Menu.Item key="1" onClick={() => router.push('/change-password')}>
+          {t("common:header.creator.dropdown.changePw")}
+        </Menu.Item>
         <Menu.Item key="2" onClick={handleLogout}>
           {t("common:header.creator.dropdown.logOut")}
         </Menu.Item>

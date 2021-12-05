@@ -15,7 +15,6 @@ import {notifyError} from "@components/toastify";
 import {PendingCreateNftModal} from "./PendingCreateNftModal";
 import {NFTPreview} from "src/layout/creator/create-episode/preview";
 import style from "./create-episode.module.scss";
-import CreatorCreateApi from "../../../api/creator/series";
 import Head from "next/head";
 
 const scrollToTop = () => {
@@ -370,8 +369,8 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
           formdata: form,
           userInfo: GetUserInfo(),
         })
-          .then(({ key, location }) => {
-            resolve({ key, location });
+          .then(({ key, location, pageNumber }) => {
+            resolve({ key, location, pageNumber });
           })
           .catch(reject);
       });
@@ -380,6 +379,9 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
       uploadSingleFile(episodeThumbnail.thumb.pictureAsFile),
       uploadSingleFile(uploadContent.file.file.file),
     ]);
+
+    console.log({file: uploadContent.file.file.file})
+    console.log(upload[1]);
 
     const formdata = {
       chapter: uploadContent.chapter.content,
