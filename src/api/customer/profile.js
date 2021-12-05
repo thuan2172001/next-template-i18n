@@ -106,11 +106,21 @@ export default {
 
   confirmForgotPw: ({ encryptedPrivateKey, publicKey, userId, codeId }) => {
     const customAxios = createCustomAxios(null);
-
     return customAxios({
       method: "put",
       url: `${baseURL}/auth/reset-password`,
       data: { encryptedPrivateKey, publicKey, userId, codeId },
+    }).then((data) => {
+      return data;
+    });
+  },
+
+  changePw: ({ encryptedPrivateKey, publicKey, userInfo }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: "put",
+      url: `${baseURL}/auth/password`,
+      data: { encryptedPrivateKey, publicKey },
     }).then((data) => {
       return data;
     });

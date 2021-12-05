@@ -314,7 +314,7 @@ export const EditEpisodeTemplate = ({ leave, setLeave }) => {
     const formdata = {
       chapter: uploadContent.chapter.content,
       name: uploadContent.title.content,
-      price: parseInt(uploadContent.numberOfEdition.num, 10) ?? 0,
+      price: uploadContent.isFree ? 0 : parseInt(uploadContent.numberOfEdition.num, 10) ?? 0,
       thumbnail: upload ? upload[0].location : episodeThumbnail.thumb,
       description: uploadContent.description.content,
     };

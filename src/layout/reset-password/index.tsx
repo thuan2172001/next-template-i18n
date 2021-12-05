@@ -97,22 +97,24 @@ export const NewPasswordTemplate = (props) => {
             />
           </Form.Item>
 
-          {isNewPasswordTyped &&
-            (newPassword == "" ? (
-              <span
-                className={`${style["reset-notify"]} ${style["text-color-red"]}`}
-              >
-                {t("account:emptyNewPassword")}
-              </span>
-            ) : passwordConvention ? (
-              <></>
-            ) : (
-              <span
-                className={`${style["reset-notify"]} ${style["text-color-red"]}`}
-              >
-                {t("account:newPasswordSyntax")}
-              </span>
-            ))}
+          <span className={style["error-container"]}>
+            {isNewPasswordTyped &&
+              (newPassword == "" ? (
+                <span
+                  className={`${style["reset-notify"]} ${style["text-color-red"]}`}
+                >
+                  {t("account:emptyNewPassword")}
+                </span>
+              ) : passwordConvention ? (
+                <></>
+              ) : (
+                <span
+                  className={`${style["reset-notify"]} ${style["text-color-red"]}`}
+                >
+                  {t("account:newPasswordSyntax")}
+                </span>
+              ))}
+          </span>
 
           <Form.Item className={`${style["reset-pw-form-item"]}`}>
             <div className={`${style["label"]}`}>Confirm new password</div>
@@ -127,25 +129,27 @@ export const NewPasswordTemplate = (props) => {
             />
           </Form.Item>
 
-          {isConfirmPasswordTyped &&
-            (confirmPassword != "" ? (
-              confirmPassword == newPassword ? (
-                <></>
+          <span className={style["error-container"]}>
+            {isConfirmPasswordTyped &&
+              (confirmPassword != "" ? (
+                confirmPassword == newPassword ? (
+                  <></>
+                ) : (
+                  <span
+                    className={`${style["reset-notify"]} ${style["text-color-red"]}`}
+                  >
+                    {t("account:confirmPasswordNotMatch")}
+                  </span>
+                )
               ) : (
                 <span
                   className={`${style["reset-notify"]} ${style["text-color-red"]}`}
                 >
-                  {t("account:confirmPasswordNotMatch")}
+                  {t("account:emptyConfirmPassword")}
                 </span>
-              )
-            ) : (
-              <span
-                className={`${style["reset-notify"]} ${style["text-color-red"]}`}
-              >
-                {t("account:emptyConfirmPassword")}
-              </span>
-            ))}
-
+              ))}
+          </span>
+          
           <Button
             className={`${style["change-password"]}`}
             onClick={() => {

@@ -384,7 +384,7 @@ export const CreateEpisodeTemplate = ({leave, setLeave, setRoleValid}) => {
     const formdata = {
       chapter: uploadContent.chapter.content,
       name: uploadContent.title.content,
-      price: parseInt(uploadContent.numberOfEdition.num, 10),
+      price: uploadContent.isFree ? 0 : parseInt(uploadContent.numberOfEdition.num, 10) ?? 0,
       key: upload[1].key,
       thumbnail: upload[0].location,
       pageNumber: upload[1].pageNumber,
