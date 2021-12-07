@@ -9,8 +9,6 @@ import EpisodeManagementAPI from "../../api/episode-management/episode-managemen
 import style from "./product-item.module.scss";
 
 export const EpisodeProduct = ({ serieId, episode }) => {
-  const { t } = useTranslation();
-
   const {
     name,
     price,
@@ -23,48 +21,25 @@ export const EpisodeProduct = ({ serieId, episode }) => {
 
   const [favorite, setFavorite] = useState(alreadyLiked);
 
-  const userInfo = GetUserInfo();
-
-  const [isLogged, setIsLogged] = useState(false);
-
-  const [clientType, setClientType] = useState("");
-
-
   const onClickFavorite = () => {
-    console.log(favorite);
     favorite ?
-        EpisodeManagementAPI.unlike({
-          userInfo: GetUserInfo(),
-          episodeId: episode.episodeId,
-        }).then((res) => {
-          console.log(res);
-          if (res.data == "success") {
-            setFavorite(false);
-          }
-        }) : EpisodeManagementAPI.like({
-          userInfo: GetUserInfo(),
-          episodeId: episode.episodeId,
-        }).then((res) => {
-          console.log(res);
-          if (res.data == "success") {
-            setFavorite(true);
-          }
-        })
+      EpisodeManagementAPI.unlike({
+        userInfo: GetUserInfo(),
+        episodeId: episode.episodeId,
+      }).then((res) => {
+        console.log(res);
+        if (res.data == "success") {
+          setFavorite(false);
+        }
+      }) : EpisodeManagementAPI.like({
+        userInfo: GetUserInfo(),
+        episodeId: episode.episodeId,
+      }).then((res) => {
+        if (res.data == "success") {
+          setFavorite(true);
+        }
+      })
   };
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
-        setIsLogged(true);
-
-        setClientType(userInfo.role["role"]);
-      } else {
-        setIsLogged(false);
-
-        setClientType("");
-      }
-    }
-  }, [userInfo]);
 
   return (
     <div className={`${style["episode-component"]}`}>
