@@ -28,7 +28,8 @@ export const ListProducts = ({ selectedCate }) => {
   }, [router]);
 
   useEffect(() => {
-    featDataListProducts(selectedCate, 1);
+    setPage(1);
+    if (page === 1) featDataListProducts(selectedCate, 1);
   }, [selectedCate, category])
 
   useEffect(() => {
