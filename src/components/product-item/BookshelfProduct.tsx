@@ -144,6 +144,7 @@ export const BookshelfProduct = ({
               <div className={`${style["last-row"]}`}>
                 {!data.isFree ? (
                   <span className={`${style["edition-count"]}`}>
+                    {`${episode?.price}$`}
                   </span>
                 ) : (
                   <span className={`${style["edition-free"]}`}>
