@@ -22,7 +22,7 @@ export const Footer = ({ isHide = false }) => {
                                 type="link"
                                 className={`${style["link-text"]}`}
                                 key="teamInformation"
-                                href="/team-information"
+                                href="https://discord.com/invite/VzDBscSK"
                                 target={"_blank"}
                             >
                                 {t("common:footer.teamInformation")}
@@ -32,7 +32,7 @@ export const Footer = ({ isHide = false }) => {
                                 type="link"
                                 className={`${style["link-text"]}`}
                                 key="privacyPolicy"
-                                href="/privacy-policy"
+                                href="https://discord.com/invite/VzDBscSK"
                                 target={"_blank"}
                             >
                                 {t("common:footer.privacyPolicy")}
@@ -42,7 +42,7 @@ export const Footer = ({ isHide = false }) => {
                                 type="link"
                                 className={`${style["link-text"]}`}
                                 key="support"
-                                href="/support"
+                                href="https://discord.com/invite/VzDBscSK"
                                 target={"_blank"}
                             >
                                 {t("common:footer.support")}
@@ -52,7 +52,7 @@ export const Footer = ({ isHide = false }) => {
                                 type="link"
                                 className={`${style["link-text"]}`}
                                 key="termsAndConditions"
-                                href="/terms-and-conditions"
+                                href="https://discord.com/invite/VzDBscSK"
                                 target={"_blank"}
                             >
                                 {t("common:footer.termsAndConditions")}

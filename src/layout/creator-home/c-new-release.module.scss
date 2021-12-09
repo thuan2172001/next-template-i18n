@@ -1,7 +1,7 @@
 @import "@components/global-scss/variables.scss";
 
 .list-series-container {
-    min-height: rem(800px);
+  min-height: rem(800px);
   margin: 0 auto;
   padding-top: rem(48px);
   padding-bottom: rem(60px);
@@ -78,5 +78,30 @@
   .list-series-container {
     min-height: rem(800px);
     max-width: rem(540px);
+  }
+}
+
+
+@media screen and (max-width: rem(500px)) {
+  .list-series-container {
+    max-width: rem(500px);
+    padding: 10px 0px;
+  }
+
+  .list-series-tag {
+    margin: 0px 10px 20px 10px;
+  }
+
+  .list-series-content {
+    margin: 16px 0 16px 8vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 0px;
+    width: 100%;
+
+    @media (max-width: $break_point_500) {
+      max-width: 380px;
+      margin: 0px auto;
+    }
   }
 }

@@ -65,7 +65,8 @@
     "Mistery": "MYSTERY",
     "Horror": "HORROR",
     "Sf": "SCI-FI",
-    "Fantasy": "FANTASY"
+    "Fantasy": "FANTASY",
+    "category": "Category"
   },
   "topPage": {
     "newRelease": "New release",

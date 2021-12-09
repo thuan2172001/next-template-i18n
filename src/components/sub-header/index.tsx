@@ -1,31 +1,34 @@
-import React, {useEffect, useState} from "react";
-import {Menu} from "antd";
-import {useRouter} from "next/router";
-import {useTranslation} from "next-i18next";
+import React, { useEffect, useState } from "react";
+import { Menu } from "antd";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 import style from "./sub-header.module.scss";
-import {SearchBar2} from "../../components/header-searchbar/index";
+import { SearchBar2 } from "../../components/header-searchbar/index";
+import { useWindowSize } from 'src/utils/custom-hook';
 import CategoriesAPI from "../../api/category/category";
+import { CategoryMobileList } from "./CategoryMobileList";
 
 export const SubHeader = ({
-                              selectedCate,
-                              setSelectedCate,
-                              categoryId = null,
-                          }) => {
-    const {t} = useTranslation();
+    selectedCate,
+    setSelectedCate,
+}) => {
+    const { t } = useTranslation();
     const [categories, setCategories] = useState([]);
+    const { width } = useWindowSize();
+    const [visibleCategoriesMobile, setVisibleCategoriesMobile] = useState(false);
 
-    const getKeyByValue = async (object, value) => {
-        const result = await Object.keys(object).find(key => {
-            return object[key].filter(ele => {
-                return ele._id == value
-            }).length > 0
-        })
-        return result || 'all'
-    }
+    const handleVisibleCategoryMobile = () => {
+        setVisibleCategoriesMobile(!visibleCategoriesMobile);
+    };
+
+    const handleClickCategoryMobile = (cate: any) => () => {
+        handleVisibleCategoryMobile();
+        setSelectedCate(cate._id);
+        setSelectedCate('');
+      };
 
     useEffect(() => {
         CategoriesAPI.getAllCategories().then((res) => {
-            
             setCategories(res);
         });
     }, []);
@@ -39,7 +42,7 @@ export const SubHeader = ({
                 >
                     <Menu.Item
                         className={`${style["sub-item"]} ${style["text-uppercase"]} ${style["sub-hd-item"]
-                        } ${selectedCate == 'all' && style["active-item"]} ${style["all-category"]}`}
+                            } ${selectedCate == 'all' && style["active-item"]} ${style["all-category"]}`}
                         key="all-category"
                         onClick={() => {
                             setSelectedCate("all")
@@ -48,11 +51,11 @@ export const SubHeader = ({
                         {t("common:category.all")}
                     </Menu.Item>
 
-                    {categories.map((cate) => {
+                    {width > 500 && categories.map((cate) => {
                         return (
                             <Menu.Item
                                 className={`${selectedCate == cate.categoryId && style["active-item"]} ${style["sub-item"]
-                                } ${style["text-uppercase"]} ${style["sub-hd-item"]}`}
+                                    } ${style["text-uppercase"]} ${style["sub-hd-item"]}`}
                                 key={cate.categoryId}
                                 onClick={() => {
                                     setSelectedCate(cate.categoryId)
@@ -62,10 +65,21 @@ export const SubHeader = ({
                             </Menu.Item>
                         );
                     })}
-
+                    {width <= 500 && (
+                        <Menu.Item
+                            className={`${style['active-item']} ${style['sub-item']} ${style['text-uppercase']} ${style['sub-hd-item']} ${style['category-item']}`}
+                            key={'category'}
+                            onClick={handleVisibleCategoryMobile}
+                        >
+                            {categories?.find((item) => item?._id === selectedCate)?.name || t('common:category.category')}
+                        </Menu.Item>
+                    )}
+                    {visibleCategoriesMobile && !!categories?.length && (
+                        <CategoryMobileList handleClickItem={handleClickCategoryMobile} list={categories} />
+                    )}
                 </Menu>
                 <div className={`${style["search-box"]} ${style["ml-auto"]}`}>
-                    <SearchBar2/>
+                    <SearchBar2 />
                 </div>
 
             </div>

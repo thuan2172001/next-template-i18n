@@ -63,7 +63,8 @@
     "Mistery": "BÍ ẨN",
     "Horror": "KINH DỊ",
     "Sf": "KHOA HỌC VIỄN TƯỞNG",
-    "Fantasy": "GIẢ TƯỞNG"
+    "Fantasy": "GIẢ TƯỞNG",
+    "category": "Thể loại"
   },
   "topPage": {
     "newRelease": "Tác phẩm mới ra",

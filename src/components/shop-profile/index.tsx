@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import ProfileAPI from "../../api/creator/profile";
 
 const getMediaImage = (mediaLink, index) => {
-  let urlImage = `media-default${index + 1}`;
+  let urlImage = `media-default`;
   if (mediaLink?.includes("instagram")) {
     urlImage = "instagram";
   } else if (mediaLink?.includes("facebook")) {

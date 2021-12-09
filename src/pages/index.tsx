@@ -42,6 +42,7 @@ const Home: React.FC<{ homepageContent: any }> = () => {
             <div
                 style={{
                     minHeight: "100vh",
+                    minWidth: "100%",
                     textAlign: "center",
                 }}
             >

@@ -6,12 +6,14 @@ import Link from "next/link";
 import { GetUserInfo } from "src/api/auth";
 import style from "./header.module.scss";
 import { useSelector, useDispatch } from "react-redux";
+import { useWindowSize } from "src/utils/custom-hook";
 
 export const Header = ({ triggerCreatorLogout = null }) => {
 	const { t, i18n } = useTranslation();
 	const router = useRouter();
 	const [isLogged, setIsLogged] = useState(false);
 	const [clientType, setClientType] = useState("");
+	const { width } = useWindowSize();
 
 	const dispatch = useDispatch();
 
@@ -117,9 +119,9 @@ export const Header = ({ triggerCreatorLogout = null }) => {
 					key="cart"
 					className={`${style["disable-antd-css"]} ${style["ml-auto"]}`}
 					style={{ position: "relative" }}
-					onClick={() => { 
+					onClick={() => {
 						if (GetUserInfo()) {
-							router.push('/user/cart') 
+							router.push('/user/cart')
 						} else {
 							router.push('/login')
 						}

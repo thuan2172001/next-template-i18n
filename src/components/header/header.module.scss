@@ -18,6 +18,11 @@
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently */
+  @media (max-width: $break_point_500) {
+    height: 40px;
+    border-bottom: none;
+    box-sizing: content-box;
+  }
 }
 
 .dropdown-menu {
