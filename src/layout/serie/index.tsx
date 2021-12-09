@@ -208,12 +208,14 @@ const SerieTemplate = ({ serieId }) => {
                             {episodeListComponent}
                         </div>
                     </section>
-                    <PageNavigation
+                    {serieData?.totalEpisodes > itemPerPage ? (
+                        <PageNavigation
                         totalItem={serieData?.totalEpisodes}
                         itemsPerPage={itemPerPage}
                         page={page}
                         setPage={setPage}
                     />
+                    ) : <div style={{height: 100}}></div>}
                 </div>
             )}
         </div>
