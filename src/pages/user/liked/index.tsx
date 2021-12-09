@@ -31,9 +31,19 @@ const LikedBook = () => {
 
     useEffect(() => {
         setLoading(true);
+        setPage(1);
+        if (page === 1) featDataListFavor(1);
+    }, [categoryId])
+
+    useEffect(() => {
+        setLoading(true);
+        featDataListFavor(page);
+    }, [page, pattern]);
+
+    const featDataListFavor = (fetchPage) => {
         CustomerBookshelfAPI.getLikedBook({
             userInfo: GetUserInfo(),
-            page,
+            page: fetchPage,
             limit: 30,
             pattern: pattern?.toString(),
             selectedCate,
@@ -45,7 +55,7 @@ const LikedBook = () => {
             setTotalEpisode(0);
             setLoading(false);
         });
-    }, [categoryId, page, pattern]);
+    }
 
     return (
         <React.Fragment>
