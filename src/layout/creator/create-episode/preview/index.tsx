@@ -171,8 +171,9 @@ export const NFTPreview = ({ data, setVisible, upLoad, isLoading, pending }) => 
                 />
               ) : (
                 <NonPurchasedItem
+                  isPreview={true}
                   episodeInfo={episodeInfo}
-                  addedToBookshelf={addedToBookshelf}
+                  addedToBookshelf={() => {}}
                   handelAddToBookshelf={() => console.log("Add")}
                   handleAddToCart={() => console.log("Add")}
                 />

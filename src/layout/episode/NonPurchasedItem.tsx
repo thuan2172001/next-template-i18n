@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { GetUserInfo } from "src/api/auth";
 
 export const NonPurchasedItem = ({
+  isPreview = false,
   episodeInfo = null,
   amountInCart = 0,
   addedToBookshelf = null,
@@ -56,7 +57,8 @@ export const NonPurchasedItem = ({
               <Button
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
                 onClick={() => {
-                  router.push(`read?serieId=${serieId}&episodeId=${episodeInfo.episodeId}`);
+                  if (!isPreview)
+                    router.push(`read?serieId=${serieId}&episodeId=${episodeInfo.episodeId}`);
                 }}
               >
                 {t("common:enjoy")}
@@ -87,14 +89,16 @@ export const NonPurchasedItem = ({
               <Button
                 loading={loading}
                 onClick={() => {
-                  const userInfo = GetUserInfo();
-                  handleAddToCart();
-                  if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
-                    router.push("/user/cart");
-                  } else {
-                    router.push("/login");
+                  if (!isPreview) {
+                    const userInfo = GetUserInfo();
+                    handleAddToCart();
+                    if (userInfo["encryptedPrivateKey"] && userInfo["publicKey"]) {
+                      router.push("/user/cart");
+                    } else {
+                      router.push("/login");
+                    }
+                    setLoading(true);
                   }
-                  setLoading(true);
                 }}
                 className={`${style["available"]} ${style["btn-buy-now"]}`}
               >

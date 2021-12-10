@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { ReadHeader } from "./header";
 import { Read } from "./read";
 import ReadAPI from "../../api/read/read";
@@ -33,43 +33,43 @@ export const ReadTemplate = () => {
     router.isReady &&
       router.query.episodeId != episodeId &&
       setEpisodeId(router.query.episodeId);
-  }, [router]),
-
-    useEffect(() => {
-      ReadAPI.getSerie({
-        userInfo: GetUserInfo(),
-        serieId,
-      })
-        .then((res) => {
-          if (!res.error) {
-            setSeriesData(res);
-            res.episodes.forEach((data, index) => {
-              if (data.episodeId == episodeId) {
-                if (index > 0) setPreEps(res.episodes[index - 1]);
-                const dt = {...data, isLocked: GetUserInfo().role === "creator" ? false : data.isLocked}
-                if (GetUserInfo().role === "creator") setCurrentEps(dt)
-                if (index < res.episodes.length - 1)
-                  setNextEps(res.episodes[index + 1]);
-              }
-            });
-          }
-        })
-        .catch();
-      getSettingRead();
-    }, []);
+  }, [router]);
 
   useEffect(() => {
+    ReadAPI.getSerie({
+      userInfo: GetUserInfo(),
+      serieId,
+    })
+      .then((res) => {
+        if (!res.error) {
+          setSeriesData(res);
+          res.episodes.forEach((data, index) => {
+            if (data.episodeId == episodeId) {
+              if (index > 0) setPreEps(res.episodes[index - 1]);
+              const dt = { ...data, isLocked: GetUserInfo().role === "creator" ? false : data.isLocked }
+              if (GetUserInfo().role === "creator") setCurrentEps(dt)
+              if (index < res.episodes.length - 1)
+                setNextEps(res.episodes[index + 1]);
+            }
+          });
+        }
+      })
+      .catch();
+    getSettingRead();
+  }, []);
+
+  useMemo(() => {
     if (!seriesData) return;
     seriesData.episodes.forEach((data, index) => {
       if (data.episodeId == episodeId) {
         if (index > 0) setPreEps(seriesData.episodes[index - 1]);
-        const dt = {...data, isLocked: GetUserInfo().role === "creator" ? false : data.isLocked}
+        const dt = { ...data, isLocked: GetUserInfo().role === "creator" ? false : data.isLocked }
         setCurrentEps(dt);
         if (index < seriesData.episodes.length - 1)
           setNextEps(seriesData.episodes[index + 1]);
       }
     });
-  }, [episodeId]);
+  }, [episodeId, seriesData]);
 
   useEffect(() => {
     if (setting) {
