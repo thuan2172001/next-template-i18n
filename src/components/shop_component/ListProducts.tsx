@@ -28,16 +28,21 @@ export const ListProducts = ({ selectedCate }) => {
   }, [router]);
 
   useEffect(() => {
-    featDataListProducts(selectedCate);
-  }, [category, page, selectedCate, itemsPerPage, pattern]);
+    setPage(1);
+    if (page === 1) featDataListProducts(selectedCate, 1);
+  }, [selectedCate, category])
 
-  const featDataListProducts = (selectedCate) => {
+  useEffect(() => {
+    featDataListProducts(selectedCate, page);
+  }, [page, itemsPerPage, pattern]);
+
+  const featDataListProducts = (selectedCate, fetchPage) => {
     setIsLoading(true);
     console.log(pattern)
     SeriesManagementAPI.getSerieQuery({
       userInfo: GetUserInfo(),
       limit: itemsPerPage,
-      page: page,
+      page: fetchPage,
       category: selectedCate,
       isDaily: "true",
       pattern: pattern
