@@ -32,7 +32,8 @@
         "viewShop": "View shop",
         "logOut": "Log out",
         "changeLanguage": "Change language",
-        "changePw": "Change password"
+        "changePw": "Change password",
+        "deleteSeries": "Delete series"
       }
     }
   },
@@ -280,8 +281,13 @@
     "seeInSeries": "See in Series",
     "tryAgain": "Try again",
     "close": "Close pop-up",
-    "backToShopSetting": "Back to shop setting"
+    "backToShopSetting": "Back to shop setting",
+    "confirmDelete": "Delete series",
+    "confirmDelete1": "Series",
+    "confirmDelete2": "will be removed permanent.",
+    "deleteSeries": "Delete"
   },
+  "export": "Export data",
   "noResult": "No result",
   "totalIncome": "Total income",
   "salePeriodPerMonth": "Sale period (Month)",

@@ -3,6 +3,7 @@ import { Radio, Modal, Space } from "antd";
 import CreatorManageAPI from "../../api/creator/usermanagement";
 import { GetUserInfo } from "src/api/auth";
 import { useTranslation } from "react-i18next";
+import style from './user-management.module.scss';
 
 export const UserManagementModal = ({
   visble,
@@ -49,8 +50,8 @@ export const UserManagementModal = ({
     >
       <Radio.Group onChange={updateModal} value={value}>
         <Space direction="vertical">
-          <Radio value={"Active"}>{t("common:manageUsers.active")}</Radio>
-          <Radio value={"Inactive"}>{t("common:manageUsers.inactive")}</Radio>
+          <Radio className={style["option"]} value={"Active"}>{t("common:manageUsers.active")}</Radio>
+          <Radio className={style["option"]} value={"Inactive"}>{t("common:manageUsers.inactive")}</Radio>
         </Space>
       </Radio.Group>
     </Modal>

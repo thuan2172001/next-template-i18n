@@ -44,4 +44,14 @@ export default {
       return data;
     });
   },
+
+  getExportData: ({ userInfo }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: "get",
+      url: `${baseURL}/creator/export-transaction`,
+    }).then((data) => {
+      return data;
+    });
+  },
 };

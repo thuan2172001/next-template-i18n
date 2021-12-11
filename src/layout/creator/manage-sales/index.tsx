@@ -5,7 +5,6 @@ import { useTranslation } from "next-i18next";
 import { PageNavigation } from "@components/pagination";
 import CreatorAPI from "../../../api/creator/profile";
 import { GetUserInfo } from "src/api/auth";
-import Image from "next/image";
 import Head from "next/head";
 
 export const ManageSalesTemplate = () => {
@@ -16,6 +15,41 @@ export const ManageSalesTemplate = () => {
   const [page, setPage] = useState(1);
   const [totalTransaction, setTotal] = useState(-1);
   const [refetch, setRefetch] = useState(false);
+
+  const saveAs = (data, filename) => {
+    var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:text/plain;charset=urf-8,' + encodeURIComponent(data));
+    pom.setAttribute('download', filename);
+    pom.click();
+  };
+
+  const exportData = () => {
+    CreatorAPI.getExportData({
+      userInfo: GetUserInfo()
+    }).then(data => {
+      console.log(data);
+      generateCSV(data);
+    }).catch(console.log)
+  }
+
+  const generateCSV = (data: any) => {
+    if (data.length <= 0) return;
+    const keys = Object.keys(data[0]);
+    let file = keys.join(',') + '\n';
+    data.forEach(element => {
+      const line = Object.keys(element).map(key => {
+        if (key === 'items') {
+          return element[key].join(' - ');
+        }
+        return element[key];
+      }).join(',');
+      file = file + line + '\n';
+    });
+    saveAs(
+      file,
+      'Webtoonz-transactions.csv'
+    );
+  }
 
   useEffect(() => {
     CreatorAPI.getTotalSale({
@@ -51,6 +85,12 @@ export const ManageSalesTemplate = () => {
                 <div className={`${style["price-number"]}`}>{creatorShare}</div>
                 USD{" "}
               </div>
+              <Button
+                className={`${style["info-btn"]}`}
+                onClick={() => exportData()}
+              >
+                {t("common:export")}
+              </Button>
             </Col>
             <Col lg={12} className={`${style["info-col"]} ${style["table"]}`}>
               <Row className={`${style["info-item"]}`}>

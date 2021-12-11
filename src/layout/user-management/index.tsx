@@ -24,7 +24,7 @@ export const UsersManagementTemplate = () => {
     };
     CreatorManageAPI.getAllUser({ body: body, userInfo: GetUserInfo() }).then(
       (response) => {
-        
+
         setTotalUser(response.total);
         setUserPerPage(response.data);
       }
@@ -67,6 +67,7 @@ export const UsersManagementTemplate = () => {
               <td>{el.isBanned ? `${t("common:manageUsers.inactive")}` : `${t("common:manageUsers.active")}`}</td>
               <td>
                 <button
+                  className={style["primary-btn"]}
                   onClick={() => {
                     setCurrentUserId(el._id);
                     setCurrentUserStatus(el.isBanned ? `${t("common:manageUsers.inactive")}` : `${t("common:manageUsers.active")}`);

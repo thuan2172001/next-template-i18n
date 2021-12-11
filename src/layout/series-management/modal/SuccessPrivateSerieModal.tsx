@@ -30,7 +30,7 @@ export const SuccessPrivateSerieModal = ({
         <div className={`${style["success-message"]}`}>
           <div>
             {t("common:smModal.success")}
-            <span className={`${style["series-name"]}`}>{serieName}</span>
+            {/* <span className={`${style["series-name"]}`}>{serieName}</span> */}
           </div>
         </div>
 

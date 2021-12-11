@@ -31,7 +31,8 @@
       "dropdown": {
         "logOut": "Đăng xuất",
         "changeLanguage": "Đổi ngôn ngữ",
-        "changePw": "Đổi mật khẩu"
+        "changePw": "Đổi mật khẩu",
+        "deleteSeries": "Xóa series"
       }
     }
   },
@@ -47,6 +48,33 @@
     "update": "Cập nhật",
     "active": "Hoạt động",
     "inactive": "Vô hiệu hóa"
+  },
+  "export": "Xuất dữ liệu",
+  "smModal": {
+    "confirmPublish": "Xác nhận công khai",
+    "confirmPublish1": "Series",
+    "confirmPublish2": "sẽ được công khai tới toàn bộ người dùng. Bạn vẫn sẽ cần phải công khai từng tập truyện thủ công.",
+    "privateSeries": "Ẩn series",
+    "confirmPrivate": "Xác nhận ẩn series",
+    "confirmPrivate1": "Toàn bộ truyện trong series",
+    "confirmPrivate2": "sẽ bị ẩn cùng với series. Bạn có thể công khai lại chúng bất cứ khi nào bạn muốn, nhưng bạn sẽ cần phải công khai từng tập thủ công.",
+    "pendingPrivate1": "đang được ẩn.",
+    "pendingPrivate2": "Bạn sẽ nhạn được thông báo khi tiến trình hoàn tất",
+    "successPrivated": "Ẩn thành công",
+    "failPrivated1": "Ôi không !",
+    "failPrivated2": "ẩn thất bại.",
+    "success": "Thành công",
+    "failed": "Thất bại",
+    "goToHomePage": "Trở về trang chủ",
+    "backToSeries": "Trở về Series",
+    "seeInSeries": "Xem trong Series",
+    "tryAgain": "Thử lại",
+    "close": "Đóng cửa sổ",
+    "backToShopSetting": "Trở lại quản lý cửa hàng",
+    "confirmDelete": "Xóa series",
+    "confirmDelete1": "Series",
+    "confirmDelete2": "sẽ bị xóa vĩnh viễn.",
+    "deleteSeries": "Xoá"
   },
   "notReceiveLink2": "Chưa nhận được link? ",
   "checkMailBox": "Vui lòng kiểm tra hộp thư.",
@@ -130,7 +158,8 @@
     "dropDown": {
       "editSeries": "Sửa Series",
       "privateSeries": "Ẩn Series",
-      "publishSeries": "Công khai Series"
+      "publishSeries": "Công khai Series",
+      "deleteSeries": "Xóa Series"
     },
     "episodeAmount": "Số lượng",
     "public": "Công khai",

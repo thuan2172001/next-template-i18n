@@ -91,4 +91,14 @@ export default {
       return data;
     });
   },
+
+  deleteSeries: ({ userInfo, serieId }) => {
+    const customAxios = createCustomAxios(userInfo);
+    return customAxios({
+      method: 'delete',
+      url: `${baseURL}/serie/${serieId}`,
+    }).then((data) => {
+      return data;
+    });
+  },
 };

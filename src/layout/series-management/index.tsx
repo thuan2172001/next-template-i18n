@@ -13,6 +13,7 @@ import { PrivateSeriesModal } from "../episode/modal/PrivateSeriesModal";
 import { SuccessPrivateSerieModal } from "./modal/SuccessPrivateSerieModal";
 import { FailedPrivateSerieModal } from "./modal/FailedPrivateModal";
 import Head from "next/head";
+import { DeleteSeriesModal } from "../episode/modal/DeleteSeriesModal";
 
 export const SeriesManagementTemplate = () => {
   const { t } = useTranslation();
@@ -217,7 +218,7 @@ export const SeriesManagementTemplate = () => {
         />
       ) : (
         modalVisible &&
-        modalType === "private" && (
+          modalType === "private" ? (
           <PrivateSeriesModal
             updateModalVisible={({ data }) => {
               setModalVisible(data);
@@ -226,6 +227,18 @@ export const SeriesManagementTemplate = () => {
             updateModalType={({ type }) => setModalType(type)}
             updateRefetch={() => setRefetch(!refetch)}
           />
+        ) : (
+          modalVisible &&
+          modalType === "delete" && (
+            <DeleteSeriesModal
+              updateModalVisible={({ data }) => {
+                setModalVisible(data);
+              }}
+              serieInfo={chosenSeries}
+              updateModalType={({ type }) => setModalType(type)}
+              updateRefetch={() => setRefetch(!refetch)}
+            />
+          )
         )
       )}
       {modalType === "success" && (

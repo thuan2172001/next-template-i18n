@@ -76,7 +76,6 @@ const EpisodeManagementTemplate = ({ serieId, view, setRoleValid }) => {
     })
       .then((res) => {
         const series = res;
-
         if (view === "public") setTotal(series?.publishedEpisodesTotal);
         else setTotal(series.privateEpisodesTotal);
         setEpisodes(res.episodes);

@@ -67,7 +67,12 @@ export const PrivateNft = ({ episode }) => {
         </>
       )}
       <PrivateAction />
-      <DeleteItemModal modalVisible={showModal} updateModalVisible={(value) => setShowModal(value)} episodeInfo={episode} />
+      {showModal &&
+        <DeleteItemModal modalVisible={showModal}
+          updateModalVisible={(value) => setShowModal(value)}
+          episodeInfo={episode}
+        />
+      }
     </div>
   );
 };

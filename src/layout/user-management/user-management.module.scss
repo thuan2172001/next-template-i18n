@@ -26,14 +26,15 @@
 
     td,
     th {
-      text-align: left;
+      text-align: center;
       padding: 24px;
+      border: 2px solid black;
     }
 
     thead {
       th {
-        font-weight: $fw-normal !important;
-        padding-top: 0 !important;
+        font-weight: $fw-bold !important;
+        padding-top: rem(10px) !important;
         padding-bottom: rem(10px) !important;
       }
     }
@@ -57,4 +58,28 @@
       }
     }
   }
+}
+
+.primary-btn {
+  padding: 0 10px;
+  height: rem(40px);
+  background-color: $color-blue-2;
+  color: $color-white !important;
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bold;
+  font-size: $fs1;
+  line-height: $lh2;
+  border: none;
+  &:hover {
+    background-color: $color-blue-2;
+    color: $color-white !important;
+  }
+  &:focus {
+    background-color: $color-blue-2;
+    color: $color-white !important;
+  }
+  cursor: pointer;
 }

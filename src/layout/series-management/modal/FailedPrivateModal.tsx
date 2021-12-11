@@ -29,15 +29,7 @@ export const FailedPrivateSerieModal = ({
         </div>
 
         <div className={`${style["fail-message"]}`}>
-          {t("common:smModal.failPrivated1")}
-          {closeShop ? (
-            t("common:confirmShopStatus.closeShopFail")
-          ) : (
-            <span>
-              <span className={`${style["series-name"]}`}> {serieName} </span>
-              {t("common:smModal.failPrivated2")}
-            </span>
-          )}
+          {t("common:smModal.failed")}
         </div>
 
         <div className={`${style["custom-modal-footer"]}`}>
