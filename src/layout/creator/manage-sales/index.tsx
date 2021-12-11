@@ -6,6 +6,7 @@ import { PageNavigation } from "@components/pagination";
 import CreatorAPI from "../../../api/creator/profile";
 import { GetUserInfo } from "src/api/auth";
 import Head from "next/head";
+import { NoResult } from "../create_serie/preview/NoResult";
 
 export const ManageSalesTemplate = () => {
   const { t } = useTranslation();
@@ -122,43 +123,44 @@ export const ManageSalesTemplate = () => {
           <div className={`${style["sub-title"]}`}>
             {t("common:transactionHistory")}
           </div>
-          <div className={style["table-container"]}>
-            <table className={style["table"]}>
-              <thead>
-                <tr>
-                  <th>{t("common:transaction.transactionId")}</th>
-                  <th>{t("common:transaction.username")}</th>
-                  <th>{t("common:transaction.items")}</th>
-                  <th>{t("common:transaction.value")}</th>
-                </tr>
-              </thead>
-              <tbody className={style["body"]}>
-                {transactions?.map((el, index) => {
-                  return (
-                    <tr key={index}>
-                      <td>{el?.transactionId}</td>
-                      <td>{el?.user.username}</td>
-                      <td>{el?.items?.map(item => {
-                        return (
-                          <div>{item}</div>
-                        )
-                      })}</td>
-                      <td>{el.value} $</td>
-                    </tr>
-                  )
-                }
-                )}
-              </tbody>
-            </table>
-            {totalTransaction > 10 && (
-              <PageNavigation
-                totalItem={totalTransaction}
-                itemsPerPage={10}
-                page={page}
-                setPage={setPage}
-              />
-            )}
-          </div>
+          {transactions && transactions?.length > 0 ?
+            <div className={style["table-container"]}>
+              <table className={style["table"]}>
+                <thead>
+                  <tr>
+                    <th>{t("common:transaction.transactionId")}</th>
+                    <th>{t("common:transaction.username")}</th>
+                    <th>{t("common:transaction.items")}</th>
+                    <th>{t("common:transaction.value")}</th>
+                  </tr>
+                </thead>
+                <tbody className={style["body"]}>
+                  {transactions?.map((el, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{el?.transactionId}</td>
+                        <td>{el?.user.username}</td>
+                        <td>{el?.items?.map(item => {
+                          return (
+                            <div>{item}</div>
+                          )
+                        })}</td>
+                        <td>{el.value} $</td>
+                      </tr>
+                    )
+                  }
+                  )}
+                </tbody>
+              </table>
+              {totalTransaction > 10 && (
+                <PageNavigation
+                  totalItem={totalTransaction}
+                  itemsPerPage={10}
+                  page={page}
+                  setPage={setPage}
+                />
+              )}
+            </div> : <NoResult />}
         </div>
       </div>
     </div>

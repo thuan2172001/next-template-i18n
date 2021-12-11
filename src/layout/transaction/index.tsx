@@ -6,6 +6,7 @@ import TransactionAPI from "../../api/customer/transaction";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Head from "next/head";
+import { NoResult } from "../creator/create_serie/preview/NoResult";
 
 export const TransactionTemplate = () => {
   const [totalTransaction, setTotalTransaction] = useState(0);
@@ -38,7 +39,7 @@ export const TransactionTemplate = () => {
         <title>WebtoonZ | {t("common:transaction.title")}</title>
       </Head>
       <div className={style["header"]}>{t("common:transaction.title")}</div>
-      <table className={style["table"]}>
+      {transactions && transactions?.length > 0 ? <table className={style["table"]}>
         <thead>
           <tr style={{ fontWeight: "bold" }}>
             <th>{t("common:transaction.transactionId")}</th>
@@ -85,7 +86,7 @@ export const TransactionTemplate = () => {
           }
           )}
         </tbody>
-      </table>
+      </table> : <NoResult />}
 
       {totalTransaction > 10 && (
         <PageNavigation

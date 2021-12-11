@@ -109,12 +109,13 @@
     line-height: $lh2;
     font-weight: $fw-normal !important;
     color: $color-black-1;
+    border: 1px solid black;
 
     td,
     th {
       text-align: center;
       padding: 24px;
-      border: 2px solid black;
+      border: 1px solid black;
     }
 
     thead {
@@ -122,6 +123,7 @@
         font-weight: $fw-bold !important;
         padding-bottom: rem(10px) !important;
         padding-top: rem(10px) !important;
+        background-color: $color-blue-5;
       }
     }
 
@@ -138,6 +140,7 @@
       img {
         cursor: pointer;
       }
+      background: $color-bold-white;
 
       tr:not(:first-child) {
         border-top: 1px solid $color-gray-7;
