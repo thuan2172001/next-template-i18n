@@ -1,14 +1,7 @@
 import style from "./account.module.scss";
 import { useTranslation } from "next-i18next";
 import { Input, Radio, Space } from "antd";
-import {
-  faPen,
-  faTimes,
-  faSave,
-  faPlus,
-} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import AuthService, { GetUserInfo } from "../../api/auth/index";
 import { AddPaymentMethodModal } from "../checkout/AddPaymentMethodModal";
@@ -207,10 +200,6 @@ export const AccountTemplate = () => {
                   className={`${style["cancel-button"]}`}
                   onClick={handleCancelOnClick}
                 >
-                  <FontAwesomeIcon
-                    icon={faTimes}
-                    className={`${style["icon-button"]} ${style["blue"]}`}
-                  />
                   <div className={`${style["text-button"]}`}>
                     {t("account:accountPage.cancel")}
                   </div>
@@ -223,10 +212,6 @@ export const AccountTemplate = () => {
                     setEditable(true);
                   }}
                 >
-                  <FontAwesomeIcon
-                    icon={faPen}
-                    className={`${style["edit-pen"]}`}
-                  />
                   {t("account:accountPage.edit")}
                 </div>
               )}
@@ -235,10 +220,6 @@ export const AccountTemplate = () => {
                   className={`${style["active-button"]}`}
                   onClick={handleSaveOnClick}
                 >
-                  <FontAwesomeIcon
-                    icon={faSave}
-                    className={`${style["icon-button"]} ${style["white"]}`}
-                  />
                   <div className={`${style["text-button"]}`}>
                     {t("account:accountPage.save")}
                   </div>
@@ -258,10 +239,6 @@ export const AccountTemplate = () => {
                   className={`${style["active-button"]}`}
                   onClick={() => setModalType("addPayment")}
                 >
-                  <FontAwesomeIcon
-                    icon={faPlus}
-                    className={`${style["icon-button"]} ${style["white"]}`}
-                  />
                   <div className={`${style["text-button"]}`}>
                     {t("account:accountPage.addNewCard")}
                   </div>
@@ -316,10 +293,6 @@ export const AccountTemplate = () => {
                 className={`${style["active-button"]}`}
                 onClick={() => setModalType("addPayment")}
               >
-                <FontAwesomeIcon
-                  icon={faPlus}
-                  className={`${style["icon-button"]} ${style["white"]}`}
-                />
                 <div className={`${style["text-button"]}`}>
                   {t("account:accountPage.addNewCard")}
                 </div>
